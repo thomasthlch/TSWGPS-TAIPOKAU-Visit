@@ -1,0 +1,4371 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-HK">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>大埔滘自然護理區生態考察 — 出發前互動準備手冊 | 天水圍官立小學・奇妙科學研究所</title>
+  <style>
+    /* =======================================================
+       基礎重設與主題配色變數（森林綠、陽光黃、大地啡）
+       ======================================================= */
+    :root {
+      --forest-dark: #1B5E20;
+      --forest-main: #2E7D32;
+      --forest-mid: #43A047;
+      --forest-light: #E8F5E9;
+      --forest-border: #C8E6C9;
+
+      --sun-main: #FBC02D;
+      --sun-bright: #FFCA28;
+      --sun-light: #FFF8E1;
+      --sun-border: #FFE082;
+
+      --earth-dark: #4E342E;
+      --earth-main: #6D4C41;
+      --earth-mid: #8D6E63;
+      --earth-light: #EFEBE9;
+      --earth-border: #D7CCC8;
+
+      --cream-bg: #FBFDF7;
+      --white: #FFFFFF;
+      --text-main: #263228;
+      --text-muted: #556358;
+
+      --danger-bg: #FFEBEE;
+      --danger-main: #C62828;
+      --danger-border: #EF9A9A;
+
+      --protect-bg: #F3E5F5;
+      --protect-main: #6A1B9A;
+      --protect-border: #CE93D8;
+
+      --sky-bg: #E1F5FE;
+      --sky-main: #0277BD;
+      --sky-border: #B3E5FC;
+
+      --radius-sm: 12px;
+      --radius-md: 18px;
+      --radius-lg: 24px;
+      --shadow-sm: 0 3px 10px rgba(27, 94, 32, 0.08);
+      --shadow-md: 0 8px 24px rgba(27, 94, 32, 0.12);
+      --shadow-lg: 0 14px 36px rgba(20, 50, 24, 0.22);
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: "PingFang HK", "Noto Sans TC", "Microsoft JhengHei", "Heiti TC", -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: var(--cream-bg);
+      background-image: radial-gradient(rgba(46, 125, 50, 0.08) 1.5px, transparent 1.5px);
+      background-size: 22px 22px;
+      color: var(--text-main);
+      line-height: 1.55;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      overflow-x: hidden;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    button, input {
+      font-family: inherit;
+    }
+
+    .hidden {
+      display: none !important;
+    }
+
+    /* 慶祝彩紙全螢幕畫布 */
+    #confettiCanvas {
+      position: fixed;
+      inset: 0;
+      width: 100vw;
+      height: 100vh;
+      pointer-events: none;
+      z-index: 200;
+    }
+
+    /* =======================================================
+       頂部探險標題橫幅
+       ======================================================= */
+    .hero-header {
+      position: relative;
+      background: linear-gradient(135deg, #1B5E20 0%, #2E7D32 58%, #388E3C 100%);
+      color: var(--white);
+      overflow: hidden;
+      box-shadow: var(--shadow-md);
+    }
+
+    .hero-bg-hills {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 110px;
+      opacity: 0.22;
+      pointer-events: none;
+    }
+
+    .hero-inner {
+      max-width: 1020px;
+      margin: 0 auto;
+      padding: 20px 16px 26px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .top-bar-controls {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 14px;
+      flex-wrap: wrap;
+    }
+
+    .school-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(251, 192, 45, 0.24);
+      border: 1.5px solid rgba(255, 248, 225, 0.55);
+      color: var(--sun-light);
+      padding: 6px 14px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .sound-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(255, 255, 255, 0.18);
+      border: 1.5px solid rgba(255, 255, 255, 0.4);
+      color: var(--white);
+      padding: 8px 14px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 700;
+      cursor: pointer;
+      min-height: 40px;
+      transition: background 0.2s, transform 0.15s;
+    }
+
+    .sound-btn:hover {
+      background: rgba(255, 255, 255, 0.28);
+    }
+
+    .sound-btn:active {
+      transform: scale(0.96);
+    }
+
+    .hero-main {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 16px;
+    }
+
+    .hero-badge-wrap {
+      position: relative;
+      width: 86px;
+      height: 86px;
+      border-radius: 24px;
+      background: var(--sun-light);
+      border: 4px solid var(--sun-bright);
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      animation: floatSlow 4s ease-in-out infinite;
+    }
+
+    .hero-grade-tag {
+      position: absolute;
+      bottom: -10px;
+      right: -10px;
+      background: var(--sun-main);
+      color: var(--earth-dark);
+      font-size: 11px;
+      font-weight: 900;
+      padding: 3px 9px;
+      border-radius: 999px;
+      border: 2px solid var(--white);
+      white-space: nowrap;
+      box-shadow: 0 3px 8px rgba(0, 0, 0, 0.18);
+    }
+
+    .hero-title {
+      margin: 0;
+      font-size: 24px;
+      font-weight: 900;
+      line-height: 1.3;
+      letter-spacing: 0.4px;
+    }
+
+    .hero-subtitle {
+      display: block;
+      color: var(--sun-light);
+      font-size: 18px;
+      font-weight: 800;
+      margin-top: 4px;
+    }
+
+    .hero-desc {
+      margin: 8px 0 0;
+      font-size: 13.5px;
+      color: #DCEDC8;
+      max-width: 640px;
+    }
+
+    /* 整體出發準備進度框 */
+    .overall-progress-card {
+      margin-top: 20px;
+      background: rgba(255, 255, 255, 0.14);
+      border: 1.5px solid rgba(255, 255, 255, 0.25);
+      border-radius: 18px;
+      padding: 14px 16px;
+    }
+
+    .overall-progress-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+      font-size: 13.5px;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .overall-pct-pill {
+      background: var(--sun-bright);
+      color: var(--earth-dark);
+      padding: 3px 12px;
+      border-radius: 999px;
+      font-weight: 900;
+      font-size: 13px;
+    }
+
+    .progress-track {
+      width: 100%;
+      height: 14px;
+      background: rgba(15, 50, 18, 0.45);
+      border-radius: 999px;
+      overflow: hidden;
+      padding: 2px;
+    }
+
+    .progress-fill {
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(90deg, #FFCA28 0%, #FFF176 55%, #AED581 100%);
+      border-radius: 999px;
+      transition: width 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .overall-mini-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+      margin-top: 10px;
+      text-align: center;
+      font-size: 12px;
+      font-weight: 700;
+      color: #E8F5E9;
+    }
+
+    .mini-stat {
+      background: rgba(0, 0, 0, 0.18);
+      padding: 6px 8px;
+      border-radius: 10px;
+    }
+
+    /* =======================================================
+       黏性固定（Sticky）4 大分頁導覽列
+       ======================================================= */
+    .sticky-nav {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(251, 253, 247, 0.96);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border-bottom: 2px solid var(--forest-border);
+      box-shadow: 0 4px 12px rgba(27, 94, 32, 0.07);
+    }
+
+    .nav-inner {
+      max-width: 1020px;
+      margin: 0 auto;
+      padding: 10px 10px;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 8px;
+    }
+
+    .tab-btn {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 4px;
+      padding: 10px 6px;
+      min-height: 54px;
+      border-radius: 16px;
+      border: 2px solid var(--forest-border);
+      background: var(--white);
+      color: var(--forest-dark);
+      font-size: 12.5px;
+      font-weight: 800;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      text-align: center;
+      line-height: 1.25;
+    }
+
+    .tab-btn:hover {
+      background: var(--forest-light);
+    }
+
+    .tab-btn.active {
+      background: linear-gradient(135deg, #2E7D32, #1B5E20);
+      color: var(--white);
+      border-color: var(--forest-dark);
+      box-shadow: 0 5px 14px rgba(27, 94, 32, 0.25);
+      transform: translateY(-1px);
+    }
+
+    .tab-icon {
+      font-size: 20px;
+      line-height: 1;
+    }
+
+    /* =======================================================
+       主內容容器與共用卡片
+       ======================================================= */
+    .main-container {
+      flex: 1;
+      width: 100%;
+      max-width: 1020px;
+      margin: 0 auto;
+      padding: 22px 16px 36px;
+    }
+
+    .tab-panel {
+      animation: popIn 0.32s ease;
+    }
+
+    .section-card {
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      border: 2px solid var(--forest-border);
+      box-shadow: var(--shadow-sm);
+      overflow: hidden;
+      margin-bottom: 24px;
+    }
+
+    .section-card.earth-theme {
+      border-color: var(--earth-border);
+    }
+
+    .section-card.sun-theme {
+      border-color: var(--sun-main);
+    }
+
+    .card-banner {
+      padding: 16px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .card-banner.earth-bg {
+      background: linear-gradient(135deg, #6D4C41, #4E342E);
+      color: var(--sun-light);
+    }
+
+    .card-banner.sun-bg {
+      background: linear-gradient(135deg, #FBC02D, #FFB300);
+      color: var(--earth-dark);
+    }
+
+    .card-banner-title {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .card-banner-title h2 {
+      margin: 0;
+      font-size: 19px;
+      font-weight: 900;
+    }
+
+    .card-banner-title p {
+      margin: 2px 0 0;
+      font-size: 12.5px;
+      opacity: 0.92;
+    }
+
+    .card-body {
+      padding: 20px;
+    }
+
+    .section-heading {
+      margin: 0;
+      font-size: 20px;
+      font-weight: 900;
+      color: var(--forest-dark);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .section-sub {
+      margin: 5px 0 0;
+      font-size: 13.5px;
+      color: var(--text-muted);
+    }
+
+    .sub-heading-bar {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin: 22px 0 14px;
+      font-size: 17px;
+      font-weight: 900;
+      color: var(--forest-dark);
+    }
+
+    .sub-heading-bar::before {
+      content: "";
+      display: inline-block;
+      width: 6px;
+      height: 22px;
+      border-radius: 6px;
+      background: var(--forest-main);
+    }
+
+    /* 共用按鈕 */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 12px 20px;
+      min-height: 44px;
+      border-radius: 14px;
+      border: 2px solid transparent;
+      font-size: 14.5px;
+      font-weight: 800;
+      cursor: pointer;
+      transition: transform 0.15s, background 0.2s, box-shadow 0.2s;
+    }
+
+    .btn:active {
+      transform: scale(0.97);
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #2E7D32, #1B5E20);
+      color: var(--white);
+      box-shadow: 0 5px 14px rgba(27, 94, 32, 0.22);
+    }
+
+    .btn-primary:hover {
+      background: linear-gradient(135deg, #256A29, #144A18);
+    }
+
+    .btn-sun {
+      background: linear-gradient(135deg, #FFCA28, #FBC02D);
+      color: var(--earth-dark);
+      box-shadow: 0 5px 14px rgba(251, 192, 45, 0.3);
+    }
+
+    .btn-sun:hover {
+      background: linear-gradient(135deg, #FBC02D, #F9A825);
+    }
+
+    .btn-outline {
+      background: var(--white);
+      color: var(--earth-dark);
+      border-color: var(--earth-border);
+    }
+
+    .btn-outline:hover {
+      background: var(--earth-light);
+    }
+
+    .btn-sm {
+      padding: 7px 13px;
+      min-height: 36px;
+      font-size: 12.5px;
+      border-radius: 999px;
+    }
+
+    /* =======================================================
+       分頁 1：任務情報站與執書包 Checklist
+       ======================================================= */
+    .info-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 12px;
+    }
+
+    .info-tile {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 14px;
+      border-radius: var(--radius-md);
+      border: 1.5px solid var(--forest-border);
+      background: var(--forest-light);
+    }
+
+    .info-tile.sun {
+      background: var(--sun-light);
+      border-color: var(--sun-border);
+    }
+
+    .info-tile.earth {
+      background: var(--earth-light);
+      border-color: var(--earth-border);
+    }
+
+    .info-tile-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      flex-shrink: 0;
+      background: var(--forest-main);
+      color: var(--white);
+    }
+
+    .info-tile.sun .info-tile-icon {
+      background: var(--sun-main);
+      color: var(--earth-dark);
+    }
+
+    .info-tile.earth .info-tile-icon {
+      background: var(--earth-main);
+      color: var(--white);
+    }
+
+    .info-label {
+      font-size: 12px;
+      font-weight: 800;
+      color: var(--forest-dark);
+      margin-bottom: 2px;
+    }
+
+    .info-tile.sun .info-label,
+    .info-tile.earth .info-label {
+      color: var(--earth-main);
+    }
+
+    .info-value {
+      font-size: 15.5px;
+      font-weight: 900;
+      color: var(--text-main);
+    }
+
+    /* 四大任務網格 */
+    .missions-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 12px;
+    }
+
+    .mission-box {
+      border-radius: var(--radius-md);
+      border: 2px solid var(--forest-border);
+      background: linear-gradient(180deg, #F4FAF4 0%, #FFFFFF 100%);
+      padding: 15px;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .mission-box:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .mission-box.m-sun {
+      border-color: var(--sun-border);
+      background: linear-gradient(180deg, #FFFDF2 0%, #FFFFFF 100%);
+    }
+
+    .mission-box.m-sky {
+      border-color: var(--sky-border);
+      background: linear-gradient(180deg, #F0FAFF 0%, #FFFFFF 100%);
+    }
+
+    .mission-box.m-earth {
+      border-color: var(--earth-border);
+      background: linear-gradient(180deg, #FAF6F5 0%, #FFFFFF 100%);
+    }
+
+    .mission-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 8px;
+    }
+
+    .mission-emoji {
+      font-size: 26px;
+      width: 42px;
+      height: 42px;
+      border-radius: 12px;
+      background: rgba(46, 125, 50, 0.12);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .mission-num {
+      font-size: 11.5px;
+      font-weight: 900;
+      padding: 3px 10px;
+      border-radius: 999px;
+      background: var(--forest-light);
+      color: var(--forest-dark);
+    }
+
+    .mission-box h4 {
+      margin: 0 0 5px;
+      font-size: 16px;
+      font-weight: 900;
+      color: var(--forest-dark);
+    }
+
+    .mission-box p {
+      margin: 0;
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    /* 執書包 Checklist */
+    .checklist-header {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 14px;
+    }
+
+    .checklist-actions {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .count-pill {
+      background: var(--forest-light);
+      color: var(--forest-dark);
+      border: 1.5px solid var(--forest-border);
+      padding: 6px 14px;
+      border-radius: 999px;
+      font-size: 13.5px;
+      font-weight: 900;
+    }
+
+    .sub-progress-track {
+      width: 100%;
+      height: 12px;
+      background: var(--forest-light);
+      border: 1px solid var(--forest-border);
+      border-radius: 999px;
+      overflow: hidden;
+      margin-bottom: 16px;
+    }
+
+    .sub-progress-fill {
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(90deg, #43A047, #FBC02D);
+      border-radius: 999px;
+      transition: width 0.4s ease;
+    }
+
+    .checklist-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 10px;
+    }
+
+    .pack-item-btn {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      width: 100%;
+      text-align: left;
+      padding: 13px 14px;
+      min-height: 64px;
+      border-radius: 16px;
+      border: 2px solid #DCE7DC;
+      background: var(--white);
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .pack-item-btn:hover {
+      border-color: var(--forest-mid);
+      background: #F9FDF9;
+    }
+
+    .pack-item-btn.checked {
+      background: var(--forest-light);
+      border-color: var(--forest-main);
+    }
+
+    .pack-checkbox {
+      width: 26px;
+      height: 26px;
+      border-radius: 8px;
+      border: 2.5px solid #9EB3A0;
+      background: var(--white);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 15px;
+      font-weight: 900;
+      color: var(--white);
+      flex-shrink: 0;
+      transition: all 0.2s;
+    }
+
+    .pack-item-btn.checked .pack-checkbox {
+      background: var(--forest-main);
+      border-color: var(--forest-dark);
+    }
+
+    .pack-icon {
+      font-size: 24px;
+      flex-shrink: 0;
+    }
+
+    .pack-name {
+      font-size: 15px;
+      font-weight: 900;
+      color: var(--text-main);
+    }
+
+    .pack-item-btn.checked .pack-name {
+      color: var(--forest-dark);
+      text-decoration: line-through;
+      text-decoration-thickness: 2px;
+    }
+
+    .pack-tip {
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-top: 2px;
+    }
+
+    .complete-banner {
+      margin-top: 18px;
+      padding: 16px;
+      border-radius: 18px;
+      background: linear-gradient(135deg, #FFF8E1, #E8F5E9);
+      border: 2px solid var(--sun-main);
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      align-items: flex-start;
+    }
+
+    /* =======================================================
+       分頁 2：森林安全與「無痕山林」守則（3D 翻轉卡）
+       ======================================================= */
+    .safety-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 18px;
+    }
+
+    .flip-card {
+      perspective: 1100px;
+      -webkit-perspective: 1100px;
+      height: 265px;
+      cursor: pointer;
+      outline: none;
+    }
+
+    .flip-card-inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      transition: transform 0.62s cubic-bezier(0.34, 1.45, 0.64, 1);
+      transform-style: preserve-3d;
+      -webkit-transform-style: preserve-3d;
+    }
+
+    .flip-card.flipped .flip-card-inner {
+      transform: rotateY(180deg);
+      -webkit-transform: rotateY(180deg);
+    }
+
+    .flip-face {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      backface-visibility: hidden;
+      -webkit-backface-visibility: hidden;
+      border-radius: 22px;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .flip-front {
+      background: var(--white);
+      border: 2.5px solid var(--forest-border);
+    }
+
+    .flip-card.mastered .flip-front {
+      border-color: var(--sun-main);
+    }
+
+    .flip-back {
+      transform: rotateY(180deg);
+      -webkit-transform: rotateY(180deg);
+      background: linear-gradient(145deg, #1B5E20, #2E7D32);
+      color: var(--white);
+      border: 2.5px solid var(--sun-bright);
+    }
+
+    .flip-front-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+    }
+
+    .flip-icon-circle {
+      width: 52px;
+      height: 52px;
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 28px;
+      background: var(--forest-light);
+    }
+
+    .flip-status-tag {
+      font-size: 11.5px;
+      font-weight: 800;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: var(--sun-light);
+      color: var(--earth-dark);
+      border: 1px solid var(--sun-border);
+    }
+
+    .flip-card.mastered .flip-status-tag {
+      background: var(--forest-light);
+      color: var(--forest-dark);
+      border-color: var(--forest-mid);
+    }
+
+    .flip-title {
+      margin: 10px 0 6px;
+      font-size: 18px;
+      font-weight: 900;
+      color: var(--forest-dark);
+    }
+
+    .flip-question {
+      margin: 0;
+      font-size: 13.5px;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    .flip-hint {
+      font-size: 12px;
+      font-weight: 800;
+      color: var(--forest-main);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-top: 10px;
+      border-top: 1px dashed var(--forest-border);
+    }
+
+    .flip-back-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(255, 202, 40, 0.25);
+      color: var(--sun-light);
+      border: 1px solid rgba(255, 224, 130, 0.5);
+      font-size: 12px;
+      font-weight: 900;
+      padding: 4px 11px;
+      border-radius: 999px;
+      align-self: flex-start;
+    }
+
+    .flip-back-title {
+      margin: 8px 0 6px;
+      font-size: 18px;
+      font-weight: 900;
+      color: var(--sun-bright);
+    }
+
+    .flip-back-answer {
+      margin: 0;
+      font-size: 14.5px;
+      line-height: 1.6;
+      color: #F4FBF4;
+      font-weight: 500;
+    }
+
+    .flip-back-foot {
+      font-size: 12px;
+      color: #C8E6C9;
+      text-align: right;
+      font-weight: 700;
+    }
+
+    /* =======================================================
+       分頁 3：12月大埔滘生物圖鑑（實景相片 + 篩選）
+       ======================================================= */
+    .filter-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 14px;
+    }
+
+    .filter-btn {
+      padding: 9px 15px;
+      min-height: 40px;
+      border-radius: 999px;
+      border: 2px solid var(--forest-border);
+      background: var(--white);
+      color: var(--forest-dark);
+      font-size: 13.5px;
+      font-weight: 800;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .filter-btn:hover {
+      background: var(--forest-light);
+    }
+
+    .filter-btn.active {
+      background: var(--forest-main);
+      color: var(--white);
+      border-color: var(--forest-dark);
+      box-shadow: 0 4px 10px rgba(27, 94, 32, 0.22);
+    }
+
+    .species-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 18px;
+    }
+
+    .species-card {
+      background: var(--white);
+      border-radius: 22px;
+      border: 2px solid var(--forest-border);
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      cursor: pointer;
+      transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+    }
+
+    .species-card:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-md);
+      border-color: var(--forest-mid);
+    }
+
+    .species-photo-box {
+      position: relative;
+      width: 100%;
+      height: 196px;
+      background: var(--forest-light);
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .species-photo-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.45s ease;
+    }
+
+    .species-card:hover .species-photo-img {
+      transform: scale(1.05);
+    }
+
+    /* 骨架屏載入動畫 */
+    .photo-shimmer {
+      background: linear-gradient(90deg, #E4F2E5 25%, #F3FAF3 50%, #E4F2E5 75%);
+      background-size: 200% 100%;
+      animation: shimmerMove 1.4s infinite linear;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      color: var(--forest-main);
+      font-size: 12.5px;
+      font-weight: 700;
+    }
+
+    .photo-fallback-box {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 12px;
+      background: linear-gradient(180deg, #F1F8E9, #E8F5E9);
+    }
+
+    .photo-fallback-svg {
+      width: 92px;
+      height: 92px;
+    }
+
+    .photo-overlay-top {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      right: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 6px;
+      z-index: 3;
+      pointer-events: none;
+    }
+
+    .cat-badge {
+      background: rgba(255, 255, 255, 0.94);
+      color: var(--forest-dark);
+      font-size: 11.5px;
+      font-weight: 900;
+      padding: 4px 10px;
+      border-radius: 999px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.14);
+    }
+
+    .alert-chip {
+      font-size: 11px;
+      font-weight: 900;
+      padding: 4px 10px;
+      border-radius: 999px;
+      color: var(--white);
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+    }
+
+    .alert-chip.danger {
+      background: var(--danger-main);
+    }
+
+    .alert-chip.protect {
+      background: var(--protect-main);
+    }
+
+    .photo-credit-tag {
+      position: absolute;
+      bottom: 8px;
+      right: 8px;
+      z-index: 3;
+      background: rgba(0, 0, 0, 0.6);
+      color: var(--white);
+      font-size: 10.5px;
+      font-weight: 700;
+      padding: 3px 8px;
+      border-radius: 999px;
+    }
+
+    .photo-count-badge {
+      background: rgba(27, 94, 32, 0.9);
+      color: #FFF8E1;
+      border: 1px solid rgba(255, 224, 130, 0.6);
+      font-size: 11px;
+      font-weight: 900;
+      padding: 4px 9px;
+      border-radius: 999px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.22);
+      white-space: nowrap;
+    }
+
+    /* 圖卡主相片下方 3-4 張迷你縮圖列 */
+    .card-thumb-strip {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 6px;
+      padding: 8px 12px 4px;
+      background: #F6FBF6;
+      border-bottom: 1px solid #E8F2E8;
+    }
+
+    .card-thumb-btn {
+      position: relative;
+      height: 46px;
+      padding: 0;
+      border-radius: 9px;
+      border: 2.5px solid transparent;
+      overflow: hidden;
+      background: #E4F2E5;
+      cursor: pointer;
+      transition: transform 0.15s, border-color 0.15s, box-shadow 0.15s;
+    }
+
+    .card-thumb-btn:hover {
+      transform: translateY(-1px);
+      border-color: var(--forest-mid);
+    }
+
+    .card-thumb-btn.active {
+      border-color: var(--sun-main);
+      box-shadow: 0 0 0 2px var(--forest-main);
+    }
+
+    .card-thumb-btn img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .retry-photo-btn {
+      position: relative;
+      z-index: 4;
+      background: var(--white);
+      color: var(--forest-dark);
+      border: 1.5px solid var(--forest-main);
+      border-radius: 999px;
+      padding: 5px 12px;
+      font-size: 12px;
+      font-weight: 800;
+      cursor: pointer;
+    }
+
+    .retry-photo-btn:hover {
+      background: var(--forest-light);
+    }
+
+    .species-body {
+      padding: 15px 16px 10px;
+    }
+
+    .species-name {
+      margin: 0;
+      font-size: 17px;
+      font-weight: 900;
+      color: var(--forest-dark);
+      line-height: 1.3;
+    }
+
+    .species-sci {
+      margin: 3px 0 0;
+      font-size: 12.5px;
+      font-style: italic;
+      color: var(--forest-mid);
+      font-weight: 600;
+    }
+
+    .species-desc {
+      margin: 8px 0 0;
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    .species-foot {
+      padding: 11px 16px;
+      border-top: 1px solid #EDF3ED;
+      background: #FAFDF9;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 12.5px;
+      font-weight: 800;
+      color: var(--forest-main);
+    }
+
+    /* =======================================================
+       分頁 4：出發前小挑戰（Quiz）與電子通行證
+       ======================================================= */
+    .quiz-progress-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      margin-bottom: 14px;
+      font-size: 13.5px;
+      font-weight: 800;
+      color: var(--earth-dark);
+    }
+
+    .quiz-q-card {
+      background: #FAFDF8;
+      border: 2px solid var(--forest-border);
+      border-radius: 20px;
+      padding: 18px;
+    }
+
+    .quiz-q-text {
+      margin: 0 0 14px;
+      font-size: 17px;
+      font-weight: 900;
+      color: var(--forest-dark);
+      line-height: 1.45;
+    }
+
+    .quiz-options {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .quiz-opt-btn {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      width: 100%;
+      text-align: left;
+      padding: 13px 15px;
+      min-height: 52px;
+      border-radius: 14px;
+      border: 2px solid #D7E4D8;
+      background: var(--white);
+      color: var(--text-main);
+      font-size: 14.5px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.18s;
+    }
+
+    .quiz-opt-btn:hover:not(:disabled) {
+      border-color: var(--forest-mid);
+      background: var(--forest-light);
+    }
+
+    .quiz-opt-btn:disabled {
+      cursor: default;
+    }
+
+    .quiz-opt-btn.correct {
+      background: #E8F5E9;
+      border-color: #2E7D32;
+      color: #1B5E20;
+      font-weight: 900;
+    }
+
+    .quiz-opt-btn.wrong {
+      background: #FFEBEE;
+      border-color: #D32F2F;
+      color: #B71C1C;
+    }
+
+    .quiz-opt-btn.dimmed {
+      opacity: 0.58;
+    }
+
+    .opt-letter {
+      width: 30px;
+      height: 30px;
+      border-radius: 9px;
+      background: var(--sun-border);
+      color: var(--earth-dark);
+      font-size: 13px;
+      font-weight: 900;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .quiz-feedback {
+      margin-top: 14px;
+      padding: 14px;
+      border-radius: 14px;
+      font-size: 13.5px;
+      line-height: 1.55;
+      font-weight: 600;
+    }
+
+    .quiz-feedback.ok {
+      background: #E8F5E9;
+      border: 1.5px solid #66BB6A;
+      color: #1B5E20;
+    }
+
+    .quiz-feedback.no {
+      background: #FFF8E1;
+      border: 1.5px solid #FFB300;
+      color: #5D4037;
+    }
+
+    .quiz-nav-row {
+      margin-top: 16px;
+      display: flex;
+      justify-content: flex-end;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .quiz-summary {
+      text-align: center;
+      padding: 22px 16px;
+      border-radius: 20px;
+      background: linear-gradient(135deg, #F1F8E9, #FFF8E1);
+      border: 2px solid var(--forest-mid);
+    }
+
+    /* 電子通行證 */
+    .pass-locked {
+      text-align: center;
+      padding: 28px 16px;
+      border-radius: 18px;
+      background: var(--earth-light);
+      border: 2px dashed var(--earth-mid);
+      color: var(--earth-dark);
+    }
+
+    .pass-form-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 12px;
+      padding: 16px;
+      border-radius: 16px;
+      background: var(--forest-light);
+      border: 1.5px solid var(--forest-border);
+      margin-bottom: 20px;
+    }
+
+    .form-label {
+      display: block;
+      font-size: 13.5px;
+      font-weight: 900;
+      color: var(--forest-dark);
+      margin-bottom: 6px;
+    }
+
+    .form-input {
+      width: 100%;
+      padding: 11px 14px;
+      border-radius: 12px;
+      border: 2px solid var(--forest-border);
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--text-main);
+      background: var(--white);
+      outline: none;
+    }
+
+    .form-input:focus {
+      border-color: var(--forest-main);
+    }
+
+    .pass-card-preview {
+      max-width: 580px;
+      margin: 0 auto;
+      border-radius: 24px;
+      border: 4px solid var(--sun-bright);
+      background: linear-gradient(135deg, #1B5E20 0%, #2E7D32 58%, #1F6F4A 100%);
+      color: var(--white);
+      padding: 22px;
+      position: relative;
+      overflow: hidden;
+      box-shadow: var(--shadow-lg);
+    }
+
+    .pass-deco-circle {
+      position: absolute;
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .pass-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 10px;
+      padding-bottom: 14px;
+      border-bottom: 1.5px solid rgba(255, 255, 255, 0.26);
+      position: relative;
+      z-index: 2;
+    }
+
+    .pass-rank-pill {
+      background: var(--sun-bright);
+      color: var(--earth-dark);
+      font-size: 12px;
+      font-weight: 900;
+      padding: 5px 12px;
+      border-radius: 999px;
+      white-space: nowrap;
+    }
+
+    .pass-mid {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      padding: 16px 0;
+      position: relative;
+      z-index: 2;
+    }
+
+    .pass-student-name {
+      font-size: 26px;
+      font-weight: 900;
+      color: var(--sun-light);
+      margin-top: 2px;
+      word-break: break-word;
+    }
+
+    .pass-meta-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+
+    .pass-meta-box {
+      background: rgba(0, 0, 0, 0.22);
+      border-radius: 12px;
+      padding: 9px 12px;
+    }
+
+    .pass-stamp {
+      width: 96px;
+      height: 96px;
+      border-radius: 50%;
+      border: 3px dashed #FFE082;
+      background: rgba(255, 202, 40, 0.2);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      transform: rotate(-8deg);
+      margin: 0 auto;
+      flex-shrink: 0;
+    }
+
+    .pass-foot {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 8px;
+      padding-top: 12px;
+      border-top: 1.5px solid rgba(255, 255, 255, 0.26);
+      font-size: 12.5px;
+      color: #DCEDC8;
+      position: relative;
+      z-index: 2;
+    }
+
+    /* =======================================================
+       彈窗（Modal）與全螢幕相片放大（Lightbox）
+       ======================================================= */
+    .modal-backdrop {
+      position: fixed;
+      inset: 0;
+      z-index: 120;
+      background: rgba(15, 30, 18, 0.68);
+      backdrop-filter: blur(4px);
+      -webkit-backdrop-filter: blur(4px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 16px;
+    }
+
+    .modal-dialog {
+      background: var(--white);
+      border-radius: 26px;
+      width: 100%;
+      max-width: 540px;
+      max-height: 90vh;
+      overflow-y: auto;
+      border: 4px solid var(--forest-border);
+      box-shadow: var(--shadow-lg);
+      position: relative;
+      animation: popIn 0.26s ease;
+    }
+
+    .modal-close-btn {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      z-index: 10;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      border: none;
+      background: rgba(0, 0, 0, 0.6);
+      color: var(--white);
+      font-size: 18px;
+      font-weight: 900;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .modal-close-btn:hover {
+      background: rgba(0, 0, 0, 0.8);
+    }
+
+    .modal-photo-stage {
+      position: relative;
+      width: 100%;
+      height: 265px;
+      background: #142617;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      touch-action: pan-y;
+    }
+
+    .carousel-counter-pill {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      z-index: 6;
+      background: rgba(27, 94, 32, 0.92);
+      color: #FFF8E1;
+      border: 1.5px solid rgba(255, 224, 130, 0.65);
+      font-size: 12px;
+      font-weight: 900;
+      padding: 5px 12px;
+      border-radius: 999px;
+      pointer-events: none;
+    }
+
+    .carousel-nav-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 6;
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      border: 2px solid rgba(255, 255, 255, 0.65);
+      background: rgba(15, 35, 18, 0.68);
+      color: var(--white);
+      font-size: 24px;
+      font-weight: 900;
+      line-height: 1;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.18s, transform 0.15s;
+    }
+
+    .carousel-nav-btn:hover {
+      background: rgba(27, 94, 32, 0.92);
+    }
+
+    .carousel-nav-btn:active {
+      transform: translateY(-50%) scale(0.94);
+    }
+
+    .carousel-nav-btn.prev {
+      left: 10px;
+    }
+
+    .carousel-nav-btn.next {
+      right: 10px;
+    }
+
+    .modal-caption-bar {
+      background: #F2F8F2;
+      border-bottom: 1.5px solid var(--forest-border);
+      padding: 8px 16px;
+      font-size: 12px;
+      color: var(--text-muted);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .modal-thumb-strip {
+      display: flex;
+      gap: 8px;
+      padding: 10px 16px;
+      background: #FAFDF9;
+      border-bottom: 1.5px solid #E5EFE5;
+      overflow-x: auto;
+    }
+
+    .modal-thumb-btn {
+      width: 68px;
+      height: 50px;
+      padding: 0;
+      border-radius: 10px;
+      border: 2.5px solid transparent;
+      overflow: hidden;
+      background: #E4F2E5;
+      flex-shrink: 0;
+      cursor: pointer;
+      opacity: 0.72;
+      transition: all 0.18s;
+    }
+
+    .modal-thumb-btn:hover {
+      opacity: 1;
+    }
+
+    .modal-thumb-btn.active {
+      opacity: 1;
+      border-color: var(--sun-main);
+      box-shadow: 0 0 0 2px var(--forest-main);
+    }
+
+    .modal-thumb-btn img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .modal-zoom-pill {
+      position: absolute;
+      bottom: 12px;
+      right: 12px;
+      z-index: 6;
+      background: rgba(0, 0, 0, 0.72);
+      color: var(--white);
+      font-size: 12px;
+      font-weight: 800;
+      padding: 6px 13px;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.35);
+      cursor: pointer;
+    }
+
+    .modal-content-pad {
+      padding: 18px 20px 22px;
+    }
+
+    .detail-box {
+      padding: 13px 15px;
+      border-radius: 15px;
+      margin-top: 12px;
+      font-size: 13.5px;
+      line-height: 1.6;
+    }
+
+    .detail-box.green {
+      background: var(--forest-light);
+      border: 1.5px solid var(--forest-border);
+    }
+
+    .detail-box.sun {
+      background: var(--sun-light);
+      border: 1.5px solid var(--sun-border);
+    }
+
+    .detail-box.sky {
+      background: var(--sky-bg);
+      border: 1.5px solid var(--sky-border);
+    }
+
+    .detail-box.danger {
+      background: var(--danger-bg);
+      border: 2px solid var(--danger-border);
+      color: var(--danger-main);
+      font-weight: 800;
+    }
+
+    .detail-box.protect {
+      background: var(--protect-bg);
+      border: 2px solid var(--protect-border);
+      color: var(--protect-main);
+      font-weight: 800;
+    }
+
+    .detail-box-title {
+      font-size: 12.5px;
+      font-weight: 900;
+      margin-bottom: 4px;
+      color: var(--forest-dark);
+    }
+
+    /* Lightbox 全螢幕放大 */
+    .lightbox-backdrop {
+      position: fixed;
+      inset: 0;
+      z-index: 160;
+      background: rgba(10, 18, 12, 0.94);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 18px;
+      gap: 12px;
+    }
+
+    .lightbox-stage {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      max-width: 96vw;
+      touch-action: pan-y;
+    }
+
+    .lightbox-img {
+      max-width: 92vw;
+      max-height: 70vh;
+      object-fit: contain;
+      border-radius: 16px;
+      border: 2px solid rgba(255, 255, 255, 0.25);
+      background: #111;
+      display: block;
+    }
+
+    .lightbox-nav-btn {
+      position: fixed;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 165;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      border: 2px solid rgba(255, 255, 255, 0.55);
+      background: rgba(27, 94, 32, 0.85);
+      color: var(--white);
+      font-size: 28px;
+      font-weight: 900;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.45);
+    }
+
+    .lightbox-nav-btn.prev {
+      left: 12px;
+    }
+
+    .lightbox-nav-btn.next {
+      right: 12px;
+    }
+
+    .lightbox-img {
+      max-width: 96vw;
+      max-height: 76vh;
+      object-fit: contain;
+      border-radius: 16px;
+      border: 2px solid rgba(255, 255, 255, 0.25);
+      background: #111;
+    }
+
+    /* 頁尾 */
+    .site-footer {
+      background: var(--forest-dark);
+      color: #DCEDC8;
+      text-align: center;
+      padding: 22px 16px;
+      font-size: 13px;
+      margin-top: auto;
+    }
+
+    .site-footer strong {
+      color: var(--sun-light);
+      display: block;
+      margin-bottom: 4px;
+      font-size: 14px;
+    }
+
+    /* 動畫 */
+    @keyframes floatSlow {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-6px); }
+    }
+
+    @keyframes popIn {
+      0% { opacity: 0; transform: scale(0.96); }
+      100% { opacity: 1; transform: scale(1); }
+    }
+
+    @keyframes shimmerMove {
+      0% { background-position: -200% 0; }
+      100% { background-position: 200% 0; }
+    }
+
+    /* =======================================================
+       響應式斷點（平板與桌面適配）
+       ======================================================= */
+    @media (min-width: 640px) {
+      .hero-main {
+        flex-direction: row;
+        text-align: left;
+      }
+      .hero-title {
+        font-size: 30px;
+      }
+      .hero-subtitle {
+        font-size: 21px;
+      }
+      .tab-btn {
+        flex-direction: row;
+        gap: 8px;
+        font-size: 14.5px;
+      }
+      .info-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .missions-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .checklist-header {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+      }
+      .checklist-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .complete-banner {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+      }
+      .safety-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .species-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .pass-form-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .pass-mid {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+      }
+    }
+
+    @media (min-width: 900px) {
+      .missions-grid {
+        grid-template-columns: repeat(4, 1fr);
+      }
+      .checklist-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+      .safety-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+      .species-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 慶祝彩紙特效畫布 -->
+  <canvas id="confettiCanvas" aria-hidden="true"></canvas>
+
+  <!-- ==================== 頂部探險標題橫幅 ==================== -->
+  <header class="hero-header">
+    <svg class="hero-bg-hills" viewBox="0 0 1200 180" preserveAspectRatio="none" aria-hidden="true">
+      <path d="M0,180 L0,110 Q140,55 290,108 T610,98 T930,92 L1200,108 L1200,180 Z" fill="#0E3812"></path>
+      <path d="M0,180 L0,140 Q210,95 420,136 T840,126 L1200,132 L1200,180 Z" fill="#08240A"></path>
+    </svg>
+
+    <div class="hero-inner">
+      <div class="top-bar-controls">
+        <div class="school-pill">
+          <span>🌿</span>
+          <span>天水圍官立小學・奇妙科學研究所</span>
+        </div>
+        <button id="soundToggleBtn" type="button" class="sound-btn" aria-label="切換音效開關">
+          <span id="soundIcon">🔊</span>
+          <span id="soundLabel">音效開啟</span>
+        </button>
+      </div>
+
+      <div class="hero-main">
+        <div class="hero-badge-wrap">
+          <svg viewBox="0 0 80 80" width="68" height="68" aria-hidden="true">
+            <circle cx="40" cy="40" r="34" fill="#E8F5E9" stroke="#2E7D32" stroke-width="3"></circle>
+            <circle cx="58" cy="22" r="7" fill="#FBC02D"></circle>
+            <path d="M14,56 L30,32 L44,56 Z" fill="#66BB6A"></path>
+            <path d="M32,56 L50,26 L68,56 Z" fill="#2E7D32"></path>
+            <rect x="48" y="54" width="4" height="10" rx="1.5" fill="#6D4C41"></rect>
+            <circle cx="29" cy="48" r="10" fill="#FFF8E1" stroke="#6D4C41" stroke-width="3"></circle>
+            <line x1="36" y1="55" x2="43" y2="62" stroke="#6D4C41" stroke-width="4" stroke-linecap="round"></line>
+            <path d="M26,50 C26,44 33,43 33,47 C33,51 29,53 26,50 Z" fill="#43A047"></path>
+          </svg>
+          <span class="hero-grade-tag">小四至小六</span>
+        </div>
+
+        <div>
+          <h1 class="hero-title">
+            大埔滘自然護理區生態考察
+            <span class="hero-subtitle">出發前互動準備手冊</span>
+          </h1>
+          <p class="hero-desc">
+            各位小小科學家，出發前一起完成裝備檢查、安全守則、12月生物圖鑑及小挑戰，即可領取你的專屬「生態小先鋒」電子通行證！
+          </p>
+        </div>
+      </div>
+
+      <!-- 整體準備進度條 -->
+      <div class="overall-progress-card">
+        <div class="overall-progress-top">
+          <span>🧭 整體出發準備進度</span>
+          <span id="overallProgressText" class="overall-pct-pill">0%（準備起步！）</span>
+        </div>
+        <div class="progress-track">
+          <div id="overallProgressBar" class="progress-fill"></div>
+        </div>
+        <div class="overall-mini-stats">
+          <div id="miniStatPack" class="mini-stat">🎒 裝備：0/7</div>
+          <div id="miniStatSafe" class="mini-stat">🛡️ 守則：0/5</div>
+          <div id="miniStatQuiz" class="mini-stat">🏆 挑戰：未完成</div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ==================== 黏性固定 4 大分頁列 ==================== -->
+  <nav class="sticky-nav" aria-label="手冊互動分頁">
+    <div class="nav-inner" role="tablist">
+      <button type="button" role="tab" class="tab-btn active" data-tab="mission" aria-selected="true">
+        <span class="tab-icon">🗺️</span>
+        <span>任務情報站</span>
+      </button>
+      <button type="button" role="tab" class="tab-btn" data-tab="safety" aria-selected="false">
+        <span class="tab-icon">🛡️</span>
+        <span>安全與無痕</span>
+      </button>
+      <button type="button" role="tab" class="tab-btn" data-tab="guide" aria-selected="false">
+        <span class="tab-icon">🦋</span>
+        <span>12月生物圖鑑</span>
+      </button>
+      <button type="button" role="tab" class="tab-btn" data-tab="quiz" aria-selected="false">
+        <span class="tab-icon">🏅</span>
+        <span>出發前小挑戰</span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ==================== 主內容區域 ==================== -->
+  <main class="main-container">
+
+    <!-- ===================================================
+         分頁 1：任務情報站（行程與裝備清單）
+         =================================================== -->
+    <section id="panel-mission" class="tab-panel">
+      <!-- 活動資料卡片 -->
+      <div class="section-card earth-theme">
+        <div class="card-banner earth-bg">
+          <div class="card-banner-title">
+            <span style="font-size: 28px;">📋</span>
+            <div>
+              <h2>生態考察任務情報板</h2>
+              <p>天水圍官立小學「奇妙科學研究所」（小四至小六學生）</p>
+            </div>
+          </div>
+          <span style="background: #FBC02D; color: #4E342E; font-size: 12px; font-weight: 900; padding: 5px 12px; border-radius: 999px;">
+            大埔滘自然護理區 🌲
+          </span>
+        </div>
+
+        <div class="card-body">
+          <div class="info-grid">
+            <div class="info-tile">
+              <div class="info-tile-icon">📅</div>
+              <div>
+                <div class="info-label">考察日期</div>
+                <div class="info-value">2026年12月4日（星期五）</div>
+              </div>
+            </div>
+
+            <div class="info-tile sun">
+              <div class="info-tile-icon">⏰</div>
+              <div>
+                <div class="info-label">考察時間</div>
+                <div class="info-value">下午 2:00 － 4:00</div>
+              </div>
+            </div>
+
+            <div class="info-tile earth">
+              <div class="info-tile-icon">🏫</div>
+              <div>
+                <div class="info-label">解散時間及地點</div>
+                <div class="info-value">下午 4:30 本校正門</div>
+              </div>
+            </div>
+
+            <div class="info-tile">
+              <div class="info-tile-icon">👩‍🏫</div>
+              <div>
+                <div class="info-label">負責老師</div>
+                <div class="info-value">周恒峯主任、李智康老師</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="sub-heading-bar">當日四大科學任務</div>
+          <div class="missions-grid">
+            <div class="mission-box m-sun">
+              <div class="mission-top">
+                <div class="mission-emoji">🌡️</div>
+                <span class="mission-num">任務 ①</span>
+              </div>
+              <h4>微氣候比較</h4>
+              <p>利用科學儀器測量並比較林間不同位置的溫度、濕度與光照強度。</p>
+            </div>
+
+            <div class="mission-box">
+              <div class="mission-top">
+                <div class="mission-emoji">🔍</div>
+                <span class="mission-num">任務 ②</span>
+              </div>
+              <h4>森林尋寶與分類</h4>
+              <p>細心觀察大埔滘的植物與自然特徵，運用科學方法進行記錄及分類。</p>
+            </div>
+
+            <div class="mission-box m-sky">
+              <div class="mission-top">
+                <div class="mission-emoji">💧</div>
+                <span class="mission-num">任務 ③</span>
+              </div>
+              <h4>溪流生態聆聽</h4>
+              <p>保持安全距離，靜心聆聽清澈溪流與林鳥鳴唱，感受森林生命力。</p>
+            </div>
+
+            <div class="mission-box m-earth">
+              <div class="mission-top">
+                <div class="mission-emoji">🗣️</div>
+                <span class="mission-num">任務 ④</span>
+              </div>
+              <h4>分組分享</h4>
+              <p>與組員整理考察數據與發現，自信地向同學及老師分享探索成果。</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 互動執書包 Checklist -->
+      <div class="section-card">
+        <div class="card-body">
+          <div class="checklist-header">
+            <div>
+              <h2 class="section-heading"><span>🎒</span> 互動執書包 Checklist</h2>
+              <p class="section-sub">點擊下方 7 項必備物品逐一勾選，全部執齊即可解鎖出發徽章！</p>
+            </div>
+            <div class="checklist-actions">
+              <span id="checklistCountPill" class="count-pill">已準備 0 / 7 項</span>
+              <button id="resetChecklistBtn" type="button" class="btn btn-outline btn-sm">重設清單</button>
+            </div>
+          </div>
+
+          <div class="sub-progress-track">
+            <div id="checklistProgressBar" class="sub-progress-fill"></div>
+          </div>
+
+          <div id="checklistGrid" class="checklist-grid"></div>
+
+          <div id="checklistCompleteBanner" class="complete-banner hidden">
+            <div style="display: flex; align-items: center; gap: 12px;">
+              <span style="font-size: 32px;">🎉</span>
+              <div>
+                <div style="font-size: 17px; font-weight: 900; color: #1B5E20;">準備就緒！出發！</div>
+                <div style="font-size: 13px; color: #4E342E;">7 項必備裝備已經執妥，下一步快去熟習森林安全守則吧！</div>
+              </div>
+            </div>
+            <button type="button" class="btn btn-primary" data-jump-tab="safety">前往安全守則 →</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================================================
+         分頁 2：森林安全與「無痕山林」守則（互動翻轉卡）
+         =================================================== -->
+    <section id="panel-safety" class="tab-panel hidden">
+      <div class="section-card">
+        <div class="card-body">
+          <div class="checklist-header">
+            <div>
+              <h2 class="section-heading"><span>🛡️</span> 森林安全與「無痕山林」守則</h2>
+              <p class="section-sub">點擊以下 5 張互動卡片進行 3D 翻轉，看看小小科學家應如何保護自己與大自然！</p>
+            </div>
+            <span id="safetyProgressPill" class="count-pill" style="background: #FFF8E1; border-color: #FBC02D; color: #4E342E;">
+              已掌握 0 / 5 項守則
+            </span>
+          </div>
+
+          <div class="sub-progress-track">
+            <div id="safetyProgressBar" class="sub-progress-fill"></div>
+          </div>
+
+          <div id="safetyCardsGrid" class="safety-grid"></div>
+
+          <div style="text-align: center; margin-top: 22px;">
+            <button type="button" class="btn btn-primary" data-jump-tab="guide">探索 12月大埔滘生物圖鑑 🦋 →</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================================================
+         分頁 3：12月大埔滘生物圖鑑（實景相片 + 可篩選圖卡）
+         =================================================== -->
+    <section id="panel-guide" class="tab-panel hidden">
+      <div class="section-card">
+        <div class="card-body">
+          <h2 class="section-heading"><span>🦋</span> 12月大埔滘生物圖鑑</h2>
+          <p class="section-sub">
+            認識初冬大埔滘的 11 種代表性生物！按分類篩選，點擊圖卡查看真實相片、特徵與觀察小貼士。
+          </p>
+
+          <div class="filter-bar" role="group" aria-label="生物分類篩選">
+            <button type="button" class="filter-btn active" data-filter="all">🌟 全部 (11)</button>
+            <button type="button" class="filter-btn" data-filter="plant">🌿 植物 (4)</button>
+            <button type="button" class="filter-btn" data-filter="bird">🐦 林鳥 (4)</button>
+            <button type="button" class="filter-btn" data-filter="stream">💧 溪流與昆蟲 (3)</button>
+          </div>
+        </div>
+      </div>
+
+      <div id="speciesGrid" class="species-grid"></div>
+
+      <div style="text-align: center; margin-top: 24px;">
+        <button type="button" class="btn btn-sun" data-jump-tab="quiz">準備好接受出發前小挑戰嗎？ 🏅 →</button>
+      </div>
+    </section>
+
+    <!-- ===================================================
+         分頁 4：出發前小挑戰（互動測驗與電子通行證）
+         =================================================== -->
+    <section id="panel-quiz" class="tab-panel hidden">
+      <div class="section-card sun-theme">
+        <div class="card-banner sun-bg">
+          <div class="card-banner-title">
+            <span style="font-size: 28px;">🏆</span>
+            <div>
+              <h2>出發前小挑戰（5 條情境選擇題）</h2>
+              <p>完成全部 5 題，即可解鎖你的「生態小先鋒」電子通行證！</p>
+            </div>
+          </div>
+          <span id="quizScoreBadge" style="background: #FFFFFF; color: #1B5E20; font-size: 13px; font-weight: 900; padding: 6px 14px; border-radius: 999px;">
+            第 1 / 5 題
+          </span>
+        </div>
+
+        <div class="card-body">
+          <div id="quizStage"></div>
+        </div>
+      </div>
+
+      <!-- 電子通行證區塊 -->
+      <div id="passSection" class="section-card">
+        <div class="card-body">
+          <h2 class="section-heading"><span>🪪</span> 「奇妙科學研究所 — 生態小先鋒」電子通行證</h2>
+          <p class="section-sub">完成上方 5 條小測驗後，輸入姓名與班別，即可預覽並下載專屬高清 PNG 通行證！</p>
+
+          <!-- 未解鎖狀態 -->
+          <div id="passLockedBox" class="pass-locked" style="margin-top: 16px;">
+            <div style="font-size: 40px; margin-bottom: 6px;">🔒</div>
+            <div style="font-size: 17px; font-weight: 900;">電子通行證尚未解鎖</div>
+            <p style="margin: 6px 0 0; font-size: 13.5px;">請先完成上方 5 條「出發前小挑戰」，完成後會立即解鎖！</p>
+          </div>
+
+          <!-- 已解鎖狀態 -->
+          <div id="passUnlockedBox" class="hidden" style="margin-top: 16px;">
+            <div class="pass-form-grid">
+              <div>
+                <label for="studentNameInput" class="form-label">探險員姓名 *</label>
+                <input id="studentNameInput" type="text" class="form-input" maxlength="16" placeholder="例如：陳小明" />
+              </div>
+              <div>
+                <label for="studentClassInput" class="form-label">班別（例如：5A）</label>
+                <input id="studentClassInput" type="text" class="form-input" maxlength="8" placeholder="例如：5A" />
+              </div>
+            </div>
+
+            <!-- 即時預覽通行證卡片 -->
+            <div class="pass-card-preview">
+              <div class="pass-deco-circle" style="width: 160px; height: 160px; top: -45px; right: -45px; background: rgba(255, 202, 40, 0.14);"></div>
+              <div class="pass-deco-circle" style="width: 140px; height: 140px; bottom: -50px; left: -40px; background: rgba(255, 255, 255, 0.08);"></div>
+
+              <div class="pass-head">
+                <div>
+                  <div style="font-size: 12px; font-weight: 700; color: #FFF8E1;">天水圍官立小學・奇妙科學研究所</div>
+                  <div style="font-size: 20px; font-weight: 900; margin-top: 2px;">🏅 生態小先鋒電子通行證</div>
+                </div>
+                <span id="passRankPill" class="pass-rank-pill">⭐ 生態小先鋒</span>
+              </div>
+
+              <div class="pass-mid">
+                <div style="flex: 1;">
+                  <div style="font-size: 11.5px; color: #C8E6C9;">探險員姓名 / 班別</div>
+                  <div class="pass-student-name">
+                    <span id="previewName">小小科學家</span>
+                    <span id="previewClass" style="font-size: 16px; color: #FFE082; margin-left: 6px;"></span>
+                  </div>
+
+                  <div class="pass-meta-grid" style="margin-top: 12px;">
+                    <div class="pass-meta-box">
+                      <div style="font-size: 11px; color: #C8E6C9;">考察日期</div>
+                      <div style="font-size: 14px; font-weight: 800;">2026年12月4日</div>
+                    </div>
+                    <div class="pass-meta-box">
+                      <div style="font-size: 11px; color: #C8E6C9;">考察地點</div>
+                      <div style="font-size: 14px; font-weight: 800;">大埔滘自然護理區</div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="pass-stamp">
+                  <span style="font-size: 24px; line-height: 1;">✅</span>
+                  <span style="font-size: 11.5px; font-weight: 900; color: #FFF8E1; margin-top: 4px; line-height: 1.25;">已通過<br />出發前考核</span>
+                </div>
+              </div>
+
+              <div class="pass-foot">
+                <span>編號：<strong id="previewCode" style="color: #FFE082;">TSW-2026-001</strong></span>
+                <span>小挑戰成績：<strong id="previewScore" style="color: #FFCA28;">5 / 5 分</strong></span>
+              </div>
+            </div>
+
+            <div style="text-align: center; margin-top: 18px;">
+              <button id="downloadPassBtn" type="button" class="btn btn-primary" style="font-size: 15.5px; padding: 13px 26px;">
+                📥 下載電子通行證（PNG）
+              </button>
+              <p id="downloadMsg" class="hidden" style="margin: 10px 0 0; font-size: 13.5px; font-weight: 800; color: #1B5E20;"></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ==================== 頁尾 ==================== -->
+  <footer class="site-footer">
+    <strong>天水圍官立小學・奇妙科學研究所</strong>
+    <div>大埔滘自然護理區生態考察（2026年12月4日）— 細心觀察，愛護自然，實踐「無痕山林」🌿</div>
+  </footer>
+
+  <!-- ==================== 裝備執齊慶祝彈窗 ==================== -->
+  <div id="packCelebrateModal" class="modal-backdrop hidden" role="dialog" aria-modal="true" aria-labelledby="packModalTitle">
+    <div class="modal-dialog" style="max-width: 430px; border-color: #FBC02D;">
+      <button id="closePackModalX" type="button" class="modal-close-btn" aria-label="關閉彈窗">✕</button>
+      <div class="modal-content-pad" style="text-align: center; padding-top: 28px;">
+        <div style="width: 86px; height: 86px; margin: 0 auto 12px; border-radius: 50%; background: linear-gradient(135deg, #FFCA28, #FBC02D); display: flex; align-items: center; justify-content: center; font-size: 44px; box-shadow: 0 8px 20px rgba(251, 192, 45, 0.35);">
+          🎒
+        </div>
+        <span style="display: inline-block; background: #E8F5E9; color: #1B5E20; font-size: 12px; font-weight: 900; padding: 4px 12px; border-radius: 999px;">
+          裝備執拾 100% 完成
+        </span>
+        <h3 id="packModalTitle" style="margin: 10px 0 8px; font-size: 25px; font-weight: 900; color: #1B5E20;">
+          🎉 準備就緒！出發！
+        </h3>
+        <p style="margin: 0 0 18px; font-size: 14px; color: #556358;">
+          太棒了！你已將 7 項生態考察必備裝備全部執妥，是一位滿分的小小科學家！
+        </p>
+        <div style="display: flex; gap: 10px; justify-content: center; flex-wrap: wrap;">
+          <button id="closePackModalBtn" type="button" class="btn btn-outline">關閉</button>
+          <button id="packModalGoSafetyBtn" type="button" class="btn btn-primary">前往安全守則 →</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== 生物詳情彈窗 ==================== -->
+  <div id="speciesModal" class="modal-backdrop hidden" role="dialog" aria-modal="true" aria-labelledby="modalSpeciesName">
+    <div class="modal-dialog">
+      <button id="closeSpeciesModalBtn" type="button" class="modal-close-btn" aria-label="關閉視窗">✕</button>
+      <div id="modalPhotoStage" class="modal-photo-stage"></div>
+      <div id="modalCaptionBar" class="modal-caption-bar hidden"></div>
+      <div id="modalThumbStrip" class="modal-thumb-strip hidden"></div>
+      <div class="modal-content-pad">
+        <div style="display: flex; justify-content: space-between; align-items: center; gap: 8px; flex-wrap: wrap;">
+          <span id="modalSpeciesCat" class="cat-badge" style="background: #E8F5E9;"></span>
+          <span id="modalPhotoCredit" style="font-size: 11.5px; color: #556358; font-weight: 700;">實景相片來源：Wikimedia Commons</span>
+        </div>
+        <h3 id="modalSpeciesName" style="margin: 8px 0 2px; font-size: 22px; font-weight: 900; color: #1B5E20;"></h3>
+        <div id="modalSpeciesSci" style="font-size: 13.5px; font-style: italic; color: #43A047; font-weight: 700;"></div>
+
+        <div id="modalAlertBox" class="detail-box hidden"></div>
+
+        <div class="detail-box green">
+          <div class="detail-box-title">🔎 生物特徵</div>
+          <div id="modalFeatures"></div>
+        </div>
+
+        <div class="detail-box sun">
+          <div class="detail-box-title">❄️ 12月生態亮點</div>
+          <div id="modalSeason"></div>
+        </div>
+
+        <div class="detail-box sky">
+          <div class="detail-box-title">💡 小先鋒觀察小貼士</div>
+          <div id="modalTips"></div>
+        </div>
+
+        <button id="closeSpeciesModalBottomBtn" type="button" class="btn btn-primary" style="width: 100%; margin-top: 16px;">
+          返回生物圖鑑
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== 全螢幕相片放大預覽（Lightbox） ==================== -->
+  <div id="photoLightbox" class="lightbox-backdrop hidden" role="dialog" aria-modal="true" aria-label="放大生態相片">
+    <button id="closeLightboxBtn" type="button" class="modal-close-btn" style="top: 16px; right: 16px; width: 44px; height: 44px; z-index: 170;" aria-label="關閉放大檢視">✕</button>
+    <button id="lightboxPrevBtn" type="button" class="lightbox-nav-btn prev" aria-label="上一張相片">‹</button>
+    <button id="lightboxNextBtn" type="button" class="lightbox-nav-btn next" aria-label="下一張相片">›</button>
+    <div id="lightboxStage" class="lightbox-stage">
+      <img id="lightboxImg" class="lightbox-img" src="" alt="" />
+    </div>
+    <div style="text-align: center; color: #FFFFFF; max-width: 90vw;">
+      <div id="lightboxCounter" style="display: inline-block; background: rgba(251, 192, 45, 0.25); color: #FFE082; border: 1px solid rgba(255, 224, 130, 0.5); font-size: 12px; font-weight: 900; padding: 2px 10px; border-radius: 999px; margin-bottom: 4px;"></div>
+      <div id="lightboxTitle" style="font-size: 18px; font-weight: 900;"></div>
+      <div id="lightboxSci" style="font-size: 13px; font-style: italic; color: #FFE082; margin-top: 2px;"></div>
+      <div id="lightboxCaption" style="font-size: 12px; color: #DCEDC8; margin-top: 4px;"></div>
+    </div>
+  </div>
+
+  <!-- 隱藏高解析度通行證匯出畫布 -->
+  <canvas id="passExportCanvas" width="1000" height="620" class="hidden"></canvas>
+
+  <script>
+    (function () {
+      'use strict';
+
+      /* =======================================================
+         1. 安全本地儲存（防沙盒 SecurityError，自動降級記憶體狀態）
+         ======================================================= */
+      const STORAGE_KEY = 'tswgps_taipokau_handbook_2026_v2';
+      let appState = {
+        checkedPackIds: [],
+        masteredSafetyIds: [],
+        quizAnswers: {},
+        currentQuizIndex: 0,
+        studentName: '',
+        studentClass: '',
+        explorerCode: 'TSW-2026-' + String(Math.floor(100 + Math.random() * 900))
+      };
+
+      function loadState() {
+        try {
+          if (typeof window !== 'undefined' && window.localStorage) {
+            const raw = window.localStorage.getItem(STORAGE_KEY);
+            if (raw) {
+              const parsed = JSON.parse(raw);
+              if (parsed && typeof parsed === 'object') {
+                appState = Object.assign(appState, parsed);
+              }
+            }
+          }
+        } catch (e) {
+          // 沙盒不允許 localStorage 時靜默使用記憶體狀態
+        }
+      }
+
+      function saveState() {
+        try {
+          if (typeof window !== 'undefined' && window.localStorage) {
+            window.localStorage.setItem(STORAGE_KEY, JSON.stringify(appState));
+          }
+        } catch (e) {
+          // 沙盒不允許 localStorage 時靜默略過
+        }
+      }
+
+      /* =======================================================
+         2. Web Audio API 輕快音效合成（全面 try...catch 防錯）
+         ======================================================= */
+      let soundEnabled = true;
+      let audioCtx = null;
+
+      function getAudioCtx() {
+        try {
+          if (!audioCtx) {
+            const Ctx = window.AudioContext || window.webkitAudioContext;
+            if (Ctx) {
+              audioCtx = new Ctx();
+            }
+          }
+          if (audioCtx && audioCtx.state === 'suspended') {
+            audioCtx.resume().catch(function () {});
+          }
+          return audioCtx;
+        } catch (e) {
+          return null;
+        }
+      }
+
+      function playTone(freq, duration, type, volume, delay) {
+        if (!soundEnabled) return;
+        const ctx = getAudioCtx();
+        if (!ctx) return;
+        try {
+          const osc = ctx.createOscillator();
+          const gain = ctx.createGain();
+          const startAt = ctx.currentTime + (delay || 0);
+          osc.type = type || 'sine';
+          osc.frequency.setValueAtTime(freq, startAt);
+          gain.gain.setValueAtTime(0.001, startAt);
+          gain.gain.exponentialRampToValueAtTime(volume || 0.11, startAt + 0.02);
+          gain.gain.exponentialRampToValueAtTime(0.001, startAt + duration);
+          osc.connect(gain);
+          gain.connect(ctx.destination);
+          osc.start(startAt);
+          osc.stop(startAt + duration + 0.03);
+        } catch (e) {
+          // 忽略音效異常
+        }
+      }
+
+      const SFX = {
+        click: function () { playTone(560, 0.07, 'triangle', 0.07, 0); },
+        check: function () {
+          playTone(523.25, 0.1, 'sine', 0.11, 0);
+          playTone(659.25, 0.14, 'sine', 0.11, 0.07);
+        },
+        uncheck: function () { playTone(400, 0.08, 'sine', 0.06, 0); },
+        flip: function () {
+          playTone(440, 0.07, 'triangle', 0.08, 0);
+          playTone(587.33, 0.1, 'triangle', 0.08, 0.05);
+        },
+        correct: function () {
+          playTone(523.25, 0.11, 'sine', 0.12, 0);
+          playTone(659.25, 0.11, 'sine', 0.12, 0.08);
+          playTone(783.99, 0.2, 'sine', 0.13, 0.16);
+        },
+        wrong: function () {
+          playTone(300, 0.15, 'triangle', 0.09, 0);
+          playTone(245, 0.2, 'triangle', 0.09, 0.13);
+        },
+        celebrate: function () {
+          const notes = [523.25, 659.25, 783.99, 1046.5];
+          notes.forEach(function (n, idx) {
+            playTone(n, 0.22, 'triangle', 0.12, idx * 0.09);
+          });
+        }
+      };
+
+      /* =======================================================
+         3. 彩紙慶祝動畫（Canvas）
+         ======================================================= */
+      const confettiCanvas = document.getElementById('confettiCanvas');
+      const confettiCtx = confettiCanvas ? confettiCanvas.getContext('2d') : null;
+      let confettiParticles = [];
+      let confettiRaf = null;
+
+      function resizeConfetti() {
+        try {
+          if (!confettiCanvas) return;
+          confettiCanvas.width = window.innerWidth;
+          confettiCanvas.height = window.innerHeight;
+        } catch (e) {}
+      }
+      window.addEventListener('resize', resizeConfetti);
+      resizeConfetti();
+
+      function launchConfetti(count) {
+        if (!confettiCanvas || !confettiCtx) return;
+        const colors = ['#2E7D32', '#FBC02D', '#FF7043', '#43A047', '#29B6F6', '#AB47BC', '#FFF176'];
+        const total = count || 85;
+        for (let i = 0; i < total; i++) {
+          confettiParticles.push({
+            x: Math.random() * confettiCanvas.width,
+            y: -20 - Math.random() * 140,
+            w: 7 + Math.random() * 7,
+            h: 5 + Math.random() * 6,
+            vx: (Math.random() - 0.5) * 4,
+            vy: 2.5 + Math.random() * 4.5,
+            rot: Math.random() * Math.PI * 2,
+            vRot: (Math.random() - 0.5) * 0.2,
+            color: colors[Math.floor(Math.random() * colors.length)],
+            alpha: 1
+          });
+        }
+        if (!confettiRaf) {
+          animateConfetti();
+        }
+      }
+
+      function animateConfetti() {
+        if (!confettiCanvas || !confettiCtx) return;
+        confettiCtx.clearRect(0, 0, confettiCanvas.width, confettiCanvas.height);
+        for (let i = 0; i < confettiParticles.length; i++) {
+          const p = confettiParticles[i];
+          p.x += p.vx;
+          p.y += p.vy;
+          p.rot += p.vRot;
+          if (p.y > confettiCanvas.height * 0.75) {
+            p.alpha -= 0.025;
+          }
+          confettiCtx.save();
+          confettiCtx.globalAlpha = Math.max(0, p.alpha);
+          confettiCtx.translate(p.x, p.y);
+          confettiCtx.rotate(p.rot);
+          confettiCtx.fillStyle = p.color;
+          confettiCtx.fillRect(-p.w / 2, -p.h / 2, p.w, p.h);
+          confettiCtx.restore();
+        }
+        confettiParticles = confettiParticles.filter(function (p) {
+          return p.alpha > 0 && p.y < confettiCanvas.height + 30;
+        });
+        if (confettiParticles.length > 0) {
+          confettiRaf = window.requestAnimationFrame(animateConfetti);
+        } else {
+          confettiRaf = null;
+          confettiCtx.clearRect(0, 0, confettiCanvas.width, confettiCanvas.height);
+        }
+      }
+
+      /* =======================================================
+         4. 核心資料定義
+         ======================================================= */
+      const PACK_ITEMS = [
+        { id: 'uniform', name: '整齊運動服', icon: '👟', tip: '穿著校服運動服及防滑運動鞋，方便步行山徑' },
+        { id: 'backpack', name: '輕便背包', icon: '🎒', tip: '雙肩背包方便騰出雙手使用儀器及保持平衡' },
+        { id: 'water', name: '適量飲用水', icon: '💧', tip: '自備環保水樽，隨時補充水份' },
+        { id: 'wipes', name: '濕紙巾', icon: '🧻', tip: '抹汗或清潔雙手，用後記得帶走垃圾' },
+        { id: 'raingear', name: '雨具', icon: '☂️', tip: '摺傘或輕便雨衣，應對林間多變天氣' },
+        { id: 'stationery', name: '文具', icon: '✏️', tip: '鉛筆、擦膠及墊板，方便記錄微氣候數據' },
+        { id: 'protection', name: '防曬及防蚊用品', icon: '🧴', tip: '12月林間仍有蚊蟲，避免使用過濃香水' }
+      ];
+
+      const SAFETY_CARDS = [
+        {
+          id: 'stay-together',
+          title: '緊跟隊伍',
+          icon: '🧭',
+          question: '山林小徑前面有多條岔路，旁邊好像有很特別的昆蟲，可以自己走入密林探索嗎？',
+          answer: '山林小徑多岔路，不可擅自離隊或走入密林，必須時刻緊跟隊伍與老師。'
+        },
+        {
+          id: 'stream-safety',
+          title: '溪澗安全',
+          icon: '🌊',
+          question: '進行溪流生態聆聽時，可以踏上溪邊長滿青苔的石頭或下水玩水嗎？',
+          answer: '聆聽溪流生態時保持距離，切勿踏上濕滑青苔石頭或下水，以防滑倒受傷。'
+        },
+        {
+          id: 'bug-safety',
+          title: '防蚊防蟲',
+          icon: '🦟',
+          question: '12月天氣轉涼，林間還會不會有蚊蟲？看到毛蟲或蜂巢時應該怎樣做？',
+          answer: '12月林間仍有蚊蟲，避免噴灑過濃香水，不主動觸摸毛蟲或蜂巢，與昆蟲保持安全距離。'
+        },
+        {
+          id: 'no-feeding',
+          title: '不餵飼野生動物',
+          icon: '🐒',
+          question: '在林道途中遇見猴子、野豬或松鼠走近，可以把食物分給牠們吃嗎？',
+          answer: '若遇見猴子、野豬或松鼠，保持冷靜並收好食物，切勿餵食或挑釁野生動物。'
+        },
+        {
+          id: 'leave-no-trace',
+          title: '無痕山林（Leave No Trace）',
+          icon: '🌿',
+          question: '看到地上漂亮的紅葉或溪邊光滑的石塊，可以採摘或帶回家留念嗎？',
+          answer: '自己垃圾自己帶走，只用眼睛觀察和儀器記錄，不採摘花草或帶走石塊。'
+        }
+      ];
+
+      const SPECIES_LIST = [
+        {
+          id: 'schefflera',
+          category: 'plant',
+          categoryLabel: '🌿 植物',
+          name: '鴨腳木',
+          scientificName: 'Heptapleurum heptaphyllum / Schefflera heptaphylla',
+          commonsQueries: [
+            '"Heptapleurum heptaphyllum"',
+            '"Schefflera heptaphylla"',
+            '"Schefflera octophylla"'
+          ],
+          shortDesc: '冬季開花，掌狀複葉似鴨腳，吸引大量蜂蝶前來採蜜。',
+          features: '香港常見本地喬木，葉片呈掌狀複葉，由多片小葉圍繞中心排列，形狀像鴨掌一樣，因此得名「鴨腳木」（又稱鵝掌柴）。',
+          season: '12 月初冬正是鴨腳木的盛花期！滿樹米白色小花在百花凋零的冬季，成為蝴蝶、蜜蜂和林鳥極為重要的蜜源餐廳。',
+          tips: '抬頭望望林道旁的鴨腳木花叢，留心觀察是否有斑蝶或蜜蜂在花間飛舞，並數一數一片複葉有幾塊小葉。',
+          alert: null,
+          svg: '<svg viewBox="0 0 100 100" class="photo-fallback-svg"><circle cx="50" cy="50" r="46" fill="#E8F5E9"/><line x1="50" y1="86" x2="50" y2="52" stroke="#6D4C41" stroke-width="5" stroke-linecap="round"/><g fill="#2E7D32"><ellipse cx="50" cy="28" rx="7" ry="18"/><ellipse cx="32" cy="36" rx="7" ry="17" transform="rotate(-38 32 36)"/><ellipse cx="68" cy="36" rx="7" ry="17" transform="rotate(38 68 36)"/><ellipse cx="26" cy="54" rx="6" ry="14" transform="rotate(-72 26 54)"/><ellipse cx="74" cy="54" rx="6" ry="14" transform="rotate(72 74 54)"/></g><circle cx="50" cy="18" r="4" fill="#FBC02D"/><circle cx="42" cy="21" r="3.5" fill="#FFF176"/><circle cx="58" cy="21" r="3.5" fill="#FFF176"/></svg>'
+        },
+        {
+          id: 'sweetgum',
+          category: 'plant',
+          categoryLabel: '🌿 植物',
+          name: '楓香',
+          scientificName: 'Liquidambar formosana',
+          commonsQueries: [
+            '"Liquidambar formosana" leaf',
+            '"Liquidambar formosana" autumn',
+            '"Liquidambar formosana"'
+          ],
+          shortDesc: '秋冬季葉片轉紅或黃，為翠綠的大埔滘增添迷人秋意。',
+          features: '落葉大喬木，葉片通常呈明顯的「三裂」掌狀，邊緣有細鋸齒；果實像長滿小刺的棕色小圓球（俗稱「路路通」）。',
+          season: '踏入 12 月天氣轉涼，楓香葉片內的葉綠素分解，葉色由綠轉黃、再轉橙紅，是大埔滘秋冬最動人的風景之一。',
+          tips: '可細心觀察地面自然掉落的楓香葉，比較不同葉片的顏色層次，但記得實踐無痕山林，不帶走自然物喔！',
+          alert: null,
+          svg: '<svg viewBox="0 0 100 100" class="photo-fallback-svg"><circle cx="50" cy="50" r="46" fill="#FFF3E0"/><path d="M50,15 L58,40 L84,34 L64,54 L72,72 L50,62 L28,72 L36,54 L16,34 L42,40 Z" fill="#E65100"/><path d="M50,24 L50,86" stroke="#8D6E63" stroke-width="3.5" stroke-linecap="round"/><circle cx="76" cy="76" r="8" fill="#6D4C41"/></svg>'
+        },
+        {
+          id: 'pine',
+          category: 'plant',
+          categoryLabel: '🌿 植物',
+          name: '馬尾松',
+          scientificName: 'Pinus massoniana',
+          commonsQueries: [
+            '"Pinus massoniana" cone',
+            '"Pinus massoniana" tree',
+            '"Pinus massoniana"'
+          ],
+          shortDesc: '大埔滘早期植林樹種，故大埔滘又稱「松仔園」。',
+          features: '常綠針葉喬木，樹皮呈紅褐色帶龜裂紋；細長柔軟的松針通常是「兩針一束」長在一起，並結有木質松果。',
+          season: '大埔滘早期廣泛種植馬尾松，故當地俗稱「松仔園」。即使在 12 月冬季，馬尾松依然四季常青。',
+          tips: '觀察高聳樹幹的粗糙樹皮，也可以留意地面自然掉落的松針，驗證一下是不是「兩針一束」！',
+          alert: null,
+          svg: '<svg viewBox="0 0 100 100" class="photo-fallback-svg"><circle cx="50" cy="50" r="46" fill="#E8F5E9"/><rect x="46" y="54" width="8" height="32" rx="3" fill="#6D4C41"/><polygon points="50,14 26,46 74,46" fill="#1B5E20"/><polygon points="50,28 22,60 78,60" fill="#2E7D32"/><polygon points="50,42 20,72 80,72" fill="#388E3C"/></svg>'
+        },
+        {
+          id: 'alocasia',
+          category: 'plant',
+          categoryLabel: '🌿 植物',
+          name: '海芋',
+          scientificName: 'Alocasia odora / Alocasia macrorrhizos',
+          commonsQueries: [
+            '"Alocasia odora"',
+            '"Alocasia macrorrhizos" leaf',
+            '"Alocasia macrorrhizos"'
+          ],
+          shortDesc: '葉片巨大如象耳，汁液有毒，切勿觸摸或折斷！',
+          features: '大型常綠草本植物，葉片巨大呈心形或箭頭狀，葉柄粗壯多汁，常生長於陰濕的林下或溪畔。',
+          season: '12 月林下依然茂盛翠綠，是辨識陰濕微氣候（濕度較高、光照較低）的絕佳指標植物。',
+          tips: '只可用眼睛遠距離觀察它巨大的葉片與葉脈，切勿用手觸摸、拍打或折斷莖葉。',
+          alert: {
+            type: 'danger',
+            chipText: '⚠️ 有毒警示',
+            text: '【⚠️ 有毒警示】海芋全株汁液含有毒素，接觸皮膚會引起紅腫痕癢，切勿觸摸或折斷！'
+          },
+          svg: '<svg viewBox="0 0 100 100" class="photo-fallback-svg"><circle cx="50" cy="50" r="46" fill="#FFEBEE"/><path d="M50,86 L50,48" stroke="#388E3C" stroke-width="6" stroke-linecap="round"/><path d="M50,18 C72,22 82,42 74,60 C66,70 56,64 50,55 C44,64 34,70 26,60 C18,42 28,22 50,18 Z" fill="#2E7D32"/><circle cx="78" cy="24" r="13" fill="#C62828"/><text x="78" y="29" text-anchor="middle" fill="#FFFFFF" font-size="16" font-weight="bold">!</text></svg>'
+        },
+        {
+          id: 'mesia',
+          category: 'bird',
+          categoryLabel: '🐦 林鳥',
+          name: '銀耳相思鳥',
+          scientificName: 'Leiothrix argentauris',
+          commonsQueries: [
+            '"Leiothrix argentauris" bird',
+            '"Leiothrix argentauris"'
+          ],
+          shortDesc: '色彩鮮豔、耳羽銀白，常成群於林間灌木與樹枝活躍穿梭。',
+          features: '體型嬌小但羽色極為亮麗：頭頂黑色、臉頰有一塊醒目的銀白色耳羽，喉部橙黃，翅膀點綴鮮紅色羽斑。',
+          season: '大埔滘是香港觀賞銀耳相思鳥的著名勝地。12 月牠們常成群結隊在林間覓食，叫聲輕快悅耳。',
+          tips: '聽到灌木叢傳來清脆活潑的「吱吱啾啾」叫聲時，放輕腳步，往中低層樹枝尋找牠們鮮豔的身影。',
+          alert: null,
+          svg: '<svg viewBox="0 0 100 100" class="photo-fallback-svg"><circle cx="50" cy="50" r="46" fill="#FFF8E1"/><ellipse cx="48" cy="54" rx="22" ry="15" fill="#FBC02D"/><path d="M36,48 Q52,44 66,56 Q50,64 36,56 Z" fill="#D32F2F"/><circle cx="34" cy="40" r="12" fill="#212121"/><ellipse cx="38" cy="42" rx="5" ry="4" fill="#ECEFF1"/><polygon points="22,40 13,43 23,46" fill="#FF9800"/></svg>'
+        },
+        {
+          id: 'bulbul',
+          category: 'bird',
+          categoryLabel: '🐦 林鳥',
+          name: '紅耳鵯／白頭鵯',
+          scientificName: 'Pycnonotus jocosus / Pycnonotus sinensis',
+          commonsQueries: [
+            '"Pycnonotus jocosus"',
+            '"Pycnonotus sinensis"'
+          ],
+          shortDesc: '香港常見留鳥，叫聲清脆悅耳，常在林緣樹梢活動。',
+          features: '紅耳鵯頭頂有高高豎起的黑色羽冠與紅白臉斑；白頭鵯後枕呈明顯白色，兩者皆活潑好動，喜愛吃野果與昆蟲。',
+          season: '全年常見留鳥，12 月常聚集在開揚處的樹梢上曬太陽及鳴唱，是初學觀鳥最容易辨認的好夥伴。',
+          tips: '先聽聲音再找鳥！牠們的叫聲響亮清脆，停棲於樹梢時很容易用肉眼看清頭頂特徵。',
+          alert: null,
+          svg: '<svg viewBox="0 0 100 100" class="photo-fallback-svg"><circle cx="50" cy="50" r="46" fill="#FEFCE8"/><ellipse cx="52" cy="56" rx="20" ry="14" fill="#8D6E63"/><circle cx="38" cy="40" r="11" fill="#263238"/><polygon points="34,30 40,16 45,31" fill="#263238"/><circle cx="40" cy="41" r="2.5" fill="#E53935"/></svg>'
+        },
+        {
+          id: 'woodpecker',
+          category: 'bird',
+          categoryLabel: '🐦 林鳥',
+          name: '黃咀栗啄木鳥／斑姬啄木鳥',
+          scientificName: 'Blythipicus pyrrhotis / Picumnus innominatus',
+          commonsQueries: [
+            '"Blythipicus pyrrhotis"',
+            '"Picumnus innominatus"',
+            '"Blythipicus"'
+          ],
+          shortDesc: '森林裡的「樹醫生」，留意樹幹傳來清脆的「篤篤」啄木聲！',
+          features: '擁有堅硬如鑿子的喙及善於攀附樹皮的腳趾；黃咀栗啄木鳥呈栗褐色帶黃喙，斑姬啄木鳥則十分嬌小靈巧。',
+          season: '12 月林間較安靜，更容易聽見牠們在樹幹或枯枝上敲擊尋找害蟲時發出的「篤、篤、篤」節奏聲。',
+          tips: '聽到樹林傳來有規律的敲木聲時，保持安靜並順著聲音望向粗壯樹幹或枯枝。',
+          alert: null,
+          svg: '<svg viewBox="0 0 100 100" class="photo-fallback-svg"><circle cx="50" cy="50" r="46" fill="#EFEBE9"/><rect x="64" y="14" width="16" height="72" rx="4" fill="#6D4C41"/><ellipse cx="48" cy="52" rx="13" ry="20" fill="#8D6E63"/><circle cx="48" cy="30" r="10" fill="#5D4037"/><polygon points="56,28 66,31 56,34" fill="#FBC02D"/></svg>'
+        },
+        {
+          id: 'migratory',
+          category: 'bird',
+          categoryLabel: '🐦 林鳥',
+          name: '冬候鳥（紅脇藍尾鴝／柳鶯類）',
+          scientificName: 'Tarsiger cyanurus / Phylloscopus inornatus',
+          commonsQueries: [
+            '"Tarsiger cyanurus"',
+            '"Phylloscopus inornatus"',
+            '"Phylloscopus proregulus"'
+          ],
+          shortDesc: '12月是觀賞「鳥浪」（混合鳥群結伴覓食）的好時機！',
+          features: '紅脇藍尾鴝雄鳥背部呈藍色、兩脇橙紅；柳鶯類身形小巧呈橄欖綠、帶清晰眉紋，動作極為敏捷。',
+          season: '12 月大批冬候鳥由北方飛抵香港過冬。在大埔滘常可見不同種類林鳥組成「鳥浪」集體在樹冠層覓食！',
+          tips: '遇見「鳥浪」經過時，切記降低聲浪、避免大動作揮手，抬頭細賞樹冠層的熱鬧景象。',
+          alert: null,
+          svg: '<svg viewBox="0 0 100 100" class="photo-fallback-svg"><circle cx="50" cy="50" r="46" fill="#E1F5FE"/><ellipse cx="52" cy="55" rx="20" ry="13" fill="#1976D2"/><ellipse cx="48" cy="59" rx="11" ry="6" fill="#FF7043"/><circle cx="36" cy="43" r="10" fill="#1565C0"/><polygon points="26,43 18,45 27,47" fill="#37474F"/></svg>'
+        },
+        {
+          id: 'newt',
+          category: 'stream',
+          categoryLabel: '💧 溪流與昆蟲',
+          name: '香港瘰螈',
+          scientificName: 'Paramesotriton hongkongensis',
+          commonsQueries: [
+            '"Paramesotriton hongkongensis"',
+            '"Paramesotriton" newt'
+          ],
+          shortDesc: '棲息於清澈山澗，腹部呈鮮橙色斑紋，只可遠觀不可捕捉。',
+          features: '香港唯一原生的有尾兩棲動物，背部深啡色，腹部帶有鮮艷的橙紅色警戒斑紋，喜愛棲息於清涼溪石縫間。',
+          season: '秋冬季（包括 12 月）正是香港瘰螈回到清澈溪澗繁殖的季節！有牠們出現代表溪水水質非常潔淨。',
+          tips: '只可在安全岸邊或橋上向下靜心觀察，切勿下水、翻動石塊或干擾牠們的棲息地。',
+          alert: {
+            type: 'protect',
+            chipText: '🛡️ 受保護物種',
+            text: '【🛡️ 受保護物種】香港瘰螈受法例保護，只可遠觀，絕對不可捕捉、觸摸或干擾！'
+          },
+          svg: '<svg viewBox="0 0 100 100" class="photo-fallback-svg"><circle cx="50" cy="50" r="46" fill="#F3E5F5"/><path d="M22,58 Q40,42 58,52 T86,44" stroke="#4E342E" stroke-width="11" stroke-linecap="round" fill="none"/><path d="M26,59 Q42,46 56,54" stroke="#FF5722" stroke-width="4" stroke-linecap="round" fill="none" stroke-dasharray="5 4"/><circle cx="22" cy="56" r="7" fill="#4E342E"/></svg>'
+        },
+        {
+          id: 'stream-life',
+          category: 'stream',
+          categoryLabel: '💧 溪流與昆蟲',
+          name: '溪流淡水魚與蜻蜓',
+          scientificName: 'Neurobasis chinensis / Rhinogobius / Parazacco spilurus',
+          commonsQueries: [
+            '"Neurobasis chinensis"',
+            '"Rhinogobius"',
+            '"Parazacco spilurus"'
+          ],
+          shortDesc: '華艷色蟌、蝦虎魚與異鱲等溪流指標生物，見證潔淨水質。',
+          features: '清澈溪畔常有金屬綠翅的華艷色蟌等蜻蜓停棲枝葉，水底石間則藏身蝦虎魚（Rhinogobius）與異鱲等小型淡水魚。',
+          season: '12 月溪水清澈涼爽、水流平緩，非常適合進行「溪流生態聆聽」與近岸靜態觀察。',
+          tips: '緊記溪澗安全守則！切勿踏上濕滑青苔石頭或下水，保持安靜更能看見水中小魚游動。',
+          alert: null,
+          svg: '<svg viewBox="0 0 100 100" class="photo-fallback-svg"><circle cx="50" cy="50" r="46" fill="#E0F7FA"/><line x1="36" y1="30" x2="70" y2="30" stroke="#0288D1" stroke-width="4" stroke-linecap="round"/><ellipse cx="46" cy="22" rx="12" ry="4" fill="#81D4FA" transform="rotate(-15 46 22)"/><ellipse cx="46" cy="38" rx="12" ry="4" fill="#81D4FA" transform="rotate(15 46 38)"/><ellipse cx="52" cy="68" rx="18" ry="9" fill="#26A69A"/><polygon points="68,68 80,60 80,76" fill="#00897B"/></svg>'
+        },
+        {
+          id: 'butterfly',
+          category: 'stream',
+          categoryLabel: '💧 溪流與昆蟲',
+          name: '冬季蝴蝶（斑蝶類）',
+          scientificName: 'Danaus genutia / Euploea core / Tirumala limniace / Danaus chrysippus',
+          commonsQueries: [
+            '"Danaus genutia" butterfly',
+            '"Euploea core" butterfly',
+            '"Tirumala limniace" butterfly',
+            '"Danaus chrysippus" butterfly'
+          ],
+          shortDesc: '虎斑蝶、幻紫斑蝶、青斑蝶與金斑蝶，冬季愛在鴨腳木花叢採蜜。',
+          features: '斑蝶類翅膀帶有鮮明橙黑、紫褐或青黑斑紋，飛行優雅緩慢，體內含微苦物質讓鳥類天敵卻步。',
+          season: '香港冬天氣候溫和，大批斑蝶會聚集於背風山谷越冬。12 月陽光普照的下午，牠們最愛到盛開的鴨腳木花叢採蜜！',
+          tips: '觀察蝴蝶時切勿追趕或揮手拍打，細心看看牠們停在哪種花朵上及翅膀斑紋的顏色。',
+          alert: null,
+          svg: '<svg viewBox="0 0 100 100" class="photo-fallback-svg"><circle cx="50" cy="50" r="46" fill="#E8EAF6"/><path d="M50,48 C34,20 14,28 22,50 C18,66 36,74 50,56 Z" fill="#FB8C00" stroke="#263238" stroke-width="3"/><path d="M50,48 C66,20 86,28 78,50 C82,66 64,74 50,56 Z" fill="#FB8C00" stroke="#263238" stroke-width="3"/><rect x="47.5" y="34" width="5" height="32" rx="2.5" fill="#212121"/></svg>'
+        }
+      ];
+
+      const QUIZ_QUESTIONS = [
+        {
+          q: '1. 2026年12月4日考察結束後，我們的解散時間及地點是甚麼？',
+          options: [
+            '下午 4:00 大埔滘自然護理區入口',
+            '下午 4:30 本校正門',
+            '下午 5:00 大埔墟港鐵站'
+          ],
+          correctIndex: 1,
+          explanation: '考察時間為下午 2:00－4:00，返回學校後的解散時間及地點是「下午 4:30 本校正門」，記得準時及通知家人！'
+        },
+        {
+          q: '2. 在森林尋寶時，遇見葉片巨大如象耳的「海芋」，應該怎樣處理？',
+          options: [
+            '摘下一片大葉用來遮陽光',
+            '用手摸一摸莖部看看有沒有汁液',
+            '只用眼睛遠距離觀察，切勿觸摸或折斷，因為它的汁液有毒'
+          ],
+          correctIndex: 2,
+          explanation: '答對了！海芋全株汁液含有毒素，接觸皮膚可引起紅腫痕癢，只用眼睛觀察最安全！'
+        },
+        {
+          q: '3. 如果在林道途中遇見猴子、野豬或松鼠，小小科學家應該怎樣做？',
+          options: [
+            '保持冷靜、不挑釁，並立即收好食物，切勿餵食',
+            '把小食分給牠們，跟牠們做朋友',
+            '大聲尖叫並追著牠們近距離拍照'
+          ],
+          correctIndex: 0,
+          explanation: '非常正確！切勿餵飼野生動物，保持冷靜並收好食物，保護自己也保護野生動物的自然習性。'
+        },
+        {
+          q: '4. 進行「微氣候比較」任務，使用科學儀器測量溫度、濕度及光照時，應抱有甚麼態度？',
+          options: [
+            '隨便估計一個數字寫上去，早點完成',
+            '小心保護儀器、耐心等候讀數穩定並如實記錄，與組員分工合作',
+            '只由一位同學負責全部工作，其餘同學在旁聊天'
+          ],
+          correctIndex: 1,
+          explanation: '這才是真正的科學精神！小心使用儀器、耐心等候讀數穩定、如實記錄並與組員合作比較，數據才會準確。'
+        },
+        {
+          q: '5. 以下哪一項最符合「無痕山林（Leave No Trace）」的原則？',
+          options: [
+            '把漂亮的楓香葉和溪邊小石頭帶回家收藏',
+            '把用完的濕紙巾塞進草叢底下',
+            '自己垃圾自己帶走，只用眼睛觀察和儀器記錄，不採摘花草或帶走石塊'
+          ],
+          correctIndex: 2,
+          explanation: '太棒了！「自己垃圾自己帶走，不採摘花草或帶走石塊」，讓我們一起守護大埔滘的美麗生態！'
+        }
+      ];
+
+      /* =======================================================
+         5. 整體準備進度計算與分頁切換
+         ======================================================= */
+      function updateOverallProgress() {
+        const packDone = appState.checkedPackIds.length;
+        const safeDone = appState.masteredSafetyIds.length;
+        const quizAnswered = Object.keys(appState.quizAnswers).length;
+        const quizDone = quizAnswered >= QUIZ_QUESTIONS.length;
+
+        const packPct = (packDone / PACK_ITEMS.length) * 35;
+        const safePct = (safeDone / SAFETY_CARDS.length) * 35;
+        const quizPct = (Math.min(quizAnswered, QUIZ_QUESTIONS.length) / QUIZ_QUESTIONS.length) * 30;
+        const totalPct = Math.round(packPct + safePct + quizPct);
+
+        const barEl = document.getElementById('overallProgressBar');
+        const txtEl = document.getElementById('overallProgressText');
+        const statPack = document.getElementById('miniStatPack');
+        const statSafe = document.getElementById('miniStatSafe');
+        const statQuiz = document.getElementById('miniStatQuiz');
+
+        if (barEl) barEl.style.width = totalPct + '%';
+        if (txtEl) {
+          let mood = '準備起步！';
+          if (totalPct >= 100) mood = '100% 滿分出發！🌟';
+          else if (totalPct >= 70) mood = '快準備好了！';
+          else if (totalPct >= 30) mood = '繼續加油！';
+          txtEl.textContent = totalPct + '%（' + mood + '）';
+        }
+        if (statPack) statPack.textContent = '🎒 裝備：' + packDone + '/' + PACK_ITEMS.length;
+        if (statSafe) statSafe.textContent = '🛡️ 守則：' + safeDone + '/' + SAFETY_CARDS.length;
+        if (statQuiz) statQuiz.textContent = quizDone ? '🏆 挑戰：已完成 ✅' : '🏆 挑戰：' + quizAnswered + '/' + QUIZ_QUESTIONS.length;
+      }
+
+      function switchTab(tabId) {
+        const panels = document.querySelectorAll('.tab-panel');
+        const buttons = document.querySelectorAll('.tab-btn');
+
+        panels.forEach(function (panel) {
+          if (panel.id === 'panel-' + tabId) {
+            panel.classList.remove('hidden');
+          } else {
+            panel.classList.add('hidden');
+          }
+        });
+
+        buttons.forEach(function (btn) {
+          const isMatch = btn.getAttribute('data-tab') === tabId;
+          btn.classList.toggle('active', isMatch);
+          btn.setAttribute('aria-selected', isMatch ? 'true' : 'false');
+        });
+
+        try {
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        } catch (e) {
+          window.scrollTo(0, 0);
+        }
+      }
+
+      /* =======================================================
+         6. 分頁 1：互動執書包 Checklist
+         ======================================================= */
+      function renderChecklist(triggerCelebrate) {
+        const grid = document.getElementById('checklistGrid');
+        const countPill = document.getElementById('checklistCountPill');
+        const bar = document.getElementById('checklistProgressBar');
+        const banner = document.getElementById('checklistCompleteBanner');
+        if (!grid) return;
+
+        grid.innerHTML = '';
+        PACK_ITEMS.forEach(function (item) {
+          const isChecked = appState.checkedPackIds.indexOf(item.id) !== -1;
+          const btn = document.createElement('button');
+          btn.type = 'button';
+          btn.className = 'pack-item-btn' + (isChecked ? ' checked' : '');
+          btn.setAttribute('aria-pressed', isChecked ? 'true' : 'false');
+
+          btn.innerHTML =
+            '<span class="pack-checkbox">' + (isChecked ? '✓' : '') + '</span>' +
+            '<span class="pack-icon">' + item.icon + '</span>' +
+            '<div>' +
+              '<div class="pack-name">' + item.name + '</div>' +
+              '<div class="pack-tip">' + item.tip + '</div>' +
+            '</div>';
+
+          btn.addEventListener('click', function () {
+            const idx = appState.checkedPackIds.indexOf(item.id);
+            const wasComplete = appState.checkedPackIds.length === PACK_ITEMS.length;
+            if (idx === -1) {
+              appState.checkedPackIds.push(item.id);
+              SFX.check();
+            } else {
+              appState.checkedPackIds.splice(idx, 1);
+              SFX.uncheck();
+            }
+            saveState();
+            const nowComplete = appState.checkedPackIds.length === PACK_ITEMS.length;
+            renderChecklist(!wasComplete && nowComplete);
+            updateOverallProgress();
+          });
+
+          grid.appendChild(btn);
+        });
+
+        const done = appState.checkedPackIds.length;
+        const pct = Math.round((done / PACK_ITEMS.length) * 100);
+        if (countPill) countPill.textContent = '已準備 ' + done + ' / ' + PACK_ITEMS.length + ' 項';
+        if (bar) bar.style.width = pct + '%';
+
+        if (done === PACK_ITEMS.length) {
+          if (banner) banner.classList.remove('hidden');
+          if (triggerCelebrate) {
+            SFX.celebrate();
+            launchConfetti(95);
+            const modal = document.getElementById('packCelebrateModal');
+            if (modal) modal.classList.remove('hidden');
+          }
+        } else {
+          if (banner) banner.classList.add('hidden');
+        }
+      }
+
+      /* =======================================================
+         7. 分頁 2：森林安全與「無痕山林」3D 翻轉卡
+         ======================================================= */
+      function updateSafetyProgressUI() {
+        const pill = document.getElementById('safetyProgressPill');
+        const bar = document.getElementById('safetyProgressBar');
+        const count = appState.masteredSafetyIds.length;
+        const pct = Math.round((count / SAFETY_CARDS.length) * 100);
+        if (pill) pill.textContent = '已掌握 ' + count + ' / ' + SAFETY_CARDS.length + ' 項守則';
+        if (bar) bar.style.width = pct + '%';
+      }
+
+      function renderSafetyCards() {
+        const grid = document.getElementById('safetyCardsGrid');
+        if (!grid) return;
+        grid.innerHTML = '';
+
+        SAFETY_CARDS.forEach(function (card) {
+          const isMastered = appState.masteredSafetyIds.indexOf(card.id) !== -1;
+          const wrap = document.createElement('div');
+          wrap.className = 'flip-card' + (isMastered ? ' mastered' : '');
+          wrap.setAttribute('role', 'button');
+          wrap.setAttribute('tabindex', '0');
+          wrap.setAttribute('aria-label', card.title + '，點擊翻轉查看正確做法');
+
+          wrap.innerHTML =
+            '<div class="flip-card-inner">' +
+              '<div class="flip-face flip-front">' +
+                '<div>' +
+                  '<div class="flip-front-top">' +
+                    '<div class="flip-icon-circle">' + card.icon + '</div>' +
+                    '<span class="flip-status-tag">' + (isMastered ? '✅ 已掌握' : '❓ 點擊翻轉') + '</span>' +
+                  '</div>' +
+                  '<h3 class="flip-title">' + card.title + '</h3>' +
+                  '<p class="flip-question">' + card.question + '</p>' +
+                '</div>' +
+                '<div class="flip-hint">' +
+                  '<span>點擊查看正確做法</span>' +
+                  '<span>🔄</span>' +
+                '</div>' +
+              '</div>' +
+              '<div class="flip-face flip-back">' +
+                '<div>' +
+                  '<span class="flip-back-label">✅ 正確做法</span>' +
+                  '<h3 class="flip-back-title">' + card.icon + ' ' + card.title + '</h3>' +
+                  '<p class="flip-back-answer">' + card.answer + '</p>' +
+                '</div>' +
+                '<div class="flip-back-foot">再次點擊翻回正面 ↩</div>' +
+              '</div>' +
+            '</div>';
+
+          function toggleFlip() {
+            const willBeFlipped = !wrap.classList.contains('flipped');
+            wrap.classList.toggle('flipped');
+            SFX.flip();
+            if (willBeFlipped && appState.masteredSafetyIds.indexOf(card.id) === -1) {
+              appState.masteredSafetyIds.push(card.id);
+              wrap.classList.add('mastered');
+              const tag = wrap.querySelector('.flip-status-tag');
+              if (tag) tag.textContent = '✅ 已掌握';
+              saveState();
+              updateSafetyProgressUI();
+              updateOverallProgress();
+            }
+          }
+
+          wrap.addEventListener('click', toggleFlip);
+          wrap.addEventListener('keydown', function (e) {
+            if (e.key === 'Enter' || e.key === ' ') {
+              e.preventDefault();
+              toggleFlip();
+            }
+          });
+
+          grid.appendChild(wrap);
+        });
+
+        updateSafetyProgressUI();
+      }
+
+      /* =======================================================
+         8. 分頁 3：12月大埔滘生物圖鑑（Wikimedia Commons 多圖生態相片庫）
+         ======================================================= */
+      let currentFilter = 'all';
+      let currentModalSpeciesId = null;
+      const TARGET_PHOTOS_PER_SPECIES = 4;
+      const speciesGalleryState = {}; // { id: { status: 'loading'|'loaded'|'error', photos: [], activeIndex: 0 } }
+
+      const NON_WILDLIFE_KEYWORDS = [
+        'map', 'distribution', 'range', 'chart', 'diagram', 'stamp', 'coin',
+        'logo', 'icon', 'flag', 'coat of arms', 'drawing', 'illustration',
+        'sketch', 'plate', 'museum', 'mounted', 'pinned', 'label', 'specimen',
+        'herbarium', 'skeleton', 'skull', 'cladogram', 'phylogeny', 'locator',
+        'blank', 'symbol', 'banner', 'portrait', 'book', 'cover', 'page', 'mhnt'
+      ];
+
+      function stripHtmlTags(raw) {
+        if (!raw) return '';
+        return String(raw).replace(/<[^>]*>/g, ' ').replace(/\s+/g, ' ').trim();
+      }
+
+      function isAcceptableWildlifeFile(title, ii) {
+        if (!title || !ii) return false;
+        const lowerTitle = title.toLowerCase();
+        if (!/\.(jpg|jpeg|png|webp)$/i.test(lowerTitle)) return false;
+
+        const w = ii.thumbwidth || ii.width || 0;
+        const h = ii.thumbheight || ii.height || 0;
+        if (w < 260 || h < 180) return false;
+        const ratio = w / h;
+        if (ratio < 0.45 || ratio > 2.4) return false;
+
+        const meta = ii.extmetadata || {};
+        const objName = stripHtmlTags(meta.ObjectName && meta.ObjectName.value);
+        const cats = stripHtmlTags(meta.Categories && meta.Categories.value);
+        const combinedText = (lowerTitle + ' ' + objName + ' ' + cats).toLowerCase();
+
+        for (let i = 0; i < NON_WILDLIFE_KEYWORDS.length; i++) {
+          if (combinedText.indexOf(NON_WILDLIFE_KEYWORDS[i]) !== -1) {
+            return false;
+          }
+        }
+        return true;
+      }
+
+      function verifyImageLoad(url) {
+        return new Promise(function (resolve) {
+          try {
+            const img = new Image();
+            img.onload = function () { resolve(true); };
+            img.onerror = function () { resolve(false); };
+            img.src = url;
+          } catch (e) {
+            resolve(false);
+          }
+        });
+      }
+
+      async function searchCommonsPhotos(queryText) {
+        try {
+          const endpoint =
+            'https://commons.wikimedia.org/w/api.php?origin=*&action=query&generator=search&gsrsearch=' +
+            encodeURIComponent('filetype:bitmap ' + queryText) +
+            '&gsrnamespace=6&gsrlimit=10&prop=imageinfo&iiprop=url|size|extmetadata&iiurlwidth=800&format=json';
+          const resp = await fetch(endpoint);
+          if (!resp.ok) return [];
+          const data = await resp.json();
+          const pages = data && data.query && data.query.pages;
+          if (!pages) return [];
+
+          const keys = Object.keys(pages).sort(function (a, b) {
+            return (pages[a].index || 999) - (pages[b].index || 999);
+          });
+
+          const results = [];
+          for (let i = 0; i < keys.length; i++) {
+            const page = pages[keys[i]];
+            const ii = page && page.imageinfo && page.imageinfo[0];
+            if (!ii || !isAcceptableWildlifeFile(page.title, ii)) continue;
+
+            const displayUrl = ii.thumburl || ii.url;
+            if (!displayUrl) continue;
+
+            const meta = ii.extmetadata || {};
+            const cleanTitle =
+              stripHtmlTags(meta.ObjectName && meta.ObjectName.value) ||
+              page.title.replace(/^File:/i, '').replace(/\.[^.]+$/, '').replace(/_/g, ' ');
+            const artist = stripHtmlTags(meta.Artist && meta.Artist.value);
+
+            results.push({
+              pageid: page.pageid,
+              url: displayUrl,
+              title: cleanTitle.slice(0, 72),
+              author: artist ? artist.slice(0, 38) : 'Wikimedia Commons'
+            });
+          }
+          return results;
+        } catch (e) {
+          return [];
+        }
+      }
+
+      async function fetchSpeciesGallery(sp, forceRetry) {
+        const cur = speciesGalleryState[sp.id];
+        if (!forceRetry && cur && (cur.status === 'loaded' || cur.status === 'loading')) {
+          return;
+        }
+
+        speciesGalleryState[sp.id] = { status: 'loading', photos: [], activeIndex: 0 };
+        refreshSpeciesGalleryUI(sp);
+
+        const collected = [];
+        const seenIds = {};
+
+        for (let qIdx = 0; qIdx < sp.commonsQueries.length; qIdx++) {
+          if (collected.length >= TARGET_PHOTOS_PER_SPECIES) break;
+          const candidates = await searchCommonsPhotos(sp.commonsQueries[qIdx]);
+
+          for (let cIdx = 0; cIdx < candidates.length; cIdx++) {
+            if (collected.length >= TARGET_PHOTOS_PER_SPECIES) break;
+            const item = candidates[cIdx];
+            if (seenIds[item.pageid] || seenIds[item.url]) continue;
+
+            const ok = await verifyImageLoad(item.url);
+            if (ok) {
+              seenIds[item.pageid] = true;
+              seenIds[item.url] = true;
+              collected.push(item);
+
+              // 邊載入邊即時顯示，讓學生無需等待即可瀏覽多幅相片
+              speciesGalleryState[sp.id] = {
+                status: 'loaded',
+                photos: collected.slice(),
+                activeIndex: 0
+              };
+              refreshSpeciesGalleryUI(sp);
+            }
+          }
+        }
+
+        if (collected.length === 0) {
+          speciesGalleryState[sp.id] = { status: 'error', photos: [], activeIndex: 0 };
+          refreshSpeciesGalleryUI(sp);
+        }
+      }
+
+      function handleBrokenPhotoAt(sp, brokenIdx) {
+        const st = speciesGalleryState[sp.id];
+        if (!st || !st.photos || st.photos.length === 0) return;
+
+        st.photos.splice(brokenIdx, 1);
+        if (st.photos.length === 0) {
+          st.status = 'error';
+          st.activeIndex = 0;
+        } else if (st.activeIndex >= st.photos.length) {
+          st.activeIndex = 0;
+        }
+        refreshSpeciesGalleryUI(sp);
+      }
+
+      function setSpeciesActivePhoto(sp, newIndex) {
+        const st = speciesGalleryState[sp.id];
+        if (!st || !st.photos || st.photos.length === 0) return;
+        const total = st.photos.length;
+        st.activeIndex = ((newIndex % total) + total) % total;
+        refreshSpeciesGalleryUI(sp);
+      }
+
+      function buildSpeciesGalleryMarkup(sp) {
+        const st = speciesGalleryState[sp.id] || { status: 'loading', photos: [], activeIndex: 0 };
+        const alertChip = sp.alert
+          ? '<span class="alert-chip ' + sp.alert.type + '">' + sp.alert.chipText + '</span>'
+          : '';
+        const countChip = st.status === 'loaded' && st.photos.length > 0
+          ? '<span class="photo-count-badge">📷 ' + st.photos.length + ' 張相片</span>'
+          : '';
+
+        const topOverlay =
+          '<div class="photo-overlay-top">' +
+            '<div style="display:flex; align-items:center; gap:5px; flex-wrap:wrap;">' +
+              '<span class="cat-badge">' + sp.categoryLabel + '</span>' +
+              alertChip +
+            '</div>' +
+            countChip +
+          '</div>';
+
+        if (st.status === 'loaded' && st.photos.length > 0) {
+          const safeIdx = Math.min(st.activeIndex, st.photos.length - 1);
+          const activePhoto = st.photos[safeIdx];
+
+          let thumbsHtml = '';
+          if (st.photos.length > 1) {
+            thumbsHtml = '<div class="card-thumb-strip">';
+            for (let i = 0; i < st.photos.length; i++) {
+              const p = st.photos[i];
+              thumbsHtml +=
+                '<button type="button" class="card-thumb-btn' + (i === safeIdx ? ' active' : '') + '" data-thumb-idx="' + i + '" aria-label="檢視第 ' + (i + 1) + ' 張相片">' +
+                  '<img src="' + p.url + '" alt="' + sp.name + ' 縮圖 ' + (i + 1) + '" loading="lazy" />' +
+                '</button>';
+            }
+            thumbsHtml += '</div>';
+          }
+
+          return (
+            '<div class="species-photo-box">' +
+              topOverlay +
+              '<img class="species-photo-img" data-main-photo-idx="' + safeIdx + '" src="' + activePhoto.url + '" alt="' + sp.name + '實景生態相片" loading="lazy" />' +
+              '<span class="photo-credit-tag">Wikimedia Commons (' + (safeIdx + 1) + '/' + st.photos.length + ')</span>' +
+            '</div>' +
+            thumbsHtml
+          );
+        }
+
+        if (st.status === 'error') {
+          return (
+            '<div class="species-photo-box">' +
+              topOverlay +
+              '<div class="photo-fallback-box">' +
+                sp.svg +
+                '<button type="button" class="retry-photo-btn" data-retry-sp="' + sp.id + '">🔄 重新載入相片</button>' +
+              '</div>' +
+            '</div>'
+          );
+        }
+
+        return (
+          '<div class="species-photo-box">' +
+            topOverlay +
+            '<div class="photo-shimmer">' +
+              '<span style="font-size: 24px;">📷</span>' +
+              '<span>正在載入多幅實景生態相片...</span>' +
+            '</div>' +
+          '</div>'
+        );
+      }
+
+      function bindCardGalleryEvents(container, sp) {
+        if (!container) return;
+
+        // 迷你縮圖點擊切換
+        container.querySelectorAll('.card-thumb-btn').forEach(function (btn) {
+          btn.addEventListener('click', function (e) {
+            e.stopPropagation();
+            SFX.click();
+            const idx = Number(btn.getAttribute('data-thumb-idx'));
+            setSpeciesActivePhoto(sp, idx);
+          });
+        });
+
+        // 主相片載入錯誤時自動切換下一張有效相片
+        const mainImg = container.querySelector('.species-photo-img');
+        if (mainImg) {
+          mainImg.onerror = function () {
+            const brokenIdx = Number(mainImg.getAttribute('data-main-photo-idx') || 0);
+            handleBrokenPhotoAt(sp, brokenIdx);
+          };
+        }
+
+        // 重載按鈕
+        container.querySelectorAll('.retry-photo-btn').forEach(function (btn) {
+          btn.addEventListener('click', function (e) {
+            e.stopPropagation();
+            SFX.click();
+            fetchSpeciesGallery(sp, true);
+          });
+        });
+      }
+
+      function refreshSpeciesGalleryUI(sp) {
+        const slot = document.querySelector('[data-photo-slot="' + sp.id + '"]');
+        if (slot) {
+          slot.innerHTML = buildSpeciesGalleryMarkup(sp);
+          bindCardGalleryEvents(slot, sp);
+        }
+        const modal = document.getElementById('speciesModal');
+        if (currentModalSpeciesId === sp.id && modal && !modal.classList.contains('hidden')) {
+          renderModalCarousel(sp);
+        }
+        const lb = document.getElementById('photoLightbox');
+        if (currentModalSpeciesId === sp.id && lb && !lb.classList.contains('hidden')) {
+          updateLightboxDisplay(sp);
+        }
+      }
+
+      function updateLightboxDisplay(sp) {
+        const st = speciesGalleryState[sp.id];
+        if (!st || !st.photos || st.photos.length === 0) return;
+
+        const safeIdx = Math.min(st.activeIndex, st.photos.length - 1);
+        const photo = st.photos[safeIdx];
+        const img = document.getElementById('lightboxImg');
+        const counter = document.getElementById('lightboxCounter');
+        const title = document.getElementById('lightboxTitle');
+        const sci = document.getElementById('lightboxSci');
+        const cap = document.getElementById('lightboxCaption');
+        const prevBtn = document.getElementById('lightboxPrevBtn');
+        const nextBtn = document.getElementById('lightboxNextBtn');
+
+        if (img) {
+          img.onerror = function () { handleBrokenPhotoAt(sp, safeIdx); };
+          img.src = photo.url;
+          img.alt = sp.name + ' - ' + photo.title;
+        }
+        if (counter) counter.textContent = '相片 ' + (safeIdx + 1) + ' / ' + st.photos.length;
+        if (title) title.textContent = sp.name;
+        if (sci) sci.textContent = sp.scientificName;
+        if (cap) cap.textContent = photo.title + '（來源：' + photo.author + ' / Wikimedia Commons）';
+
+        const hasMultiple = st.photos.length > 1;
+        if (prevBtn) prevBtn.classList.toggle('hidden', !hasMultiple);
+        if (nextBtn) nextBtn.classList.toggle('hidden', !hasMultiple);
+      }
+
+      function openPhotoLightbox(sp) {
+        const box = document.getElementById('photoLightbox');
+        const st = speciesGalleryState[sp.id];
+        if (!box || !st || !st.photos || st.photos.length === 0) return;
+        SFX.click();
+        updateLightboxDisplay(sp);
+        box.classList.remove('hidden');
+      }
+
+      function renderModalCarousel(sp) {
+        const stage = document.getElementById('modalPhotoStage');
+        const capBar = document.getElementById('modalCaptionBar');
+        const thumbStrip = document.getElementById('modalThumbStrip');
+        const credit = document.getElementById('modalPhotoCredit');
+        if (!stage) return;
+
+        const st = speciesGalleryState[sp.id] || { status: 'loading', photos: [], activeIndex: 0 };
+        stage.onclick = null;
+
+        if (st.status === 'loaded' && st.photos.length > 0) {
+          const safeIdx = Math.min(st.activeIndex, st.photos.length - 1);
+          const photo = st.photos[safeIdx];
+          const hasMultiple = st.photos.length > 1;
+
+          if (credit) credit.textContent = '來源：Wikimedia Commons（共 ' + st.photos.length + ' 張）';
+          stage.style.cursor = 'zoom-in';
+          stage.innerHTML =
+            '<span class="carousel-counter-pill">相片 ' + (safeIdx + 1) + ' / ' + st.photos.length + '</span>' +
+            (hasMultiple ? '<button type="button" class="carousel-nav-btn prev" aria-label="上一張相片">‹</button>' : '') +
+            '<img class="species-photo-img" src="' + photo.url + '" alt="' + sp.name + '實景生態相片" />' +
+            (hasMultiple ? '<button type="button" class="carousel-nav-btn next" aria-label="下一張相片">›</button>' : '') +
+            '<button type="button" class="modal-zoom-pill">🔍 點擊放大相片</button>';
+
+          const imgEl = stage.querySelector('.species-photo-img');
+          if (imgEl) {
+            imgEl.onerror = function () { handleBrokenPhotoAt(sp, safeIdx); };
+          }
+
+          const prevBtn = stage.querySelector('.carousel-nav-btn.prev');
+          const nextBtn = stage.querySelector('.carousel-nav-btn.next');
+          if (prevBtn) {
+            prevBtn.addEventListener('click', function (e) {
+              e.stopPropagation();
+              SFX.click();
+              setSpeciesActivePhoto(sp, safeIdx - 1);
+            });
+          }
+          if (nextBtn) {
+            nextBtn.addEventListener('click', function (e) {
+              e.stopPropagation();
+              SFX.click();
+              setSpeciesActivePhoto(sp, safeIdx + 1);
+            });
+          }
+
+          stage.onclick = function () { openPhotoLightbox(sp); };
+
+          // 相片說明與作者列
+          if (capBar) {
+            capBar.classList.remove('hidden');
+            capBar.innerHTML =
+              '<span>🖼️ ' + photo.title + '</span>' +
+              '<span style="font-weight:700; color:#2E7D32;">© ' + photo.author + '</span>';
+          }
+
+          // 彈窗內所有縮圖列
+          if (thumbStrip) {
+            if (hasMultiple) {
+              thumbStrip.classList.remove('hidden');
+              thumbStrip.innerHTML = '';
+              st.photos.forEach(function (item, idx) {
+                const tBtn = document.createElement('button');
+                tBtn.type = 'button';
+                tBtn.className = 'modal-thumb-btn' + (idx === safeIdx ? ' active' : '');
+                tBtn.setAttribute('aria-label', '切換至第 ' + (idx + 1) + ' 張相片');
+                tBtn.innerHTML = '<img src="' + item.url + '" alt="縮圖 ' + (idx + 1) + '" />';
+                tBtn.addEventListener('click', function (e) {
+                  e.stopPropagation();
+                  SFX.click();
+                  setSpeciesActivePhoto(sp, idx);
+                });
+                thumbStrip.appendChild(tBtn);
+              });
+            } else {
+              thumbStrip.classList.add('hidden');
+              thumbStrip.innerHTML = '';
+            }
+          }
+        } else if (st.status === 'error') {
+          if (credit) credit.textContent = '離線精簡插畫（連線後可重載相片）';
+          if (capBar) capBar.classList.add('hidden');
+          if (thumbStrip) thumbStrip.classList.add('hidden');
+          stage.style.cursor = 'default';
+          stage.innerHTML =
+            '<div class="photo-fallback-box">' +
+              sp.svg +
+              '<button type="button" class="retry-photo-btn">🔄 重新載入相片</button>' +
+            '</div>';
+          bindCardGalleryEvents(stage, sp);
+        } else {
+          if (credit) credit.textContent = '正在載入 Wikimedia Commons 實景相片...';
+          if (capBar) capBar.classList.add('hidden');
+          if (thumbStrip) thumbStrip.classList.add('hidden');
+          stage.style.cursor = 'default';
+          stage.innerHTML =
+            '<div class="photo-shimmer">' +
+              '<span style="font-size: 28px;">📷</span>' +
+              '<span>正在載入多幅實景生態相片...</span>' +
+            '</div>';
+        }
+      }
+
+      function openSpeciesModal(sp) {
+        const modal = document.getElementById('speciesModal');
+        if (!modal) return;
+        SFX.click();
+        currentModalSpeciesId = sp.id;
+        renderModalCarousel(sp);
+
+        if (!speciesGalleryState[sp.id]) {
+          fetchSpeciesGallery(sp, false);
+        }
+
+        const catEl = document.getElementById('modalSpeciesCat');
+        const nameEl = document.getElementById('modalSpeciesName');
+        const sciEl = document.getElementById('modalSpeciesSci');
+        const alertEl = document.getElementById('modalAlertBox');
+        const featEl = document.getElementById('modalFeatures');
+        const seasonEl = document.getElementById('modalSeason');
+        const tipsEl = document.getElementById('modalTips');
+
+        if (catEl) catEl.textContent = sp.categoryLabel;
+        if (nameEl) nameEl.textContent = sp.name;
+        if (sciEl) sciEl.textContent = sp.scientificName;
+        if (featEl) featEl.textContent = sp.features;
+        if (seasonEl) seasonEl.textContent = sp.season;
+        if (tipsEl) tipsEl.textContent = sp.tips;
+
+        if (alertEl) {
+          if (sp.alert) {
+            alertEl.className = 'detail-box ' + sp.alert.type;
+            alertEl.textContent = sp.alert.text;
+          } else {
+            alertEl.className = 'detail-box hidden';
+            alertEl.textContent = '';
+          }
+        }
+
+        modal.classList.remove('hidden');
+      }
+
+      function renderSpeciesGrid() {
+        const grid = document.getElementById('speciesGrid');
+        if (!grid) return;
+        grid.innerHTML = '';
+
+        const list = currentFilter === 'all'
+          ? SPECIES_LIST
+          : SPECIES_LIST.filter(function (s) { return s.category === currentFilter; });
+
+        list.forEach(function (sp) {
+          const card = document.createElement('div');
+          card.className = 'species-card';
+          card.setAttribute('role', 'button');
+          card.setAttribute('tabindex', '0');
+
+          card.innerHTML =
+            '<div>' +
+              '<div data-photo-slot="' + sp.id + '">' + buildSpeciesGalleryMarkup(sp) + '</div>' +
+              '<div class="species-body">' +
+                '<h3 class="species-name">' + sp.name + '</h3>' +
+                '<p class="species-sci">' + sp.scientificName + '</p>' +
+                '<p class="species-desc">' + sp.shortDesc + '</p>' +
+              '</div>' +
+            '</div>' +
+            '<div class="species-foot">' +
+              '<span>查看多圖輪播與觀察貼士</span>' +
+              '<span>🔍 →</span>' +
+            '</div>';
+
+          card.addEventListener('click', function () { openSpeciesModal(sp); });
+          card.addEventListener('keydown', function (e) {
+            if (e.key === 'Enter' || e.key === ' ') {
+              e.preventDefault();
+              openSpeciesModal(sp);
+            }
+          });
+          bindCardGalleryEvents(card, sp);
+          grid.appendChild(card);
+
+          if (!speciesGalleryState[sp.id]) {
+            fetchSpeciesGallery(sp, false);
+          }
+        });
+      }
+
+      async function queryWikiPhoto(title) {
+        try {
+          const endpoint =
+            'https://en.wikipedia.org/w/api.php?action=query&redirects=1&prop=pageimages&piprop=thumbnail&pithumbsize=640&format=json&origin=*&titles=' +
+            encodeURIComponent(title);
+          const resp = await fetch(endpoint);
+          if (!resp.ok) return null;
+          const data = await resp.json();
+          const pages = data && data.query && data.query.pages;
+          if (!pages) return null;
+          const keys = Object.keys(pages);
+          for (let i = 0; i < keys.length; i++) {
+            const page = pages[keys[i]];
+            if (page && page.thumbnail && page.thumbnail.source) {
+              return page.thumbnail.source;
+            }
+          }
+          return null;
+        } catch (e) {
+          return null;
+        }
+      }
+
+      async function fetchSpeciesPhoto(sp, forceRetry) {
+        const cur = speciesPhotoState[sp.id];
+        if (!forceRetry && cur && (cur.status === 'loaded' || cur.status === 'loading')) {
+          return;
+        }
+
+        speciesPhotoState[sp.id] = { status: 'loading', url: null };
+        refreshSpeciesPhotoUI(sp);
+
+        for (let i = 0; i < sp.wikiTitles.length; i++) {
+          const url = await queryWikiPhoto(sp.wikiTitles[i]);
+          if (url) {
+            const ok = await verifyImageLoad(url);
+            if (ok) {
+              speciesPhotoState[sp.id] = { status: 'loaded', url: url };
+              refreshSpeciesPhotoUI(sp);
+              return;
+            }
+          }
+        }
+
+        speciesPhotoState[sp.id] = { status: 'error', url: null };
+        refreshSpeciesPhotoUI(sp);
+      }
+
+      function buildSpeciesPhotoMarkup(sp) {
+        const st = speciesPhotoState[sp.id] || { status: 'loading', url: null };
+        const alertChip = sp.alert
+          ? '<span class="alert-chip ' + sp.alert.type + '">' + sp.alert.chipText + '</span>'
+          : '';
+
+        const topOverlay =
+          '<div class="photo-overlay-top">' +
+            '<span class="cat-badge">' + sp.categoryLabel + '</span>' +
+            alertChip +
+          '</div>';
+
+        if (st.status === 'loaded' && st.url) {
+          return (
+            '<div class="species-photo-box">' +
+              topOverlay +
+              '<img class="species-photo-img" src="' + st.url + '" alt="' + sp.name + '實景生態相片" loading="lazy" />' +
+              '<span class="photo-credit-tag">Wikimedia Commons</span>' +
+            '</div>'
+          );
+        }
+
+        if (st.status === 'error') {
+          return (
+            '<div class="species-photo-box">' +
+              topOverlay +
+              '<div class="photo-fallback-box">' +
+                sp.svg +
+                '<button type="button" class="retry-photo-btn" data-retry-sp="' + sp.id + '">🔄 重新載入相片</button>' +
+              '</div>' +
+            '</div>'
+          );
+        }
+
+        return (
+          '<div class="species-photo-box">' +
+            topOverlay +
+            '<div class="photo-shimmer">' +
+              '<span style="font-size: 24px;">📷</span>' +
+              '<span>載入實景生態相片中...</span>' +
+            '</div>' +
+          '</div>'
+        );
+      }
+
+      function bindRetryInContainer(container, sp) {
+        if (!container) return;
+        const btns = container.querySelectorAll('.retry-photo-btn');
+        btns.forEach(function (btn) {
+          btn.addEventListener('click', function (e) {
+            e.stopPropagation();
+            SFX.click();
+            fetchSpeciesPhoto(sp, true);
+          });
+        });
+      }
+
+      function refreshSpeciesPhotoUI(sp) {
+        const slot = document.querySelector('[data-photo-slot="' + sp.id + '"]');
+        if (slot) {
+          slot.innerHTML = buildSpeciesPhotoMarkup(sp);
+          bindRetryInContainer(slot, sp);
+        }
+        const modal = document.getElementById('speciesModal');
+        if (currentModalSpeciesId === sp.id && modal && !modal.classList.contains('hidden')) {
+          renderModalPhotoStage(sp);
+        }
+      }
+
+      function openPhotoLightbox(sp, url) {
+        const box = document.getElementById('photoLightbox');
+        const img = document.getElementById('lightboxImg');
+        const title = document.getElementById('lightboxTitle');
+        const sci = document.getElementById('lightboxSci');
+        if (!box || !img) return;
+        SFX.click();
+        img.src = url;
+        img.alt = sp.name;
+        if (title) title.textContent = sp.name;
+        if (sci) sci.textContent = sp.scientificName;
+        box.classList.remove('hidden');
+      }
+
+      function renderModalPhotoStage(sp) {
+        const stage = document.getElementById('modalPhotoStage');
+        const credit = document.getElementById('modalPhotoCredit');
+        if (!stage) return;
+
+        const st = speciesPhotoState[sp.id] || { status: 'loading', url: null };
+        stage.onclick = null;
+
+        if (st.status === 'loaded' && st.url) {
+          if (credit) credit.textContent = '實景相片來源：Wikimedia Commons';
+          stage.style.cursor = 'zoom-in';
+          stage.innerHTML =
+            '<img class="species-photo-img" src="' + st.url + '" alt="' + sp.name + '實景生態相片" />' +
+            '<button type="button" class="modal-zoom-pill">🔍 點擊放大檢視</button>';
+          stage.onclick = function () { openPhotoLightbox(sp, st.url); };
+        } else if (st.status === 'error') {
+          if (credit) credit.textContent = '離線精簡插畫（連線後可重載相片）';
+          stage.style.cursor = 'default';
+          stage.innerHTML =
+            '<div class="photo-fallback-box">' +
+              sp.svg +
+              '<button type="button" class="retry-photo-btn">🔄 重新載入相片</button>' +
+            '</div>';
+          bindRetryInContainer(stage, sp);
+        } else {
+          if (credit) credit.textContent = '正在載入 Wikimedia Commons 實景相片...';
+          stage.style.cursor = 'default';
+          stage.innerHTML =
+            '<div class="photo-shimmer">' +
+              '<span style="font-size: 28px;">📷</span>' +
+              '<span>載入實景生態相片中...</span>' +
+            '</div>';
+        }
+      }
+
+      function openSpeciesModal(sp) {
+        // Lightbox 關閉與多圖左右切換 + 鍵盤方向鍵 + 觸控滑動
+        const lb = document.getElementById('photoLightbox');
+        const closeLbBtn = document.getElementById('closeLightboxBtn');
+        const lbPrevBtn = document.getElementById('lightboxPrevBtn');
+        const lbNextBtn = document.getElementById('lightboxNextBtn');
+        const lbStage = document.getElementById('lightboxStage');
+        const modalStage = document.getElementById('modalPhotoStage');
+
+        function closeLightbox() {
+          if (lb) lb.classList.add('hidden');
+        }
+        function getCurrentModalSpecies() {
+          if (!currentModalSpeciesId) return null;
+          for (let i = 0; i < SPECIES_LIST.length; i++) {
+            if (SPECIES_LIST[i].id === currentModalSpeciesId) return SPECIES_LIST[i];
+          }
+          return null;
+        }
+        function stepActiveGalleryPhoto(delta) {
+          const sp = getCurrentModalSpecies();
+          if (!sp) return;
+          const st = speciesGalleryState[sp.id];
+          if (!st || !st.photos || st.photos.length <= 1) return;
+          SFX.click();
+          setSpeciesActivePhoto(sp, st.activeIndex + delta);
+        }
+
+        if (closeLbBtn) closeLbBtn.addEventListener('click', closeLightbox);
+        if (lbPrevBtn) {
+          lbPrevBtn.addEventListener('click', function (e) {
+            e.stopPropagation();
+            stepActiveGalleryPhoto(-1);
+          });
+        }
+        if (lbNextBtn) {
+          lbNextBtn.addEventListener('click', function (e) {
+            e.stopPropagation();
+            stepActiveGalleryPhoto(1);
+          });
+        }
+        if (lb) {
+          lb.addEventListener('click', function (e) {
+            if (e.target === lb) closeLightbox();
+          });
+        }
+
+        function attachSwipeGesture(el) {
+          if (!el) return;
+          let startX = 0;
+          el.addEventListener('touchstart', function (e) {
+            if (e.touches && e.touches.length === 1) {
+              startX = e.touches[0].clientX;
+            }
+          }, { passive: true });
+          el.addEventListener('touchend', function (e) {
+            if (!e.changedTouches || e.changedTouches.length === 0) return;
+            const diffX = e.changedTouches[0].clientX - startX;
+            if (Math.abs(diffX) >= 38) {
+              stepActiveGalleryPhoto(diffX < 0 ? 1 : -1);
+            }
+          }, { passive: true });
+        }
+        attachSwipeGesture(modalStage);
+        attachSwipeGesture(lbStage);
+
+        document.addEventListener('keydown', function (e) {
+          const lbOpen = lb && !lb.classList.contains('hidden');
+          const modalOpen = spModal && !spModal.classList.contains('hidden');
+          if (!lbOpen && !modalOpen) return;
+
+          if (e.key === 'ArrowLeft') {
+            e.preventDefault();
+            stepActiveGalleryPhoto(-1);
+          } else if (e.key === 'ArrowRight') {
+            e.preventDefault();
+            stepActiveGalleryPhoto(1);
+          } else if (e.key === 'Escape') {
+            if (lbOpen) closeLightbox();
+            else if (modalOpen) closeSpModal();
+          }
+        });
+      }
+
+      /* =======================================================
+         9. 分頁 4：出發前小挑戰（逐題互動 + 總結）與電子通行證
+         ======================================================= */
+      function getQuizScore() {
+        let score = 0;
+        for (let i = 0; i < QUIZ_QUESTIONS.length; i++) {
+          if (appState.quizAnswers[i] === QUIZ_QUESTIONS[i].correctIndex) {
+            score++;
+          }
+        }
+        return score;
+      }
+
+      function updatePassUI() {
+        const answeredCount = Object.keys(appState.quizAnswers).length;
+        const lockedBox = document.getElementById('passLockedBox');
+        const unlockedBox = document.getElementById('passUnlockedBox');
+        const isUnlocked = answeredCount >= QUIZ_QUESTIONS.length;
+
+        if (lockedBox) lockedBox.classList.toggle('hidden', isUnlocked);
+        if (unlockedBox) unlockedBox.classList.toggle('hidden', !isUnlocked);
+
+        if (!isUnlocked) return;
+
+        const nameText = (appState.studentName || '').trim() || '小小科學家';
+        const classText = (appState.studentClass || '').trim();
+        const score = getQuizScore();
+        const isPerfect = score === QUIZ_QUESTIONS.length;
+
+        const nameEl = document.getElementById('previewName');
+        const classEl = document.getElementById('previewClass');
+        const codeEl = document.getElementById('previewCode');
+        const scoreEl = document.getElementById('previewScore');
+        const rankEl = document.getElementById('passRankPill');
+
+        if (nameEl) nameEl.textContent = nameText;
+        if (classEl) classEl.textContent = classText ? '（' + classText + '）' : '';
+        if (codeEl) codeEl.textContent = appState.explorerCode;
+        if (scoreEl) scoreEl.textContent = score + ' / ' + QUIZ_QUESTIONS.length + ' 分';
+        if (rankEl) rankEl.textContent = isPerfect ? '🌟 五星金牌小先鋒' : '⭐ 生態小先鋒';
+      }
+
+      function renderQuiz(justCompleted) {
+        const stage = document.getElementById('quizStage');
+        const badge = document.getElementById('quizScoreBadge');
+        if (!stage) return;
+
+        const answeredCount = Object.keys(appState.quizAnswers).length;
+        const allDone = answeredCount >= QUIZ_QUESTIONS.length;
+        const score = getQuizScore();
+
+        // 若已完成全部 5 題且索引超過最後一題，顯示總結畫面
+        if (allDone && appState.currentQuizIndex >= QUIZ_QUESTIONS.length) {
+          if (badge) badge.textContent = '已完成！得分：' + score + ' / ' + QUIZ_QUESTIONS.length;
+          const isPerfect = score === QUIZ_QUESTIONS.length;
+          stage.innerHTML =
+            '<div class="quiz-summary">' +
+              '<div style="font-size: 48px;">' + (isPerfect ? '🌟' : '🎉') + '</div>' +
+              '<h3 style="margin: 8px 0 6px; font-size: 22px; font-weight: 900; color: #1B5E20;">' +
+                (isPerfect ? '太厲害了！5 / 5 滿分金牌小先鋒！' : '完成小挑戰！你答對了 ' + score + ' / ' + QUIZ_QUESTIONS.length + ' 題！') +
+              '</h3>' +
+              '<p style="margin: 0 0 18px; font-size: 14px; color: #4E342E;">' +
+                '你的「奇妙科學研究所 — 生態小先鋒」電子通行證已經解鎖，快在下方輸入姓名領取吧！' +
+              '</p>' +
+              '<div style="display: flex; gap: 10px; justify-content: center; flex-wrap: wrap;">' +
+                '<button id="retryQuizBtn" type="button" class="btn btn-outline">🔄 重新挑戰</button>' +
+                '<button id="scrollPassBtn" type="button" class="btn btn-primary">🪪 前往製作電子通行證 ↓</button>' +
+              '</div>' +
+            '</div>';
+
+          const retryBtn = document.getElementById('retryQuizBtn');
+          if (retryBtn) {
+            retryBtn.addEventListener('click', function () {
+              SFX.click();
+              appState.quizAnswers = {};
+              appState.currentQuizIndex = 0;
+              saveState();
+              renderQuiz(false);
+              updatePassUI();
+              updateOverallProgress();
+            });
+          }
+
+          const scrollBtn = document.getElementById('scrollPassBtn');
+          if (scrollBtn) {
+            scrollBtn.addEventListener('click', function () {
+              SFX.click();
+              const sec = document.getElementById('passSection');
+              if (sec && sec.scrollIntoView) sec.scrollIntoView({ behavior: 'smooth' });
+            });
+          }
+
+          if (justCompleted) {
+            SFX.celebrate();
+            launchConfetti(isPerfect ? 110 : 75);
+          }
+          updatePassUI();
+          return;
+        }
+
+        // 顯示目前題目
+        if (appState.currentQuizIndex < 0 || appState.currentQuizIndex >= QUIZ_QUESTIONS.length) {
+          appState.currentQuizIndex = 0;
+        }
+        const qIdx = appState.currentQuizIndex;
+        const item = QUIZ_QUESTIONS[qIdx];
+        const userChoice = appState.quizAnswers[qIdx];
+        const isAnswered = userChoice !== undefined;
+        const isCorrect = userChoice === item.correctIndex;
+        const letters = ['A', 'B', 'C'];
+
+        if (badge) badge.textContent = '第 ' + (qIdx + 1) + ' / ' + QUIZ_QUESTIONS.length + ' 題';
+
+        let optsHtml = '';
+        for (let o = 0; o < item.options.length; o++) {
+          let cls = 'quiz-opt-btn';
+          let mark = '';
+          if (isAnswered) {
+            if (o === item.correctIndex) {
+              cls += ' correct';
+              mark = '<span style="margin-left: auto;">✅</span>';
+            } else if (o === userChoice && !isCorrect) {
+              cls += ' wrong';
+              mark = '<span style="margin-left: auto;">❌</span>';
+            } else {
+              cls += ' dimmed';
+            }
+          }
+          optsHtml +=
+            '<button type="button" class="' + cls + '" data-opt="' + o + '"' + (isAnswered ? ' disabled' : '') + '>' +
+              '<span class="opt-letter">' + letters[o] + '</span>' +
+              '<span style="flex: 1;">' + item.options[o] + '</span>' +
+              mark +
+            '</button>';
+        }
+
+        const feedbackHtml = isAnswered
+          ? '<div class="quiz-feedback ' + (isCorrect ? 'ok' : 'no') + '">' +
+              '<strong>' + (isCorrect ? '🎉 答對了！' : '💡 溫馨解說：') + '</strong>' +
+              item.explanation +
+            '</div>'
+          : '';
+
+        const isLastQ = qIdx === QUIZ_QUESTIONS.length - 1;
+        const navHtml = isAnswered
+          ? '<div class="quiz-nav-row">' +
+              '<button id="nextQuizBtn" type="button" class="btn btn-primary">' +
+                (isLastQ ? '查看成績及解鎖通行證 🏆 →' : '下一題 →') +
+              '</button>' +
+            '</div>'
+          : '';
+
+        stage.innerHTML =
+          '<div class="quiz-progress-row">' +
+            '<span>已完成 ' + answeredCount + ' / ' + QUIZ_QUESTIONS.length + ' 題</span>' +
+            '<span>目前答對：' + score + ' 題</span>' +
+          '</div>' +
+          '<div class="quiz-q-card">' +
+            '<h3 class="quiz-q-text">' + item.q + '</h3>' +
+            '<div class="quiz-options">' + optsHtml + '</div>' +
+            feedbackHtml +
+            navHtml +
+          '</div>';
+
+        const optBtns = stage.querySelectorAll('.quiz-opt-btn:not([disabled])');
+        optBtns.forEach(function (btn) {
+          btn.addEventListener('click', function () {
+            const chosen = Number(btn.getAttribute('data-opt'));
+            appState.quizAnswers[qIdx] = chosen;
+            saveState();
+            if (chosen === item.correctIndex) {
+              SFX.correct();
+            } else {
+              SFX.wrong();
+            }
+            renderQuiz(false);
+            updatePassUI();
+            updateOverallProgress();
+          });
+        });
+
+        const nextBtn = document.getElementById('nextQuizBtn');
+        if (nextBtn) {
+          nextBtn.addEventListener('click', function () {
+            SFX.click();
+            appState.currentQuizIndex = qIdx + 1;
+            saveState();
+            const nowFinished = appState.currentQuizIndex >= QUIZ_QUESTIONS.length;
+            renderQuiz(nowFinished);
+          });
+        }
+
+        updatePassUI();
+      }
+
+      /* =======================================================
+         10. 純 Canvas 2D 匯出高解析度電子通行證（零跨域污染）
+         ======================================================= */
+      function drawRoundedRect(ctx, x, y, w, h, r) {
+        ctx.beginPath();
+        ctx.moveTo(x + r, y);
+        ctx.arcTo(x + w, y, x + w, y + h, r);
+        ctx.arcTo(x + w, y + h, x, y + h, r);
+        ctx.arcTo(x, y + h, x, y, r);
+        ctx.arcTo(x, y, x + w, y, r);
+        ctx.closePath();
+      }
+
+      function exportPassPng() {
+        const msgEl = document.getElementById('downloadMsg');
+        try {
+          const canvas = document.getElementById('passExportCanvas');
+          if (!canvas) throw new Error('Canvas not found');
+          const ctx = canvas.getContext('2d');
+          if (!ctx) throw new Error('2D context unavailable');
+
+          const W = canvas.width;
+          const H = canvas.height;
+          const nameVal = (appState.studentName || '').trim() || '小小科學家';
+          const classVal = (appState.studentClass || '').trim();
+          const score = getQuizScore();
+          const isPerfect = score === QUIZ_QUESTIONS.length;
+
+          ctx.clearRect(0, 0, W, H);
+
+          // 卡片漸層背景
+          drawRoundedRect(ctx, 16, 16, W - 32, H - 32, 36);
+          const grad = ctx.createLinearGradient(0, 0, W, H);
+          grad.addColorStop(0, '#1B5E20');
+          grad.addColorStop(0.55, '#2E7D32');
+          grad.addColorStop(1, '#1F6F4A');
+          ctx.fillStyle = grad;
+          ctx.fill();
+
+          ctx.lineWidth = 10;
+          ctx.strokeStyle = '#FFCA28';
+          ctx.stroke();
+
+          // 內部裝飾圓
+          ctx.save();
+          drawRoundedRect(ctx, 21, 21, W - 42, H - 42, 32);
+          ctx.clip();
+          ctx.fillStyle = 'rgba(255, 202, 40, 0.14)';
+          ctx.beginPath();
+          ctx.arc(W - 85, 75, 150, 0, Math.PI * 2);
+          ctx.fill();
+          ctx.fillStyle = 'rgba(255, 255, 255, 0.08)';
+          ctx.beginPath();
+          ctx.arc(85, H - 65, 135, 0, Math.PI * 2);
+          ctx.fill();
+          ctx.restore();
+
+          // 抬頭文字
+          ctx.fillStyle = '#FFF8E1';
+          ctx.font = 'bold 24px "PingFang HK", "Noto Sans TC", "Microsoft JhengHei", sans-serif';
+          ctx.fillText('天水圍官立小學・奇妙科學研究所', 58, 86);
+
+          ctx.fillStyle = '#FFFFFF';
+          ctx.font = '900 42px "PingFang HK", "Noto Sans TC", "Microsoft JhengHei", sans-serif';
+          ctx.fillText('生態小先鋒電子通行證', 58, 142);
+
+          // 右上稱號膠囊
+          drawRoundedRect(ctx, W - 305, 58, 245, 52, 26);
+          ctx.fillStyle = isPerfect ? '#FFCA28' : '#E8F5E9';
+          ctx.fill();
+          ctx.fillStyle = '#4E342E';
+          ctx.font = '900 22px "PingFang HK", "Noto Sans TC", "Microsoft JhengHei", sans-serif';
+          ctx.textAlign = 'center';
+          ctx.fillText(isPerfect ? '★ 五星金牌小先鋒' : '★ 生態小先鋒', W - 182, 92);
+          ctx.textAlign = 'left';
+
+          // 分隔線
+          ctx.strokeStyle = 'rgba(255, 255, 255, 0.28)';
+          ctx.lineWidth = 2;
+          ctx.beginPath();
+          ctx.moveTo(58, 174);
+          ctx.lineTo(W - 58, 174);
+          ctx.stroke();
+
+          // 學生姓名與班別
+          ctx.fillStyle = '#C8E6C9';
+          ctx.font = 'bold 21px "PingFang HK", "Noto Sans TC", "Microsoft JhengHei", sans-serif';
+          ctx.fillText('探險員姓名 / 班別', 58, 224);
+
+          const fullName = classVal ? nameVal + '（' + classVal + '）' : nameVal;
+          ctx.fillStyle = '#FFF8E1';
+          ctx.font = '900 50px "PingFang HK", "Noto Sans TC", "Microsoft JhengHei", sans-serif';
+          ctx.fillText(fullName, 58, 290);
+
+          // 日期與地點資訊卡
+          drawRoundedRect(ctx, 58, 338, 290, 112, 20);
+          ctx.fillStyle = 'rgba(0, 0, 0, 0.22)';
+          ctx.fill();
+          ctx.fillStyle = '#C8E6C9';
+          ctx.font = 'bold 20px "PingFang HK", "Noto Sans TC", "Microsoft JhengHei", sans-serif';
+          ctx.fillText('考察日期', 82, 378);
+          ctx.fillStyle = '#FFFFFF';
+          ctx.font = '900 28px "PingFang HK", "Noto Sans TC", "Microsoft JhengHei", sans-serif';
+          ctx.fillText('2026年12月4日', 82, 422);
+
+          drawRoundedRect(ctx, 368, 338, 315, 112, 20);
+          ctx.fillStyle = 'rgba(0, 0, 0, 0.22)';
+          ctx.fill();
+          ctx.fillStyle = '#C8E6C9';
+          ctx.font = 'bold 20px "PingFang HK", "Noto Sans TC", "Microsoft JhengHei", sans-serif';
+          ctx.fillText('考察地點', 392, 378);
+          ctx.fillStyle = '#FFFFFF';
+          ctx.font = '900 28px "PingFang HK", "Noto Sans TC", "Microsoft JhengHei", sans-serif';
+          ctx.fillText('大埔滘自然護理區', 392, 422);
+
+          // 右側印章
+          ctx.save();
+          ctx.translate(828, 340);
+          ctx.rotate(-0.14);
+          ctx.beginPath();
+          ctx.arc(0, 0, 94, 0, Math.PI * 2);
+          ctx.fillStyle = 'rgba(255, 202, 40, 0.22)';
+          ctx.fill();
+          ctx.lineWidth = 6;
+          ctx.setLineDash([12, 8]);
+          ctx.strokeStyle = '#FFE082';
+          ctx.stroke();
+          ctx.setLineDash([]);
+          ctx.fillStyle = '#FFF8E1';
+          ctx.textAlign = 'center';
+          ctx.font = '900 40px "PingFang HK", "Noto Sans TC", "Microsoft JhengHei", sans-serif';
+          ctx.fillText('✓', 0, -14);
+          ctx.font = '900 23px "PingFang HK", "Noto Sans TC", "Microsoft JhengHei", sans-serif';
+          ctx.fillText('已通過', 0, 24);
+          ctx.fillText('出發前考核', 0, 56);
+          ctx.restore();
+
+          // 底部編號與成績
+          ctx.strokeStyle = 'rgba(255, 255, 255, 0.28)';
+          ctx.lineWidth = 2;
+          ctx.beginPath();
+          ctx.moveTo(58, 496);
+          ctx.lineTo(W - 58, 496);
+          ctx.stroke();
+
+          ctx.textAlign = 'left';
+          ctx.fillStyle = '#DCEDC8';
+          ctx.font = 'bold 23px "PingFang HK", "Noto Sans TC", "Microsoft JhengHei", sans-serif';
+          ctx.fillText('探險員編號：' + appState.explorerCode, 58, 548);
+
+          ctx.textAlign = 'right';
+          ctx.fillStyle = '#FFCA28';
+          ctx.font = '900 23px "PingFang HK", "Noto Sans TC", "Microsoft JhengHei", sans-serif';
+          ctx.fillText('出發前小挑戰：' + score + ' / ' + QUIZ_QUESTIONS.length + ' 分', W - 58, 548);
+
+          const dataUrl = canvas.toDataURL('image/png');
+          const link = document.createElement('a');
+          link.download = '大埔滘生態小先鋒通行證_' + nameVal + '.png';
+          link.href = dataUrl;
+          document.body.appendChild(link);
+          link.click();
+          document.body.removeChild(link);
+
+          SFX.celebrate();
+          if (msgEl) {
+            msgEl.textContent = '✅ 已下載「' + link.download + '」！可在裝置的下載資料夾或相簿查看。';
+            msgEl.classList.remove('hidden');
+          }
+        } catch (err) {
+          if (msgEl) {
+            msgEl.textContent = '⚠️ 目前環境不支援自動下載，你可以直接把上方通行證畫面截圖保存！';
+            msgEl.classList.remove('hidden');
+          }
+        }
+      }
+
+      /* =======================================================
+         11. 綁定全域互動事件與初始化
+         ======================================================= */
+      function bindEvents() {
+        // 音效開關
+        const soundBtn = document.getElementById('soundToggleBtn');
+        if (soundBtn) {
+          soundBtn.addEventListener('click', function () {
+            soundEnabled = !soundEnabled;
+            const icon = document.getElementById('soundIcon');
+            const lbl = document.getElementById('soundLabel');
+            if (icon) icon.textContent = soundEnabled ? '🔊' : '🔇';
+            if (lbl) lbl.textContent = soundEnabled ? '音效開啟' : '已靜音';
+            if (soundEnabled) SFX.click();
+          });
+        }
+
+        // 頂部分頁列
+        document.querySelectorAll('.tab-btn').forEach(function (btn) {
+          btn.addEventListener('click', function () {
+            SFX.click();
+            switchTab(btn.getAttribute('data-tab'));
+          });
+        });
+
+        // 內頁跳轉分頁按鈕
+        document.querySelectorAll('[data-jump-tab]').forEach(function (btn) {
+          btn.addEventListener('click', function () {
+            SFX.click();
+            switchTab(btn.getAttribute('data-jump-tab'));
+          });
+        });
+
+        // 重設執書包清單
+        const resetPackBtn = document.getElementById('resetChecklistBtn');
+        if (resetPackBtn) {
+          resetPackBtn.addEventListener('click', function () {
+            SFX.click();
+            appState.checkedPackIds = [];
+            saveState();
+            renderChecklist(false);
+            updateOverallProgress();
+          });
+        }
+
+        // 裝備完成慶祝彈窗控制
+        const packModal = document.getElementById('packCelebrateModal');
+        function closePackModal() {
+          if (packModal) packModal.classList.add('hidden');
+        }
+        const closePackX = document.getElementById('closePackModalX');
+        const closePackBtn = document.getElementById('closePackModalBtn');
+        const packGoSafety = document.getElementById('packModalGoSafetyBtn');
+        if (closePackX) closePackX.addEventListener('click', closePackModal);
+        if (closePackBtn) closePackBtn.addEventListener('click', closePackModal);
+        if (packGoSafety) {
+          packGoSafety.addEventListener('click', function () {
+            closePackModal();
+            SFX.click();
+            switchTab('safety');
+          });
+        }
+        if (packModal) {
+          packModal.addEventListener('click', function (e) {
+            if (e.target === packModal) closePackModal();
+          });
+        }
+
+        // 生物圖鑑分類篩選按鈕
+        document.querySelectorAll('.filter-btn').forEach(function (btn) {
+          btn.addEventListener('click', function () {
+            SFX.click();
+            currentFilter = btn.getAttribute('data-filter') || 'all';
+            document.querySelectorAll('.filter-btn').forEach(function (b) {
+              b.classList.toggle('active', b === btn);
+            });
+            renderSpeciesGrid();
+          });
+        });
+
+        // 生物詳情彈窗關閉
+        const spModal = document.getElementById('speciesModal');
+        function closeSpModal() {
+          currentModalSpeciesId = null;
+          if (spModal) spModal.classList.add('hidden');
+        }
+        const closeSpX = document.getElementById('closeSpeciesModalBtn');
+        const closeSpBot = document.getElementById('closeSpeciesModalBottomBtn');
+        if (closeSpX) closeSpX.addEventListener('click', closeSpModal);
+        if (closeSpBot) closeSpBot.addEventListener('click', closeSpModal);
+        if (spModal) {
+          spModal.addEventListener('click', function (e) {
+            if (e.target === spModal) closeSpModal();
+          });
+        }
+
+        // Lightbox 關閉
+        const lb = document.getElementById('photoLightbox');
+        const closeLbBtn = document.getElementById('closeLightboxBtn');
+        function closeLightbox() {
+          if (lb) lb.classList.add('hidden');
+        }
+        if (closeLbBtn) closeLbBtn.addEventListener('click', closeLightbox);
+        if (lb) {
+          lb.addEventListener('click', function (e) {
+            if (e.target === lb) closeLightbox();
+          });
+        }
+
+        // 學生姓名與班別輸入
+        const nameInput = document.getElementById('studentNameInput');
+        const classInput = document.getElementById('studentClassInput');
+        if (nameInput) {
+          nameInput.value = appState.studentName || '';
+          nameInput.addEventListener('input', function (e) {
+            appState.studentName = e.target.value;
+            saveState();
+            updatePassUI();
+          });
+        }
+        if (classInput) {
+          classInput.value = appState.studentClass || '';
+          classInput.addEventListener('input', function (e) {
+            appState.studentClass = e.target.value;
+            saveState();
+            updatePassUI();
+          });
+        }
+
+        // 下載通行證 PNG
+        const dlBtn = document.getElementById('downloadPassBtn');
+        if (dlBtn) {
+          dlBtn.addEventListener('click', exportPassPng);
+        }
+      }
+
+      function init() {
+        loadState();
+        bindEvents();
+        renderChecklist(false);
+        renderSafetyCards();
+        renderSpeciesGrid();
+        renderQuiz(false);
+        updateOverallProgress();
+        switchTab('mission');
+
+        // 背景預先抓取全部 11 種生物的多幅真實生態相片
+        SPECIES_LIST.forEach(function (sp) {
+          fetchSpeciesGallery(sp, false);
+        });
+      }
+
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', init);
+      } else {
+        init();
+      }
+    })();
+  </script>
+</body>
+</html>
