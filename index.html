@@ -131,6 +131,13 @@
       flex-wrap: wrap;
     }
 
+    .top-bar-actions {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
     .school-pill {
       display: inline-flex;
       align-items: center;
@@ -168,244 +175,43 @@
       transform: scale(0.96);
     }
 
-    .hero-main {
-      display: flex;
-      flex-direction: column;
+    .offline-dl-btn {
+      display: inline-flex;
       align-items: center;
-      text-align: center;
-      gap: 16px;
-    }
-
-    .hero-badge-wrap {
-      position: relative;
-      width: 86px;
-      height: 86px;
-      border-radius: 24px;
-      background: var(--sun-light);
-      border: 4px solid var(--sun-bright);
-      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.2);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-      animation: floatSlow 4s ease-in-out infinite;
-    }
-
-    .hero-grade-tag {
-      position: absolute;
-      bottom: -10px;
-      right: -10px;
-      background: var(--sun-main);
+      gap: 6px;
+      background: linear-gradient(135deg, #FFCA28, #FBC02D);
+      border: 1.5px solid #FFF8E1;
       color: var(--earth-dark);
-      font-size: 11px;
-      font-weight: 900;
-      padding: 3px 9px;
+      padding: 8px 14px;
       border-radius: 999px;
-      border: 2px solid var(--white);
-      white-space: nowrap;
-      box-shadow: 0 3px 8px rgba(0, 0, 0, 0.18);
-    }
-
-    .hero-title {
-      margin: 0;
-      font-size: 24px;
-      font-weight: 900;
-      line-height: 1.3;
-      letter-spacing: 0.4px;
-    }
-
-    .hero-subtitle {
-      display: block;
-      color: var(--sun-light);
-      font-size: 18px;
-      font-weight: 800;
-      margin-top: 4px;
-    }
-
-    .hero-desc {
-      margin: 8px 0 0;
-      font-size: 13.5px;
-      color: #DCEDC8;
-      max-width: 640px;
-    }
-
-    /* 整體出發準備進度框 */
-    .overall-progress-card {
-      margin-top: 20px;
-      background: rgba(255, 255, 255, 0.14);
-      border: 1.5px solid rgba(255, 255, 255, 0.25);
-      border-radius: 18px;
-      padding: 14px 16px;
-    }
-
-    .overall-progress-top {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 8px;
-      flex-wrap: wrap;
-      font-size: 13.5px;
-      font-weight: 700;
-      margin-bottom: 8px;
-    }
-
-    .overall-pct-pill {
-      background: var(--sun-bright);
-      color: var(--earth-dark);
-      padding: 3px 12px;
-      border-radius: 999px;
-      font-weight: 900;
       font-size: 13px;
-    }
-
-    .progress-track {
-      width: 100%;
-      height: 14px;
-      background: rgba(15, 50, 18, 0.45);
-      border-radius: 999px;
-      overflow: hidden;
-      padding: 2px;
-    }
-
-    .progress-fill {
-      height: 100%;
-      width: 0%;
-      background: linear-gradient(90deg, #FFCA28 0%, #FFF176 55%, #AED581 100%);
-      border-radius: 999px;
-      transition: width 0.45s cubic-bezier(0.22, 1, 0.36, 1);
-    }
-
-    .overall-mini-stats {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 8px;
-      margin-top: 10px;
-      text-align: center;
-      font-size: 12px;
-      font-weight: 700;
-      color: #E8F5E9;
-    }
-
-    .mini-stat {
-      background: rgba(0, 0, 0, 0.18);
-      padding: 6px 8px;
-      border-radius: 10px;
-    }
-
-    /* =======================================================
-       黏性固定（Sticky）4 大分頁導覽列
-       ======================================================= */
-    .sticky-nav {
-      position: sticky;
-      top: 0;
-      z-index: 50;
-      background: rgba(251, 253, 247, 0.96);
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
-      border-bottom: 2px solid var(--forest-border);
-      box-shadow: 0 4px 12px rgba(27, 94, 32, 0.07);
-    }
-
-    .nav-inner {
-      max-width: 1020px;
-      margin: 0 auto;
-      padding: 10px 10px;
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 8px;
-    }
-
-    .tab-btn {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 4px;
-      padding: 10px 6px;
-      min-height: 54px;
-      border-radius: 16px;
-      border: 2px solid var(--forest-border);
-      background: var(--white);
-      color: var(--forest-dark);
-      font-size: 12.5px;
-      font-weight: 800;
+      font-weight: 900;
       cursor: pointer;
-      transition: all 0.2s ease;
-      text-align: center;
-      line-height: 1.25;
+      min-height: 40px;
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.18);
+      transition: transform 0.15s, filter 0.2s;
     }
 
-    .tab-btn:hover {
-      background: var(--forest-light);
+    .offline-dl-btn:hover {
+      filter: brightness(1.04);
     }
 
-    .tab-btn.active {
-      background: linear-gradient(135deg, #2E7D32, #1B5E20);
-      color: var(--white);
-      border-color: var(--forest-dark);
-      box-shadow: 0 5px 14px rgba(27, 94, 32, 0.25);
-      transform: translateY(-1px);
+    .offline-dl-btn:active {
+      transform: scale(0.96);
     }
 
-    .tab-icon {
-      font-size: 20px;
-      line-height: 1;
-    }
-
-    /* =======================================================
-       主內容容器與共用卡片
-       ======================================================= */
-    .main-container {
-      flex: 1;
-      width: 100%;
-      max-width: 1020px;
-      margin: 0 auto;
-      padding: 22px 16px 36px;
-    }
-
-    .tab-panel {
-      animation: popIn 0.32s ease;
-    }
-
-    .section-card {
-      background: var(--white);
-      border-radius: var(--radius-lg);
-      border: 2px solid var(--forest-border);
-      box-shadow: var(--shadow-sm);
-      overflow: hidden;
-      margin-bottom: 24px;
-    }
-
-    .section-card.earth-theme {
-      border-color: var(--earth-border);
-    }
-
-    .section-card.sun-theme {
-      border-color: var(--sun-main);
-    }
-
-    .card-banner {
-      padding: 16px 20px;
+    .offline-notice-bar {
+      margin-bottom: 12px;
+      padding: 10px 14px;
+      border-radius: 14px;
+      background: rgba(255, 248, 225, 0.96);
+      color: var(--earth-dark);
+      border: 2px solid var(--sun-main);
+      font-size: 13px;
+      font-weight: 800;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 12px;
-      flex-wrap: wrap;
-    }
-
-    .card-banner.earth-bg {
-      background: linear-gradient(135deg, #6D4C41, #4E342E);
-      color: var(--sun-light);
-    }
-
-    .card-banner.sun-bg {
-      background: linear-gradient(135deg, #FBC02D, #FFB300);
-      color: var(--earth-dark);
-    }
-
-    .card-banner-title {
-      display: flex;
-      align-items: center;
       gap: 10px;
     }
 
@@ -518,12 +324,63 @@
     }
 
     /* =======================================================
-       分頁 1：任務情報站與執書包 Checklist
+       黏性固定（Sticky）5 大分頁導覽列
        ======================================================= */
-    .info-grid {
+    .sticky-nav {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(251, 253, 247, 0.96);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border-bottom: 2px solid var(--forest-border);
+      box-shadow: 0 4px 12px rgba(27, 94, 32, 0.07);
+    }
+
+    .nav-inner {
+      max-width: 1020px;
+      margin: 0 auto;
+      padding: 8px 8px;
       display: grid;
-      grid-template-columns: 1fr;
-      gap: 12px;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 6px;
+    }
+
+    .tab-btn {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 3px;
+      padding: 8px 3px;
+      min-height: 54px;
+      border-radius: 14px;
+      border: 2px solid var(--forest-border);
+      background: var(--white);
+      color: var(--forest-dark);
+      font-size: 11px;
+      font-weight: 800;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      text-align: center;
+      line-height: 1.2;
+    }
+
+    .tab-btn:hover {
+      background: var(--forest-light);
+    }
+
+    .tab-btn.active {
+      background: linear-gradient(135deg, #2E7D32, #1B5E20);
+      color: var(--white);
+      border-color: var(--forest-dark);
+      box-shadow: 0 5px 14px rgba(27, 94, 32, 0.25);
+      transform: translateY(-1px);
+    }
+
+    .tab-icon {
+      font-size: 19px;
+      line-height: 1;
     }
 
     .info-tile {
@@ -1500,305 +1357,337 @@
     }
 
     /* =======================================================
-       彈窗（Modal）與全螢幕相片放大（Lightbox）
+       分頁 5：探險導航地圖（即時 GPS＋離線地圖＋Google Maps）
        ======================================================= */
-    .modal-backdrop {
-      position: fixed;
-      inset: 0;
-      z-index: 120;
-      background: rgba(15, 30, 18, 0.68);
-      backdrop-filter: blur(4px);
-      -webkit-backdrop-filter: blur(4px);
+    .map-mode-switcher {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 10px;
+      margin-top: 14px;
+    }
+
+    .map-mode-btn {
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 16px;
-    }
-
-    .modal-dialog {
+      gap: 8px;
+      padding: 12px 14px;
+      min-height: 48px;
+      border-radius: 15px;
+      border: 2px solid var(--forest-border);
       background: var(--white);
-      border-radius: 26px;
-      width: 100%;
-      max-width: 540px;
-      max-height: 90vh;
-      overflow-y: auto;
-      border: 4px solid var(--forest-border);
-      box-shadow: var(--shadow-lg);
-      position: relative;
-      animation: popIn 0.26s ease;
+      color: var(--forest-dark);
+      font-size: 13.5px;
+      font-weight: 900;
+      cursor: pointer;
+      transition: all 0.2s;
+      text-align: center;
     }
 
-    .modal-close-btn {
+    .map-mode-btn:hover {
+      background: var(--forest-light);
+    }
+
+    .map-mode-btn.active {
+      background: linear-gradient(135deg, #1B5E20, #2E7D32);
+      color: var(--white);
+      border-color: var(--forest-dark);
+      box-shadow: 0 5px 14px rgba(27, 94, 32, 0.22);
+    }
+
+    .gps-tip-banner {
+      margin-top: 12px;
+      padding: 11px 14px;
+      border-radius: 14px;
+      background: var(--sun-light);
+      border: 1.5px solid var(--sun-border);
+      color: var(--earth-dark);
+      font-size: 13px;
+      font-weight: 700;
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+    }
+
+    .gps-controls-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 14px;
+    }
+
+    .gps-status-card {
+      padding: 13px 15px;
+      border-radius: 16px;
+      background: #F4FAF5;
+      border: 2px solid var(--forest-border);
+      margin-bottom: 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .gps-status-card.active-in {
+      background: #E3F2FD;
+      border-color: #1E88E5;
+    }
+
+    .gps-status-card.active-out {
+      background: #FFF8E1;
+      border-color: #FBC02D;
+    }
+
+    .gps-status-card.simulating {
+      background: #F3E5F5;
+      border-color: #8E24AA;
+    }
+
+    .gps-status-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      flex-wrap: wrap;
+      font-size: 14px;
+      font-weight: 900;
+      color: var(--forest-dark);
+    }
+
+    .gps-badge-pill {
+      padding: 3px 11px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 900;
+      background: var(--forest-light);
+      color: var(--forest-dark);
+    }
+
+    .gps-coords-line {
+      font-size: 12.5px;
+      font-weight: 700;
+      color: var(--text-muted);
+      font-variant-numeric: tabular-nums;
+    }
+
+    .offline-map-wrapper {
+      position: relative;
+      width: 100%;
+      height: 450px;
+      border-radius: 20px;
+      border: 3px solid var(--forest-main);
+      background: #E4F0DC;
+      overflow: hidden;
+      box-shadow: var(--shadow-md);
+      touch-action: none;
+      user-select: none;
+      -webkit-user-select: none;
+      cursor: grab;
+    }
+
+    .offline-map-wrapper:active {
+      cursor: grabbing;
+    }
+
+    .offline-map-svg {
+      width: 100%;
+      height: 100%;
+      display: block;
+      transform-origin: 0 0;
+    }
+
+    .map-zoom-controls {
       position: absolute;
       top: 12px;
       right: 12px;
-      z-index: 10;
+      z-index: 15;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .map-tool-btn {
       width: 40px;
       height: 40px;
-      border-radius: 50%;
-      border: none;
-      background: rgba(0, 0, 0, 0.6);
-      color: var(--white);
+      border-radius: 12px;
+      border: 2px solid var(--forest-main);
+      background: rgba(255, 255, 255, 0.95);
+      color: var(--forest-dark);
       font-size: 18px;
       font-weight: 900;
       cursor: pointer;
       display: flex;
       align-items: center;
       justify-content: center;
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.16);
+      transition: background 0.15s, transform 0.12s;
     }
 
-    .modal-close-btn:hover {
-      background: rgba(0, 0, 0, 0.8);
+    .map-tool-btn:hover {
+      background: var(--forest-light);
     }
 
-    .modal-photo-stage {
-      position: relative;
-      width: 100%;
-      height: 265px;
-      background: #142617;
-      overflow: hidden;
+    .map-tool-btn:active {
+      transform: scale(0.93);
+    }
+
+    .map-tool-btn.reset-txt {
+      font-size: 11px;
+      width: auto;
+      padding: 0 9px;
+      height: 36px;
+    }
+
+    .map-legend-box {
+      position: absolute;
+      bottom: 10px;
+      left: 10px;
+      z-index: 14;
+      background: rgba(255, 255, 255, 0.93);
+      border: 1.5px solid var(--forest-border);
+      border-radius: 12px;
+      padding: 7px 10px;
+      font-size: 11px;
+      font-weight: 800;
+      color: var(--text-main);
       display: flex;
-      align-items: center;
-      justify-content: center;
-      touch-action: pan-y;
+      flex-wrap: wrap;
+      gap: 8px 12px;
+      max-width: calc(100% - 20px);
+      pointer-events: none;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
     }
 
-    .carousel-counter-pill {
+    .legend-dot {
+      display: inline-block;
+      width: 14px;
+      height: 4px;
+      border-radius: 3px;
+      vertical-align: middle;
+      margin-right: 4px;
+    }
+
+    .map-arrival-toast {
       position: absolute;
       top: 12px;
       left: 12px;
-      z-index: 6;
-      background: rgba(27, 94, 32, 0.92);
-      color: #FFF8E1;
-      border: 1.5px solid rgba(255, 224, 130, 0.65);
-      font-size: 12px;
-      font-weight: 900;
-      padding: 5px 12px;
-      border-radius: 999px;
-      pointer-events: none;
-    }
-
-    .carousel-nav-btn {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      z-index: 6;
-      width: 42px;
-      height: 42px;
-      border-radius: 50%;
-      border: 2px solid rgba(255, 255, 255, 0.65);
-      background: rgba(15, 35, 18, 0.68);
+      right: 62px;
+      z-index: 18;
+      background: linear-gradient(135deg, #1B5E20, #2E7D32);
       color: var(--white);
-      font-size: 24px;
-      font-weight: 900;
-      line-height: 1;
+      border: 2.5px solid var(--sun-bright);
+      border-radius: 16px;
+      padding: 10px 14px;
+      box-shadow: 0 8px 22px rgba(0, 0, 0, 0.28);
+      animation: popIn 0.25s ease;
+    }
+
+    .cp-pin-group {
       cursor: pointer;
+    }
+
+    .cp-detail-card {
+      margin-top: 14px;
+      padding: 16px;
+      border-radius: 18px;
+      background: linear-gradient(135deg, #F1F8E9, #FFFDE7);
+      border: 2px solid var(--forest-mid);
+    }
+
+    .cp-detail-top {
       display: flex;
       align-items: center;
-      justify-content: center;
-      transition: background 0.18s, transform 0.15s;
-    }
-
-    .carousel-nav-btn:hover {
-      background: rgba(27, 94, 32, 0.92);
-    }
-
-    .carousel-nav-btn:active {
-      transform: translateY(-50%) scale(0.94);
-    }
-
-    .carousel-nav-btn.prev {
-      left: 10px;
-    }
-
-    .carousel-nav-btn.next {
-      right: 10px;
-    }
-
-    .modal-caption-bar {
-      background: #F2F8F2;
-      border-bottom: 1.5px solid var(--forest-border);
-      padding: 8px 16px;
-      font-size: 12px;
-      color: var(--text-muted);
-      display: flex;
       justify-content: space-between;
-      align-items: center;
       gap: 8px;
       flex-wrap: wrap;
+      margin-bottom: 6px;
     }
 
-    .modal-thumb-strip {
-      display: flex;
-      gap: 8px;
-      padding: 10px 16px;
-      background: #FAFDF9;
-      border-bottom: 1.5px solid #E5EFE5;
+    .distance-table-wrap {
+      margin-top: 16px;
+      border-radius: 16px;
+      border: 2px solid var(--forest-border);
       overflow-x: auto;
+      background: var(--white);
     }
 
-    .modal-thumb-btn {
-      width: 68px;
-      height: 50px;
-      padding: 0;
-      border-radius: 10px;
-      border: 2.5px solid transparent;
-      overflow: hidden;
-      background: #E4F2E5;
-      flex-shrink: 0;
+    .distance-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+      text-align: left;
+    }
+
+    .distance-table th {
+      background: var(--forest-light);
+      color: var(--forest-dark);
+      font-weight: 900;
+      padding: 10px 12px;
+      border-bottom: 2px solid var(--forest-border);
+      white-space: nowrap;
+    }
+
+    .distance-table td {
+      padding: 11px 12px;
+      border-bottom: 1px solid #E8F2E8;
+      vertical-align: middle;
+    }
+
+    .distance-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    .distance-table tr.cp-row {
       cursor: pointer;
-      opacity: 0.72;
-      transition: all 0.18s;
+      transition: background 0.15s;
     }
 
-    .modal-thumb-btn:hover {
-      opacity: 1;
+    .distance-table tr.cp-row:hover {
+      background: #F6FBF6;
     }
 
-    .modal-thumb-btn.active {
-      opacity: 1;
-      border-color: var(--sun-main);
-      box-shadow: 0 0 0 2px var(--forest-main);
+    .distance-table tr.cp-row.selected {
+      background: #FFF8E1;
     }
 
-    .modal-thumb-btn img {
+    .dist-badge {
+      display: inline-block;
+      padding: 3px 9px;
+      border-radius: 999px;
+      background: var(--forest-light);
+      color: var(--forest-dark);
+      font-weight: 900;
+      font-size: 12px;
+      white-space: nowrap;
+    }
+
+    .dist-badge.arrived {
+      background: var(--sun-main);
+      color: var(--earth-dark);
+    }
+
+    .gmap-toolbar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 14px;
+      align-items: center;
+    }
+
+    .gmap-frame-box {
+      width: 100%;
+      height: 440px;
+      border-radius: 20px;
+      border: 3px solid var(--forest-main);
+      overflow: hidden;
+      background: #E8F5E9;
+      box-shadow: var(--shadow-md);
+    }
+
+    .gmap-frame-box iframe {
       width: 100%;
       height: 100%;
-      object-fit: cover;
+      border: 0;
       display: block;
-    }
-
-    .modal-zoom-pill {
-      position: absolute;
-      bottom: 12px;
-      right: 12px;
-      z-index: 6;
-      background: rgba(0, 0, 0, 0.72);
-      color: var(--white);
-      font-size: 12px;
-      font-weight: 800;
-      padding: 6px 13px;
-      border-radius: 999px;
-      border: 1px solid rgba(255, 255, 255, 0.35);
-      cursor: pointer;
-    }
-
-    .modal-content-pad {
-      padding: 18px 20px 22px;
-    }
-
-    .detail-box {
-      padding: 13px 15px;
-      border-radius: 15px;
-      margin-top: 12px;
-      font-size: 13.5px;
-      line-height: 1.6;
-    }
-
-    .detail-box.green {
-      background: var(--forest-light);
-      border: 1.5px solid var(--forest-border);
-    }
-
-    .detail-box.sun {
-      background: var(--sun-light);
-      border: 1.5px solid var(--sun-border);
-    }
-
-    .detail-box.sky {
-      background: var(--sky-bg);
-      border: 1.5px solid var(--sky-border);
-    }
-
-    .detail-box.danger {
-      background: var(--danger-bg);
-      border: 2px solid var(--danger-border);
-      color: var(--danger-main);
-      font-weight: 800;
-    }
-
-    .detail-box.protect {
-      background: var(--protect-bg);
-      border: 2px solid var(--protect-border);
-      color: var(--protect-main);
-      font-weight: 800;
-    }
-
-    .detail-box-title {
-      font-size: 12.5px;
-      font-weight: 900;
-      margin-bottom: 4px;
-      color: var(--forest-dark);
-    }
-
-    /* Lightbox 全螢幕放大 */
-    .lightbox-backdrop {
-      position: fixed;
-      inset: 0;
-      z-index: 160;
-      background: rgba(10, 18, 12, 0.94);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      padding: 18px;
-      gap: 12px;
-    }
-
-    .lightbox-stage {
-      position: relative;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      max-width: 96vw;
-      touch-action: pan-y;
-    }
-
-    .lightbox-img {
-      max-width: 92vw;
-      max-height: 70vh;
-      object-fit: contain;
-      border-radius: 16px;
-      border: 2px solid rgba(255, 255, 255, 0.25);
-      background: #111;
-      display: block;
-    }
-
-    .lightbox-nav-btn {
-      position: fixed;
-      top: 50%;
-      transform: translateY(-50%);
-      z-index: 165;
-      width: 48px;
-      height: 48px;
-      border-radius: 50%;
-      border: 2px solid rgba(255, 255, 255, 0.55);
-      background: rgba(27, 94, 32, 0.85);
-      color: var(--white);
-      font-size: 28px;
-      font-weight: 900;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.45);
-    }
-
-    .lightbox-nav-btn.prev {
-      left: 12px;
-    }
-
-    .lightbox-nav-btn.next {
-      right: 12px;
-    }
-
-    .lightbox-img {
-      max-width: 96vw;
-      max-height: 76vh;
-      object-fit: contain;
-      border-radius: 16px;
-      border: 2px solid rgba(255, 255, 255, 0.25);
-      background: #111;
     }
 
     /* 頁尾 */
@@ -1819,6 +1708,12 @@
     }
 
     /* 動畫 */
+    @keyframes gpsPulse {
+      0% { transform: scale(0.75); opacity: 0.85; }
+      70% { transform: scale(2.2); opacity: 0; }
+      100% { transform: scale(2.2); opacity: 0; }
+    }
+
     @keyframes floatSlow {
       0%, 100% { transform: translateY(0px); }
       50% { transform: translateY(-6px); }
@@ -1850,8 +1745,15 @@
       }
       .tab-btn {
         flex-direction: row;
-        gap: 8px;
-        font-size: 14.5px;
+        gap: 6px;
+        font-size: 13.5px;
+        padding: 10px 6px;
+      }
+      .map-mode-switcher {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .offline-map-wrapper {
+        height: 520px;
       }
       .info-grid {
         grid-template-columns: repeat(2, 1fr);
@@ -1922,10 +1824,21 @@
           <span>🌿</span>
           <span>天水圍官立小學・奇妙科學研究所</span>
         </div>
-        <button id="soundToggleBtn" type="button" class="sound-btn" aria-label="切換音效開關">
-          <span id="soundIcon">🔊</span>
-          <span id="soundLabel">音效開啟</span>
-        </button>
+        <div class="top-bar-actions">
+          <button id="downloadOfflineHtmlBtn" type="button" class="offline-dl-btn" aria-label="下載離線版手冊">
+            <span>📥</span>
+            <span>下載離線版手冊</span>
+          </button>
+          <button id="soundToggleBtn" type="button" class="sound-btn" aria-label="切換音效開關">
+            <span id="soundIcon">🔊</span>
+            <span id="soundLabel">音效開啟</span>
+          </button>
+        </div>
+      </div>
+
+      <div id="offlineDownloadNotice" class="offline-notice-bar hidden" role="status">
+        <span id="offlineDownloadNoticeText"></span>
+        <button id="closeOfflineNoticeBtn" type="button" style="background:none;border:none;font-weight:900;cursor:pointer;color:#4E342E;font-size:15px;">✕</button>
       </div>
 
       <div class="hero-main">
@@ -1990,6 +1903,10 @@
       <button type="button" role="tab" class="tab-btn" data-tab="quiz" aria-selected="false">
         <span class="tab-icon">🏅</span>
         <span>出發前小挑戰</span>
+      </button>
+      <button type="button" role="tab" class="tab-btn" data-tab="map" aria-selected="false">
+        <span class="tab-icon">🧭</span>
+        <span>探險導航地圖</span>
       </button>
     </div>
   </nav>
@@ -2170,7 +2087,7 @@
             <button type="button" class="filter-btn active" data-filter="all">🌟 全部 (11)</button>
             <button type="button" class="filter-btn" data-filter="plant">🌿 植物 (4)</button>
             <button type="button" class="filter-btn" data-filter="bird">🐦 林鳥 (4)</button>
-            <button type="button" class="filter-btn" data-filter="stream">💧 溪流與昆蟲 (3)</button>
+            <button type="button" class="filter-btn" data-filter="stream">🦎 溪流與昆蟲 (3)</button>
           </div>
         </div>
       </div>
@@ -2282,6 +2199,283 @@
               </button>
               <p id="downloadMsg" class="hidden" style="margin: 10px 0 0; font-size: 13.5px; font-weight: 800; color: #1B5E20;"></p>
             </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================================================
+         分頁 5：探險導航地圖（即時 GPS＋離線大埔滘地圖＋Google Maps）
+         =================================================== -->
+    <section id="panel-map" class="tab-panel hidden">
+      <div class="section-card">
+        <div class="card-body">
+          <h2 class="section-heading"><span>🧭</span> 探險導航地圖（大埔滘自然護理區）</h2>
+          <p class="section-sub">
+            隨時查看考察路線、4 個任務打卡點與即時位置！支援無網絡離線地形圖及 Google Maps 實時衛星檢視。
+          </p>
+
+          <!-- 模式切換器 -->
+          <div class="map-mode-switcher" role="group" aria-label="地圖檢視模式切換">
+            <button id="btnModeOffline" type="button" class="map-mode-btn active">
+              <span>🛰️</span>
+              <span>離線大埔滘探險地圖（免上網・即時GPS）</span>
+            </button>
+            <button id="btnModeGoogle" type="button" class="map-mode-btn">
+              <span>🌐</span>
+              <span>Google Maps 實時衛星／地圖（需網絡）</span>
+            </button>
+          </div>
+
+          <div class="gps-tip-banner">
+            <span style="font-size: 18px; line-height: 1.2;">📡</span>
+            <span>手機 GPS 衛星定位無需流動數據，即使山谷無訊號仍可在離線地圖追蹤位置；若在學校或家中，亦可使用「模擬行山測試」預演路線！</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 模式 A：離線大埔滘探險地圖 -->
+      <div id="mapModeOffline" class="section-card">
+        <div class="card-body">
+          <!-- 即時 GPS 定位控制台 -->
+          <div class="gps-controls-bar">
+            <button id="toggleGpsBtn" type="button" class="btn btn-primary">
+              <span>📡</span>
+              <span id="toggleGpsLabel">開啟即時 GPS 定位</span>
+            </button>
+            <button id="toggleSimBtn" type="button" class="btn btn-sun">
+              <span>🚶</span>
+              <span id="toggleSimLabel">模擬行山測試（校內預演）</span>
+            </button>
+          </div>
+
+          <!-- GPS 狀態顯示框 -->
+          <div id="gpsStatusCard" class="gps-status-card">
+            <div class="gps-status-header">
+              <span id="gpsStatusTitle">🛰️ GPS 定位待命中</span>
+              <span id="gpsStatusPill" class="gps-badge-pill">尚未開啟定位</span>
+            </div>
+            <div id="gpsCoordsLine" class="gps-coords-line">
+              提示：點擊「開啟即時 GPS 定位」讀取衛星座標，或點擊「模擬行山測試」體驗沿步道前往 CP1–CP4。
+            </div>
+          </div>
+
+          <!-- 100% 離線 SVG 矢量地形圖 -->
+          <div id="offlineMapViewport" class="offline-map-wrapper" aria-label="大埔滘自然護理區離線探險地形圖">
+            <!-- 到達打卡點彈出提示 -->
+            <div id="mapArrivalToast" class="map-arrival-toast hidden" role="status">
+              <div id="mapArrivalTitle" style="font-size: 14.5px; font-weight: 900; color: #FFE082;"></div>
+              <div id="mapArrivalDesc" style="font-size: 12.5px; margin-top: 2px;"></div>
+            </div>
+
+            <!-- 縮放與重置視角按鈕 -->
+            <div class="map-zoom-controls">
+              <button id="mapZoomInBtn" type="button" class="map-tool-btn" aria-label="放大地圖" title="放大">＋</button>
+              <button id="mapZoomOutBtn" type="button" class="map-tool-btn" aria-label="縮小地圖" title="縮小">－</button>
+              <button id="mapResetViewBtn" type="button" class="map-tool-btn reset-txt" aria-label="重置地圖視角" title="重置視角">重置</button>
+            </div>
+
+            <!-- 圖例 -->
+            <div class="map-legend-box">
+              <span><i class="legend-dot" style="background:#D32F2F;"></i>紅林道 3km</span>
+              <span><i class="legend-dot" style="background:#1976D2;"></i>藍林道 4km</span>
+              <span><i class="legend-dot" style="background:#6D4C41;"></i>啡林道</span>
+              <span><i class="legend-dot" style="background:#FBC02D;"></i>黃林道</span>
+              <span><i class="legend-dot" style="background:#00ACC1;"></i>大埔滘溪澗</span>
+              <span><i class="legend-dot" style="background:#43A047;border-bottom:2px dashed #1B5E20;"></i>自然教育徑</span>
+            </div>
+
+            <!-- SVG 矢量地形圖（涵蓋 22.4215°N–22.4355°N, 114.1735°E–114.1875°E） -->
+            <svg id="offlineMapSvg" class="offline-map-svg" viewBox="0 0 800 840" preserveAspectRatio="xMidYMid slice">
+              <defs>
+                <linearGradient id="forestTerrainGrad" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0%" stop-color="#E7F3DF"></stop>
+                  <stop offset="55%" stop-color="#D5E9CA"></stop>
+                  <stop offset="100%" stop-color="#C3DFB5"></stop>
+                </linearGradient>
+                <pattern id="treeDotsPattern" width="44" height="44" patternUnits="userSpaceOnUse">
+                  <circle cx="12" cy="14" r="3" fill="#81C784" opacity="0.32"></circle>
+                  <circle cx="34" cy="32" r="3.5" fill="#66BB6A" opacity="0.28"></circle>
+                </pattern>
+              </defs>
+
+              <g id="mapPanZoomLayer">
+                <!-- 底色與林區紋理 -->
+                <rect x="0" y="0" width="800" height="840" fill="url(#forestTerrainGrad)"></rect>
+                <rect x="0" y="0" width="800" height="840" fill="url(#treeDotsPattern)"></rect>
+
+                <!-- 經緯度網格線 -->
+                <g stroke="#9CCC65" stroke-width="1" stroke-dasharray="4 6" opacity="0.55">
+                  <line x1="0" y1="210" x2="800" y2="210"></line>
+                  <line x1="0" y1="420" x2="800" y2="420"></line>
+                  <line x1="0" y1="630" x2="800" y2="630"></line>
+                  <line x1="200" y1="0" x2="200" y2="840"></line>
+                  <line x1="400" y1="0" x2="400" y2="840"></line>
+                  <line x1="600" y1="0" x2="600" y2="840"></line>
+                </g>
+
+                <!-- 海拔等高線 (50m - 250m) -->
+                <g fill="none" stroke="#8D6E63" stroke-width="1.4" opacity="0.45">
+                  <path d="M 480,60 Q 590,140 740,210"></path>
+                  <path d="M 320,110 Q 490,220 760,340"></path>
+                  <path d="M 140,180 Q 380,310 750,490"></path>
+                  <path d="M 50,310 Q 300,450 710,670"></path>
+                  <path d="M 30,480 Q 250,610 560,810"></path>
+                  <path d="M 20,650 Q 170,730 340,830"></path>
+                </g>
+                <g fill="#6D4C41" font-size="11" font-weight="700" opacity="0.72">
+                  <text x="685" y="182">50m</text>
+                  <text x="690" y="308">100m</text>
+                  <text x="670" y="452">150m</text>
+                  <text x="625" y="618">200m</text>
+                  <text x="455" y="752">250m</text>
+                </g>
+
+                <!-- 大埔滘主溪澗水道（流經 CP3 石橋） -->
+                <path d="M 745,65 C 670,135 595,215 510,305 C 440,378 390,435 343,498 C 295,562 215,645 110,765"
+                      fill="none" stroke="#4DD0E1" stroke-width="16" stroke-linecap="round" opacity="0.45"></path>
+                <path d="M 745,65 C 670,135 595,215 510,305 C 440,378 390,435 343,498 C 295,562 215,645 110,765"
+                      fill="none" stroke="#00838F" stroke-width="5" stroke-linecap="round"></path>
+                <text x="415" y="422" fill="#006064" font-size="13" font-weight="900" transform="rotate(-48 415 422)">💧 大埔滘主溪澗</text>
+
+                <!-- 大埔公路（大埔滘段） -->
+                <path d="M 455,15 Q 575,65 646,120 Q 720,178 785,260"
+                      fill="none" stroke="#546E7A" stroke-width="16" stroke-linecap="round"></path>
+                <path d="M 455,15 Q 575,65 646,120 Q 720,178 785,260"
+                      fill="none" stroke="#ECEFF1" stroke-width="2" stroke-dasharray="10 8"></path>
+                <text x="515" y="42" fill="#37474F" font-size="13" font-weight="900" transform="rotate(28 515 42)">🚌 大埔公路（大埔滘段）</text>
+
+                <!-- 黃林道 Yellow Walk -->
+                <path d="M 457,378 C 525,355 615,375 685,435 C 725,470 730,545 665,585"
+                      fill="none" stroke="#FBC02D" stroke-width="5.5" stroke-linecap="round"></path>
+                <text x="588" y="372" fill="#8D6E63" font-size="12" font-weight="900">黃林道</text>
+
+                <!-- 啡林道 Brown Walk -->
+                <path d="M 343,498 C 245,455 155,465 95,535 C 55,585 75,675 155,705"
+                      fill="none" stroke="#6D4C41" stroke-width="5.5" stroke-linecap="round"></path>
+                <text x="128" y="472" fill="#4E342E" font-size="12" font-weight="900">啡林道</text>
+
+                <!-- 藍林道 Blue Walk (4km) -->
+                <path d="M 269,630 C 350,675 465,695 555,645 C 625,605 640,515 565,455 C 510,412 480,395 457,378"
+                      fill="none" stroke="#1976D2" stroke-width="6" stroke-linecap="round"></path>
+                <text x="455" y="692" fill="#0D47A1" font-size="12.5" font-weight="900">藍林道 (4km)</text>
+
+                <!-- 紅林道 Red Walk (3km)（主考察環線） -->
+                <path d="M 457,378 C 395,415 365,458 343,498 C 315,545 288,588 269,630 C 235,585 215,505 245,430 C 275,355 365,345 457,378 Z"
+                      fill="none" stroke="#D32F2F" stroke-width="6.5" stroke-linejoin="round"></path>
+                <text x="200" y="422" fill="#B71C1C" font-size="12.5" font-weight="900">紅林道 (3km)</text>
+
+                <!-- 自然教育徑 Nature Trail（入口至野外研習園） -->
+                <path d="M 646,120 C 615,175 565,245 515,310 C 488,342 472,360 457,378"
+                      fill="none" stroke="#1B5E20" stroke-width="6" stroke-dasharray="10 7" stroke-linecap="round"></path>
+                <text x="556" y="232" fill="#1B5E20" font-size="13" font-weight="900" transform="rotate(-52 556 232)">🌿 自然教育徑</text>
+
+                <!-- 地標設施圖示與文字 -->
+                <!-- 松仔園巴士站入口 -->
+                <g transform="translate(662, 92)">
+                  <rect x="0" y="0" width="122" height="28" rx="8" fill="#FFFFFF" stroke="#37474F" stroke-width="2"></rect>
+                  <text x="61" y="18" text-anchor="middle" fill="#263238" font-size="11.5" font-weight="900">🚌 松仔園巴士站</text>
+                </g>
+
+                <!-- 大埔滘管理站及野外研習園廣場 -->
+                <g transform="translate(475, 326)">
+                  <rect x="0" y="0" width="166" height="30" rx="8" fill="#FFF8E1" stroke="#6D4C41" stroke-width="2"></rect>
+                  <text x="83" y="19" text-anchor="middle" fill="#4E342E" font-size="11.5" font-weight="900">🏡 管理站及野外研習園</text>
+                </g>
+
+                <!-- 溪澗石橋標示 -->
+                <g transform="translate(343, 498)">
+                  <rect x="-18" y="-8" width="36" height="16" rx="4" fill="#8D6E63" stroke="#FFF8E1" stroke-width="2"></rect>
+                </g>
+
+                <!-- 岔路口安全提醒標記 -->
+                <g transform="translate(269, 630)">
+                  <circle cx="0" cy="0" r="24" fill="#FFF8E1" stroke="#E65100" stroke-width="2" stroke-dasharray="4 3" opacity="0.9"></circle>
+                </g>
+                <text x="269" y="672" text-anchor="middle" fill="#BF360C" font-size="11.5" font-weight="900">⚠️ 紅藍林道岔路口（緊跟隊伍）</text>
+
+                <!-- 4 個考察任務打卡點（由 JS 動態渲染高亮狀態） -->
+                <g id="mapCheckpointsLayer"></g>
+
+                <!-- 即時 GPS / 模擬行山動態藍點位置 -->
+                <g id="gpsUserGroup" class="hidden" transform="translate(646, 120)">
+                  <circle id="gpsAccuracyCircle" cx="0" cy="0" r="28" fill="rgba(30, 136, 229, 0.2)" stroke="#1E88E5" stroke-width="1.5" stroke-dasharray="4 3"></circle>
+                  <circle cx="0" cy="0" r="16" fill="rgba(30, 136, 229, 0.45)" style="transform-origin: 0 0; animation: gpsPulse 1.8s infinite ease-out;"></circle>
+                  <circle cx="0" cy="0" r="9.5" fill="#1565C0" stroke="#FFFFFF" stroke-width="3"></circle>
+                  <g transform="translate(0, -24)">
+                    <rect x="-34" y="-12" width="68" height="20" rx="10" fill="#1565C0" stroke="#FFFFFF" stroke-width="1.5"></rect>
+                    <text id="gpsUserBadgeText" x="0" y="2" text-anchor="middle" fill="#FFFFFF" font-size="10.5" font-weight="900">我的位置</text>
+                  </g>
+                </g>
+
+                <!-- 指北針與比例尺 -->
+                <g transform="translate(52, 56)">
+                  <circle cx="0" cy="0" r="26" fill="rgba(255,255,255,0.9)" stroke="#1B5E20" stroke-width="2"></circle>
+                  <polygon points="0,-19 6,2 0,-2 -6,2" fill="#D32F2F"></polygon>
+                  <polygon points="0,19 6,-2 0,2 -6,-2" fill="#546E7A"></polygon>
+                  <text x="0" y="-29" text-anchor="middle" fill="#1B5E20" font-size="12" font-weight="900">N 北</text>
+                </g>
+
+                <g transform="translate(545, 780)">
+                  <rect x="-10" y="-22" width="235" height="36" rx="10" fill="rgba(255,255,255,0.9)" stroke="#1B5E20" stroke-width="1.5"></rect>
+                  <line x1="8" y1="-2" x2="108" y2="-2" stroke="#1B5E20" stroke-width="3"></line>
+                  <line x1="8" y1="-7" x2="8" y2="3" stroke="#1B5E20" stroke-width="2.5"></line>
+                  <line x1="58" y1="-6" x2="58" y2="2" stroke="#1B5E20" stroke-width="2"></line>
+                  <line x1="108" y1="-7" x2="108" y2="3" stroke="#1B5E20" stroke-width="2.5"></line>
+                  <text x="8" y="-10" fill="#1B5E20" font-size="10" font-weight="800">0</text>
+                  <text x="58" y="-10" text-anchor="middle" fill="#1B5E20" font-size="10" font-weight="800">250m</text>
+                  <text x="108" y="-10" text-anchor="middle" fill="#1B5E20" font-size="10" font-weight="800">500m</text>
+                  <text x="168" y="2" text-anchor="middle" fill="#4E342E" font-size="10.5" font-weight="900">離線地形圖</text>
+                </g>
+              </g>
+            </svg>
+          </div>
+
+          <!-- 選中考察點詳細任務卡 -->
+          <div id="checkpointDetailCard" class="cp-detail-card"></div>
+
+          <!-- 各考察點即時距離表 -->
+          <div class="sub-heading-bar">📍 各考察點即時距離表（點擊行可定位至地圖）</div>
+          <div class="distance-table-wrap">
+            <table class="distance-table">
+              <thead>
+                <tr>
+                  <th>打卡點</th>
+                  <th>任務站名稱</th>
+                  <th>即時距離</th>
+                  <th>步行約需</th>
+                </tr>
+              </thead>
+              <tbody id="checkpointDistanceBody"></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- 模式 B：Google Maps 實時衛星／地圖檢視 -->
+      <div id="mapModeGoogle" class="section-card hidden">
+        <div class="card-body">
+          <div class="gmap-toolbar">
+            <button id="gmapSatBtn" type="button" class="btn btn-primary btn-sm">🛰️ 衛星森林圖</button>
+            <button id="gmapStreetBtn" type="button" class="btn btn-outline btn-sm">🗺️ 標準街道圖</button>
+            <a id="openGmapAppLink" href="https://www.google.com/maps/search/?api=1&query=22.4285,114.1810" target="_blank" rel="noopener noreferrer" class="btn btn-sun btn-sm" style="text-decoration:none;">
+              📍 在 Google Maps App 開啟我目前 GPS 位置
+            </a>
+          </div>
+
+          <div id="gmapOfflineWarn" class="gps-tip-banner hidden" style="margin-bottom: 12px; background: #FFEBEE; border-color: #EF9A9A; color: #B71C1C;">
+            <span>⚠️</span>
+            <span>偵測到裝置目前處於離線狀態，Google Maps 實時圖層可能無法載入，建議切換回「🛰️ 離線大埔滘探險地圖」！</span>
+          </div>
+
+          <div class="gmap-frame-box">
+            <iframe
+              id="googleMapIframe"
+              src="https://maps.google.com/maps?q=22.4285,114.1810&t=k&z=16&output=embed"
+              title="大埔滘自然護理區 Google Maps 實時地圖"
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
           </div>
         </div>
       </div>
@@ -2623,7 +2817,7 @@
           category: 'plant',
           categoryLabel: '🌿 植物',
           name: '鴨腳木',
-          scientificName: 'Heptapleurum heptaphyllum / Schefflera heptaphylla',
+          scientificName: 'Schefflera heptaphylla',
           commonsQueries: [
             '"Heptapleurum heptaphyllum"',
             '"Schefflera heptaphylla"',
@@ -2677,7 +2871,7 @@
           category: 'plant',
           categoryLabel: '🌿 植物',
           name: '海芋',
-          scientificName: 'Alocasia odora / Alocasia macrorrhizos',
+          scientificName: 'Alocasia odora',
           commonsQueries: [
             '"Alocasia odora"',
             '"Alocasia macrorrhizos" leaf',
@@ -2716,7 +2910,7 @@
           category: 'bird',
           categoryLabel: '🐦 林鳥',
           name: '紅耳鵯／白頭鵯',
-          scientificName: 'Pycnonotus jocosus / Pycnonotus sinensis',
+          scientificName: 'Pycnonotus jocosus',
           commonsQueries: [
             '"Pycnonotus jocosus"',
             '"Pycnonotus sinensis"'
@@ -2733,11 +2927,11 @@
           category: 'bird',
           categoryLabel: '🐦 林鳥',
           name: '黃咀栗啄木鳥／斑姬啄木鳥',
-          scientificName: 'Blythipicus pyrrhotis / Picumnus innominatus',
+          scientificName: 'Dendrocopos canicapillus',
           commonsQueries: [
             '"Blythipicus pyrrhotis"',
             '"Picumnus innominatus"',
-            '"Blythipicus"'
+            '"Dendrocopos canicapillus"'
           ],
           shortDesc: '森林裡的「樹醫生」，留意樹幹傳來清脆的「篤篤」啄木聲！',
           features: '擁有堅硬如鑿子的喙及善於攀附樹皮的腳趾；黃咀栗啄木鳥呈栗褐色帶黃喙，斑姬啄木鳥則十分嬌小靈巧。',
@@ -2751,7 +2945,7 @@
           category: 'bird',
           categoryLabel: '🐦 林鳥',
           name: '冬候鳥（紅脇藍尾鴝／柳鶯類）',
-          scientificName: 'Tarsiger cyanurus / Phylloscopus inornatus',
+          scientificName: 'Tarsiger cyanurus',
           commonsQueries: [
             '"Tarsiger cyanurus"',
             '"Phylloscopus inornatus"',
@@ -2767,7 +2961,7 @@
         {
           id: 'newt',
           category: 'stream',
-          categoryLabel: '💧 溪流與昆蟲',
+          categoryLabel: '🦎 溪流與昆蟲',
           name: '香港瘰螈',
           scientificName: 'Paramesotriton hongkongensis',
           commonsQueries: [
@@ -2781,23 +2975,23 @@
           alert: {
             type: 'protect',
             chipText: '🛡️ 受保護物種',
-            text: '【🛡️ 受保護物種】香港瘰螈受法例保護，只可遠觀，絕對不可捕捉、觸摸或干擾！'
+            text: '【🛡️ 受保護物種】香港瘰螈受香港法例保護，只可遠觀，絕對不可捕捉、觸摸或干擾！'
           },
           svg: '<svg viewBox="0 0 100 100" class="photo-fallback-svg"><circle cx="50" cy="50" r="46" fill="#F3E5F5"/><path d="M22,58 Q40,42 58,52 T86,44" stroke="#4E342E" stroke-width="11" stroke-linecap="round" fill="none"/><path d="M26,59 Q42,46 56,54" stroke="#FF5722" stroke-width="4" stroke-linecap="round" fill="none" stroke-dasharray="5 4"/><circle cx="22" cy="56" r="7" fill="#4E342E"/></svg>'
         },
         {
           id: 'stream-life',
           category: 'stream',
-          categoryLabel: '💧 溪流與昆蟲',
-          name: '溪流淡水魚與蜻蜓',
-          scientificName: 'Neurobasis chinensis / Rhinogobius / Parazacco spilurus',
+          categoryLabel: '🦎 溪流與昆蟲',
+          name: '淡水魚及蜻蜓',
+          scientificName: 'Orthetrum',
           commonsQueries: [
+            '"Orthetrum" dragonfly',
             '"Neurobasis chinensis"',
-            '"Rhinogobius"',
-            '"Parazacco spilurus"'
+            '"Rhinogobius"'
           ],
-          shortDesc: '華艷色蟌、蝦虎魚與異鱲等溪流指標生物，見證潔淨水質。',
-          features: '清澈溪畔常有金屬綠翅的華艷色蟌等蜻蜓停棲枝葉，水底石間則藏身蝦虎魚（Rhinogobius）與異鱲等小型淡水魚。',
+          shortDesc: '華艷色蟌、灰蜻與溪流小型淡水魚，見證大埔滘潔淨水質。',
+          features: '清澈溪畔常有灰蜻（Orthetrum）及金屬綠翅的華艷色蟌停棲枝葉，水底石間則藏身蝦虎魚與異鱲等小型淡水魚。',
           season: '12 月溪水清澈涼爽、水流平緩，非常適合進行「溪流生態聆聽」與近岸靜態觀察。',
           tips: '緊記溪澗安全守則！切勿踏上濕滑青苔石頭或下水，保持安靜更能看見水中小魚游動。',
           alert: null,
@@ -2806,16 +3000,16 @@
         {
           id: 'butterfly',
           category: 'stream',
-          categoryLabel: '💧 溪流與昆蟲',
+          categoryLabel: '🦎 溪流與昆蟲',
           name: '冬季蝴蝶（斑蝶類）',
-          scientificName: 'Danaus genutia / Euploea core / Tirumala limniace / Danaus chrysippus',
+          scientificName: 'Danaus genutia',
           commonsQueries: [
             '"Danaus genutia" butterfly',
             '"Euploea core" butterfly',
             '"Tirumala limniace" butterfly',
             '"Danaus chrysippus" butterfly'
           ],
-          shortDesc: '虎斑蝶、幻紫斑蝶、青斑蝶與金斑蝶，冬季愛在鴨腳木花叢採蜜。',
+          shortDesc: '虎斑蝶、幻紫斑蝶與青斑蝶，冬季愛在鴨腳木花叢採蜜。',
           features: '斑蝶類翅膀帶有鮮明橙黑、紫褐或青黑斑紋，飛行優雅緩慢，體內含微苦物質讓鳥類天敵卻步。',
           season: '香港冬天氣候溫和，大批斑蝶會聚集於背風山谷越冬。12 月陽光普照的下午，牠們最愛到盛開的鴨腳木花叢採蜜！',
           tips: '觀察蝴蝶時切勿追趕或揮手拍打，細心看看牠們停在哪種花朵上及翅膀斑紋的顏色。',
@@ -3587,256 +3781,6 @@
         });
       }
 
-      async function queryWikiPhoto(title) {
-        try {
-          const endpoint =
-            'https://en.wikipedia.org/w/api.php?action=query&redirects=1&prop=pageimages&piprop=thumbnail&pithumbsize=640&format=json&origin=*&titles=' +
-            encodeURIComponent(title);
-          const resp = await fetch(endpoint);
-          if (!resp.ok) return null;
-          const data = await resp.json();
-          const pages = data && data.query && data.query.pages;
-          if (!pages) return null;
-          const keys = Object.keys(pages);
-          for (let i = 0; i < keys.length; i++) {
-            const page = pages[keys[i]];
-            if (page && page.thumbnail && page.thumbnail.source) {
-              return page.thumbnail.source;
-            }
-          }
-          return null;
-        } catch (e) {
-          return null;
-        }
-      }
-
-      async function fetchSpeciesPhoto(sp, forceRetry) {
-        const cur = speciesPhotoState[sp.id];
-        if (!forceRetry && cur && (cur.status === 'loaded' || cur.status === 'loading')) {
-          return;
-        }
-
-        speciesPhotoState[sp.id] = { status: 'loading', url: null };
-        refreshSpeciesPhotoUI(sp);
-
-        for (let i = 0; i < sp.wikiTitles.length; i++) {
-          const url = await queryWikiPhoto(sp.wikiTitles[i]);
-          if (url) {
-            const ok = await verifyImageLoad(url);
-            if (ok) {
-              speciesPhotoState[sp.id] = { status: 'loaded', url: url };
-              refreshSpeciesPhotoUI(sp);
-              return;
-            }
-          }
-        }
-
-        speciesPhotoState[sp.id] = { status: 'error', url: null };
-        refreshSpeciesPhotoUI(sp);
-      }
-
-      function buildSpeciesPhotoMarkup(sp) {
-        const st = speciesPhotoState[sp.id] || { status: 'loading', url: null };
-        const alertChip = sp.alert
-          ? '<span class="alert-chip ' + sp.alert.type + '">' + sp.alert.chipText + '</span>'
-          : '';
-
-        const topOverlay =
-          '<div class="photo-overlay-top">' +
-            '<span class="cat-badge">' + sp.categoryLabel + '</span>' +
-            alertChip +
-          '</div>';
-
-        if (st.status === 'loaded' && st.url) {
-          return (
-            '<div class="species-photo-box">' +
-              topOverlay +
-              '<img class="species-photo-img" src="' + st.url + '" alt="' + sp.name + '實景生態相片" loading="lazy" />' +
-              '<span class="photo-credit-tag">Wikimedia Commons</span>' +
-            '</div>'
-          );
-        }
-
-        if (st.status === 'error') {
-          return (
-            '<div class="species-photo-box">' +
-              topOverlay +
-              '<div class="photo-fallback-box">' +
-                sp.svg +
-                '<button type="button" class="retry-photo-btn" data-retry-sp="' + sp.id + '">🔄 重新載入相片</button>' +
-              '</div>' +
-            '</div>'
-          );
-        }
-
-        return (
-          '<div class="species-photo-box">' +
-            topOverlay +
-            '<div class="photo-shimmer">' +
-              '<span style="font-size: 24px;">📷</span>' +
-              '<span>載入實景生態相片中...</span>' +
-            '</div>' +
-          '</div>'
-        );
-      }
-
-      function bindRetryInContainer(container, sp) {
-        if (!container) return;
-        const btns = container.querySelectorAll('.retry-photo-btn');
-        btns.forEach(function (btn) {
-          btn.addEventListener('click', function (e) {
-            e.stopPropagation();
-            SFX.click();
-            fetchSpeciesPhoto(sp, true);
-          });
-        });
-      }
-
-      function refreshSpeciesPhotoUI(sp) {
-        const slot = document.querySelector('[data-photo-slot="' + sp.id + '"]');
-        if (slot) {
-          slot.innerHTML = buildSpeciesPhotoMarkup(sp);
-          bindRetryInContainer(slot, sp);
-        }
-        const modal = document.getElementById('speciesModal');
-        if (currentModalSpeciesId === sp.id && modal && !modal.classList.contains('hidden')) {
-          renderModalPhotoStage(sp);
-        }
-      }
-
-      function openPhotoLightbox(sp, url) {
-        const box = document.getElementById('photoLightbox');
-        const img = document.getElementById('lightboxImg');
-        const title = document.getElementById('lightboxTitle');
-        const sci = document.getElementById('lightboxSci');
-        if (!box || !img) return;
-        SFX.click();
-        img.src = url;
-        img.alt = sp.name;
-        if (title) title.textContent = sp.name;
-        if (sci) sci.textContent = sp.scientificName;
-        box.classList.remove('hidden');
-      }
-
-      function renderModalPhotoStage(sp) {
-        const stage = document.getElementById('modalPhotoStage');
-        const credit = document.getElementById('modalPhotoCredit');
-        if (!stage) return;
-
-        const st = speciesPhotoState[sp.id] || { status: 'loading', url: null };
-        stage.onclick = null;
-
-        if (st.status === 'loaded' && st.url) {
-          if (credit) credit.textContent = '實景相片來源：Wikimedia Commons';
-          stage.style.cursor = 'zoom-in';
-          stage.innerHTML =
-            '<img class="species-photo-img" src="' + st.url + '" alt="' + sp.name + '實景生態相片" />' +
-            '<button type="button" class="modal-zoom-pill">🔍 點擊放大檢視</button>';
-          stage.onclick = function () { openPhotoLightbox(sp, st.url); };
-        } else if (st.status === 'error') {
-          if (credit) credit.textContent = '離線精簡插畫（連線後可重載相片）';
-          stage.style.cursor = 'default';
-          stage.innerHTML =
-            '<div class="photo-fallback-box">' +
-              sp.svg +
-              '<button type="button" class="retry-photo-btn">🔄 重新載入相片</button>' +
-            '</div>';
-          bindRetryInContainer(stage, sp);
-        } else {
-          if (credit) credit.textContent = '正在載入 Wikimedia Commons 實景相片...';
-          stage.style.cursor = 'default';
-          stage.innerHTML =
-            '<div class="photo-shimmer">' +
-              '<span style="font-size: 28px;">📷</span>' +
-              '<span>載入實景生態相片中...</span>' +
-            '</div>';
-        }
-      }
-
-      function openSpeciesModal(sp) {
-        // Lightbox 關閉與多圖左右切換 + 鍵盤方向鍵 + 觸控滑動
-        const lb = document.getElementById('photoLightbox');
-        const closeLbBtn = document.getElementById('closeLightboxBtn');
-        const lbPrevBtn = document.getElementById('lightboxPrevBtn');
-        const lbNextBtn = document.getElementById('lightboxNextBtn');
-        const lbStage = document.getElementById('lightboxStage');
-        const modalStage = document.getElementById('modalPhotoStage');
-
-        function closeLightbox() {
-          if (lb) lb.classList.add('hidden');
-        }
-        function getCurrentModalSpecies() {
-          if (!currentModalSpeciesId) return null;
-          for (let i = 0; i < SPECIES_LIST.length; i++) {
-            if (SPECIES_LIST[i].id === currentModalSpeciesId) return SPECIES_LIST[i];
-          }
-          return null;
-        }
-        function stepActiveGalleryPhoto(delta) {
-          const sp = getCurrentModalSpecies();
-          if (!sp) return;
-          const st = speciesGalleryState[sp.id];
-          if (!st || !st.photos || st.photos.length <= 1) return;
-          SFX.click();
-          setSpeciesActivePhoto(sp, st.activeIndex + delta);
-        }
-
-        if (closeLbBtn) closeLbBtn.addEventListener('click', closeLightbox);
-        if (lbPrevBtn) {
-          lbPrevBtn.addEventListener('click', function (e) {
-            e.stopPropagation();
-            stepActiveGalleryPhoto(-1);
-          });
-        }
-        if (lbNextBtn) {
-          lbNextBtn.addEventListener('click', function (e) {
-            e.stopPropagation();
-            stepActiveGalleryPhoto(1);
-          });
-        }
-        if (lb) {
-          lb.addEventListener('click', function (e) {
-            if (e.target === lb) closeLightbox();
-          });
-        }
-
-        function attachSwipeGesture(el) {
-          if (!el) return;
-          let startX = 0;
-          el.addEventListener('touchstart', function (e) {
-            if (e.touches && e.touches.length === 1) {
-              startX = e.touches[0].clientX;
-            }
-          }, { passive: true });
-          el.addEventListener('touchend', function (e) {
-            if (!e.changedTouches || e.changedTouches.length === 0) return;
-            const diffX = e.changedTouches[0].clientX - startX;
-            if (Math.abs(diffX) >= 38) {
-              stepActiveGalleryPhoto(diffX < 0 ? 1 : -1);
-            }
-          }, { passive: true });
-        }
-        attachSwipeGesture(modalStage);
-        attachSwipeGesture(lbStage);
-
-        document.addEventListener('keydown', function (e) {
-          const lbOpen = lb && !lb.classList.contains('hidden');
-          const modalOpen = spModal && !spModal.classList.contains('hidden');
-          if (!lbOpen && !modalOpen) return;
-
-          if (e.key === 'ArrowLeft') {
-            e.preventDefault();
-            stepActiveGalleryPhoto(-1);
-          } else if (e.key === 'ArrowRight') {
-            e.preventDefault();
-            stepActiveGalleryPhoto(1);
-          } else if (e.key === 'Escape') {
-            if (lbOpen) closeLightbox();
-            else if (modalOpen) closeSpModal();
-          }
-        });
-      }
-
       /* =======================================================
          9. 分頁 4：出發前小挑戰（逐題互動 + 總結）與電子通行證
          ======================================================= */
@@ -4209,9 +4153,640 @@
       }
 
       /* =======================================================
+         10B. 分頁 5：探險導航地圖（即時 GPS＋離線地形圖＋Google Maps）
+         ======================================================= */
+      const MAP_BOUNDS = {
+        latMin: 22.4215,
+        latMax: 22.4355,
+        lngMin: 114.1735,
+        lngMax: 114.1875,
+        svgW: 800,
+        svgH: 840
+      };
+
+      const CHECKPOINTS = [
+        {
+          id: 'cp1',
+          code: 'CP1',
+          shortTitle: '集合起點',
+          name: '松仔園入口',
+          lat: 22.4335,
+          lng: 114.1848,
+          task: '全隊集合點名、檢查輕便背包與安全守則，整裝進入自然教育徑。',
+          safetyTip: '緊跟隊伍靠行人道步行，切勿走出大埔公路馬路。'
+        },
+        {
+          id: 'cp2',
+          code: 'CP2',
+          shortTitle: '微氣候比較站',
+          name: '野外研習園林蔭區',
+          lat: 22.4292,
+          lng: 114.1815,
+          task: '使用溫度計、濕度計及光照計，比較樹蔭下與開揚處的微氣候數據。',
+          safetyTip: '小心愛護科學儀器，等待讀數穩定後如實記錄。'
+        },
+        {
+          id: 'cp3',
+          code: 'CP3',
+          shortTitle: '溪流生態聆聽點',
+          name: '大埔滘溪澗石橋',
+          lat: 22.4272,
+          lng: 114.1795,
+          task: '於石橋及安全岸邊靜心聆聽流水聲，尋找香港瘰螈、溪魚及華艷色蟌。',
+          safetyTip: '切勿踏上濕滑青苔石頭或下水，香港瘰螈受法例保護不可捕捉！'
+        },
+        {
+          id: 'cp4',
+          code: 'CP4',
+          shortTitle: '森林尋寶與觀鳥站',
+          name: '紅藍林道交匯處',
+          lat: 22.4250,
+          lng: 114.1782,
+          task: '觀察鴨腳木冬花、楓香葉片與林鳥「鳥浪」，並進行分組分享總結。',
+          safetyTip: '岔路口多，切勿擅自走入密林；遇見海芋不可觸摸。'
+        }
+      ];
+
+      // 模擬行山路線路徑點（沿自然教育徑 -> 野外研習園 -> 溪澗石橋 -> 紅藍林道交匯處）
+      const SIM_ROUTE_WAYPOINTS = [
+        { lat: 22.4335, lng: 114.1848, cpId: 'cp1' },
+        { lat: 22.4324, lng: 114.1839, cpId: null },
+        { lat: 22.4313, lng: 114.1830, cpId: null },
+        { lat: 22.4302, lng: 114.1822, cpId: null },
+        { lat: 22.4292, lng: 114.1815, cpId: 'cp2' },
+        { lat: 22.4285, lng: 114.1807, cpId: null },
+        { lat: 22.4278, lng: 114.1801, cpId: null },
+        { lat: 22.4272, lng: 114.1795, cpId: 'cp3' },
+        { lat: 22.4264, lng: 114.1790, cpId: null },
+        { lat: 22.4257, lng: 114.1786, cpId: null },
+        { lat: 22.4250, lng: 114.1782, cpId: 'cp4' }
+      ];
+
+      let selectedCpId = 'cp1';
+      let gpsWatchId = null;
+      let simTimerId = null;
+      let simStepIndex = 0;
+      let currentUserPos = null; // { lat, lng, accuracy, isSimulated }
+      let announcedCpIds = {};
+      let mapTransform = { scale: 1, tx: 0, ty: 0 };
+
+      function latLngToSvg(lat, lng) {
+        const x = ((lng - MAP_BOUNDS.lngMin) / (MAP_BOUNDS.lngMax - MAP_BOUNDS.lngMin)) * MAP_BOUNDS.svgW;
+        const y = ((MAP_BOUNDS.latMax - lat) / (MAP_BOUNDS.latMax - MAP_BOUNDS.latMin)) * MAP_BOUNDS.svgH;
+        return { x: x, y: y };
+      }
+
+      function isInsideTaiPoKau(lat, lng) {
+        return (
+          lat >= MAP_BOUNDS.latMin &&
+          lat <= MAP_BOUNDS.latMax &&
+          lng >= MAP_BOUNDS.lngMin &&
+          lng <= MAP_BOUNDS.lngMax
+        );
+      }
+
+      function calcHaversineMeters(lat1, lng1, lat2, lng2) {
+        const R = 6371000;
+        const toRad = function (deg) { return (deg * Math.PI) / 180; };
+        const dLat = toRad(lat2 - lat1);
+        const dLng = toRad(lng2 - lng1);
+        const a =
+          Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+          Math.cos(toRad(lat1)) * Math.cos(toRad(lat2)) *
+          Math.sin(dLng / 2) * Math.sin(dLng / 2);
+        const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+        return R * c;
+      }
+
+      function applyMapTransform() {
+        const layer = document.getElementById('mapPanZoomLayer');
+        if (!layer) return;
+        layer.setAttribute(
+          'transform',
+          'translate(' + mapTransform.tx.toFixed(1) + ',' + mapTransform.ty.toFixed(1) + ') scale(' + mapTransform.scale.toFixed(2) + ')'
+        );
+      }
+
+      function focusSvgPoint(svgX, svgY, targetScale) {
+        const sc = targetScale || Math.max(mapTransform.scale, 1.35);
+        mapTransform.scale = Math.min(2.6, Math.max(0.85, sc));
+        mapTransform.tx = 400 - svgX * mapTransform.scale;
+        mapTransform.ty = 420 - svgY * mapTransform.scale;
+        clampMapPan();
+        applyMapTransform();
+      }
+
+      function clampMapPan() {
+        const maxOffset = 420 * mapTransform.scale;
+        mapTransform.tx = Math.max(-maxOffset, Math.min(420, mapTransform.tx));
+        mapTransform.ty = Math.max(-maxOffset, Math.min(420, mapTransform.ty));
+      }
+
+      function showArrivalToast(cp) {
+        const toast = document.getElementById('mapArrivalToast');
+        const title = document.getElementById('mapArrivalTitle');
+        const desc = document.getElementById('mapArrivalDesc');
+        if (!toast || !title || !desc) return;
+        title.textContent = '🎉 已抵達 ' + cp.code + '・' + cp.name + '（' + cp.shortTitle + '）！';
+        desc.textContent = cp.task;
+        toast.classList.remove('hidden');
+        SFX.check();
+      }
+
+      function renderMapCheckpoints() {
+        const layer = document.getElementById('mapCheckpointsLayer');
+        if (!layer) return;
+        layer.innerHTML = '';
+
+        CHECKPOINTS.forEach(function (cp) {
+          const pt = latLngToSvg(cp.lat, cp.lng);
+          const isSelected = cp.id === selectedCpId;
+          const isVisited = Boolean(announcedCpIds[cp.id]);
+
+          const g = document.createElementNS('http://www.w3.org/2000/svg', 'g');
+          g.setAttribute('class', 'cp-pin-group');
+          g.setAttribute('transform', 'translate(' + pt.x.toFixed(1) + ',' + pt.y.toFixed(1) + ')');
+
+          const pinFill = isSelected ? '#FBC02D' : (isVisited ? '#43A047' : '#1B5E20');
+          const textFill = isSelected ? '#4E342E' : '#FFFFFF';
+          const ringHtml = isSelected
+            ? '<circle cx="0" cy="0" r="24" fill="rgba(251, 192, 45, 0.32)" stroke="#F57F17" stroke-width="2.5"></circle>'
+            : '';
+
+          g.innerHTML =
+            ringHtml +
+            '<circle cx="0" cy="0" r="16" fill="' + pinFill + '" stroke="#FFFFFF" stroke-width="3"></circle>' +
+            '<text x="0" y="4.5" text-anchor="middle" fill="' + textFill + '" font-size="11" font-weight="900">' + cp.code + '</text>' +
+            '<g transform="translate(0, 26)">' +
+              '<rect x="-64" y="-11" width="128" height="22" rx="11" fill="rgba(255,255,255,0.95)" stroke="' + (isSelected ? '#F57F17' : '#2E7D32') + '" stroke-width="1.8"></rect>' +
+              '<text x="0" y="3.5" text-anchor="middle" fill="#1B5E20" font-size="11" font-weight="900">' + cp.shortTitle + '</text>' +
+            '</g>';
+
+          g.addEventListener('click', function (e) {
+            e.stopPropagation();
+            SFX.click();
+            selectedCpId = cp.id;
+            renderMapCheckpoints();
+            renderSelectedCheckpointDetail();
+            renderDistanceTable();
+          });
+
+          layer.appendChild(g);
+        });
+      }
+
+      function renderSelectedCheckpointDetail() {
+        const card = document.getElementById('checkpointDetailCard');
+        if (!card) return;
+        const cp = CHECKPOINTS.find(function (c) { return c.id === selectedCpId; }) || CHECKPOINTS[0];
+
+        let distStr = '開啟 GPS 或模擬測試後顯示';
+        if (currentUserPos) {
+          const m = Math.round(calcHaversineMeters(currentUserPos.lat, currentUserPos.lng, cp.lat, cp.lng));
+          distStr = m <= 35 ? '🎯 已抵達打卡點範圍（' + m + ' m）' : ('距離約 ' + (m >= 1000 ? (m / 1000).toFixed(2) + ' km' : m + ' m'));
+        }
+
+        card.innerHTML =
+          '<div class="cp-detail-top">' +
+            '<div style="display:flex; align-items:center; gap:8px; flex-wrap:wrap;">' +
+              '<span style="background:#1B5E20; color:#FFF8E1; font-size:12px; font-weight:900; padding:4px 10px; border-radius:999px;">' + cp.code + '・' + cp.shortTitle + '</span>' +
+              '<strong style="font-size:16.5px; color:#1B5E20;">' + cp.name + '</strong>' +
+            '</div>' +
+            '<span style="font-size:12px; font-weight:800; color:#5D4037;">' + cp.lat.toFixed(4) + '°N, ' + cp.lng.toFixed(4) + '°E</span>' +
+          '</div>' +
+          '<div style="font-size:13.5px; color:#263228; margin-top:6px;"><strong>📋 考察任務：</strong>' + cp.task + '</div>' +
+          '<div style="font-size:13px; color:#B71C1C; font-weight:700; margin-top:6px;"><strong>🛡️ 安全提示：</strong>' + cp.safetyTip + '</div>' +
+          '<div style="margin-top:8px; font-size:12.5px; font-weight:900; color:#2E7D32;">📍 目前距離：' + distStr + '</div>';
+      }
+
+      function renderDistanceTable() {
+        const tbody = document.getElementById('checkpointDistanceBody');
+        if (!tbody) return;
+        tbody.innerHTML = '';
+
+        CHECKPOINTS.forEach(function (cp) {
+          const tr = document.createElement('tr');
+          tr.className = 'cp-row' + (cp.id === selectedCpId ? ' selected' : '');
+
+          let distHtml = '<span class="dist-badge">--</span>';
+          let timeHtml = '待定位';
+
+          if (currentUserPos) {
+            const meters = Math.round(calcHaversineMeters(currentUserPos.lat, currentUserPos.lng, cp.lat, cp.lng));
+            if (meters <= 35) {
+              distHtml = '<span class="dist-badge arrived">✅ 已抵達 (' + meters + 'm)</span>';
+              timeHtml = '0 分鐘';
+            } else if (meters >= 1000) {
+              const km = (meters / 1000).toFixed(2);
+              const mins = Math.max(1, Math.round(meters / 55));
+              distHtml = '<span class="dist-badge">' + km + ' km</span>';
+              timeHtml = '約 ' + mins + ' 分鐘';
+            } else {
+              const mins = Math.max(1, Math.round(meters / 55));
+              distHtml = '<span class="dist-badge">' + meters + ' m</span>';
+              timeHtml = '約 ' + mins + ' 分鐘';
+            }
+          }
+
+          tr.innerHTML =
+            '<td><strong style="color:#1B5E20;">' + cp.code + '</strong></td>' +
+            '<td><div style="font-weight:900;color:#263228;">' + cp.name + '</div><div style="font-size:11.5px;color:#556358;">' + cp.shortTitle + '</div></td>' +
+            '<td>' + distHtml + '</td>' +
+            '<td style="font-weight:700;color:#4E342E;white-space:nowrap;">' + timeHtml + '</td>';
+
+          tr.addEventListener('click', function () {
+            SFX.click();
+            selectedCpId = cp.id;
+            const pt = latLngToSvg(cp.lat, cp.lng);
+            focusSvgPoint(pt.x, pt.y, 1.35);
+            renderMapCheckpoints();
+            renderSelectedCheckpointDetail();
+            renderDistanceTable();
+          });
+
+          tbody.appendChild(tr);
+        });
+      }
+
+      function updatePositionOnMap(lat, lng, accuracy, isSimulated) {
+        currentUserPos = { lat: lat, lng: lng, accuracy: accuracy || 12, isSimulated: Boolean(isSimulated) };
+
+        const statusCard = document.getElementById('gpsStatusCard');
+        const statusTitle = document.getElementById('gpsStatusTitle');
+        const statusPill = document.getElementById('gpsStatusPill');
+        const coordsLine = document.getElementById('gpsCoordsLine');
+        const userGroup = document.getElementById('gpsUserGroup');
+        const accCircle = document.getElementById('gpsAccuracyCircle');
+        const badgeText = document.getElementById('gpsUserBadgeText');
+        const gmapLink = document.getElementById('openGmapAppLink');
+
+        // 更新 Google Maps App 深層連結座標
+        if (gmapLink) {
+          gmapLink.href = 'https://www.google.com/maps/search/?api=1&query=' + lat.toFixed(6) + ',' + lng.toFixed(6);
+        }
+
+        const inside = isInsideTaiPoKau(lat, lng);
+
+        if (inside) {
+          const pt = latLngToSvg(lat, lng);
+          if (userGroup) {
+            userGroup.classList.remove('hidden');
+            userGroup.setAttribute('transform', 'translate(' + pt.x.toFixed(1) + ',' + pt.y.toFixed(1) + ')');
+          }
+          if (accCircle) {
+            // 1440m 寬度對應 800px，約 0.55px/m
+            const rPx = Math.max(14, Math.min(65, (accuracy || 15) * 0.55));
+            accCircle.setAttribute('r', rPx.toFixed(1));
+          }
+          if (badgeText) {
+            badgeText.textContent = isSimulated ? '模擬位置' : '我的位置';
+          }
+
+          if (statusCard) {
+            statusCard.className = 'gps-status-card ' + (isSimulated ? 'simulating' : 'active-in');
+          }
+          if (statusTitle) {
+            statusTitle.textContent = isSimulated
+              ? '🚶 模擬行山預演進行中（大埔滘考察路線）'
+              : '🛰️ 已鎖定大埔滘護理區內即時 GPS 位置！';
+          }
+          if (statusPill) {
+            statusPill.textContent = isSimulated ? '模擬模式' : ('誤差 ±' + Math.round(accuracy || 10) + ' 米');
+          }
+          if (coordsLine) {
+            coordsLine.textContent = '目前座標：' + lat.toFixed(5) + '°N, ' + lng.toFixed(5) + '°E（已在離線地圖顯示動態藍點）';
+          }
+
+          // 檢查是否抵達任何一個考察打卡點（半徑 42 米內）
+          CHECKPOINTS.forEach(function (cp) {
+            const dist = calcHaversineMeters(lat, lng, cp.lat, cp.lng);
+            if (dist <= 42 && !announcedCpIds[cp.id]) {
+              announcedCpIds[cp.id] = true;
+              selectedCpId = cp.id;
+              showArrivalToast(cp);
+              renderMapCheckpoints();
+            }
+          });
+        } else {
+          // 身處大埔滘範圍外（例如天水圍官立小學）
+          if (userGroup) userGroup.classList.add('hidden');
+          const distToCenterKm = (calcHaversineMeters(lat, lng, 22.4285, 114.1810) / 1000).toFixed(1);
+
+          if (statusCard) statusCard.className = 'gps-status-card active-out';
+          if (statusTitle) statusTitle.textContent = '📍 目前位於大埔滘自然護理區範圍外';
+          if (statusPill) statusPill.textContent = '距離大埔滘約 ' + distToCenterKm + ' 公里';
+          if (coordsLine) {
+            coordsLine.textContent =
+              '真實 GPS 座標：' + lat.toFixed(5) + '°N, ' + lng.toFixed(5) + '°E（誤差 ±' + Math.round(accuracy || 20) +
+              'm）。你可點擊「🚶 模擬行山測試（校內預演）」體驗當日大埔滘步行導航！';
+          }
+        }
+
+        renderSelectedCheckpointDetail();
+        renderDistanceTable();
+      }
+
+      function stopSimulation() {
+        if (simTimerId) {
+          window.clearInterval(simTimerId);
+          simTimerId = null;
+        }
+        const simLbl = document.getElementById('toggleSimLabel');
+        if (simLbl) simLbl.textContent = '模擬行山測試（校內預演）';
+      }
+
+      function stopRealGps() {
+        if (gpsWatchId !== null) {
+          try {
+            navigator.geolocation.clearWatch(gpsWatchId);
+          } catch (e) {}
+          gpsWatchId = null;
+        }
+        const gpsLbl = document.getElementById('toggleGpsLabel');
+        if (gpsLbl) gpsLbl.textContent = '開啟即時 GPS 定位';
+      }
+
+      function toggleRealGps() {
+        SFX.click();
+        if (gpsWatchId !== null) {
+          stopRealGps();
+          const statusTitle = document.getElementById('gpsStatusTitle');
+          const statusPill = document.getElementById('gpsStatusPill');
+          if (statusTitle) statusTitle.textContent = '🛰️ 已暫停即時 GPS 定位';
+          if (statusPill) statusPill.textContent = '已停止';
+          return;
+        }
+
+        stopSimulation();
+        announcedCpIds = {};
+
+        try {
+          if (!navigator.geolocation) {
+            throw new Error('瀏覽器不支援 GPS 定位');
+          }
+          const gpsLbl = document.getElementById('toggleGpsLabel');
+          const statusTitle = document.getElementById('gpsStatusTitle');
+          const statusPill = document.getElementById('gpsStatusPill');
+          const coordsLine = document.getElementById('gpsCoordsLine');
+
+          if (gpsLbl) gpsLbl.textContent = '停止 GPS 定位';
+          if (statusTitle) statusTitle.textContent = '📡 正在搜尋 GPS 衛星訊號...';
+          if (statusPill) statusPill.textContent = '定位中';
+          if (coordsLine) coordsLine.textContent = '請允許瀏覽器存取位置權限（戶外空曠處定位更準確）。';
+
+          gpsWatchId = navigator.geolocation.watchPosition(
+            function (pos) {
+              if (!pos || !pos.coords) return;
+              updatePositionOnMap(
+                pos.coords.latitude,
+                pos.coords.longitude,
+                pos.coords.accuracy,
+                false
+              );
+            },
+            function (err) {
+              stopRealGps();
+              const card = document.getElementById('gpsStatusCard');
+              if (card) card.className = 'gps-status-card active-out';
+              if (statusTitle) statusTitle.textContent = '⚠️ 無法讀取 GPS 定位';
+              if (statusPill) statusPill.textContent = '請檢查權限';
+              if (coordsLine) {
+                coordsLine.textContent =
+                  '原因：' + (err && err.message ? err.message : '未開啟位置權限或環境限制') +
+                  '。你可直接點擊「🚶 模擬行山測試（校內預演）」體驗導航功能！';
+              }
+            },
+            {
+              enableHighAccuracy: true,
+              maximumAge: 5000,
+              timeout: 15000
+            }
+          );
+        } catch (e) {
+          stopRealGps();
+          const statusTitle = document.getElementById('gpsStatusTitle');
+          const coordsLine = document.getElementById('gpsCoordsLine');
+          if (statusTitle) statusTitle.textContent = '⚠️ 此裝置或預覽環境不支援 GPS';
+          if (coordsLine) coordsLine.textContent = '請點擊「🚶 模擬行山測試（校內預演）」測試大埔滘路線導航！';
+        }
+      }
+
+      function toggleSimulation() {
+        SFX.click();
+        if (simTimerId) {
+          stopSimulation();
+          const statusTitle = document.getElementById('gpsStatusTitle');
+          const statusPill = document.getElementById('gpsStatusPill');
+          if (statusTitle) statusTitle.textContent = '🚶 已停止模擬行山測試';
+          if (statusPill) statusPill.textContent = '已停止';
+          return;
+        }
+
+        stopRealGps();
+        announcedCpIds = {};
+        simStepIndex = 0;
+
+        const simLbl = document.getElementById('toggleSimLabel');
+        if (simLbl) simLbl.textContent = '⏹️ 停止模擬行山';
+
+        function stepHiker() {
+          if (simStepIndex >= SIM_ROUTE_WAYPOINTS.length) {
+            stopSimulation();
+            const statusTitle = document.getElementById('gpsStatusTitle');
+            const statusPill = document.getElementById('gpsStatusPill');
+            if (statusTitle) statusTitle.textContent = '🏁 模擬行山完成！已走訪 CP1 至 CP4 全部考察站';
+            if (statusPill) statusPill.textContent = '預演完成';
+            SFX.celebrate();
+            return;
+          }
+          const wp = SIM_ROUTE_WAYPOINTS[simStepIndex];
+          updatePositionOnMap(wp.lat, wp.lng, 8, true);
+          const pt = latLngToSvg(wp.lat, wp.lng);
+          focusSvgPoint(pt.x, pt.y, 1.25);
+          simStepIndex++;
+        }
+
+        stepHiker();
+        simTimerId = window.setInterval(stepHiker, 2100);
+      }
+
+      function initMapModule() {
+        renderMapCheckpoints();
+        renderSelectedCheckpointDetail();
+        renderDistanceTable();
+
+        // 模式 A / B 切換
+        const btnOffline = document.getElementById('btnModeOffline');
+        const btnGoogle = document.getElementById('btnModeGoogle');
+        const panelOffline = document.getElementById('mapModeOffline');
+        const panelGoogle = document.getElementById('mapModeGoogle');
+
+        if (btnOffline && btnGoogle && panelOffline && panelGoogle) {
+          btnOffline.addEventListener('click', function () {
+            SFX.click();
+            btnOffline.classList.add('active');
+            btnGoogle.classList.remove('active');
+            panelOffline.classList.remove('hidden');
+            panelGoogle.classList.add('hidden');
+          });
+          btnGoogle.addEventListener('click', function () {
+            SFX.click();
+            btnGoogle.classList.add('active');
+            btnOffline.classList.remove('active');
+            panelGoogle.classList.remove('hidden');
+            panelOffline.classList.add('hidden');
+            const warn = document.getElementById('gmapOfflineWarn');
+            if (warn) {
+              warn.classList.toggle('hidden', navigator.onLine !== false);
+            }
+          });
+        }
+
+        // GPS 與模擬按鈕
+        const gpsBtn = document.getElementById('toggleGpsBtn');
+        const simBtn = document.getElementById('toggleSimBtn');
+        if (gpsBtn) gpsBtn.addEventListener('click', toggleRealGps);
+        if (simBtn) simBtn.addEventListener('click', toggleSimulation);
+
+        // 地圖縮放與拖曳平移
+        const zoomInBtn = document.getElementById('mapZoomInBtn');
+        const zoomOutBtn = document.getElementById('mapZoomOutBtn');
+        const resetViewBtn = document.getElementById('mapResetViewBtn');
+        const viewport = document.getElementById('offlineMapViewport');
+
+        if (zoomInBtn) {
+          zoomInBtn.addEventListener('click', function (e) {
+            e.stopPropagation();
+            SFX.click();
+            focusSvgPoint(400 - (mapTransform.tx - 400) / mapTransform.scale, 420 - (mapTransform.ty - 420) / mapTransform.scale, mapTransform.scale + 0.3);
+          });
+        }
+        if (zoomOutBtn) {
+          zoomOutBtn.addEventListener('click', function (e) {
+            e.stopPropagation();
+            SFX.click();
+            focusSvgPoint(400 - (mapTransform.tx - 400) / mapTransform.scale, 420 - (mapTransform.ty - 420) / mapTransform.scale, mapTransform.scale - 0.3);
+          });
+        }
+        if (resetViewBtn) {
+          resetViewBtn.addEventListener('click', function (e) {
+            e.stopPropagation();
+            SFX.click();
+            mapTransform = { scale: 1, tx: 0, ty: 0 };
+            applyMapTransform();
+          });
+        }
+
+        if (viewport) {
+          let isDragging = false;
+          let dragStartX = 0;
+          let dragStartY = 0;
+          let originTx = 0;
+          let originTy = 0;
+
+          viewport.addEventListener('pointerdown', function (e) {
+            if (e.target && e.target.closest && e.target.closest('button')) return;
+            isDragging = true;
+            dragStartX = e.clientX;
+            dragStartY = e.clientY;
+            originTx = mapTransform.tx;
+            originTy = mapTransform.ty;
+          });
+
+          window.addEventListener('pointermove', function (e) {
+            if (!isDragging) return;
+            const rect = viewport.getBoundingClientRect();
+            const ratioX = 800 / Math.max(1, rect.width);
+            const ratioY = 840 / Math.max(1, rect.height);
+            mapTransform.tx = originTx + (e.clientX - dragStartX) * ratioX;
+            mapTransform.ty = originTy + (e.clientY - dragStartY) * ratioY;
+            clampMapPan();
+            applyMapTransform();
+          });
+
+          window.addEventListener('pointerup', function () {
+            isDragging = false;
+          });
+        }
+
+        // Google Maps 衛星 / 街道切換
+        const gmapSatBtn = document.getElementById('gmapSatBtn');
+        const gmapStreetBtn = document.getElementById('gmapStreetBtn');
+        const gmapIframe = document.getElementById('googleMapIframe');
+
+        if (gmapSatBtn && gmapStreetBtn && gmapIframe) {
+          gmapSatBtn.addEventListener('click', function () {
+            SFX.click();
+            gmapSatBtn.className = 'btn btn-primary btn-sm';
+            gmapStreetBtn.className = 'btn btn-outline btn-sm';
+            gmapIframe.src = 'https://maps.google.com/maps?q=22.4285,114.1810&t=k&z=16&output=embed';
+          });
+          gmapStreetBtn.addEventListener('click', function () {
+            SFX.click();
+            gmapStreetBtn.className = 'btn btn-primary btn-sm';
+            gmapSatBtn.className = 'btn btn-outline btn-sm';
+            gmapIframe.src = 'https://maps.google.com/maps?q=22.4285,114.1810&t=m&z=16&output=embed';
+          });
+        }
+      }
+
+      /* =======================================================
+         10C. 打包下載完整離線版 HTML 手冊（Blob 下載）
+         ======================================================= */
+      function showOfflineNotice(msg) {
+        const bar = document.getElementById('offlineDownloadNotice');
+        const txt = document.getElementById('offlineDownloadNoticeText');
+        if (!bar || !txt) return;
+        txt.textContent = msg;
+        bar.classList.remove('hidden');
+      }
+
+      function downloadOfflineHandbook() {
+        SFX.click();
+        try {
+          // 複製整份文件結構並確保初始狀態為乾淨的第一分頁與無遮罩彈窗
+          const clonedDoc = document.documentElement.cloneNode(true);
+          const modals = clonedDoc.querySelectorAll('.modal-backdrop, .lightbox-backdrop, #offlineDownloadNotice, #mapArrivalToast');
+          modals.forEach(function (el) { el.classList.add('hidden'); });
+
+          const htmlContent = '<!DOCTYPE html>\n' + clonedDoc.outerHTML;
+          const blob = new Blob([htmlContent], { type: 'text/html;charset=utf-8' });
+          const url = URL.createObjectURL(blob);
+
+          const a = document.createElement('a');
+          a.href = url;
+          a.download = '大埔滘生態考察離線手冊.html';
+          document.body.appendChild(a);
+          a.click();
+          document.body.removeChild(a);
+          window.setTimeout(function () {
+            try { URL.revokeObjectURL(url); } catch (e) {}
+          }, 3000);
+
+          SFX.celebrate();
+          showOfflineNotice('✅ 已成功打包下載「大埔滘生態考察離線手冊.html」！出發前存入手機／iPad，無網絡時直接開啟即可使用離線地圖、GPS 定位與生物圖鑑。');
+        } catch (err) {
+          showOfflineNotice('⚠️ 目前瀏覽器預覽環境限制自動下載，建議使用瀏覽器「儲存網頁」功能保存離線版。');
+        }
+      }
+
+      /* =======================================================
          11. 綁定全域互動事件與初始化
          ======================================================= */
       function bindEvents() {
+        // 下載離線版手冊按鈕
+        const dlOfflineBtn = document.getElementById('downloadOfflineHtmlBtn');
+        const closeNoticeBtn = document.getElementById('closeOfflineNoticeBtn');
+        if (dlOfflineBtn) {
+          dlOfflineBtn.addEventListener('click', downloadOfflineHandbook);
+        }
+        if (closeNoticeBtn) {
+          closeNoticeBtn.addEventListener('click', function () {
+            const bar = document.getElementById('offlineDownloadNotice');
+            if (bar) bar.classList.add('hidden');
+          });
+        }
+
         // 音效開關
         const soundBtn = document.getElementById('soundToggleBtn');
         if (soundBtn) {
@@ -4304,18 +4879,87 @@
           });
         }
 
-        // Lightbox 關閉
+        // Lightbox 關閉與多圖左右切換 + 鍵盤方向鍵 + 觸控滑動
         const lb = document.getElementById('photoLightbox');
         const closeLbBtn = document.getElementById('closeLightboxBtn');
+        const lbPrevBtn = document.getElementById('lightboxPrevBtn');
+        const lbNextBtn = document.getElementById('lightboxNextBtn');
+        const lbStage = document.getElementById('lightboxStage');
+        const modalStage = document.getElementById('modalPhotoStage');
+
         function closeLightbox() {
           if (lb) lb.classList.add('hidden');
         }
+        function getCurrentModalSpecies() {
+          if (!currentModalSpeciesId) return null;
+          for (let i = 0; i < SPECIES_LIST.length; i++) {
+            if (SPECIES_LIST[i].id === currentModalSpeciesId) return SPECIES_LIST[i];
+          }
+          return null;
+        }
+        function stepActiveGalleryPhoto(delta) {
+          const sp = getCurrentModalSpecies();
+          if (!sp) return;
+          const st = speciesGalleryState[sp.id];
+          if (!st || !st.photos || st.photos.length <= 1) return;
+          SFX.click();
+          setSpeciesActivePhoto(sp, st.activeIndex + delta);
+        }
+
         if (closeLbBtn) closeLbBtn.addEventListener('click', closeLightbox);
+        if (lbPrevBtn) {
+          lbPrevBtn.addEventListener('click', function (e) {
+            e.stopPropagation();
+            stepActiveGalleryPhoto(-1);
+          });
+        }
+        if (lbNextBtn) {
+          lbNextBtn.addEventListener('click', function (e) {
+            e.stopPropagation();
+            stepActiveGalleryPhoto(1);
+          });
+        }
         if (lb) {
           lb.addEventListener('click', function (e) {
             if (e.target === lb) closeLightbox();
           });
         }
+
+        function attachSwipeGesture(el) {
+          if (!el) return;
+          let startX = 0;
+          el.addEventListener('touchstart', function (e) {
+            if (e.touches && e.touches.length === 1) {
+              startX = e.touches[0].clientX;
+            }
+          }, { passive: true });
+          el.addEventListener('touchend', function (e) {
+            if (!e.changedTouches || e.changedTouches.length === 0) return;
+            const diffX = e.changedTouches[0].clientX - startX;
+            if (Math.abs(diffX) >= 38) {
+              stepActiveGalleryPhoto(diffX < 0 ? 1 : -1);
+            }
+          }, { passive: true });
+        }
+        attachSwipeGesture(modalStage);
+        attachSwipeGesture(lbStage);
+
+        document.addEventListener('keydown', function (e) {
+          const lbOpen = lb && !lb.classList.contains('hidden');
+          const modalOpen = spModal && !spModal.classList.contains('hidden');
+          if (!lbOpen && !modalOpen) return;
+
+          if (e.key === 'ArrowLeft') {
+            e.preventDefault();
+            stepActiveGalleryPhoto(-1);
+          } else if (e.key === 'ArrowRight') {
+            e.preventDefault();
+            stepActiveGalleryPhoto(1);
+          } else if (e.key === 'Escape') {
+            if (lbOpen) closeLightbox();
+            else if (modalOpen) closeSpModal();
+          }
+        });
 
         // 學生姓名與班別輸入
         const nameInput = document.getElementById('studentNameInput');
@@ -4351,6 +4995,7 @@
         renderSafetyCards();
         renderSpeciesGrid();
         renderQuiz(false);
+        initMapModule();
         updateOverallProgress();
         switchTab('mission');
 

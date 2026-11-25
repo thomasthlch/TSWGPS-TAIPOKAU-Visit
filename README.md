@@ -4,4 +4,4 @@
 
 線上版：<https://thomasthlch.github.io/TSWGPS-TAIPOKAU-Visit/>
 
-`index.html` 是完整單檔手冊（裝備清單、安全翻卡、十二月物種圖鑑、小測、可列印通行證）。推送到 `main` 後，GitHub Actions 會把這個靜態網站發佈到 GitHub Pages。
+`index.html` 是完整單檔手冊（裝備清單、安全翻卡、十二月物種圖鑑、小測、可列印通行證、探險導航地圖）。地圖分頁可離線使用 GPS 地圖，也可切換 Google Maps，並可下載離線版手冊。推送到 `main` 後，GitHub Actions 會把這個靜態網站發佈到 GitHub Pages。
