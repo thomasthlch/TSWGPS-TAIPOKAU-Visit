@@ -2,7 +2,7 @@
 <html lang="zh-Hant-HK">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <title>大埔滘自然護理區生態考察 — 出發前互動準備手冊 | 天水圍官立小學・奇妙科學研究所</title>
   <style>
     /* =======================================================
@@ -2302,6 +2302,7 @@
       overflow: hidden;
     }
 
+    body.auth-locked .site-chrome,
     body.auth-locked .hero-header,
     body.auth-locked .sticky-nav,
     body.auth-locked .main-container,
@@ -2580,6 +2581,241 @@
       color: var(--danger-main);
     }
 
+    /* =======================================================
+       手機／iPad：頂列只留標題、帳戶與選單
+       ======================================================= */
+    .site-chrome {
+      position: relative;
+      z-index: 80;
+    }
+
+    .compact-bar {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      min-height: 44px;
+      padding: 8px 12px;
+      padding-top: calc(8px + env(safe-area-inset-top));
+      padding-left: calc(12px + env(safe-area-inset-left));
+      padding-right: calc(12px + env(safe-area-inset-right));
+      background: linear-gradient(135deg, #1B5E20 0%, #2E7D32 100%);
+      color: var(--white);
+    }
+
+    .wordmark {
+      margin: 0;
+      font-size: 17px;
+      font-weight: 900;
+      letter-spacing: 0.02em;
+      white-space: nowrap;
+    }
+
+    .compact-bar .account-chip {
+      margin-left: auto;
+      max-width: min(42vw, 220px);
+    }
+
+    .menu-toggle {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      min-width: 44px;
+      min-height: 44px;
+      padding: 0 12px;
+      border-radius: 14px;
+      border: 1.5px solid rgba(255, 255, 255, 0.55);
+      background: rgba(255, 255, 255, 0.16);
+      color: var(--white);
+      font-size: 15px;
+      font-weight: 900;
+      cursor: pointer;
+    }
+
+    .menu-toggle-icon {
+      font-size: 20px;
+      line-height: 1;
+    }
+
+    .menu-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    @media (max-width: 1024px) {
+      body:not(.auth-locked) {
+        padding-top: calc(60px + env(safe-area-inset-top));
+      }
+
+      .compact-bar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 80;
+      }
+
+      .app-menu {
+        display: none;
+      }
+
+      .app-menu.is-open {
+        display: flex;
+        flex-direction: column;
+        position: fixed;
+        top: calc(60px + env(safe-area-inset-top));
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 70;
+        overflow: auto;
+        background: var(--cream-bg);
+        padding-bottom: calc(18px + env(safe-area-inset-bottom));
+        box-shadow: var(--shadow-lg);
+      }
+
+      body.menu-open {
+        overflow: hidden;
+      }
+
+      .app-menu .sticky-nav {
+        position: static;
+        background: transparent;
+        border-bottom: none;
+        box-shadow: none;
+      }
+
+      .app-menu .nav-inner {
+        grid-template-columns: 1fr;
+        gap: 8px;
+        padding: 12px;
+      }
+
+      .app-menu .tab-btn {
+        flex-direction: row;
+        justify-content: flex-start;
+        gap: 10px;
+        min-height: 48px;
+        padding: 12px 14px;
+        font-size: 16px;
+      }
+
+      .menu-actions {
+        flex-direction: column;
+        align-items: stretch;
+        padding: 0 12px 8px;
+      }
+
+      .menu-actions .sound-btn,
+      .menu-actions .offline-dl-btn {
+        width: 100%;
+        justify-content: flex-start;
+        min-height: 48px;
+        font-size: 16px;
+      }
+
+      .menu-actions .sound-btn {
+        background: var(--white);
+        color: var(--forest-dark);
+        border-color: var(--forest-border);
+      }
+
+      .menu-actions .account-chip {
+        max-width: 100%;
+        margin: 0;
+        background: var(--forest-light);
+        color: var(--forest-dark);
+        border-color: var(--forest-border);
+        min-height: 44px;
+      }
+
+      .hero-inner {
+        padding: 14px 16px 18px;
+      }
+
+      .hero-badge-wrap {
+        width: 64px;
+        height: 64px;
+        border-radius: 18px;
+      }
+
+      .hero-title {
+        font-size: 22px;
+      }
+
+      .hero-subtitle {
+        font-size: 16px;
+      }
+
+      .school-pill {
+        max-width: 100%;
+        font-size: 12px;
+      }
+
+      .top-bar-controls {
+        justify-content: center;
+        margin-bottom: 8px;
+      }
+
+      .overall-progress-card {
+        margin-top: 14px;
+      }
+
+      .mini-stat {
+        font-size: 11px;
+        line-height: 1.35;
+        padding: 6px 4px;
+      }
+
+      .gps-controls-bar .btn,
+      .gmap-toolbar .btn,
+      .gmap-toolbar a.btn {
+        flex: 1 1 100%;
+        justify-content: center;
+        min-height: 48px;
+        text-align: center;
+      }
+
+      .main-container {
+        padding-bottom: calc(28px + env(safe-area-inset-bottom));
+      }
+    }
+
+    @media (min-width: 1025px) {
+      .site-chrome {
+        position: sticky;
+        top: 0;
+        z-index: 80;
+        background: #1B5E20;
+      }
+
+      .menu-toggle {
+        display: none;
+      }
+
+      .compact-bar {
+        position: static;
+        background: transparent;
+      }
+
+      .app-menu {
+        display: block;
+      }
+
+      .menu-actions {
+        justify-content: flex-end;
+        align-items: center;
+        padding: 0 16px 10px;
+        background: #164e1b;
+      }
+
+      .sticky-nav {
+        position: static;
+        top: auto;
+      }
+    }
+
   </style>
 </head>
 <body class="auth-locked">
@@ -2602,6 +2838,56 @@
   <!-- 慶祝彩紙特效畫布 -->
   <canvas id="confettiCanvas" aria-hidden="true"></canvas>
 
+  <div class="site-chrome">
+    <div class="compact-bar">
+      <p class="wordmark">大埔滘考察</p>
+      <span id="signedInLabel" class="account-chip hidden"></span>
+      <button id="menuToggleBtn" type="button" class="menu-toggle" aria-expanded="false" aria-controls="appMenu">
+        <span class="menu-toggle-icon" aria-hidden="true">☰</span>
+        <span class="menu-toggle-label">選單</span>
+      </button>
+    </div>
+    <div id="appMenu" class="app-menu">
+      <nav class="sticky-nav" aria-label="手冊互動分頁">
+        <div class="nav-inner" role="tablist">
+          <button type="button" role="tab" class="tab-btn active" data-tab="mission" aria-selected="true">
+            <span class="tab-icon">🗺️</span>
+            <span>任務情報站</span>
+          </button>
+          <button type="button" role="tab" class="tab-btn" data-tab="safety" aria-selected="false">
+            <span class="tab-icon">🛡️</span>
+            <span>安全與無痕</span>
+          </button>
+          <button type="button" role="tab" class="tab-btn" data-tab="guide" aria-selected="false">
+            <span class="tab-icon">🦋</span>
+            <span>12月生物圖鑑</span>
+          </button>
+          <button type="button" role="tab" class="tab-btn" data-tab="quiz" aria-selected="false">
+            <span class="tab-icon">🏅</span>
+            <span>出發前小挑戰</span>
+          </button>
+          <button type="button" role="tab" class="tab-btn" data-tab="map" aria-selected="false">
+            <span class="tab-icon">🧭</span>
+            <span>探險導航地圖</span>
+          </button>
+        </div>
+      </nav>
+      <div class="menu-actions">
+        <span id="cloudSyncStatus" class="account-chip hidden"></span>
+        <button id="teacherStatsBtn" type="button" class="sound-btn hidden">成績統計</button>
+        <button id="signOutBtn" type="button" class="sound-btn hidden">登出</button>
+        <button id="downloadOfflineHtmlBtn" type="button" class="offline-dl-btn" aria-label="下載離線版手冊">
+          <span>📥</span>
+          <span>下載離線版手冊</span>
+        </button>
+        <button id="soundToggleBtn" type="button" class="sound-btn" aria-label="切換音效開關">
+          <span id="soundIcon">🔊</span>
+          <span id="soundLabel">音效開啟</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
   <!-- ==================== 頂部探險標題橫幅 ==================== -->
   <header class="hero-header">
     <svg class="hero-bg-hills" viewBox="0 0 1200 180" preserveAspectRatio="none" aria-hidden="true">
@@ -2614,20 +2900,6 @@
         <div class="school-pill">
           <span>🌿</span>
           <span>天水圍官立小學・奇妙科學研究所</span>
-        </div>
-        <div class="top-bar-actions">
-          <span id="signedInLabel" class="account-chip hidden"></span>
-          <span id="cloudSyncStatus" class="account-chip hidden"></span>
-          <button id="teacherStatsBtn" type="button" class="sound-btn hidden">成績統計</button>
-          <button id="signOutBtn" type="button" class="sound-btn hidden">登出</button>
-          <button id="downloadOfflineHtmlBtn" type="button" class="offline-dl-btn" aria-label="下載離線版手冊">
-            <span>📥</span>
-            <span>下載離線版手冊</span>
-          </button>
-          <button id="soundToggleBtn" type="button" class="sound-btn" aria-label="切換音效開關">
-            <span id="soundIcon">🔊</span>
-            <span id="soundLabel">音效開啟</span>
-          </button>
         </div>
       </div>
 
@@ -2679,32 +2951,6 @@
       </div>
     </div>
   </header>
-
-  <!-- ==================== 黏性固定 4 大分頁列 ==================== -->
-  <nav class="sticky-nav" aria-label="手冊互動分頁">
-    <div class="nav-inner" role="tablist">
-      <button type="button" role="tab" class="tab-btn active" data-tab="mission" aria-selected="true">
-        <span class="tab-icon">🗺️</span>
-        <span>任務情報站</span>
-      </button>
-      <button type="button" role="tab" class="tab-btn" data-tab="safety" aria-selected="false">
-        <span class="tab-icon">🛡️</span>
-        <span>安全與無痕</span>
-      </button>
-      <button type="button" role="tab" class="tab-btn" data-tab="guide" aria-selected="false">
-        <span class="tab-icon">🦋</span>
-        <span>12月生物圖鑑</span>
-      </button>
-      <button type="button" role="tab" class="tab-btn" data-tab="quiz" aria-selected="false">
-        <span class="tab-icon">🏅</span>
-        <span>出發前小挑戰</span>
-      </button>
-      <button type="button" role="tab" class="tab-btn" data-tab="map" aria-selected="false">
-        <span class="tab-icon">🧭</span>
-        <span>探險導航地圖</span>
-      </button>
-    </div>
-  </nav>
 
   <!-- ==================== 主內容區域 ==================== -->
   <main class="main-container">
@@ -3882,6 +4128,33 @@
         if (statQuiz) statQuiz.textContent = quizDone ? '🏆 挑戰：已完成 ✅' : '🏆 挑戰：' + quizAnswered + '/' + QUIZ_QUESTIONS.length;
       }
 
+      function openAppMenu() {
+        const menu = document.getElementById('appMenu');
+        const btn = document.getElementById('menuToggleBtn');
+        const bar = document.querySelector('.compact-bar');
+        if (!menu || !window.matchMedia('(max-width: 1024px)').matches) return;
+        if (bar) menu.style.top = bar.offsetHeight + 'px';
+        menu.classList.add('is-open');
+        document.body.classList.add('menu-open');
+        if (btn) {
+          btn.setAttribute('aria-expanded', 'true');
+          const label = btn.querySelector('.menu-toggle-label');
+          if (label) label.textContent = '關閉';
+        }
+      }
+
+      function closeAppMenu() {
+        const menu = document.getElementById('appMenu');
+        const btn = document.getElementById('menuToggleBtn');
+        if (menu) menu.classList.remove('is-open');
+        document.body.classList.remove('menu-open');
+        if (btn) {
+          btn.setAttribute('aria-expanded', 'false');
+          const label = btn.querySelector('.menu-toggle-label');
+          if (label) label.textContent = '選單';
+        }
+      }
+
       function switchTab(tabId) {
         const panels = document.querySelectorAll('.tab-panel');
         const buttons = document.querySelectorAll('.tab-btn');
@@ -3899,6 +4172,8 @@
           btn.classList.toggle('active', isMatch);
           btn.setAttribute('aria-selected', isMatch ? 'true' : 'false');
         });
+
+        closeAppMenu();
 
         try {
           window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -5602,6 +5877,23 @@
           });
         });
 
+        const menuToggleBtn = document.getElementById('menuToggleBtn');
+        if (menuToggleBtn) {
+          menuToggleBtn.addEventListener('click', function () {
+            SFX.click();
+            const menu = document.getElementById('appMenu');
+            const willOpen = !(menu && menu.classList.contains('is-open'));
+            if (willOpen) openAppMenu();
+            else closeAppMenu();
+          });
+        }
+        document.addEventListener('keydown', function (e) {
+          if (e.key === 'Escape') closeAppMenu();
+        });
+        window.addEventListener('resize', function () {
+          if (!window.matchMedia('(max-width: 1024px)').matches) closeAppMenu();
+        });
+
         // 內頁跳轉分頁按鈕
         document.querySelectorAll('[data-jump-tab]').forEach(function (btn) {
           btn.addEventListener('click', function () {
@@ -6216,6 +6508,7 @@
       }
 
       function signOutHandbook() {
+        closeAppMenu();
         offlineMode = false;
         authConfirmed = false;
         authExplicit = false;
@@ -6342,6 +6635,7 @@
       }
 
       function openTeacherStats() {
+        closeAppMenu();
         if (!currentUser || !isTeacherEmail(currentUser.email) || !firebaseReady()) return;
         const modal = document.getElementById('teacherStatsModal');
         const body = document.getElementById('teacherStatsBody');
