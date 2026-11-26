@@ -2619,13 +2619,21 @@
     }
     .card-step-btn.prev { left: 8px; }
     .card-step-btn.next { right: 8px; }
-    .bingo-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; max-width: 560px; }
-    .bingo-cell { min-height: 108px; border-radius: 18px; border: 3px solid transparent; padding: 8px; text-align: center; font-weight: 900; font-size: 15px; color: #1B5E20; position: relative; }
+    .bingo-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; max-width: 640px; }
+    .bingo-cell { min-height: 0; border-radius: 18px; border: 3px solid transparent; padding: 8px 6px 10px; text-align: center; font-weight: 900; font-size: 15px; color: #1B5E20; display: flex; flex-direction: column; align-items: center; justify-content: flex-start; gap: 6px; }
     .bingo-cell.is-on { box-shadow: inset 0 0 0 3px #1B5E20; }
-    .bingo-cell.is-on::after { content: "蓋章"; position: absolute; right: 8px; bottom: 6px; background: #C62828; color: #fff; border-radius: 999px; padding: 2px 8px; font-size: 12px; transform: rotate(-8deg); }
+    .bingo-cell.is-on:not(.is-center)::after { content: "蓋章"; position: static; display: inline-block; margin-top: auto; background: #C62828; color: #fff; border-radius: 999px; padding: 2px 8px; font-size: 12px; line-height: 1.4; transform: none; }
     .bingo-cell.is-center { background: #FBC02D; color: #4E342E; cursor: default; }
-    .bingo-emoji { display: block; font-size: 26px; line-height: 1.1; }
+    .bingo-photo { display: flex; width: 100%; height: 84px; border-radius: 12px; overflow: hidden; background: rgba(255,255,255,0.72); }
+    .bingo-photo img { flex: 1 1 0; width: 0; min-width: 0; height: 100%; object-fit: cover; display: block; }
+    .bingo-lines { display: flex; flex-direction: column; align-items: center; gap: 1px; max-width: 100%; }
+    .bingo-line { display: block; white-space: nowrap; line-height: 1.25; font-size: 14px; }
+    .bingo-credits { margin: 10px 0 0; font-size: 12px; line-height: 1.5; color: #556358; font-weight: 700; }
     .bingo-cheer { font-size: 20px; font-weight: 900; color: #1B5E20; min-height: 1.4em; }
+    @media (max-width: 420px) {
+      .bingo-photo { height: 68px; }
+      .bingo-line { font-size: 12px; }
+    }
     .side-task { margin-top: 18px; }
     .micro-table { width: 100%; border-collapse: collapse; font-size: 14px; }
     .micro-table th, .micro-table td { border: 1px solid var(--forest-border); padding: 6px; }
@@ -2677,6 +2685,8 @@
       margin-left: auto;
       max-width: min(42vw, 220px);
     }
+
+    .tools-toggle { display: none; }
 
     .menu-toggle {
       display: inline-flex;
@@ -2887,16 +2897,65 @@
       .app-menu .tab-btn.active { transform: none; }
 
       .menu-actions {
-        display: flex;
-        flex-wrap: nowrap;
-        justify-content: flex-start;
+        display: none;
+      }
+
+      .tools-toggle {
+        display: inline-flex;
         align-items: center;
+        justify-content: center;
+        gap: 6px;
+        min-height: 44px;
+        padding: 0 14px;
+        border-radius: 14px;
+        border: 1.5px solid rgba(255, 255, 255, 0.55);
+        background: rgba(255, 255, 255, 0.16);
+        color: #fff;
+        font-size: 15px;
+        font-weight: 900;
+        cursor: pointer;
+      }
+
+      body.tools-open .menu-actions {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        position: absolute;
+        top: calc(100% - 8px);
+        right: 16px;
+        width: min(320px, calc(100vw - 24px));
+        margin: 0;
+        padding: 10px;
         gap: 8px;
+        background: #fff;
+        color: #1B5E20;
+        border-radius: 16px;
+        box-shadow: 0 14px 36px rgba(20, 50, 24, 0.22);
+        z-index: 90;
+      }
+
+      body.tools-open .menu-actions .sound-btn,
+      body.tools-open .menu-actions .offline-dl-btn {
         width: 100%;
-        box-sizing: border-box;
-        padding: 8px 12px 10px;
-        background: #164e1b;
-        overflow-x: auto;
+        min-height: 48px;
+        justify-content: flex-start;
+        font-size: 16px;
+      }
+
+      body.tools-open .menu-actions .sound-btn {
+        background: #E8F5E9;
+        color: #1B5E20;
+        border-color: #C8E6C9;
+      }
+
+      body.tools-open .menu-actions .account-chip {
+        max-width: 100%;
+        margin: 0;
+        background: #E8F5E9;
+        color: #1B5E20;
+        border-color: #C8E6C9;
+        min-height: 44px;
+        white-space: normal;
       }
     }
 
@@ -2926,6 +2985,10 @@
     <div class="compact-bar">
       <p class="wordmark">大埔滘考察</p>
       <span id="signedInLabel" class="account-chip hidden"></span>
+      <button id="toolsToggleBtn" type="button" class="tools-toggle" aria-expanded="false" aria-controls="menuActions">
+        <span aria-hidden="true">⚙️</span>
+        <span>工具</span>
+      </button>
       <button id="menuToggleBtn" type="button" class="menu-toggle" aria-expanded="false" aria-controls="appMenu">
         <span class="menu-toggle-icon" aria-hidden="true">☰</span>
         <span class="menu-toggle-label">選單</span>
@@ -2964,7 +3027,7 @@
           </button>
         </div>
       </nav>
-      <div class="menu-actions">
+      <div id="menuActions" class="menu-actions">
         <span id="cloudSyncStatus" class="account-chip hidden"></span>
         <button id="teacherStatsBtn" type="button" class="sound-btn hidden">成績統計</button>
         <button id="signOutBtn" type="button" class="sound-btn hidden">登出</button>
@@ -3261,12 +3324,13 @@
       <div class="section-card">
         <div class="card-body">
           <h2 class="section-heading"><span>🟩</span> 森林賓果</h2>
-          <p class="section-sub">這張卡和圖鑑分開。先寫第幾組，再在彩色格上蓋章。連成一行會叫「賓果一行」，八格都蓋完是「全組完成」。不跟其他組比名次。</p>
+          <p class="section-sub">這張卡和圖鑑分開。八格任務用真實相片提示。先寫第幾組，再在彩色格上蓋章。連成一行會叫「賓果一行」，八格都蓋完是「全組完成」。不跟其他組比名次。</p>
           <label class="form-label" for="groupLabelInput">第幾組或組名</label>
           <input id="groupLabelInput" class="group-input" maxlength="24" placeholder="例如：3 組" />
           <p id="bingoCheer" class="bingo-cheer" role="status"></p>
           <p id="bingoStatus" style="font-weight:900; color:#1B5E20;">已蓋章 0 / 8</p>
           <div id="bingoGrid" class="bingo-grid"></div>
+          <p class="bingo-credits">相片來源（Wikimedia Commons）：掌狀葉 M108t／CC BY 4.0；黧蒴錐葉 Agnes Trekker／CC0；樹皮苔蘚與地衣 Cultureel Gelderland／CC0；白頭鵯 Charles J. Sharp／CC BY-SA 4.0、紅耳鵯 Charles Lam／CC BY-SA 2.0；樹蔭與開揚處、起步林徑 Underwaterbuffalo／CC BY-SA 4.0（大埔滘自然護理區）；溪流 Eugene Lim／CC BY 2.0（大埔滘）；馬尾松針葉 Vladislav Isaev／CC BY 4.0；海芋 KENPEI／CC BY-SA 3.0（只限 Alocasia odora）。</p>
           <button type="button" class="btn btn-primary" data-print-sheet="1" style="margin-top:14px;">列印今日尋寶紙</button>
         </div>
       </div>
@@ -4851,6 +4915,12 @@
         if (statSafe) statSafe.textContent = '🛡️ 守則：' + safeDone + '/' + SAFETY_CARDS.length;
         if (statQuiz) statQuiz.textContent = quizDone ? '🏆 挑戰：已完成 ✅' : '🏆 挑戰：' + quizAnswered + '/' + QUIZ_QUESTIONS.length;
         if (statGuide) statGuide.textContent = '🔍 圖鑑：' + guideSeen + '/' + SPECIES_LIST.length;
+      }
+
+      function setToolsOpen(open) {
+        document.body.classList.toggle('tools-open', !!open);
+        const btn = document.getElementById('toolsToggleBtn');
+        if (btn) btn.setAttribute('aria-expanded', open ? 'true' : 'false');
       }
 
       function openAppMenu() {
@@ -6635,10 +6705,27 @@
           });
         }
         document.addEventListener('keydown', function (e) {
-          if (e.key === 'Escape') closeAppMenu();
+          if (e.key === 'Escape') {
+            closeAppMenu();
+            setToolsOpen(false);
+          }
         });
         window.addEventListener('resize', function () {
           if (!window.matchMedia('(max-width: 1024px)').matches) closeAppMenu();
+          else setToolsOpen(false);
+        });
+        const toolsToggleBtn = document.getElementById('toolsToggleBtn');
+        if (toolsToggleBtn) {
+          toolsToggleBtn.addEventListener('click', function (e) {
+            e.stopPropagation();
+            SFX.click();
+            setToolsOpen(!document.body.classList.contains('tools-open'));
+          });
+        }
+        document.addEventListener('click', function (e) {
+          if (!document.body.classList.contains('tools-open')) return;
+          if (e.target.closest('#toolsToggleBtn') || e.target.closest('#soundToggleBtn')) return;
+          setToolsOpen(false);
         });
 
         // 內頁跳轉分頁按鈕
@@ -6823,15 +6910,16 @@
 
       const LOOK_ZONES = ['地上／路旁', '林下／樹幹', '樹上', '溪邊'];
       const BINGO_ITEMS = [
-        { id: 'b1', emoji: '🖐️', tone: '#E8F5E9', text: '見到掌狀的鴨腳木葉' },
-        { id: 'b2', emoji: '🍂', tone: '#FFF8E1', text: '見到地上大片黧蒴錐落葉' },
-        { id: 'b3', emoji: '🌿', tone: '#E0F2F1', text: '見到樹皮上的苔蘚或地衣' },
-        { id: 'b4', emoji: '🐦', tone: '#E3F2FD', text: '見到或聽到白頭鵯或紅耳鵯' },
-        { id: 'b5', emoji: '🌤️', tone: '#FFF3E0', text: '在野外研習園比較樹蔭和開揚處' },
-        { id: 'b6', emoji: '💧', tone: '#E1F5FE', text: '在溪邊安靜聽流水' },
-        { id: 'b7', emoji: '🌲', tone: '#F1F8E9', text: '見到兩針一束的松針' },
-        { id: 'b8', emoji: '👀', tone: '#FFEBEE', text: '遠遠看見海芋（不要摸）' }
+        { id: 'b1', tone: '#E8F5E9', text: '見到掌狀的鴨腳木葉', lines: ['見到掌狀的', '鴨腳木葉'], photos: [{ src: 'images/sets/ivytree-1.jpg', alt: '鴨腳木的掌狀複葉' }] },
+        { id: 'b2', tone: '#FFF8E1', text: '見到地上大片黧蒴錐落葉', lines: ['見到地上大片', '黧蒴錐落葉'], photos: [{ src: 'images/sets/castanopsis-4.jpg', alt: '黧蒴錐的大片葉子，當中有乾葉' }] },
+        { id: 'b3', tone: '#E0F2F1', text: '見到樹皮上的苔蘚或地衣', lines: ['見到樹皮上的', '苔蘚或地衣'], photos: [{ src: 'images/sets/moss-2.jpg', alt: '樹皮上的苔蘚和地衣' }] },
+        { id: 'b4', tone: '#E3F2FD', text: '見到或聽到白頭鵯或紅耳鵯', lines: ['見到或聽到', '白頭鵯或紅耳鵯'], photos: [{ src: 'images/sets/lvb-1.jpg', alt: '白頭鵯' }, { src: 'images/sets/rwb-1.jpg', alt: '紅耳鵯' }] },
+        { id: 'b5', tone: '#FFF3E0', text: '在野外研習園比較樹蔭和開揚處', lines: ['在野外研習園', '比較樹蔭', '和開揚處'], photos: [{ src: 'images/bingo/shade-open.jpg', alt: '大埔滘一邊樹蔭、一邊較開揚的地面' }] },
+        { id: 'b6', tone: '#E1F5FE', text: '在溪邊安靜聽流水', lines: ['在溪邊', '安靜聽流水'], photos: [{ src: 'images/bingo/stream.jpg', alt: '大埔滘林中的溪流' }] },
+        { id: 'b7', tone: '#F1F8E9', text: '見到兩針一束的松針', lines: ['見到兩針一束', '的松針'], photos: [{ src: 'images/sets/pine-1.jpg', alt: '馬尾松兩針一束的松針' }] },
+        { id: 'b8', tone: '#FFEBEE', text: '遠遠看見海芋（不要摸）', lines: ['遠遠看見海芋', '（不要摸）'], photos: [{ src: 'images/sets/alocasia-1.jpg', alt: '海芋 Alocasia odora 的大葉' }] }
       ];
+      const BINGO_START = { src: 'images/bingo/trail-start.jpg', alt: '大埔滘林徑起步' };
 
       function starText(n) {
         const count = Math.max(1, Math.min(5, Number(n) || 1));
@@ -6984,14 +7072,24 @@
           ? doneLines
           : Number(grid.dataset.lines);
         const allDone = appState.bingoTicks.length >= BINGO_ITEMS.length;
+        function bingoFace(photos, lines) {
+          const imgs = photos.map(function (p) {
+            return '<img src="' + p.src + '" alt="' + p.alt + '" />';
+          }).join('');
+          const text = lines.map(function (line) {
+            return '<span class="bingo-line">' + line + '</span>';
+          }).join('');
+          return '<span class="bingo-photo' + (photos.length > 1 ? ' is-duo' : '') + '">' + imgs + '</span>' +
+            '<span class="bingo-lines">' + text + '</span>';
+        }
         grid.innerHTML = slots.map(function (slot) {
           if (slot === 'center') {
-            return '<div class="bingo-cell is-center is-on" aria-hidden="true"><span class="bingo-emoji">🚩</span>出發</div>';
+            return '<div class="bingo-cell is-center">' + bingoFace([BINGO_START], ['出發']) + '</div>';
           }
           const item = BINGO_ITEMS[slot];
           const marked = !!on[item.id];
           return '<button type="button" class="bingo-cell' + (marked ? ' is-on' : '') + '" data-bingo="' + item.id + '" aria-pressed="' + (marked ? 'true' : 'false') + '" style="background:' + item.tone + '">' +
-            '<span class="bingo-emoji">' + item.emoji + '</span><span>' + item.text + '</span></button>';
+            bingoFace(item.photos, item.lines) + '</button>';
         }).join('');
         grid.dataset.lines = String(doneLines);
         if (status) status.textContent = allDone ? '全組完成！' : ('已蓋章 ' + appState.bingoTicks.length + ' / 8');
