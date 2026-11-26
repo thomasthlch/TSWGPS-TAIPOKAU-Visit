@@ -1,0 +1,95 @@
+// =============================================================================
+// 大埔滘考察手冊 — Firestore 規則片段
+// 路徑：taipokau_handbook / taipokau_visit / students / {uid}
+//
+// 這不是完整的 firestore.rules。請把下面的函式與 match 貼進
+// 現有規則檔裡的 match /databases/{database}/documents { ... } 之中，
+// 保留科學科總站、Dashboard 與其他集合的規則。
+// 不要把本檔單獨部署，否則會清掉專案裡其餘全部規則。
+// totalQuestions 必須維持 5，與手冊現有五題小測一致。
+// =============================================================================
+
+    function taipokauHandbookSignedIn() {
+      return request.auth != null
+        && request.auth.token.email is string
+        && request.auth.token.email.size() > 3
+        && request.auth.token.email.size() < 120;
+    }
+
+    function taipokauHandbookEmail() {
+      return request.auth.token.email.lower();
+    }
+
+    function taipokauHandbookSchoolUser() {
+      return taipokauHandbookSignedIn()
+        && (
+          taipokauHandbookEmail().matches('^[^@\\s]+@tswgps\\.edu\\.hk$')
+          || taipokauHandbookEmail() == 'thomasthlch@gmail.com'
+        );
+    }
+
+    function taipokauHandbookTeacher() {
+      return taipokauHandbookSignedIn()
+        && (
+          taipokauHandbookEmail() == 'lichihong@tswgps.edu.hk'
+          || taipokauHandbookEmail() == 'thomasthlch@gmail.com'
+        );
+    }
+
+    function taipokauHandbookAnswerOk(answers, key) {
+      return !(key in answers)
+        || (answers[key] is int && answers[key] >= 0 && answers[key] <= 2);
+    }
+
+    function taipokauHandbookAnswersOk(answers) {
+      return answers is map
+        && answers.size() <= 5
+        && answers.size() == (
+          ('0' in answers ? 1 : 0)
+          + ('1' in answers ? 1 : 0)
+          + ('2' in answers ? 1 : 0)
+          + ('3' in answers ? 1 : 0)
+          + ('4' in answers ? 1 : 0)
+        )
+        && taipokauHandbookAnswerOk(answers, '0')
+        && taipokauHandbookAnswerOk(answers, '1')
+        && taipokauHandbookAnswerOk(answers, '2')
+        && taipokauHandbookAnswerOk(answers, '3')
+        && taipokauHandbookAnswerOk(answers, '4');
+    }
+
+    match /taipokau_handbook/taipokau_visit/students/{uid} {
+      allow get: if taipokauHandbookTeacher()
+        || (taipokauHandbookSchoolUser() && request.auth.uid == uid);
+      allow list: if taipokauHandbookTeacher();
+      allow create, update: if taipokauHandbookSchoolUser()
+        && request.auth.uid == uid
+        && request.resource.data.uid == uid
+        && request.resource.data.email == taipokauHandbookEmail()
+        && request.resource.data.keys().hasOnly([
+          'uid',
+          'email',
+          'displayName',
+          'studentName',
+          'studentClass',
+          'quizAnswers',
+          'score',
+          'totalQuestions',
+          'tripDate',
+          'updatedAt'
+        ])
+        && request.resource.data.displayName is string
+        && request.resource.data.displayName.size() <= 80
+        && request.resource.data.studentName is string
+        && request.resource.data.studentName.size() <= 40
+        && request.resource.data.studentClass is string
+        && request.resource.data.studentClass.size() <= 30
+        && taipokauHandbookAnswersOk(request.resource.data.quizAnswers)
+        && request.resource.data.score is int
+        && request.resource.data.score >= 0
+        && request.resource.data.score <= 5
+        && request.resource.data.totalQuestions == 5
+        && request.resource.data.tripDate == '2026-12-04'
+        && request.resource.data.updatedAt == request.time;
+      allow delete: if false;
+    }

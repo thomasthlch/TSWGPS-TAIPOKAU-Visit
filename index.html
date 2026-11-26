@@ -2295,9 +2295,309 @@
         grid-template-columns: repeat(3, 1fr);
       }
     }
+    /* =======================================================
+       學校帳戶登入與成績統計（大埔滘考察手冊）
+       ======================================================= */
+    body.auth-locked {
+      overflow: hidden;
+    }
+
+    body.auth-locked .hero-header,
+    body.auth-locked .sticky-nav,
+    body.auth-locked .main-container,
+    body.auth-locked .site-footer,
+    body.auth-locked #confettiCanvas,
+    body.auth-locked .modal-backdrop,
+    body.auth-locked .lightbox-backdrop {
+      display: none !important;
+    }
+
+    .login-gate {
+      display: none;
+    }
+
+    body.auth-locked .login-gate {
+      display: flex;
+    }
+
+    .login-gate {
+      position: fixed;
+      inset: 0;
+      z-index: 240;
+      align-items: center;
+      justify-content: center;
+      padding: 22px 16px;
+      background:
+        radial-gradient(circle at 12% 18%, rgba(251, 192, 45, 0.28), transparent 32%),
+        radial-gradient(circle at 88% 8%, rgba(67, 160, 71, 0.22), transparent 28%),
+        linear-gradient(180deg, #1B5E20 0%, #2E7D32 42%, #FBFDF7 42%);
+      overflow: auto;
+    }
+
+    .login-card {
+      width: min(460px, 100%);
+      margin: auto;
+      background: var(--white);
+      border: 4px solid var(--forest-border);
+      border-radius: 28px;
+      box-shadow: var(--shadow-lg);
+      padding: 28px 24px 22px;
+      text-align: center;
+    }
+
+    .login-kicker {
+      margin: 0 0 8px;
+      color: var(--forest-main);
+      font-size: 14px;
+      font-weight: 900;
+      letter-spacing: 0.04em;
+    }
+
+    .login-title {
+      margin: 0;
+      color: var(--forest-dark);
+      font-size: 28px;
+      line-height: 1.25;
+      font-weight: 900;
+    }
+
+    .login-sub {
+      margin: 6px 0 0;
+      color: var(--earth-main);
+      font-size: 16px;
+      font-weight: 800;
+    }
+
+    .login-meta {
+      display: inline-block;
+      margin: 12px 0 0;
+      background: var(--sun-light);
+      color: var(--earth-dark);
+      border: 1.5px solid var(--sun-border);
+      border-radius: 999px;
+      padding: 4px 12px;
+      font-size: 13px;
+      font-weight: 900;
+    }
+
+    .login-lede {
+      margin: 16px 0 0;
+      color: var(--text-muted);
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    .login-actions {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-top: 18px;
+    }
+
+    .google-button,
+    .login-other,
+    .login-offline {
+      font-family: inherit;
+      cursor: pointer;
+    }
+
+    .google-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      width: 100%;
+      min-height: 48px;
+      border-radius: 14px;
+      border: 1.5px solid #DADCE0;
+      background: #FFFFFF;
+      color: #1F1F1F;
+      font-size: 15px;
+      font-weight: 800;
+      padding: 10px 14px;
+    }
+
+    .google-button:hover:not(:disabled) {
+      background: #F8F9FA;
+    }
+
+    .google-button:disabled,
+    .login-other:disabled {
+      opacity: 0.7;
+      cursor: wait;
+    }
+
+    .google-mark {
+      width: 18px;
+      height: 18px;
+      flex: 0 0 auto;
+    }
+
+    .login-other,
+    .login-offline {
+      width: 100%;
+      min-height: 44px;
+      border-radius: 14px;
+      background: transparent;
+      color: var(--forest-dark);
+      border: 1.5px solid var(--forest-border);
+      font-size: 14px;
+      font-weight: 800;
+    }
+
+    .login-offline {
+      margin-top: 14px;
+      color: var(--earth-main);
+      border-color: var(--earth-border);
+      background: var(--earth-light);
+    }
+
+    .login-error {
+      margin: 12px 0 0;
+      background: var(--danger-bg);
+      color: var(--danger-main);
+      border: 1.5px solid var(--danger-border);
+      border-radius: 12px;
+      padding: 10px 12px;
+      font-size: 13px;
+      font-weight: 700;
+      text-align: left;
+    }
+
+    .login-foot {
+      margin: 16px 0 0;
+      color: var(--text-muted);
+      font-size: 12px;
+      line-height: 1.6;
+    }
+
+    .login-foot a {
+      color: var(--forest-main);
+      font-weight: 800;
+    }
+
+    .account-chip {
+      display: inline-flex;
+      align-items: center;
+      max-width: 240px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      background: rgba(255, 255, 255, 0.18);
+      border: 1.5px solid rgba(255, 255, 255, 0.45);
+      color: var(--white);
+      border-radius: 999px;
+      padding: 6px 12px;
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    .sync-banner {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 14px;
+      background: var(--sun-light);
+      border: 2px solid var(--sun-border);
+      color: var(--earth-dark);
+      border-radius: 16px;
+      padding: 12px 14px;
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .teacher-dialog {
+      max-width: 960px;
+    }
+
+    .teacher-stats {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .teacher-stat-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 10px;
+    }
+
+    .teacher-stat {
+      background: var(--forest-light);
+      border: 1.5px solid var(--forest-border);
+      border-radius: 16px;
+      padding: 12px;
+    }
+
+    .teacher-stat b {
+      display: block;
+      color: var(--forest-dark);
+      font-size: 22px;
+      line-height: 1.2;
+    }
+
+    .teacher-stat span {
+      color: var(--text-muted);
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    .teacher-table-wrap {
+      overflow-x: auto;
+    }
+
+    .teacher-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+    }
+
+    .teacher-table th,
+    .teacher-table td {
+      border-bottom: 1px solid var(--forest-border);
+      padding: 8px 6px;
+      text-align: left;
+      vertical-align: top;
+    }
+
+    .teacher-table th {
+      color: var(--forest-dark);
+      font-size: 12px;
+    }
+
+    .teacher-answer {
+      margin-top: 4px;
+      color: var(--text-muted);
+    }
+
+    .teacher-answer.ok {
+      color: var(--forest-dark);
+    }
+
+    .teacher-answer.no {
+      color: var(--danger-main);
+    }
+
   </style>
 </head>
-<body>
+<body class="auth-locked">
+
+  <div id="loginGate" class="login-gate">
+    <section id="loginCard" class="login-card" aria-labelledby="loginTitle">
+      <p class="login-kicker">天水圍官立小學</p>
+      <h1 id="loginTitle" class="login-title">大埔滘自然護理區生態考察</h1>
+      <p class="login-sub">出發前互動準備手冊</p>
+      <p class="login-meta">考察日期：2026年12月4日</p>
+      <p id="loginLede" class="login-lede">正在確認登入狀態…</p>
+      <div id="loginActions" class="login-actions"></div>
+      <p id="loginError" class="login-error hidden" role="alert"></p>
+      <button id="offlineDraftBtn" type="button" class="login-offline">這部裝置暫時離線使用（成績只留在本機）</button>
+      <p class="login-foot">請使用 @tswgps.edu.hk 學校帳戶登入<br>聯絡：<a href="mailto:lichihong@tswgps.edu.hk">lichihong@tswgps.edu.hk</a></p>
+    </section>
+  </div>
+
 
   <!-- 慶祝彩紙特效畫布 -->
   <canvas id="confettiCanvas" aria-hidden="true"></canvas>
@@ -2316,6 +2616,10 @@
           <span>天水圍官立小學・奇妙科學研究所</span>
         </div>
         <div class="top-bar-actions">
+          <span id="signedInLabel" class="account-chip hidden"></span>
+          <span id="cloudSyncStatus" class="account-chip hidden"></span>
+          <button id="teacherStatsBtn" type="button" class="sound-btn hidden">成績統計</button>
+          <button id="signOutBtn" type="button" class="sound-btn hidden">登出</button>
           <button id="downloadOfflineHtmlBtn" type="button" class="offline-dl-btn" aria-label="下載離線版手冊">
             <span>📥</span>
             <span>下載離線版手冊</span>
@@ -2404,6 +2708,14 @@
 
   <!-- ==================== 主內容區域 ==================== -->
   <main class="main-container">
+    <div id="mergeDraftBanner" class="sync-banner hidden" role="status">
+      <span>這部裝置有一份未登入的小測草稿。要合併到現在這個學校帳戶嗎？</span>
+      <button id="mergeDraftBtn" type="button" class="btn btn-primary btn-sm">合併到我的帳戶</button>
+      <button id="dismissDraftBtn" type="button" class="btn btn-outline btn-sm">保留在本機</button>
+    </div>
+    <div id="offlineModeBanner" class="sync-banner hidden" role="status">
+      你正在離線使用。小測答案只留在這部裝置，老師暫時看不到。
+    </div>
 
     <!-- ===================================================
          分頁 1：任務情報站（行程與裝備清單）
@@ -3017,6 +3329,21 @@
   <!-- 隱藏高解析度通行證匯出畫布 -->
   <canvas id="passExportCanvas" width="1000" height="620" class="hidden"></canvas>
 
+
+  <div id="teacherStatsModal" class="modal-backdrop hidden" role="dialog" aria-modal="true" aria-labelledby="teacherStatsTitle">
+    <div class="modal-dialog teacher-dialog">
+      <button id="closeTeacherStatsBtn" type="button" class="modal-close-btn" aria-label="關閉成績統計">✕</button>
+      <div class="modal-content-pad">
+        <h2 id="teacherStatsTitle" class="section-heading"><span>📊</span> 成績統計</h2>
+        <p style="margin: 0 0 12px; color: #556358; font-size: 14px;">2026年12月4日大埔滘考察出發前小測。只顯示已登入並上傳的學校帳戶。</p>
+        <div id="teacherStatsBody">正在讀取學生答案…</div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://www.gstatic.com/firebasejs/11.10.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/11.10.0/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/11.10.0/firebase-firestore-compat.js"></script>
   <script>
     (function () {
       'use strict';
@@ -3036,14 +3363,19 @@
       };
 
       function loadState() {
+        appState = freshAppState();
         try {
-          if (typeof window !== 'undefined' && window.localStorage) {
-            const raw = window.localStorage.getItem(STORAGE_KEY);
-            if (raw) {
-              const parsed = JSON.parse(raw);
-              if (parsed && typeof parsed === 'object') {
-                appState = Object.assign(appState, parsed);
-              }
+          if (typeof window === 'undefined' || !window.localStorage) return;
+          let raw = window.localStorage.getItem(activeStorageKey());
+          if (!raw && !(currentUser && currentUser.uid)) {
+            raw = window.localStorage.getItem(STORAGE_KEY);
+          }
+          if (!raw) return;
+          const parsed = JSON.parse(raw);
+          if (parsed && typeof parsed === 'object') {
+            appState = Object.assign(freshAppState(), parsed);
+            if (!appState.quizAnswers || typeof appState.quizAnswers !== 'object' || Array.isArray(appState.quizAnswers)) {
+              appState.quizAnswers = {};
             }
           }
         } catch (e) {
@@ -3054,11 +3386,12 @@
       function saveState() {
         try {
           if (typeof window !== 'undefined' && window.localStorage) {
-            window.localStorage.setItem(STORAGE_KEY, JSON.stringify(appState));
+            window.localStorage.setItem(activeStorageKey(), JSON.stringify(appState));
           }
         } catch (e) {
           // 沙盒不允許 localStorage 時靜默略過
         }
+        scheduleQuizCloudSave();
       }
 
       /* =======================================================
@@ -5205,6 +5538,10 @@
           const clonedDoc = document.documentElement.cloneNode(true);
           const modals = clonedDoc.querySelectorAll('.modal-backdrop, .lightbox-backdrop, #offlineDownloadNotice, #mapArrivalToast');
           modals.forEach(function (el) { el.classList.add('hidden'); });
+          ['signedInLabel', 'cloudSyncStatus', 'teacherStatsBody'].forEach(function (id) {
+            const node = clonedDoc.querySelector('#' + id);
+            if (node) node.textContent = '';
+          });
 
           const htmlContent = '<!DOCTYPE html>\n' + clonedDoc.outerHTML;
           const blob = new Blob([htmlContent], { type: 'text/html;charset=utf-8' });
@@ -5462,10 +5799,659 @@
         });
       }
 
+      /* =======================================================
+         12. 學校 Google 登入、小測雲端紀錄與老師成績統計
+         資料只寫入 taipokau_handbook/taipokau_visit/students/{uid}
+         ======================================================= */
+      let currentUser = null;
+      let offlineMode = false;
+      let authConfirmed = false;
+      let authExplicit = false;
+      let authBusy = false;
+      let pendingAuthError = '';
+      let cachedEmail = '';
+      let handbookStarted = false;
+      let suppressCloudSave = false;
+      let cloudSyncTimer = null;
+      let mergeDismissed = false;
+      const HANDBOOK_TITLE = document.title;
+      const ADMIN_EMAIL = 'thomasthlch@gmail.com';
+      const TEACHER_EMAILS = {
+        'lichihong@tswgps.edu.hk': true,
+        'thomasthlch@gmail.com': true
+      };
+      const FIREBASE_CONFIG = {
+        apiKey: 'AIzaSyCctO55Pm8swkX_9k1mv3CSvpECC1Ss7O4',
+        authDomain: 'mrli-thlch.firebaseapp.com',
+        projectId: 'mrli-thlch',
+        appId: '1:600720221315:web:e406de13433261a859a7b6',
+        messagingSenderId: '600720221315',
+        storageBucket: 'mrli-thlch.firebasestorage.app'
+      };
+
+      function firebaseReady() {
+        return typeof firebase !== 'undefined'
+          && typeof firebase.initializeApp === 'function'
+          && typeof firebase.auth === 'function'
+          && typeof firebase.firestore === 'function';
+      }
+
+      function normalizeEmail(value) {
+        return String(value || '').trim().toLowerCase();
+      }
+
+      function isAllowedEmail(value) {
+        const email = normalizeEmail(value);
+        if (!email || /\s/.test(email) || email.indexOf('@') === -1) return false;
+        return email === ADMIN_EMAIL || email.slice(-14) === '@tswgps.edu.hk';
+      }
+
+      function isTeacherEmail(value) {
+        return !!TEACHER_EMAILS[normalizeEmail(value)];
+      }
+
+      function activeStorageKey() {
+        if (currentUser && currentUser.uid) return STORAGE_KEY + ':' + currentUser.uid;
+        return STORAGE_KEY + ':offline';
+      }
+
+      function freshAppState() {
+        return {
+          checkedPackIds: [],
+          masteredSafetyIds: [],
+          quizAnswers: {},
+          currentQuizIndex: 0,
+          studentName: '',
+          studentClass: '',
+          explorerCode: 'TSW-2026-' + String(Math.floor(100 + Math.random() * 900))
+        };
+      }
+
+      function authErrorMessage(code) {
+        if (code === 'auth/popup-blocked') return '瀏覽器封鎖了登入視窗。請允許彈出式視窗後再試。';
+        if (code === 'auth/unauthorized-domain') return '此網址尚未加入 Firebase 授權網域。請把 thomasthlch.github.io 加入後再試。';
+        if (code === 'auth/network-request-failed') return '網絡連線失敗，暫時未能登入。可以先離線使用，答案只會留在這部裝置。';
+        return '登入失敗，請稍後再試。';
+      }
+
+      function denyMessage(email) {
+        const shown = normalizeEmail(email) || '此 Google 帳戶';
+        return '帳戶 ' + shown + ' 沒有使用權限，已登出。請改用以 @tswgps.edu.hk 結尾的電郵。';
+      }
+
+      function googleMark() {
+        const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+        svg.setAttribute('viewBox', '0 0 18 18');
+        svg.setAttribute('aria-hidden', 'true');
+        svg.classList.add('google-mark');
+        const paths = [
+          ['#4285F4', 'M17.64 9.2c0-.637-.057-1.251-.164-1.84H9v3.481h4.844c-.209 1.125-.843 2.078-1.796 2.717v2.258h2.908c1.702-1.567 2.684-3.874 2.684-6.615z'],
+          ['#34A853', 'M9 18c2.43 0 4.467-.806 5.956-2.184l-2.908-2.258c-.806.54-1.837.86-3.048.86-2.344 0-4.328-1.584-5.036-3.711H.957v2.332C2.438 15.983 5.482 18 9 18z'],
+          ['#FBBC05', 'M3.964 10.707A5.41 5.41 0 0 1 3.682 9c0-.593.102-1.17.282-1.707V4.961H.957A8.996 8.996 0 0 0 0 9c0 1.452.348 2.827.957 4.039l3.007-2.332z'],
+          ['#EA4335', 'M9 3.58c1.321 0 2.508.454 3.44 1.345l2.582-2.58C13.463.891 11.426 0 9 0 5.482 0 2.438 2.017.957 4.961L3.964 7.293C4.672 5.166 6.656 3.58 9 3.58z']
+        ];
+        for (let i = 0; i < paths.length; i++) {
+          const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+          path.setAttribute('fill', paths[i][0]);
+          path.setAttribute('d', paths[i][1]);
+          svg.appendChild(path);
+        }
+        return svg;
+      }
+
+      function renderLogin(mode) {
+        const lede = document.getElementById('loginLede');
+        const actions = document.getElementById('loginActions');
+        const err = document.getElementById('loginError');
+        const card = document.getElementById('loginCard');
+        if (!lede || !actions || !err || !card) return;
+        document.title = '登入 · ' + HANDBOOK_TITLE;
+        card.setAttribute('aria-busy', (authBusy || mode === 'loading') ? 'true' : 'false');
+        actions.textContent = '';
+        if (mode === 'loading') {
+          lede.textContent = '正在確認登入狀態…';
+        } else if (mode === 'cached') {
+          lede.textContent = '瀏覽器已記住這個 Google 帳戶。請選擇繼續使用，或改用其他帳戶。';
+          const cont = document.createElement('button');
+          cont.type = 'button';
+          cont.className = 'google-button';
+          cont.disabled = authBusy;
+          cont.appendChild(googleMark());
+          const contLabel = document.createElement('span');
+          contLabel.textContent = authBusy ? '正在開啟 Google 登入…' : ('繼續用 ' + cachedEmail + ' 登入');
+          cont.appendChild(contLabel);
+          cont.addEventListener('click', continueCachedLogin);
+          const other = document.createElement('button');
+          other.type = 'button';
+          other.className = 'login-other';
+          other.disabled = authBusy;
+          other.textContent = '使用其他帳號';
+          other.addEventListener('click', signInWithGoogle);
+          actions.appendChild(cont);
+          actions.appendChild(other);
+        } else {
+          lede.textContent = '請先登入。此手冊只供天水圍官立小學帳戶使用。登入後可使用任務情報、安全守則、生物圖鑑、小測與探險導航地圖。';
+          const btn = document.createElement('button');
+          btn.type = 'button';
+          btn.className = 'google-button';
+          btn.disabled = authBusy;
+          btn.appendChild(googleMark());
+          const label = document.createElement('span');
+          label.textContent = authBusy ? '正在開啟 Google 登入…' : '使用 Google 帳戶登入';
+          btn.appendChild(label);
+          btn.addEventListener('click', signInWithGoogle);
+          actions.appendChild(btn);
+        }
+        if (pendingAuthError) {
+          err.textContent = pendingAuthError;
+          err.classList.remove('hidden');
+        } else {
+          err.textContent = '';
+          err.classList.add('hidden');
+        }
+      }
+
+      function setSyncStatus(text) {
+        const el = document.getElementById('cloudSyncStatus');
+        if (!el) return;
+        if (!text) {
+          el.textContent = '';
+          el.classList.add('hidden');
+          return;
+        }
+        el.textContent = text;
+        el.classList.remove('hidden');
+      }
+
+      function refreshAccountChrome() {
+        const label = document.getElementById('signedInLabel');
+        const teacherBtn = document.getElementById('teacherStatsBtn');
+        const signOutBtn = document.getElementById('signOutBtn');
+        const offlineBanner = document.getElementById('offlineModeBanner');
+        const signedIn = !!(currentUser && currentUser.email);
+        if (label) {
+          label.textContent = signedIn ? currentUser.email : '';
+          label.classList.toggle('hidden', !signedIn);
+        }
+        if (teacherBtn) teacherBtn.classList.toggle('hidden', !(signedIn && isTeacherEmail(currentUser.email)));
+        if (signOutBtn) {
+          signOutBtn.classList.toggle('hidden', !(signedIn || offlineMode));
+          signOutBtn.textContent = signedIn ? '登出' : '返回登入';
+        }
+        if (offlineBanner) offlineBanner.classList.toggle('hidden', !offlineMode);
+        if (!signedIn) setSyncStatus(offlineMode ? '離線草稿只保存在這部裝置' : '');
+      }
+
+      function refreshIdentityInputs() {
+        const nameInput = document.getElementById('studentNameInput');
+        const classInput = document.getElementById('studentClassInput');
+        if (nameInput) nameInput.value = appState.studentName || '';
+        if (classInput) classInput.value = appState.studentClass || '';
+      }
+
+      function rerenderHandbook() {
+        renderChecklist(false);
+        renderSafetyCards();
+        renderQuiz(false);
+        updatePassUI();
+        updateOverallProgress();
+        refreshIdentityInputs();
+      }
+
+      function showHandbook() {
+        document.body.classList.remove('auth-locked');
+        document.title = HANDBOOK_TITLE;
+        if (!handbookStarted) {
+          handbookStarted = true;
+          init();
+        } else {
+          loadState();
+          rerenderHandbook();
+        }
+        refreshAccountChrome();
+      }
+
+      function normalizeQuizAnswers(raw) {
+        const out = {};
+        if (!raw || typeof raw !== 'object') return out;
+        Object.keys(raw).forEach(function (key) {
+          const idx = Number(key);
+          const choice = Number(raw[key]);
+          if (!Number.isInteger(idx) || idx < 0 || idx >= QUIZ_QUESTIONS.length) return;
+          if (!Number.isInteger(choice) || choice < 0 || choice > 2) return;
+          out[idx] = choice;
+        });
+        return out;
+      }
+
+      function placeQuizIndex() {
+        for (let i = 0; i < QUIZ_QUESTIONS.length; i++) {
+          if (appState.quizAnswers[i] === undefined) {
+            appState.currentQuizIndex = i;
+            return;
+          }
+        }
+        appState.currentQuizIndex = QUIZ_QUESTIONS.length;
+      }
+
+      function studentDocRef(uid) {
+        return firebase.firestore()
+          .collection('taipokau_handbook')
+          .doc('taipokau_visit')
+          .collection('students')
+          .doc(uid);
+      }
+
+      function buildQuizPayload() {
+        const answers = {};
+        for (let i = 0; i < QUIZ_QUESTIONS.length; i++) {
+          if (appState.quizAnswers[i] === undefined || appState.quizAnswers[i] === null) continue;
+          const choice = Number(appState.quizAnswers[i]);
+          if (!Number.isInteger(choice) || choice < 0 || choice > 2) continue;
+          answers[String(i)] = choice;
+        }
+        return {
+          uid: currentUser.uid,
+          email: currentUser.email,
+          displayName: String(currentUser.displayName || '').slice(0, 80),
+          studentName: String(appState.studentName || '').trim().slice(0, 40),
+          studentClass: String(appState.studentClass || '').trim().slice(0, 30),
+          quizAnswers: answers,
+          score: getQuizScore(),
+          totalQuestions: QUIZ_QUESTIONS.length,
+          tripDate: '2026-12-04',
+          updatedAt: firebase.firestore.FieldValue.serverTimestamp()
+        };
+      }
+
+      function scheduleQuizCloudSave() {
+        if (suppressCloudSave || offlineMode || !currentUser || !firebaseReady()) return;
+        if (cloudSyncTimer) window.clearTimeout(cloudSyncTimer);
+        cloudSyncTimer = window.setTimeout(pushQuizToCloud, 450);
+      }
+
+      function pushQuizToCloud() {
+        if (!currentUser || offlineMode || !firebaseReady()) return Promise.resolve();
+        return studentDocRef(currentUser.uid).set(buildQuizPayload(), { merge: true }).then(function () {
+          setSyncStatus('小測答案已存到學校紀錄');
+        }).catch(function () {
+          setSyncStatus('網絡暫未能上傳，答案先留在這部裝置');
+        });
+      }
+
+      function readOfflineQuizDraft() {
+        const keys = [STORAGE_KEY + ':offline', STORAGE_KEY];
+        for (let i = 0; i < keys.length; i++) {
+          try {
+            const raw = window.localStorage.getItem(keys[i]);
+            if (!raw) continue;
+            const parsed = JSON.parse(raw);
+            const answers = parsed && normalizeQuizAnswers(parsed.quizAnswers);
+            if (answers && Object.keys(answers).length) return parsed;
+          } catch (e) {
+            // 略過損壞的本機草稿
+          }
+        }
+        return null;
+      }
+
+      function maybeOfferOfflineMerge() {
+        const banner = document.getElementById('mergeDraftBanner');
+        if (!banner) return;
+        const ownCount = Object.keys(normalizeQuizAnswers(appState.quizAnswers)).length;
+        const show = !mergeDismissed && !!currentUser && ownCount === 0 && !!readOfflineQuizDraft();
+        banner.classList.toggle('hidden', !show);
+      }
+
+      function mergeOfflineDraft() {
+        const draft = readOfflineQuizDraft();
+        const banner = document.getElementById('mergeDraftBanner');
+        if (!draft) {
+          if (banner) banner.classList.add('hidden');
+          return;
+        }
+        appState.quizAnswers = normalizeQuizAnswers(draft.quizAnswers);
+        if (draft.studentName) appState.studentName = String(draft.studentName).slice(0, 40);
+        if (draft.studentClass) appState.studentClass = String(draft.studentClass).slice(0, 30);
+        placeQuizIndex();
+        mergeDismissed = true;
+        if (banner) banner.classList.add('hidden');
+        saveState();
+        rerenderHandbook();
+        setSyncStatus('已把本機小測草稿合併到學校帳戶');
+      }
+
+      function pullQuizFromCloud() {
+        if (!currentUser || !firebaseReady()) {
+          maybeOfferOfflineMerge();
+          return Promise.resolve();
+        }
+        suppressCloudSave = true;
+        let hadCloudAnswers = false;
+        return studentDocRef(currentUser.uid).get().then(function (snap) {
+          if (snap.exists) {
+            const data = snap.data() || {};
+            const cloudAnswers = normalizeQuizAnswers(data.quizAnswers);
+            if (Object.keys(cloudAnswers).length) {
+              hadCloudAnswers = true;
+              appState.quizAnswers = cloudAnswers;
+              if (typeof data.studentName === 'string') appState.studentName = data.studentName;
+              if (typeof data.studentClass === 'string') appState.studentClass = data.studentClass;
+              placeQuizIndex();
+              saveState();
+            }
+          }
+        }).catch(function () {
+          setSyncStatus('未能讀取學校紀錄，先顯示這部裝置的草稿');
+        }).then(function () {
+          suppressCloudSave = false;
+          rerenderHandbook();
+          if (!hadCloudAnswers && Object.keys(normalizeQuizAnswers(appState.quizAnswers)).length) {
+            return pushQuizToCloud();
+          }
+          if (!hadCloudAnswers) setSyncStatus('已登入。完成小測後會存到學校紀錄。');
+          maybeOfferOfflineMerge();
+        });
+      }
+
+      function adoptUser(user) {
+        const email = normalizeEmail(user.email);
+        const same = currentUser && currentUser.uid === user.uid && handbookStarted;
+        authBusy = false;
+        offlineMode = false;
+        pendingAuthError = '';
+        currentUser = {
+          uid: user.uid,
+          email: email,
+          displayName: String(user.displayName || '').trim()
+        };
+        if (!same) {
+          mergeDismissed = false;
+          showHandbook();
+          pullQuizFromCloud();
+        } else {
+          document.body.classList.remove('auth-locked');
+          document.title = HANDBOOK_TITLE;
+          refreshAccountChrome();
+        }
+      }
+
+      function continueCachedLogin() {
+        if (!firebaseReady()) return;
+        const user = firebase.auth().currentUser;
+        if (!user || !isAllowedEmail(user.email)) {
+          pendingAuthError = denyMessage(user && user.email);
+          renderLogin('signed-out');
+          return;
+        }
+        authConfirmed = true;
+        adoptUser(user);
+      }
+
+      function signInWithGoogle() {
+        if (!firebaseReady()) {
+          pendingAuthError = '未能載入登入服務。請檢查網絡，或先離線使用。';
+          renderLogin(cachedEmail ? 'cached' : 'signed-out');
+          return;
+        }
+        authBusy = true;
+        authExplicit = true;
+        pendingAuthError = '';
+        renderLogin(cachedEmail ? 'cached' : 'signed-out');
+        firebase.auth().signInWithPopup(googleProvider).then(function () {
+          const user = firebase.auth().currentUser;
+          if (user && isAllowedEmail(user.email)) {
+            authConfirmed = true;
+            adoptUser(user);
+          }
+        }).catch(function (error) {
+          authExplicit = false;
+          authBusy = false;
+          const code = error && error.code;
+          if (code !== 'auth/popup-closed-by-user' && code !== 'auth/cancelled-popup-request') {
+            pendingAuthError = authErrorMessage(code);
+          }
+          renderLogin(cachedEmail ? 'cached' : 'signed-out');
+        });
+      }
+
+      function signOutHandbook() {
+        offlineMode = false;
+        authConfirmed = false;
+        authExplicit = false;
+        currentUser = null;
+        cachedEmail = '';
+        const stats = document.getElementById('teacherStatsBody');
+        if (stats) stats.textContent = '';
+        const modal = document.getElementById('teacherStatsModal');
+        if (modal) modal.classList.add('hidden');
+        document.body.classList.add('auth-locked');
+        refreshAccountChrome();
+        renderLogin('signed-out');
+        if (firebaseReady()) {
+          firebase.auth().signOut().catch(function () {});
+        }
+      }
+
+      function useOfflineDraft() {
+        offlineMode = true;
+        currentUser = null;
+        authBusy = false;
+        showHandbook();
+      }
+
+      function escapeHtml(value) {
+        return String(value == null ? '' : value)
+          .replace(/&/g, '&amp;')
+          .replace(/</g, '&lt;')
+          .replace(/>/g, '&gt;')
+          .replace(/"/g, '&quot;');
+      }
+
+      function formatCloudTime(value) {
+        try {
+          const date = value && typeof value.toDate === 'function' ? value.toDate() : null;
+          if (!date || isNaN(date.getTime())) return '—';
+          return date.toLocaleString('zh-HK', { timeZone: 'Asia/Hong_Kong', hour12: false });
+        } catch (e) {
+          return '—';
+        }
+      }
+
+      function scoreFromAnswers(answers) {
+        const normalized = normalizeQuizAnswers(answers);
+        let score = 0;
+        for (let i = 0; i < QUIZ_QUESTIONS.length; i++) {
+          if (normalized[i] === QUIZ_QUESTIONS[i].correctIndex) score++;
+        }
+        return score;
+      }
+
+      function renderTeacherStats(docs) {
+        const body = document.getElementById('teacherStatsBody');
+        if (!body) return;
+        const rows = docs.map(function (doc) {
+          const data = doc.data() || {};
+          const answers = normalizeQuizAnswers(data.quizAnswers);
+          const answered = Object.keys(answers).length;
+          return {
+            email: data.email || '',
+            studentName: data.studentName || '',
+            studentClass: data.studentClass || '',
+            displayName: data.displayName || '',
+            answers: answers,
+            answered: answered,
+            complete: answered >= QUIZ_QUESTIONS.length,
+            score: scoreFromAnswers(answers),
+            updatedAt: data.updatedAt
+          };
+        });
+        rows.sort(function (a, b) {
+          const classCmp = String(a.studentClass).localeCompare(String(b.studentClass), 'zh-Hant');
+          if (classCmp) return classCmp;
+          return String(a.studentName || a.email).localeCompare(String(b.studentName || b.email), 'zh-Hant');
+        });
+        const completed = rows.filter(function (row) { return row.complete; });
+        const average = completed.length
+          ? (completed.reduce(function (sum, row) { return sum + row.score; }, 0) / completed.length)
+          : 0;
+        let questionHtml = '';
+        for (let i = 0; i < QUIZ_QUESTIONS.length; i++) {
+          let answered = 0;
+          let correct = 0;
+          rows.forEach(function (row) {
+            if (row.answers[i] === undefined) return;
+            answered++;
+            if (row.answers[i] === QUIZ_QUESTIONS[i].correctIndex) correct++;
+          });
+          questionHtml += '<div class="teacher-answer">' + escapeHtml(QUIZ_QUESTIONS[i].q) +
+            '：答對 ' + correct + ' / 已作答 ' + answered + '</div>';
+        }
+        let table = '';
+        rows.forEach(function (row) {
+          let detail = '';
+          for (let i = 0; i < QUIZ_QUESTIONS.length; i++) {
+            const choice = row.answers[i];
+            const item = QUIZ_QUESTIONS[i];
+            if (choice === undefined) {
+              detail += '<div class="teacher-answer">第 ' + (i + 1) + ' 題：未作答</div>';
+            } else {
+              const ok = choice === item.correctIndex;
+              detail += '<div class="teacher-answer ' + (ok ? 'ok' : 'no') + '">第 ' + (i + 1) + ' 題：' +
+                escapeHtml(item.options[choice] || '（選項已不存在）') + (ok ? ' ✓' : ' ✗') + '</div>';
+            }
+          }
+          table += '<tr><td>' + escapeHtml(row.studentClass || '未填班別') + '</td><td>' +
+            escapeHtml(row.studentName || row.displayName || '未填姓名') + '</td><td>' +
+            escapeHtml(row.email) + '</td><td>' + row.score + ' / ' + QUIZ_QUESTIONS.length +
+            '</td><td>' + (row.complete ? '已完成' : ('已答 ' + row.answered + ' 題')) +
+            '<br>' + escapeHtml(formatCloudTime(row.updatedAt)) + detail + '</td></tr>';
+        });
+        body.innerHTML =
+          '<div class="teacher-stats">' +
+            '<div class="teacher-stat-grid">' +
+              '<div class="teacher-stat"><b>' + rows.length + '</b><span>已有學校紀錄</span></div>' +
+              '<div class="teacher-stat"><b>' + completed.length + '</b><span>已完成五題</span></div>' +
+              '<div class="teacher-stat"><b>' + (completed.length ? average.toFixed(1) : '—') + '</b><span>完成者平均分</span></div>' +
+            '</div>' +
+            '<div>' + questionHtml + '</div>' +
+            (rows.length
+              ? '<div class="teacher-table-wrap"><table class="teacher-table"><thead><tr><th>班別</th><th>姓名</th><th>電郵</th><th>分數</th><th>答案</th></tr></thead><tbody>' + table + '</tbody></table></div>'
+              : '<p>尚未有學生上傳小測答案。</p>') +
+          '</div>';
+      }
+
+      function openTeacherStats() {
+        if (!currentUser || !isTeacherEmail(currentUser.email) || !firebaseReady()) return;
+        const modal = document.getElementById('teacherStatsModal');
+        const body = document.getElementById('teacherStatsBody');
+        if (!modal || !body) return;
+        modal.classList.remove('hidden');
+        body.textContent = '正在讀取學生答案…';
+        firebase.firestore()
+          .collection('taipokau_handbook')
+          .doc('taipokau_visit')
+          .collection('students')
+          .get()
+          .then(function (snap) {
+            renderTeacherStats(snap.docs || []);
+          })
+          .catch(function () {
+            body.textContent = '未能讀取成績。請確認已套用 taipokau_handbook 規則，而且這個帳戶是 lichihong@tswgps.edu.hk。';
+          });
+      }
+
+      function bindAuthChrome() {
+        const signOutBtn = document.getElementById('signOutBtn');
+        const teacherBtn = document.getElementById('teacherStatsBtn');
+        const offlineBtn = document.getElementById('offlineDraftBtn');
+        const mergeBtn = document.getElementById('mergeDraftBtn');
+        const dismissBtn = document.getElementById('dismissDraftBtn');
+        const closeBtn = document.getElementById('closeTeacherStatsBtn');
+        const modal = document.getElementById('teacherStatsModal');
+        if (signOutBtn) signOutBtn.addEventListener('click', signOutHandbook);
+        if (teacherBtn) teacherBtn.addEventListener('click', openTeacherStats);
+        if (offlineBtn) offlineBtn.addEventListener('click', useOfflineDraft);
+        if (mergeBtn) mergeBtn.addEventListener('click', mergeOfflineDraft);
+        if (dismissBtn) {
+          dismissBtn.addEventListener('click', function () {
+            mergeDismissed = true;
+            const banner = document.getElementById('mergeDraftBanner');
+            if (banner) banner.classList.add('hidden');
+          });
+        }
+        if (closeBtn && modal) {
+          closeBtn.addEventListener('click', function () {
+            modal.classList.add('hidden');
+          });
+          modal.addEventListener('click', function (event) {
+            if (event.target === modal) modal.classList.add('hidden');
+          });
+        }
+      }
+
+      function startAuth() {
+        bindAuthChrome();
+        renderLogin('loading');
+        if (!firebaseReady()) {
+          pendingAuthError = '未能載入登入服務。請檢查網絡，或先離線使用。';
+          renderLogin('signed-out');
+          return;
+        }
+        try {
+          if (!firebase.apps.length) firebase.initializeApp(FIREBASE_CONFIG);
+          firebase.auth().languageCode = 'zh-HK';
+          googleProvider = new firebase.auth.GoogleAuthProvider();
+          googleProvider.setCustomParameters({ prompt: 'select_account' });
+        } catch (e) {
+          pendingAuthError = '未能啟動登入服務。請稍後再試，或先離線使用。';
+          renderLogin('signed-out');
+          return;
+        }
+        firebase.auth().onAuthStateChanged(function (user) {
+          if (!user) {
+            if (authExplicit) return;
+            currentUser = null;
+            authConfirmed = false;
+            if (!offlineMode) {
+              cachedEmail = '';
+              document.body.classList.add('auth-locked');
+              renderLogin('signed-out');
+              refreshAccountChrome();
+            }
+            return;
+          }
+          if (!isAllowedEmail(user.email)) {
+            pendingAuthError = denyMessage(user.email);
+            authConfirmed = false;
+            authExplicit = false;
+            cachedEmail = '';
+            firebase.auth().signOut().catch(function () {});
+            return;
+          }
+          if (authConfirmed || authExplicit) {
+            authConfirmed = true;
+            authExplicit = false;
+            adoptUser(user);
+            return;
+          }
+          cachedEmail = normalizeEmail(user.email);
+          if (!offlineMode) {
+            document.body.classList.add('auth-locked');
+            renderLogin('cached');
+          }
+        }, function () {
+          pendingAuthError = '無法確認登入狀態，請重新整理頁面。';
+          renderLogin('signed-out');
+        });
+      }
+
+      let googleProvider = null;
+
       if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', init);
+        document.addEventListener('DOMContentLoaded', startAuth);
       } else {
-        init();
+        startAuth();
       }
     })();
   </script>
