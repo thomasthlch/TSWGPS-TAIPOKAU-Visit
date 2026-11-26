@@ -2620,9 +2620,9 @@
     .card-step-btn.prev { left: 8px; }
     .card-step-btn.next { right: 8px; }
     .bingo-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; max-width: 560px; }
-    .bingo-cell { min-height: 108px; border-radius: 18px; border: 3px solid transparent; padding: 8px; text-align: center; font-weight: 900; font-size: 15px; color: #1B5E20; position: relative; }
+    .bingo-cell { min-height: 112px; border-radius: 18px; border: 3px solid transparent; padding: 10px 8px 12px; text-align: center; font-weight: 900; font-size: 15px; color: #1B5E20; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; }
     .bingo-cell.is-on { box-shadow: inset 0 0 0 3px #1B5E20; }
-    .bingo-cell.is-on::after { content: "蓋章"; position: absolute; right: 8px; bottom: 6px; background: #C62828; color: #fff; border-radius: 999px; padding: 2px 8px; font-size: 12px; transform: rotate(-8deg); }
+    .bingo-cell.is-on:not(.is-center)::after { content: "已蓋章"; position: static; display: inline-block; margin-top: 2px; background: #C62828; color: #fff; border-radius: 999px; padding: 2px 8px; font-size: 12px; transform: none; }
     .bingo-cell.is-center { background: #FBC02D; color: #4E342E; cursor: default; }
     .bingo-emoji { display: block; font-size: 26px; line-height: 1.1; }
     .bingo-cheer { font-size: 20px; font-weight: 900; color: #1B5E20; min-height: 1.4em; }
@@ -2677,6 +2677,8 @@
       margin-left: auto;
       max-width: min(42vw, 220px);
     }
+
+    .tools-toggle { display: none; }
 
     .menu-toggle {
       display: inline-flex;
@@ -2887,16 +2889,65 @@
       .app-menu .tab-btn.active { transform: none; }
 
       .menu-actions {
-        display: flex;
-        flex-wrap: nowrap;
-        justify-content: flex-start;
+        display: none;
+      }
+
+      .tools-toggle {
+        display: inline-flex;
         align-items: center;
+        justify-content: center;
+        gap: 6px;
+        min-height: 44px;
+        padding: 0 14px;
+        border-radius: 14px;
+        border: 1.5px solid rgba(255, 255, 255, 0.55);
+        background: rgba(255, 255, 255, 0.16);
+        color: #fff;
+        font-size: 15px;
+        font-weight: 900;
+        cursor: pointer;
+      }
+
+      body.tools-open .menu-actions {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        position: absolute;
+        top: calc(100% - 8px);
+        right: 16px;
+        width: min(320px, calc(100vw - 24px));
+        margin: 0;
+        padding: 10px;
         gap: 8px;
+        background: #fff;
+        color: #1B5E20;
+        border-radius: 16px;
+        box-shadow: 0 14px 36px rgba(20, 50, 24, 0.22);
+        z-index: 90;
+      }
+
+      body.tools-open .menu-actions .sound-btn,
+      body.tools-open .menu-actions .offline-dl-btn {
         width: 100%;
-        box-sizing: border-box;
-        padding: 8px 12px 10px;
-        background: #164e1b;
-        overflow-x: auto;
+        min-height: 48px;
+        justify-content: flex-start;
+        font-size: 16px;
+      }
+
+      body.tools-open .menu-actions .sound-btn {
+        background: #E8F5E9;
+        color: #1B5E20;
+        border-color: #C8E6C9;
+      }
+
+      body.tools-open .menu-actions .account-chip {
+        max-width: 100%;
+        margin: 0;
+        background: #E8F5E9;
+        color: #1B5E20;
+        border-color: #C8E6C9;
+        min-height: 44px;
+        white-space: normal;
       }
     }
 
@@ -2926,6 +2977,10 @@
     <div class="compact-bar">
       <p class="wordmark">大埔滘考察</p>
       <span id="signedInLabel" class="account-chip hidden"></span>
+      <button id="toolsToggleBtn" type="button" class="tools-toggle" aria-expanded="false" aria-controls="menuActions">
+        <span aria-hidden="true">⚙️</span>
+        <span>工具</span>
+      </button>
       <button id="menuToggleBtn" type="button" class="menu-toggle" aria-expanded="false" aria-controls="appMenu">
         <span class="menu-toggle-icon" aria-hidden="true">☰</span>
         <span class="menu-toggle-label">選單</span>
@@ -2964,7 +3019,7 @@
           </button>
         </div>
       </nav>
-      <div class="menu-actions">
+      <div id="menuActions" class="menu-actions">
         <span id="cloudSyncStatus" class="account-chip hidden"></span>
         <button id="teacherStatsBtn" type="button" class="sound-btn hidden">成績統計</button>
         <button id="signOutBtn" type="button" class="sound-btn hidden">登出</button>
@@ -4853,6 +4908,12 @@
         if (statGuide) statGuide.textContent = '🔍 圖鑑：' + guideSeen + '/' + SPECIES_LIST.length;
       }
 
+      function setToolsOpen(open) {
+        document.body.classList.toggle('tools-open', !!open);
+        const btn = document.getElementById('toolsToggleBtn');
+        if (btn) btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      }
+
       function openAppMenu() {
         const menu = document.getElementById('appMenu');
         const btn = document.getElementById('menuToggleBtn');
@@ -6635,10 +6696,27 @@
           });
         }
         document.addEventListener('keydown', function (e) {
-          if (e.key === 'Escape') closeAppMenu();
+          if (e.key === 'Escape') {
+            closeAppMenu();
+            setToolsOpen(false);
+          }
         });
         window.addEventListener('resize', function () {
           if (!window.matchMedia('(max-width: 1024px)').matches) closeAppMenu();
+          else setToolsOpen(false);
+        });
+        const toolsToggleBtn = document.getElementById('toolsToggleBtn');
+        if (toolsToggleBtn) {
+          toolsToggleBtn.addEventListener('click', function (e) {
+            e.stopPropagation();
+            SFX.click();
+            setToolsOpen(!document.body.classList.contains('tools-open'));
+          });
+        }
+        document.addEventListener('click', function (e) {
+          if (!document.body.classList.contains('tools-open')) return;
+          if (e.target.closest('#toolsToggleBtn') || e.target.closest('#soundToggleBtn')) return;
+          setToolsOpen(false);
         });
 
         // 內頁跳轉分頁按鈕
