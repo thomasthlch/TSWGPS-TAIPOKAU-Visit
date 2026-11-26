@@ -324,7 +324,7 @@
 
     .overall-mini-stats {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(2, 1fr);
       gap: 8px;
       margin-top: 10px;
       text-align: center;
@@ -523,7 +523,7 @@
       margin: 0 auto;
       padding: 8px 8px;
       display: grid;
-      grid-template-columns: repeat(5, 1fr);
+      grid-template-columns: repeat(auto-fit, minmax(108px, 1fr));
       gap: 6px;
     }
 
@@ -2580,6 +2580,49 @@
     .teacher-answer.no {
       color: var(--danger-main);
     }
+    .guide-search {
+      width: 100%;
+      margin: 12px 0;
+      min-height: 48px;
+      border-radius: 14px;
+      border: 2px solid var(--forest-border);
+      padding: 10px 14px;
+      font-size: 16px;
+    }
+    .star-line { color: #F9A825; font-weight: 900; letter-spacing: 1px; }
+    .find-zone { margin: 16px 4px 8px; color: var(--forest-dark); font-size: 18px; }
+    .find-grid { display: grid; grid-template-columns: 1fr; gap: 10px; }
+    @media (min-width: 700px) { .find-grid { grid-template-columns: 1fr 1fr; } }
+    .find-card { background: white; border: 2px solid var(--forest-border); border-radius: 16px; padding: 8px; }
+    .find-card.is-found { border-color: var(--forest-main); background: #F1F8E9; }
+    .find-peek { display: flex; align-items: center; gap: 10px; width: 100%; min-height: 64px; border: 0; background: transparent; text-align: left; cursor: pointer; font: inherit; }
+    .find-peek img { width: 64px; height: 64px; object-fit: cover; border-radius: 12px; flex: 0 0 auto; }
+    .find-name { font-size: 20px; font-weight: 900; color: var(--forest-dark); }
+    .find-stars { margin-left: auto; color: #F9A825; font-weight: 900; }
+    .find-clue { margin: 0 4px 8px; color: var(--text-muted); font-size: 15px; }
+    .find-tick { width: 100%; min-height: 48px; border-radius: 12px; border: 2px solid var(--forest-main); background: var(--forest-main); color: white; font-size: 16px; font-weight: 900; }
+    .find-card.is-found .find-tick { background: white; color: var(--forest-dark); }
+    .bingo-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+    .bingo-cell { min-height: 88px; border-radius: 16px; border: 2px solid var(--forest-border); background: white; padding: 10px; text-align: left; font-weight: 800; font-size: 15px; }
+    .bingo-cell.is-on { background: #E8F5E9; border-color: var(--forest-main); }
+    .bingo-mark { display: inline-block; width: 1.4em; font-weight: 900; color: var(--forest-main); }
+    .side-task { margin-top: 18px; }
+    .micro-table { width: 100%; border-collapse: collapse; font-size: 14px; }
+    .micro-table th, .micro-table td { border: 1px solid var(--forest-border); padding: 6px; }
+    .micro-table input, .listen-input, .group-input { width: 100%; min-height: 44px; border: 1.5px solid var(--forest-border); border-radius: 10px; padding: 6px 8px; font-size: 16px; }
+    .print-sheet { display: none; }
+    .print-sheet h1 { font-size: 18px; margin: 0 0 6px; }
+    .print-sheet h2 { font-size: 14px; margin: 8px 0 4px; }
+    .print-sheet ul { list-style: none; margin: 0; padding: 0; columns: 2; }
+    .print-sheet li { font-size: 12px; margin: 0 0 3px; }
+    .print-sheet .box { display: inline-block; width: 12px; height: 12px; border: 1.5px solid #000; margin-right: 4px; vertical-align: -1px; }
+    @media print {
+      body * { visibility: hidden !important; }
+      .print-sheet, .print-sheet * { visibility: visible !important; }
+      .print-sheet { display: block !important; position: absolute; left: 0; top: 0; width: 100%; background: #fff; color: #000; padding: 0; }
+      .site-chrome, .hero-header, .login-gate, .modal-backdrop { display: none !important; }
+    }
+
 
     /* =======================================================
        手機／iPad：頂列只留標題、帳戶與選單
@@ -2854,6 +2897,14 @@
             <span class="tab-icon">🗺️</span>
             <span>任務情報站</span>
           </button>
+          <button type="button" role="tab" class="tab-btn" data-tab="find" aria-selected="false">
+            <span class="tab-icon">🔎</span>
+            <span>今日尋寶</span>
+          </button>
+          <button type="button" role="tab" class="tab-btn" data-tab="bingo" aria-selected="false">
+            <span class="tab-icon">🟩</span>
+            <span>森林賓果</span>
+          </button>
           <button type="button" role="tab" class="tab-btn" data-tab="safety" aria-selected="false">
             <span class="tab-icon">🛡️</span>
             <span>安全與無痕</span>
@@ -2946,6 +2997,7 @@
         <div class="overall-mini-stats">
           <div id="miniStatPack" class="mini-stat">🎒 裝備：0/7</div>
           <div id="miniStatSafe" class="mini-stat">🛡️ 守則：0/5</div>
+          <div id="miniStatGuide" class="mini-stat">🔍 圖鑑：0/25</div>
           <div id="miniStatQuiz" class="mini-stat">🏆 挑戰：未完成</div>
         </div>
       </div>
@@ -2983,6 +3035,7 @@
         </div>
 
         <div class="card-body">
+          <button type="button" class="btn btn-primary" data-jump-tab="find" style="width:100%; min-height:52px; margin-bottom:14px; font-size:18px;">🔎 今日尋寶：去找圖鑑裡的生物</button>
           <div class="info-grid">
             <div class="info-tile">
               <div class="info-tile-icon">📅</div>
@@ -3121,22 +3174,79 @@
       </div>
     </section>
 
+
+    <section id="panel-find" class="tab-panel hidden">
+      <div class="section-card">
+        <div class="card-body">
+          <h2 class="section-heading"><span>🔎</span> 今日尋寶</h2>
+          <p class="section-sub">這是行山時用的畫面。看位置，點一下「見到／聽到」。點名字只看一句提示。不用網絡。</p>
+          <p id="findCountLabel" style="font-weight:900; color:#1B5E20;">已記下 0 / 25</p>
+          <p id="findToast" class="sync-banner hidden" role="status"></p>
+          <div id="findBoard"></div>
+          <div class="side-task">
+            <h3>回程車上可以講</h3>
+            <p id="findShareText">今日尚未記下發現。</p>
+            <button id="copyFindShareBtn" type="button" class="btn btn-outline">複製「今日尋到邊啲」</button>
+            <button type="button" class="btn btn-primary" data-print-sheet="1">列印今日尋寶紙</button>
+          </div>
+          <div class="side-task">
+            <h3>野外研習園：先猜再量</h3>
+            <p>在樹蔭和開揚處各量一次。先把猜測寫下，再看儀器。</p>
+            <div style="overflow-x:auto;">
+              <table class="micro-table">
+                <thead><tr><th>位置</th><th>猜溫度</th><th>實測溫度</th><th>猜濕度</th><th>實測濕度</th><th>光（亮／暗）</th></tr></thead>
+                <tbody>
+                  <tr><th>樹蔭</th><td><input data-micro="shadeTemp" aria-label="樹蔭猜測溫度" /></td><td><input data-micro="shadeTempReal" aria-label="樹蔭實測溫度" /></td><td><input data-micro="shadeHum" aria-label="樹蔭猜測濕度" /></td><td><input data-micro="shadeHumReal" aria-label="樹蔭實測濕度" /></td><td><input data-micro="shadeLight" aria-label="樹蔭光照" /></td></tr>
+                  <tr><th>開揚處</th><td><input data-micro="openTemp" aria-label="開揚處猜測溫度" /></td><td><input data-micro="openTempReal" aria-label="開揚處實測溫度" /></td><td><input data-micro="openHum" aria-label="開揚處猜測濕度" /></td><td><input data-micro="openHumReal" aria-label="開揚處實測濕度" /></td><td><input data-micro="openLight" aria-label="開揚處光照" /></td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <div class="side-task">
+            <h3>溪邊：安靜聽 60 秒</h3>
+            <p id="listenCount">每組先安靜 60 秒，再最多講 3 種聲音。不是比賽。</p>
+            <button id="listenStartBtn" type="button" class="btn btn-primary">開始 60 秒</button>
+            <div class="find-grid" style="margin-top:10px;">
+              <input class="listen-input" data-listen="0" placeholder="聲音 1" aria-label="聲音 1" />
+              <input class="listen-input" data-listen="1" placeholder="聲音 2" aria-label="聲音 2" />
+              <input class="listen-input" data-listen="2" placeholder="聲音 3" aria-label="聲音 3" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="panel-bingo" class="tab-panel hidden">
+      <div class="section-card">
+        <div class="card-body">
+          <h2 class="section-heading"><span>🟩</span> 森林賓果</h2>
+          <p class="section-sub">這張卡和圖鑑分開。先寫第幾組，再勾沿途見到或聽見的 8 項。完成就好，不排名。</p>
+          <label class="form-label" for="groupLabelInput">第幾組或組名</label>
+          <input id="groupLabelInput" class="group-input" maxlength="24" placeholder="例如：3 組" />
+          <p id="bingoStatus" style="font-weight:900; color:#1B5E20;">已勾 0 / 8</p>
+          <div id="bingoGrid" class="bingo-grid"></div>
+          <button type="button" class="btn btn-primary" data-print-sheet="1" style="margin-top:14px;">列印今日尋寶紙</button>
+        </div>
+      </div>
+    </section>
+
     <!-- ===================================================
          分頁 3：12月大埔滘生物圖鑑（實景相片 + 可篩選圖卡）
          =================================================== -->
     <section id="panel-guide" class="tab-panel hidden">
       <div class="section-card">
         <div class="card-body">
-          <h2 class="section-heading"><span>🦋</span> 12月大埔滘生物圖鑑</h2>
-          <p class="section-sub">
-            認識初冬大埔滘的 11 種代表性生物！按分類篩選，點擊圖卡查看真實相片、特徵與觀察小貼士。
-          </p>
+          <h2 class="section-heading"><span>🦋</span> 12月生物圖鑑</h2>
+          <p class="section-sub">出發前用來學會辨認的圖鑑。每張卡只有短提示、星級和相片。行山時請改用「今日尋寶」，不用在山路上看長文。</p>
+          <label class="form-label" for="speciesSearch">搜尋名稱</label>
+          <input id="speciesSearch" class="guide-search" type="search" placeholder="例如：鴨腳木、海芋、鵯" />
 
           <div class="filter-bar" role="group" aria-label="生物分類篩選">
-            <button type="button" class="filter-btn active" data-filter="all">🌟 全部 (11)</button>
-            <button type="button" class="filter-btn" data-filter="plant">🌿 植物 (4)</button>
-            <button type="button" class="filter-btn" data-filter="bird">🐦 林鳥 (4)</button>
-            <button type="button" class="filter-btn" data-filter="stream">🦎 溪流與昆蟲 (3)</button>
+            <button type="button" class="filter-btn active" data-filter="all">全部</button>
+            <button type="button" class="filter-btn" data-filter="地上／路旁">地上／路旁</button>
+            <button type="button" class="filter-btn" data-filter="林下／樹幹">林下／樹幹</button>
+            <button type="button" class="filter-btn" data-filter="樹上">樹上</button>
+            <button type="button" class="filter-btn" data-filter="溪邊">溪邊</button>
           </div>
         </div>
       </div>
@@ -3261,7 +3371,7 @@
         <div class="card-body">
           <h2 class="section-heading"><span>🧭</span> 探險導航地圖（大埔滘自然護理區）</h2>
           <p class="section-sub">
-            離線地圖按漁護署四色林徑繪製：紅徑約 3km、藍徑約 4km、棕徑約 7.5km、黃徑約 10km，並標示今次考察的 4 個打卡點。無需網絡亦可查看路線與 GPS；有網絡時可切換 Google 地圖。
+            地圖上的紅、藍、棕、黃四色林徑是漁護署公開路線，留作參考。打卡點沿着自然教育徑、野外研習園和溪邊。無需網絡亦可查看路線與 GPS；有網絡時可切換 Google 地圖。
           </p>
 
           <!-- 模式切換器 -->
@@ -3605,7 +3715,13 @@
         currentQuizIndex: 0,
         studentName: '',
         studentClass: '',
-        explorerCode: 'TSW-2026-' + String(Math.floor(100 + Math.random() * 900))
+        explorerCode: 'TSW-2026-' + String(Math.floor(100 + Math.random() * 900)),
+        viewedGuideIds: [],
+        foundSpeciesIds: [],
+        bingoTicks: [],
+        groupLabel: '',
+        microclimate: {},
+        listenNotes: ['', '', '']
       };
 
       function loadState() {
@@ -3837,208 +3953,770 @@
 
       const SPECIES_LIST = [
         {
-          id: 'schefflera',
-          category: 'plant',
-          categoryLabel: '🌿 植物',
-          name: '鴨腳木',
-          scientificName: 'Schefflera heptaphylla',
-          commonsQueries: [
-            '"Heptapleurum heptaphyllum"',
-            '"Schefflera heptaphylla"',
-            '"Schefflera octophylla"'
+          "id": "castanopsis",
+          "category": "plant",
+          "categoryLabel": "植物",
+          "zone": "地上／路旁",
+          "stars": 1,
+          "name": "黧蒴錐",
+          "englishName": "Castanopsis",
+          "scientificName": "Castanopsis fissa",
+          "synonym": "",
+          "clues": [
+            "地上常有一大片長橢圓形落葉。",
+            "葉緣有鋸齒，葉脈清楚。"
           ],
-          shortDesc: '冬季開花，掌狀複葉似鴨腳，吸引大量蜂蝶前來採蜜。',
-          features: '香港常見本地喬木，葉片呈掌狀複葉，由多片小葉圍繞中心排列，形狀像鴨掌一樣，因此得名「鴨腳木」（又稱鵝掌柴）。',
-          season: '12 月初冬正是鴨腳木的盛花期！滿樹米白色小花在百花凋零的冬季，成為蝴蝶、蜜蜂和林鳥極為重要的蜜源餐廳。',
-          tips: '抬頭望望林道旁的鴨腳木花叢，留心觀察是否有斑蝶或蜜蜂在花間飛舞，並數一數一片複葉有幾塊小葉。',
-          alert: null,
-          svg: '<svg viewBox="0 0 100 100" class="photo-fallback-svg"><circle cx="50" cy="50" r="46" fill="#E8F5E9"/><line x1="50" y1="86" x2="50" y2="52" stroke="#6D4C41" stroke-width="5" stroke-linecap="round"/><g fill="#2E7D32"><ellipse cx="50" cy="28" rx="7" ry="18"/><ellipse cx="32" cy="36" rx="7" ry="17" transform="rotate(-38 32 36)"/><ellipse cx="68" cy="36" rx="7" ry="17" transform="rotate(38 68 36)"/><ellipse cx="26" cy="54" rx="6" ry="14" transform="rotate(-72 26 54)"/><ellipse cx="74" cy="54" rx="6" ry="14" transform="rotate(72 74 54)"/></g><circle cx="50" cy="18" r="4" fill="#FBC02D"/><circle cx="42" cy="21" r="3.5" fill="#FFF176"/><circle cx="58" cy="21" r="3.5" fill="#FFF176"/></svg>'
-        },
-        {
-          id: 'sweetgum',
-          category: 'plant',
-          categoryLabel: '🌿 植物',
-          name: '楓香',
-          scientificName: 'Liquidambar formosana',
-          commonsQueries: [
-            '"Liquidambar formosana" leaf',
-            '"Liquidambar formosana" autumn',
-            '"Liquidambar formosana"'
-          ],
-          shortDesc: '秋冬季葉片轉紅或黃，為翠綠的大埔滘增添迷人秋意。',
-          features: '落葉大喬木，葉片通常呈明顯的「三裂」掌狀，邊緣有細鋸齒；果實像長滿小刺的棕色小圓球（俗稱「路路通」）。',
-          season: '踏入 12 月天氣轉涼，楓香葉片內的葉綠素分解，葉色由綠轉黃、再轉橙紅，是大埔滘秋冬最動人的風景之一。',
-          tips: '可細心觀察地面自然掉落的楓香葉，比較不同葉片的顏色層次，但記得實踐無痕山林，不帶走自然物喔！',
-          alert: null,
-          svg: '<svg viewBox="0 0 100 100" class="photo-fallback-svg"><circle cx="50" cy="50" r="46" fill="#FFF3E0"/><path d="M50,15 L58,40 L84,34 L64,54 L72,72 L50,62 L28,72 L36,54 L16,34 L42,40 Z" fill="#E65100"/><path d="M50,24 L50,86" stroke="#8D6E63" stroke-width="3.5" stroke-linecap="round"/><circle cx="76" cy="76" r="8" fill="#6D4C41"/></svg>'
-        },
-        {
-          id: 'pine',
-          category: 'plant',
-          categoryLabel: '🌿 植物',
-          name: '馬尾松',
-          scientificName: 'Pinus massoniana',
-          commonsQueries: [
-            '"Pinus massoniana" cone',
-            '"Pinus massoniana" tree',
-            '"Pinus massoniana"'
-          ],
-          shortDesc: '大埔滘早期植林樹種，故大埔滘又稱「松仔園」。',
-          features: '常綠針葉喬木，樹皮呈紅褐色帶龜裂紋；細長柔軟的松針通常是「兩針一束」長在一起，並結有木質松果。',
-          season: '大埔滘早期廣泛種植馬尾松，故當地俗稱「松仔園」。即使在 12 月冬季，馬尾松依然四季常青。',
-          tips: '觀察高聳樹幹的粗糙樹皮，也可以留意地面自然掉落的松針，驗證一下是不是「兩針一束」！',
-          alert: null,
-          svg: '<svg viewBox="0 0 100 100" class="photo-fallback-svg"><circle cx="50" cy="50" r="46" fill="#E8F5E9"/><rect x="46" y="54" width="8" height="32" rx="3" fill="#6D4C41"/><polygon points="50,14 26,46 74,46" fill="#1B5E20"/><polygon points="50,28 22,60 78,60" fill="#2E7D32"/><polygon points="50,42 20,72 80,72" fill="#388E3C"/></svg>'
-        },
-        {
-          id: 'alocasia',
-          category: 'plant',
-          categoryLabel: '🌿 植物',
-          name: '海芋',
-          scientificName: 'Alocasia odora',
-          commonsQueries: [
-            '"Alocasia odora"',
-            '"Alocasia macrorrhizos" leaf',
-            '"Alocasia macrorrhizos"'
-          ],
-          shortDesc: '葉片巨大如象耳，汁液有毒，切勿觸摸或折斷！',
-          features: '大型常綠草本植物，葉片巨大呈心形或箭頭狀，葉柄粗壯多汁，常生長於陰濕的林下或溪畔。',
-          season: '12 月林下依然茂盛翠綠，是辨識陰濕微氣候（濕度較高、光照較低）的絕佳指標植物。',
-          tips: '只可用眼睛遠距離觀察它巨大的葉片與葉脈，切勿用手觸摸、拍打或折斷莖葉。',
-          alert: {
-            type: 'danger',
-            chipText: '⚠️ 有毒警示',
-            text: '【⚠️ 有毒警示】海芋全株汁液含有毒素，接觸皮膚會引起紅腫痕癢，切勿觸摸或折斷！'
+          "december": "12月林道上最容易見到的是掉下來的葉子，不是花。",
+          "caution": "只看地上的落葉，不要折枝。",
+          "alert": null,
+          "localPhoto": {
+            "src": "images/castanopsis.jpg",
+            "credit": "阿橋 HQ",
+            "license": "CC BY-SA 2.0",
+            "page": "https://commons.wikimedia.org/wiki/File%3A%E9%BB%A7%E8%92%B4%E9%8C%90%28%E8%A3%82%E6%96%97%E9%8C%90%E6%A0%97%29_Castanopsis_fissa_-%E9%A6%99%E6%B8%AF%E8%A5%BF%E8%B2%A2%E7%8D%85%E5%AD%90%E6%9C%83%E8%87%AA%E7%84%B6%E6%95%99%E8%82%B2%E4%B8%AD%E5%BF%83_Saikung%2C_Hong_Kong-_%289213350715%29.jpg"
           },
-          svg: '<svg viewBox="0 0 100 100" class="photo-fallback-svg"><circle cx="50" cy="50" r="46" fill="#FFEBEE"/><path d="M50,86 L50,48" stroke="#388E3C" stroke-width="6" stroke-linecap="round"/><path d="M50,18 C72,22 82,42 74,60 C66,70 56,64 50,55 C44,64 34,70 26,60 C18,42 28,22 50,18 Z" fill="#2E7D32"/><circle cx="78" cy="24" r="13" fill="#C62828"/><text x="78" y="29" text-anchor="middle" fill="#FFFFFF" font-size="16" font-weight="bold">!</text></svg>'
+          "shortDesc": "地上常有一大片長橢圓形落葉。",
+          "features": "地上常有一大片長橢圓形落葉。 葉緣有鋸齒，葉脈清楚。",
+          "season": "12月林道上最容易見到的是掉下來的葉子，不是花。",
+          "tips": "只看地上的落葉，不要折枝。",
+          "commonsQueries": [],
+          "svg": ""
         },
         {
-          id: 'mesia',
-          category: 'bird',
-          categoryLabel: '🐦 林鳥',
-          name: '銀耳相思鳥',
-          scientificName: 'Leiothrix argentauris',
-          commonsQueries: [
-            '"Leiothrix argentauris" bird',
-            '"Leiothrix argentauris"'
+          "id": "psychotria",
+          "category": "plant",
+          "categoryLabel": "植物",
+          "zone": "林下／樹幹",
+          "stars": 1,
+          "name": "九節",
+          "englishName": "Asiatic wild coffee",
+          "scientificName": "Psychotria asiatica",
+          "synonym": "",
+          "clues": [
+            "林下常見的灌木，葉子對生。",
+            "葉上有時見到一排排小點或被蟲咬的痕跡。"
           ],
-          shortDesc: '色彩鮮豔、耳羽銀白，常成群於林間灌木與樹枝活躍穿梭。',
-          features: '體型嬌小但羽色極為亮麗：頭頂黑色、臉頰有一塊醒目的銀白色耳羽，喉部橙黃，翅膀點綴鮮紅色羽斑。',
-          season: '大埔滘是香港觀賞銀耳相思鳥的著名勝地。12 月牠們常成群結隊在林間覓食，叫聲輕快悅耳。',
-          tips: '聽到灌木叢傳來清脆活潑的「吱吱啾啾」叫聲時，放輕腳步，往中低層樹枝尋找牠們鮮豔的身影。',
-          alert: null,
-          svg: '<svg viewBox="0 0 100 100" class="photo-fallback-svg"><circle cx="50" cy="50" r="46" fill="#FFF8E1"/><ellipse cx="48" cy="54" rx="22" ry="15" fill="#FBC02D"/><path d="M36,48 Q52,44 66,56 Q50,64 36,56 Z" fill="#D32F2F"/><circle cx="34" cy="40" r="12" fill="#212121"/><ellipse cx="38" cy="42" rx="5" ry="4" fill="#ECEFF1"/><polygon points="22,40 13,43 23,46" fill="#FF9800"/></svg>'
-        },
-        {
-          id: 'bulbul',
-          category: 'bird',
-          categoryLabel: '🐦 林鳥',
-          name: '紅耳鵯／白頭鵯',
-          scientificName: 'Pycnonotus jocosus',
-          commonsQueries: [
-            '"Pycnonotus jocosus"',
-            '"Pycnonotus sinensis"'
-          ],
-          shortDesc: '香港常見留鳥，叫聲清脆悅耳，常在林緣樹梢活動。',
-          features: '紅耳鵯頭頂有高高豎起的黑色羽冠與紅白臉斑；白頭鵯後枕呈明顯白色，兩者皆活潑好動，喜愛吃野果與昆蟲。',
-          season: '全年常見留鳥，12 月常聚集在開揚處的樹梢上曬太陽及鳴唱，是初學觀鳥最容易辨認的好夥伴。',
-          tips: '先聽聲音再找鳥！牠們的叫聲響亮清脆，停棲於樹梢時很容易用肉眼看清頭頂特徵。',
-          alert: null,
-          svg: '<svg viewBox="0 0 100 100" class="photo-fallback-svg"><circle cx="50" cy="50" r="46" fill="#FEFCE8"/><ellipse cx="52" cy="56" rx="20" ry="14" fill="#8D6E63"/><circle cx="38" cy="40" r="11" fill="#263238"/><polygon points="34,30 40,16 45,31" fill="#263238"/><circle cx="40" cy="41" r="2.5" fill="#E53935"/></svg>'
-        },
-        {
-          id: 'woodpecker',
-          category: 'bird',
-          categoryLabel: '🐦 林鳥',
-          name: '黃咀栗啄木鳥／斑姬啄木鳥',
-          scientificName: 'Dendrocopos canicapillus',
-          commonsQueries: [
-            '"Blythipicus pyrrhotis"',
-            '"Picumnus innominatus"',
-            '"Dendrocopos canicapillus"'
-          ],
-          shortDesc: '森林裡的「樹醫生」，留意樹幹傳來清脆的「篤篤」啄木聲！',
-          features: '擁有堅硬如鑿子的喙及善於攀附樹皮的腳趾；黃咀栗啄木鳥呈栗褐色帶黃喙，斑姬啄木鳥則十分嬌小靈巧。',
-          season: '12 月林間較安靜，更容易聽見牠們在樹幹或枯枝上敲擊尋找害蟲時發出的「篤、篤、篤」節奏聲。',
-          tips: '聽到樹林傳來有規律的敲木聲時，保持安靜並順著聲音望向粗壯樹幹或枯枝。',
-          alert: null,
-          svg: '<svg viewBox="0 0 100 100" class="photo-fallback-svg"><circle cx="50" cy="50" r="46" fill="#EFEBE9"/><rect x="64" y="14" width="16" height="72" rx="4" fill="#6D4C41"/><ellipse cx="48" cy="52" rx="13" ry="20" fill="#8D6E63"/><circle cx="48" cy="30" r="10" fill="#5D4037"/><polygon points="56,28 66,31 56,34" fill="#FBC02D"/></svg>'
-        },
-        {
-          id: 'migratory',
-          category: 'bird',
-          categoryLabel: '🐦 林鳥',
-          name: '冬候鳥（紅脇藍尾鴝／柳鶯類）',
-          scientificName: 'Tarsiger cyanurus',
-          commonsQueries: [
-            '"Tarsiger cyanurus"',
-            '"Phylloscopus inornatus"',
-            '"Phylloscopus proregulus"'
-          ],
-          shortDesc: '12月是觀賞「鳥浪」（混合鳥群結伴覓食）的好時機！',
-          features: '紅脇藍尾鴝雄鳥背部呈藍色、兩脇橙紅；柳鶯類身形小巧呈橄欖綠、帶清晰眉紋，動作極為敏捷。',
-          season: '12 月大批冬候鳥由北方飛抵香港過冬。在大埔滘常可見不同種類林鳥組成「鳥浪」集體在樹冠層覓食！',
-          tips: '遇見「鳥浪」經過時，切記降低聲浪、避免大動作揮手，抬頭細賞樹冠層的熱鬧景象。',
-          alert: null,
-          svg: '<svg viewBox="0 0 100 100" class="photo-fallback-svg"><circle cx="50" cy="50" r="46" fill="#E1F5FE"/><ellipse cx="52" cy="55" rx="20" ry="13" fill="#1976D2"/><ellipse cx="48" cy="59" rx="11" ry="6" fill="#FF7043"/><circle cx="36" cy="43" r="10" fill="#1565C0"/><polygon points="26,43 18,45 27,47" fill="#37474F"/></svg>'
-        },
-        {
-          id: 'newt',
-          category: 'stream',
-          categoryLabel: '🦎 溪流與昆蟲',
-          name: '香港瘰螈',
-          scientificName: 'Paramesotriton hongkongensis',
-          commonsQueries: [
-            '"Paramesotriton hongkongensis"',
-            '"Paramesotriton" newt'
-          ],
-          shortDesc: '棲息於清澈山澗，腹部呈鮮橙色斑紋，只可遠觀不可捕捉。',
-          features: '香港唯一原生的有尾兩棲動物，背部深啡色，腹部帶有鮮艷的橙紅色警戒斑紋，喜愛棲息於清涼溪石縫間。',
-          season: '秋冬季（包括 12 月）正是香港瘰螈回到清澈溪澗繁殖的季節！有牠們出現代表溪水水質非常潔淨。',
-          tips: '只可在安全岸邊或橋上向下靜心觀察，切勿下水、翻動石塊或干擾牠們的棲息地。',
-          alert: {
-            type: 'protect',
-            chipText: '🛡️ 受保護物種',
-            text: '【🛡️ 受保護物種】香港瘰螈受香港法例保護，只可遠觀，絕對不可捕捉、觸摸或干擾！'
+          "december": "12月主要看葉和植株，不要等它開花。",
+          "caution": "",
+          "alert": null,
+          "localPhoto": {
+            "src": "images/psychotria.jpg",
+            "credit": "Keisotyo",
+            "license": "CC BY-SA 4.0",
+            "page": "https://commons.wikimedia.org/wiki/File%3APsychotria_asiatica_botyouji01.jpg"
           },
-          svg: '<svg viewBox="0 0 100 100" class="photo-fallback-svg"><circle cx="50" cy="50" r="46" fill="#F3E5F5"/><path d="M22,58 Q40,42 58,52 T86,44" stroke="#4E342E" stroke-width="11" stroke-linecap="round" fill="none"/><path d="M26,59 Q42,46 56,54" stroke="#FF5722" stroke-width="4" stroke-linecap="round" fill="none" stroke-dasharray="5 4"/><circle cx="22" cy="56" r="7" fill="#4E342E"/></svg>'
+          "shortDesc": "林下常見的灌木，葉子對生。",
+          "features": "林下常見的灌木，葉子對生。 葉上有時見到一排排小點或被蟲咬的痕跡。",
+          "season": "12月主要看葉和植株，不要等它開花。",
+          "tips": "只用眼睛看，留在小路上。",
+          "commonsQueries": [],
+          "svg": ""
         },
         {
-          id: 'stream-life',
-          category: 'stream',
-          categoryLabel: '🦎 溪流與昆蟲',
-          name: '淡水魚及蜻蜓',
-          scientificName: 'Orthetrum',
-          commonsQueries: [
-            '"Orthetrum" dragonfly',
-            '"Neurobasis chinensis"',
-            '"Rhinogobius"'
+          "id": "christella",
+          "category": "plant",
+          "categoryLabel": "植物",
+          "zone": "林下／樹幹",
+          "stars": 1,
+          "name": "華南毛蕨",
+          "englishName": "Parasitic maiden fern",
+          "scientificName": "Christella parasitica",
+          "synonym": "Cyclosorus parasiticus",
+          "clues": [
+            "羽狀複葉，小葉像梳子一排排。",
+            "多生在陰濕的路旁或林下。"
           ],
-          shortDesc: '華艷色蟌、灰蜻與溪流小型淡水魚，見證大埔滘潔淨水質。',
-          features: '清澈溪畔常有灰蜻（Orthetrum）及金屬綠翅的華艷色蟌停棲枝葉，水底石間則藏身蝦虎魚與異鱲等小型淡水魚。',
-          season: '12 月溪水清澈涼爽、水流平緩，非常適合進行「溪流生態聆聽」與近岸靜態觀察。',
-          tips: '緊記溪澗安全守則！切勿踏上濕滑青苔石頭或下水，保持安靜更能看見水中小魚游動。',
-          alert: null,
-          svg: '<svg viewBox="0 0 100 100" class="photo-fallback-svg"><circle cx="50" cy="50" r="46" fill="#E0F7FA"/><line x1="36" y1="30" x2="70" y2="30" stroke="#0288D1" stroke-width="4" stroke-linecap="round"/><ellipse cx="46" cy="22" rx="12" ry="4" fill="#81D4FA" transform="rotate(-15 46 22)"/><ellipse cx="46" cy="38" rx="12" ry="4" fill="#81D4FA" transform="rotate(15 46 38)"/><ellipse cx="52" cy="68" rx="18" ry="9" fill="#26A69A"/><polygon points="68,68 80,60 80,76" fill="#00897B"/></svg>'
+          "december": "冬天仍然是綠色的。",
+          "caution": "",
+          "alert": null,
+          "localPhoto": {
+            "src": "images/christella.jpg",
+            "credit": "Forest and Kim Starr",
+            "license": "CC BY 3.0 us",
+            "page": "https://commons.wikimedia.org/wiki/File%3AStarr-140909-1725-Cyclosorus_parasiticus-frond-Wailua-Maui_%2824618996463%29.jpg"
+          },
+          "shortDesc": "羽狀複葉，小葉像梳子一排排。",
+          "features": "羽狀複葉，小葉像梳子一排排。 多生在陰濕的路旁或林下。",
+          "season": "冬天仍然是綠色的。",
+          "tips": "只用眼睛看，留在小路上。",
+          "commonsQueries": [],
+          "svg": ""
         },
         {
-          id: 'butterfly',
-          category: 'stream',
-          categoryLabel: '🦎 溪流與昆蟲',
-          name: '冬季蝴蝶（斑蝶類）',
-          scientificName: 'Danaus genutia',
-          commonsQueries: [
-            '"Danaus genutia" butterfly',
-            '"Euploea core" butterfly',
-            '"Tirumala limniace" butterfly',
-            '"Danaus chrysippus" butterfly'
+          "id": "moss",
+          "category": "plant",
+          "categoryLabel": "植物",
+          "zone": "林下／樹幹",
+          "stars": 1,
+          "name": "苔蘚和地衣",
+          "englishName": "Mosses and lichens",
+          "scientificName": "多種苔蘚與地衣",
+          "synonym": "",
+          "clues": [
+            "石上或樹頭有軟軟的綠墊，是苔蘚。",
+            "樹皮上有灰綠、貼着長的殼，是地衣。"
           ],
-          shortDesc: '虎斑蝶、幻紫斑蝶與青斑蝶，冬季愛在鴨腳木花叢採蜜。',
-          features: '斑蝶類翅膀帶有鮮明橙黑、紫褐或青黑斑紋，飛行優雅緩慢，體內含微苦物質讓鳥類天敵卻步。',
-          season: '香港冬天氣候溫和，大批斑蝶會聚集於背風山谷越冬。12 月陽光普照的下午，牠們最愛到盛開的鴨腳木花叢採蜜！',
-          tips: '觀察蝴蝶時切勿追趕或揮手拍打，細心看看牠們停在哪種花朵上及翅膀斑紋的顏色。',
-          alert: null,
-          svg: '<svg viewBox="0 0 100 100" class="photo-fallback-svg"><circle cx="50" cy="50" r="46" fill="#E8EAF6"/><path d="M50,48 C34,20 14,28 22,50 C18,66 36,74 50,56 Z" fill="#FB8C00" stroke="#263238" stroke-width="3"/><path d="M50,48 C66,20 86,28 78,50 C82,66 64,74 50,56 Z" fill="#FB8C00" stroke="#263238" stroke-width="3"/><rect x="47.5" y="34" width="5" height="32" rx="2.5" fill="#212121"/></svg>'
+          "december": "自然教育徑有解說牌介紹它們。這是一組生物，不是單一品種。",
+          "caution": "不要剝下來帶回家。",
+          "alert": null,
+          "localPhoto": {
+            "src": "images/moss.jpg",
+            "credit": "Shariyar Nayeem",
+            "license": "CC BY 4.0",
+            "page": "https://commons.wikimedia.org/wiki/File%3AClose-up_of_Tree_Bark_with_Moss_and_Lichen.jpg"
+          },
+          "shortDesc": "石上或樹頭有軟軟的綠墊，是苔蘚。",
+          "features": "石上或樹頭有軟軟的綠墊，是苔蘚。 樹皮上有灰綠、貼着長的殼，是地衣。",
+          "season": "自然教育徑有解說牌介紹它們。這是一組生物，不是單一品種。",
+          "tips": "不要剝下來帶回家。",
+          "commonsQueries": [],
+          "svg": ""
+        },
+        {
+          "id": "ivytree",
+          "category": "plant",
+          "categoryLabel": "植物",
+          "zone": "樹上",
+          "stars": 2,
+          "name": "鴨腳木",
+          "englishName": "Ivy tree",
+          "scientificName": "Heptapleurum heptaphyllum",
+          "synonym": "Schefflera heptaphylla",
+          "clues": [
+            "葉子像手掌，有多片小葉圍着中心。",
+            "12月常見一球球米白色小花。"
+          ],
+          "december": "初冬是花期，蜜蜂和蝴蝶會來。",
+          "caution": "看花就好，不要搖樹。",
+          "alert": null,
+          "localPhoto": {
+            "src": "images/ivy-tree.jpg",
+            "credit": "M108t",
+            "license": "CC BY 4.0",
+            "page": "https://commons.wikimedia.org/wiki/File%3APalmate_leaves_of_Schefflera_heptaphylla_in_Banna_Park%2C_Ishigaki%2C_Okinawa.jpg"
+          },
+          "shortDesc": "葉子像手掌，有多片小葉圍着中心。",
+          "features": "葉子像手掌，有多片小葉圍着中心。 12月常見一球球米白色小花。",
+          "season": "初冬是花期，蜜蜂和蝴蝶會來。",
+          "tips": "看花就好，不要搖樹。",
+          "commonsQueries": [],
+          "svg": ""
+        },
+        {
+          "id": "sweetgum",
+          "category": "plant",
+          "categoryLabel": "植物",
+          "zone": "樹上",
+          "stars": 2,
+          "name": "楓香",
+          "englishName": "Chinese sweet gum",
+          "scientificName": "Liquidambar formosana",
+          "synonym": "",
+          "clues": [
+            "葉子多數分成三裂，有點像楓。",
+            "地上或樹上可見刺刺的圓果。"
+          ],
+          "december": "12月可比較葉色，有的仍綠，有的轉黃或紅。",
+          "caution": "不要摘葉，也不要帶走果實。",
+          "alert": null,
+          "localPhoto": {
+            "src": "images/sweetgum.jpg",
+            "credit": "Yoiyoi_kancho",
+            "license": "Public domain",
+            "page": "https://commons.wikimedia.org/wiki/File%3ALiquidambar_formosana_01.jpg"
+          },
+          "shortDesc": "葉子多數分成三裂，有點像楓。",
+          "features": "葉子多數分成三裂，有點像楓。 地上或樹上可見刺刺的圓果。",
+          "season": "12月可比較葉色，有的仍綠，有的轉黃或紅。",
+          "tips": "不要摘葉，也不要帶走果實。",
+          "commonsQueries": [],
+          "svg": ""
+        },
+        {
+          "id": "sterculia",
+          "category": "plant",
+          "categoryLabel": "植物",
+          "zone": "樹上",
+          "stars": 2,
+          "name": "假蘋婆",
+          "englishName": "Scarlet sterculia",
+          "scientificName": "Sterculia lanceolata",
+          "synonym": "",
+          "clues": [
+            "葉子長橢圓，全緣，常聚在枝端。",
+            "樹皮灰褐，是常見的林中喬木。"
+          ],
+          "december": "12月看葉形就好。這時通常看不到紅色果實。",
+          "caution": "",
+          "alert": null,
+          "localPhoto": {
+            "src": "images/sterculia.jpg",
+            "credit": "Cherubino",
+            "license": "CC BY-SA 3.0",
+            "page": "https://commons.wikimedia.org/wiki/File%3APlant_9079.JPG"
+          },
+          "shortDesc": "葉子長橢圓，全緣，常聚在枝端。",
+          "features": "葉子長橢圓，全緣，常聚在枝端。 樹皮灰褐，是常見的林中喬木。",
+          "season": "12月看葉形就好。這時通常看不到紅色果實。",
+          "tips": "只用眼睛看，留在小路上。",
+          "commonsQueries": [],
+          "svg": ""
+        },
+        {
+          "id": "alocasia",
+          "category": "plant",
+          "categoryLabel": "植物",
+          "zone": "林下／樹幹",
+          "stars": 2,
+          "name": "海芋",
+          "englishName": "Asian taro",
+          "scientificName": "Alocasia odora",
+          "synonym": "",
+          "clues": [
+            "葉子巨大，像象耳或心形。",
+            "長在較陰、較濕的林下。"
+          ],
+          "december": "12月林下仍然很大片綠葉。",
+          "caution": "汁液有毒。像象耳的大型葉都不要摸、不要折。",
+          "alert": {
+            "type": "danger",
+            "chipText": "不要觸摸",
+            "text": "海芋汁液有毒。外形相近的大葉植物也不要摸。"
+          },
+          "localPhoto": {
+            "src": "images/alocasia.jpg",
+            "credit": "KENPEI",
+            "license": "CC BY-SA 3.0",
+            "page": "https://commons.wikimedia.org/wiki/File%3AAlocasia_odora1.jpg"
+          },
+          "shortDesc": "葉子巨大，像象耳或心形。",
+          "features": "葉子巨大，像象耳或心形。 長在較陰、較濕的林下。",
+          "season": "12月林下仍然很大片綠葉。",
+          "tips": "汁液有毒。像象耳的大型葉都不要摸、不要折。",
+          "commonsQueries": [],
+          "svg": ""
+        },
+        {
+          "id": "litsea",
+          "category": "plant",
+          "categoryLabel": "植物",
+          "zone": "林下／樹幹",
+          "stars": 2,
+          "name": "山蒼樹",
+          "englishName": "Fragrant litsea",
+          "scientificName": "Litsea cubeba",
+          "synonym": "",
+          "clues": [
+            "小喬木或灌木，葉子揉開會有薑香或豆豉香。",
+            "自然教育徑的介紹有提到它，又叫木薑子。"
+          ],
+          "december": "12月主要認葉和樹形。淡黃色花多在冬末春初。",
+          "caution": "可以輕輕揉一片已掉下的葉聞香，不要剝樹皮。",
+          "alert": null,
+          "localPhoto": {
+            "src": "images/litsea.jpg",
+            "credit": "LiChieh Pan / Flickr user: plj.johnny ( https://www.flickr.com/photos/plj/ )",
+            "license": "CC BY 2.0",
+            "page": "https://commons.wikimedia.org/wiki/File%3ALitseacubebaflowers.jpg"
+          },
+          "shortDesc": "小喬木或灌木，葉子揉開會有薑香或豆豉香。",
+          "features": "小喬木或灌木，葉子揉開會有薑香或豆豉香。 自然教育徑的介紹有提到它，又叫木薑子。",
+          "season": "12月主要認葉和樹形。淡黃色花多在冬末春初。",
+          "tips": "可以輕輕揉一片已掉下的葉聞香，不要剝樹皮。",
+          "commonsQueries": [],
+          "svg": ""
+        },
+        {
+          "id": "brushbox",
+          "category": "plant",
+          "categoryLabel": "植物",
+          "zone": "樹上",
+          "stars": 2,
+          "name": "紅膠木",
+          "englishName": "Brush box",
+          "scientificName": "Lophostemon confertus",
+          "synonym": "",
+          "clues": [
+            "葉子聚在枝端，摸上去較厚。",
+            "樹皮會呈片狀剝落。"
+          ],
+          "december": "自然教育徑尾段附近有紅膠木植林，抬頭就能看到樹冠。",
+          "caution": "",
+          "alert": null,
+          "localPhoto": {
+            "src": "images/brushbox.jpg",
+            "credit": "Wikimedia Commons",
+            "license": "CC BY-SA 3.0",
+            "page": "https://commons.wikimedia.org/wiki/File%3ALophostemon_confertus_Pengo.jpg"
+          },
+          "shortDesc": "葉子聚在枝端，摸上去較厚。",
+          "features": "葉子聚在枝端，摸上去較厚。 樹皮會呈片狀剝落。",
+          "season": "自然教育徑尾段附近有紅膠木植林，抬頭就能看到樹冠。",
+          "tips": "只用眼睛看，留在小路上。",
+          "commonsQueries": [],
+          "svg": ""
+        },
+        {
+          "id": "banyan",
+          "category": "plant",
+          "categoryLabel": "植物",
+          "zone": "樹上",
+          "stars": 2,
+          "name": "細葉榕",
+          "englishName": "Chinese banyan",
+          "scientificName": "Ficus microcarpa",
+          "synonym": "",
+          "clues": [
+            "樹幹或枝上垂下許多氣根。",
+            "葉子細小、革質、全緣。"
+          ],
+          "december": "野外研習園一帶可以找氣根。",
+          "caution": "不要拉氣根。",
+          "alert": null,
+          "localPhoto": {
+            "src": "images/banyan.jpg",
+            "credit": "H. Zell",
+            "license": "CC BY-SA 3.0",
+            "page": "https://commons.wikimedia.org/wiki/File%3AFicus_microcarpa_-_La_Gomera_01.jpg"
+          },
+          "shortDesc": "樹幹或枝上垂下許多氣根。",
+          "features": "樹幹或枝上垂下許多氣根。 葉子細小、革質、全緣。",
+          "season": "野外研習園一帶可以找氣根。",
+          "tips": "不要拉氣根。",
+          "commonsQueries": [],
+          "svg": ""
+        },
+        {
+          "id": "dove",
+          "category": "bird",
+          "categoryLabel": "鳥",
+          "zone": "樹上",
+          "stars": 2,
+          "name": "珠頸斑鳩",
+          "englishName": "Spotted dove",
+          "scientificName": "Spilopelia chinensis",
+          "synonym": "Streptopelia chinensis",
+          "clues": [
+            "頸側有白點，像一串珠。",
+            "叫聲是低沉的「咕咕咕」。"
+          ],
+          "december": "常在較開揚的樹枝或地上走。",
+          "caution": "不要追。",
+          "alert": null,
+          "localPhoto": {
+            "src": "images/dove.jpg",
+            "credit": "iNaturalist/ zinogre",
+            "license": "CC BY-SA 4.0",
+            "page": "https://commons.wikimedia.org/wiki/File%3ASpilopelia_chinensis_Zhengzhou_20210607.jpg"
+          },
+          "shortDesc": "頸側有白點，像一串珠。",
+          "features": "頸側有白點，像一串珠。 叫聲是低沉的「咕咕咕」。",
+          "season": "常在較開揚的樹枝或地上走。",
+          "tips": "不要追。",
+          "commonsQueries": [],
+          "svg": ""
+        },
+        {
+          "id": "lvb",
+          "category": "bird",
+          "categoryLabel": "鳥",
+          "zone": "樹上",
+          "stars": 2,
+          "name": "白頭鵯",
+          "englishName": "Light-vented bulbul",
+          "scientificName": "Pycnonotus sinensis",
+          "synonym": "",
+          "clues": [
+            "後枕有一塊明顯白色。",
+            "叫聲清脆，常停在樹梢。"
+          ],
+          "december": "12月也很常見，先聽聲再抬頭找。",
+          "caution": "",
+          "alert": null,
+          "localPhoto": {
+            "src": "images/lvb.jpg",
+            "credit": "Earthshine.. at <a href=\"https://en.wikipedia.org/wiki/\" class=\"exti",
+            "license": "CC BY-SA 3.0",
+            "page": "https://commons.wikimedia.org/wiki/File%3AChinese_Bubul.JPG"
+          },
+          "shortDesc": "後枕有一塊明顯白色。",
+          "features": "後枕有一塊明顯白色。 叫聲清脆，常停在樹梢。",
+          "season": "12月也很常見，先聽聲再抬頭找。",
+          "tips": "只用眼睛看，留在小路上。",
+          "commonsQueries": [],
+          "svg": ""
+        },
+        {
+          "id": "rwb",
+          "category": "bird",
+          "categoryLabel": "鳥",
+          "zone": "樹上",
+          "stars": 2,
+          "name": "紅耳鵯",
+          "englishName": "Red-whiskered bulbul",
+          "scientificName": "Pycnonotus jocosus",
+          "synonym": "",
+          "clues": [
+            "頭頂有高高的黑冠。",
+            "眼下或耳旁有紅色小斑。"
+          ],
+          "december": "和白頭鵯一樣，先聽聲，再看頭頂。",
+          "caution": "",
+          "alert": null,
+          "localPhoto": {
+            "src": "images/rwb.jpg",
+            "credit": "Charles Lam from Hong Kong, China",
+            "license": "CC BY-SA 2.0",
+            "page": "https://commons.wikimedia.org/wiki/File%3APycnonotus_jocosus_%281%29.jpg"
+          },
+          "shortDesc": "頭頂有高高的黑冠。",
+          "features": "頭頂有高高的黑冠。 眼下或耳旁有紅色小斑。",
+          "season": "和白頭鵯一樣，先聽聲，再看頭頂。",
+          "tips": "只用眼睛看，留在小路上。",
+          "commonsQueries": [],
+          "svg": ""
+        },
+        {
+          "id": "magpie",
+          "category": "bird",
+          "categoryLabel": "鳥",
+          "zone": "樹上",
+          "stars": 2,
+          "name": "鵲鴝",
+          "englishName": "Oriental magpie-robin",
+          "scientificName": "Copsychus saularis",
+          "synonym": "",
+          "clues": [
+            "黑白分明，尾巴常翹起。",
+            "歌聲多變，會站在顯眼的枝上唱。"
+          ],
+          "december": "雄鳥上身黑、下身白，較易認。",
+          "caution": "",
+          "alert": null,
+          "localPhoto": {
+            "src": "images/magpie-robin.jpg",
+            "credit": "Charles J. Sharp",
+            "license": "CC BY-SA 4.0",
+            "page": "https://commons.wikimedia.org/wiki/File%3AOriental_magpie-robin_%28Copsychus_saularis_ceylonensis%29_male.jpg"
+          },
+          "shortDesc": "黑白分明，尾巴常翹起。",
+          "features": "黑白分明，尾巴常翹起。 歌聲多變，會站在顯眼的枝上唱。",
+          "season": "雄鳥上身黑、下身白，較易認。",
+          "tips": "只用眼睛看，留在小路上。",
+          "commonsQueries": [],
+          "svg": ""
+        },
+        {
+          "id": "pine",
+          "category": "plant",
+          "categoryLabel": "植物",
+          "zone": "樹上",
+          "stars": 3,
+          "name": "馬尾松",
+          "englishName": "Masson's pine",
+          "scientificName": "Pinus massoniana",
+          "synonym": "",
+          "clues": [
+            "松針是兩針一束。",
+            "樹皮紅褐、有裂紋。"
+          ],
+          "december": "大埔滘舊稱松仔園，現在只餘下一些松樹，不是整片都是松林。",
+          "caution": "找掉在地上的松針來看，不要折枝。",
+          "alert": null,
+          "localPhoto": {
+            "src": "images/pine.jpg",
+            "credit": "Doctoroftcm",
+            "license": "CC BY-SA 3.0",
+            "page": "https://commons.wikimedia.org/wiki/File%3APinus_massoniana_2.jpg"
+          },
+          "shortDesc": "松針是兩針一束。",
+          "features": "松針是兩針一束。 樹皮紅褐、有裂紋。",
+          "season": "大埔滘舊稱松仔園，現在只餘下一些松樹，不是整片都是松林。",
+          "tips": "找掉在地上的松針來看，不要折枝。",
+          "commonsQueries": [],
+          "svg": ""
+        },
+        {
+          "id": "entada",
+          "category": "plant",
+          "categoryLabel": "植物",
+          "zone": "林下／樹幹",
+          "stars": 3,
+          "name": "榼藤",
+          "englishName": "Matchbox bean",
+          "scientificName": "Entada phaseoloides",
+          "synonym": "",
+          "clues": [
+            "粗藤由一棵樹伸到另一棵樹，又叫過江龍。",
+            "藤很明顯，但起點和豆莢不一定找得到。"
+          ],
+          "december": "自然教育徑的介紹說林中不難見到這條藤。",
+          "caution": "不要攀爬。",
+          "alert": null,
+          "localPhoto": {
+            "src": "images/entada.jpg",
+            "credit": "Steve Fitzgerald",
+            "license": "CC BY-SA 4.0",
+            "page": "https://commons.wikimedia.org/wiki/File%3AEntada_phaseoloides_SF26157-02.jpg"
+          },
+          "shortDesc": "粗藤由一棵樹伸到另一棵樹，又叫過江龍。",
+          "features": "粗藤由一棵樹伸到另一棵樹，又叫過江龍。 藤很明顯，但起點和豆莢不一定找得到。",
+          "season": "自然教育徑的介紹說林中不難見到這條藤。",
+          "tips": "不要攀爬。",
+          "commonsQueries": [],
+          "svg": ""
+        },
+        {
+          "id": "squirrel",
+          "category": "animal",
+          "categoryLabel": "動物",
+          "zone": "樹上",
+          "stars": 3,
+          "name": "赤腹松鼠",
+          "englishName": "Pallas's squirrel",
+          "scientificName": "Callosciurus erythraeus",
+          "synonym": "",
+          "clues": [
+            "背上橄欖褐，肚子偏紅褐。",
+            "在樹幹快跑，或聽到抓樹皮的聲音。"
+          ],
+          "december": "整天都可能遇見，但牠們很怕人。",
+          "caution": "不要餵、不要追。牠受香港法例第170章保護。",
+          "alert": {
+            "type": "protect",
+            "chipText": "不要餵",
+            "text": "赤腹松鼠受野生動物保護條例保護。收好食物，不要餵、不要追。"
+          },
+          "localPhoto": {
+            "src": "images/squirrel.jpg",
+            "credit": "Wich'yanan L",
+            "license": "CC BY-SA 3.0",
+            "page": "https://commons.wikimedia.org/wiki/File%3AA_Sciuridae_in_Taipei_2.jpg"
+          },
+          "shortDesc": "背上橄欖褐，肚子偏紅褐。",
+          "features": "背上橄欖褐，肚子偏紅褐。 在樹幹快跑，或聽到抓樹皮的聲音。",
+          "season": "整天都可能遇見，但牠們很怕人。",
+          "tips": "不要餵、不要追。牠受香港法例第170章保護。",
+          "commonsQueries": [],
+          "svg": ""
+        },
+        {
+          "id": "mesia",
+          "category": "bird",
+          "categoryLabel": "鳥",
+          "zone": "樹上",
+          "stars": 3,
+          "name": "銀耳相思鳥",
+          "englishName": "Silver-eared mesia",
+          "scientificName": "Leiothrix argentauris",
+          "synonym": "",
+          "clues": [
+            "耳旁有銀白色塊，喉部橙黃。",
+            "常成小群在灌木和低枝活動。"
+          ],
+          "december": "大埔滘是看牠的好地方，要放輕腳步。",
+          "caution": "不要playback叫鳥，也不要大聲喊。",
+          "alert": null,
+          "localPhoto": {
+            "src": "images/mesia.jpg",
+            "credit": "JJ Harrison ( http",
+            "license": "CC BY-SA 3.0",
+            "page": "https://commons.wikimedia.org/wiki/File%3ALeiothrix_argentauris_-_Mae_Wong.jpg"
+          },
+          "shortDesc": "耳旁有銀白色塊，喉部橙黃。",
+          "features": "耳旁有銀白色塊，喉部橙黃。 常成小群在灌木和低枝活動。",
+          "season": "大埔滘是看牠的好地方，要放輕腳步。",
+          "tips": "不要playback叫鳥，也不要大聲喊。",
+          "commonsQueries": [],
+          "svg": ""
+        },
+        {
+          "id": "cbulbul",
+          "category": "bird",
+          "categoryLabel": "鳥",
+          "zone": "樹上",
+          "stars": 3,
+          "name": "栗背短腳鵯",
+          "englishName": "Chestnut bulbul",
+          "scientificName": "Hemixos castanonotus",
+          "synonym": "",
+          "clues": [
+            "背部栗色，腹部較淺。",
+            "常在樹冠層成小群。"
+          ],
+          "december": "官方徑介紹說這是林裡常見的鳥之一。",
+          "caution": "",
+          "alert": null,
+          "localPhoto": {
+            "src": "images/chestnut-bulbul.jpg",
+            "credit": "Sun Jiao (Interaccoonale)",
+            "license": "CC BY 4.0",
+            "page": "https://commons.wikimedia.org/wiki/File%3AHemixos_castanonotus-A9_00441_%28cropped%29.jpg"
+          },
+          "shortDesc": "背部栗色，腹部較淺。",
+          "features": "背部栗色，腹部較淺。 常在樹冠層成小群。",
+          "season": "官方徑介紹說這是林裡常見的鳥之一。",
+          "tips": "只用眼睛看，留在小路上。",
+          "commonsQueries": [],
+          "svg": ""
+        },
+        {
+          "id": "bee",
+          "category": "animal",
+          "categoryLabel": "動物",
+          "zone": "樹上",
+          "stars": 3,
+          "name": "亞洲蜜蜂",
+          "englishName": "Asian honey bee",
+          "scientificName": "Apis cerana",
+          "synonym": "",
+          "clues": [
+            "在鴨腳木花上飛來飛去，身體有黃黑紋。",
+            "先聽嗡嗡聲，再遠遠看花。"
+          ],
+          "december": "12月鴨腳木開花時較容易在花上見到。",
+          "caution": "不要走近蜂巢，不要拍打。對蜜蜂過敏的同學站遠些。",
+          "alert": {
+            "type": "danger",
+            "chipText": "遠遠看",
+            "text": "只可在花上遠看。不要追蜂，也不要走近蜂巢。"
+          },
+          "localPhoto": {
+            "src": "images/bee.jpg",
+            "credit": "Charles Lam",
+            "license": "CC BY-SA 2.0",
+            "page": "https://commons.wikimedia.org/wiki/File%3ACerana.jpg"
+          },
+          "shortDesc": "在鴨腳木花上飛來飛去，身體有黃黑紋。",
+          "features": "在鴨腳木花上飛來飛去，身體有黃黑紋。 先聽嗡嗡聲，再遠遠看花。",
+          "season": "12月鴨腳木開花時較容易在花上見到。",
+          "tips": "不要走近蜂巢，不要拍打。對蜜蜂過敏的同學站遠些。",
+          "commonsQueries": [],
+          "svg": ""
+        },
+        {
+          "id": "spilurus",
+          "category": "stream",
+          "categoryLabel": "溪邊",
+          "zone": "溪邊",
+          "stars": 3,
+          "name": "異鱲",
+          "englishName": "Predaceous chub",
+          "scientificName": "Parazacco spilurus",
+          "synonym": "",
+          "clues": [
+            "清溪裡的小魚，身體側扁，游得很快。",
+            "站在橋上往下看，看見魚就算找到。"
+          ],
+          "december": "12月溪水較清，在橋上靜靜看。",
+          "caution": "不要下水，不要踩濕滑的石頭。",
+          "alert": null,
+          "localPhoto": {
+            "src": "images/spilurus.jpg",
+            "credit": "Lawrence Hylton",
+            "license": "CC BY 4.0",
+            "page": "https://commons.wikimedia.org/wiki/File%3AParazacco_spilurus.jpg"
+          },
+          "shortDesc": "清溪裡的小魚，身體側扁，游得很快。",
+          "features": "清溪裡的小魚，身體側扁，游得很快。 站在橋上往下看，看見魚就算找到。",
+          "season": "12月溪水較清，在橋上靜靜看。",
+          "tips": "不要下水，不要踩濕滑的石頭。",
+          "commonsQueries": [],
+          "svg": ""
+        },
+        {
+          "id": "bluetail",
+          "category": "bird",
+          "categoryLabel": "鳥",
+          "zone": "樹上",
+          "stars": 4,
+          "name": "紅脇藍尾鴝",
+          "englishName": "Red-flanked bluetail",
+          "scientificName": "Tarsiger cyanurus",
+          "synonym": "",
+          "clues": [
+            "冬候鳥。雄鳥背藍，兩脇橙紅。",
+            "常在較低的枝或林緣閃一下就走。"
+          ],
+          "december": "12月有機會遇見，但不是每次都看到。",
+          "caution": "看見就安靜看，不要追進樹叢。",
+          "alert": null,
+          "localPhoto": {
+            "src": "images/bluetail.jpg",
+            "credit": "M.Nishimura",
+            "license": "CC BY-SA 3.0",
+            "page": "https://commons.wikimedia.org/wiki/File%3ATarsiger_cyanurus.jpg"
+          },
+          "shortDesc": "冬候鳥。雄鳥背藍，兩脇橙紅。",
+          "features": "冬候鳥。雄鳥背藍，兩脇橙紅。 常在較低的枝或林緣閃一下就走。",
+          "season": "12月有機會遇見，但不是每次都看到。",
+          "tips": "看見就安靜看，不要追進樹叢。",
+          "commonsQueries": [],
+          "svg": ""
+        },
+        {
+          "id": "minivet",
+          "category": "bird",
+          "categoryLabel": "鳥",
+          "zone": "樹上",
+          "stars": 4,
+          "name": "赤紅山椒鳥",
+          "englishName": "Scarlet minivet",
+          "scientificName": "Pericrocotus speciosus",
+          "synonym": "",
+          "clues": [
+            "雄鳥身體大紅，常在樹冠很高處。",
+            "可能跟着鳥群一閃而過。"
+          ],
+          "december": "是幸運才見到的樹冠鳥，看不到也完全沒問題。",
+          "caution": "不要為了找牠離開小路。",
+          "alert": null,
+          "localPhoto": {
+            "src": "images/minivet.jpg",
+            "credit": "James Jolokia ( james1203 )",
+            "license": "CC BY 4.0",
+            "page": "https://commons.wikimedia.org/wiki/File%3A20221225_Pericrocotus_speciosus.jpg"
+          },
+          "shortDesc": "雄鳥身體大紅，常在樹冠很高處。",
+          "features": "雄鳥身體大紅，常在樹冠很高處。 可能跟着鳥群一閃而過。",
+          "season": "是幸運才見到的樹冠鳥，看不到也完全沒問題。",
+          "tips": "不要為了找牠離開小路。",
+          "commonsQueries": [],
+          "svg": ""
+        },
+        {
+          "id": "newt",
+          "category": "stream",
+          "categoryLabel": "溪邊",
+          "zone": "溪邊",
+          "stars": 5,
+          "name": "香港瘰螈",
+          "englishName": "Hong Kong newt",
+          "scientificName": "Paramesotriton hongkongensis",
+          "synonym": "",
+          "clues": [
+            "有尾巴的兩棲動物，背深色，腹有橙斑。",
+            "只在橋上或岸邊往溪裡看。"
+          ],
+          "december": "冬天是繁殖季節，但不保證看得到。看不到也正常。",
+          "caution": "受法例保護。不要下水、翻石、觸摸或用網。",
+          "alert": {
+            "type": "protect",
+            "chipText": "只可遠看",
+            "text": "香港瘰螈受保護。只可在橋上或岸邊看，不要驚動牠。"
+          },
+          "localPhoto": {
+            "src": "images/newt.jpg",
+            "credit": "Fernando Losada Rodríguez",
+            "license": "CC BY-SA 4.0",
+            "page": "https://commons.wikimedia.org/wiki/File%3AParamesotriton_hongkongensis_-_Casa_de_las_Ciencias.JPG"
+          },
+          "shortDesc": "有尾巴的兩棲動物，背深色，腹有橙斑。",
+          "features": "有尾巴的兩棲動物，背深色，腹有橙斑。 只在橋上或岸邊往溪裡看。",
+          "season": "冬天是繁殖季節，但不保證看得到。看不到也正常。",
+          "tips": "受法例保護。不要下水、翻石、觸摸或用網。",
+          "commonsQueries": [],
+          "svg": ""
         }
       ];
 
@@ -4074,14 +4752,14 @@
           explanation: '非常正確！切勿餵飼野生動物，保持冷靜並收好食物，保護自己也保護野生動物的自然習性。'
         },
         {
-          q: '4. 進行「微氣候比較」任務，使用科學儀器測量溫度、濕度及光照時，應抱有甚麼態度？',
+          q: '4. 鴨腳木的葉子，看起來最像哪一種？',
           options: [
-            '隨便估計一個數字寫上去，早點完成',
-            '小心保護儀器、耐心等候讀數穩定並如實記錄，與組員分工合作',
-            '只由一位同學負責全部工作，其餘同學在旁聊天'
+            '一根根分開的松針',
+            '像手掌一樣，有多片小葉圍着中心',
+            '一片巨大的象耳葉'
           ],
           correctIndex: 1,
-          explanation: '這才是真正的科學精神！小心使用儀器、耐心等候讀數穩定、如實記錄並與組員合作比較，數據才會準確。'
+          explanation: '鴨腳木的葉是掌狀複葉，像一隻張開的手掌。象耳大葉是海芋，只可遠看，不要摸。'
         },
         {
           q: '5. 以下哪一項最符合「無痕山林（Leave No Trace）」的原則？',
@@ -4104,9 +4782,12 @@
         const quizAnswered = Object.keys(appState.quizAnswers).length;
         const quizDone = quizAnswered >= QUIZ_QUESTIONS.length;
 
-        const packPct = (packDone / PACK_ITEMS.length) * 35;
-        const safePct = (safeDone / SAFETY_CARDS.length) * 35;
-        const quizPct = (Math.min(quizAnswered, QUIZ_QUESTIONS.length) / QUIZ_QUESTIONS.length) * 30;
+        ensureActivityState();
+        const guideSeen = Math.min(appState.viewedGuideIds.length, SPECIES_LIST.length);
+        const packPct = (packDone / PACK_ITEMS.length) * 25;
+        const safePct = (safeDone / SAFETY_CARDS.length) * 25;
+        const guidePct = (guideSeen / SPECIES_LIST.length) * 25;
+        const quizPct = (Math.min(quizAnswered, QUIZ_QUESTIONS.length) / QUIZ_QUESTIONS.length) * 25;
         const totalPct = Math.round(packPct + safePct + quizPct);
 
         const barEl = document.getElementById('overallProgressBar');
@@ -4114,6 +4795,7 @@
         const statPack = document.getElementById('miniStatPack');
         const statSafe = document.getElementById('miniStatSafe');
         const statQuiz = document.getElementById('miniStatQuiz');
+        const statGuide = document.getElementById('miniStatGuide');
 
         if (barEl) barEl.style.width = totalPct + '%';
         if (txtEl) {
@@ -4126,6 +4808,7 @@
         if (statPack) statPack.textContent = '🎒 裝備：' + packDone + '/' + PACK_ITEMS.length;
         if (statSafe) statSafe.textContent = '🛡️ 守則：' + safeDone + '/' + SAFETY_CARDS.length;
         if (statQuiz) statQuiz.textContent = quizDone ? '🏆 挑戰：已完成 ✅' : '🏆 挑戰：' + quizAnswered + '/' + QUIZ_QUESTIONS.length;
+        if (statGuide) statGuide.textContent = '🔍 圖鑑：' + guideSeen + '/' + SPECIES_LIST.length;
       }
 
       function openAppMenu() {
@@ -4755,11 +5438,9 @@
         if (!modal) return;
         SFX.click();
         currentModalSpeciesId = sp.id;
+        seedLocalPhoto(sp);
+        markGuideViewed(sp.id);
         renderModalCarousel(sp);
-
-        if (!speciesGalleryState[sp.id]) {
-          fetchSpeciesGallery(sp, false);
-        }
 
         const catEl = document.getElementById('modalSpeciesCat');
         const nameEl = document.getElementById('modalSpeciesName');
@@ -4771,10 +5452,10 @@
 
         if (catEl) catEl.textContent = sp.categoryLabel;
         if (nameEl) nameEl.textContent = sp.name;
-        if (sciEl) sciEl.textContent = sp.scientificName;
-        if (featEl) featEl.textContent = sp.features;
-        if (seasonEl) seasonEl.textContent = sp.season;
-        if (tipsEl) tipsEl.textContent = sp.tips;
+        if (sciEl) sciEl.textContent = (sp.englishName ? sp.englishName + ' · ' : '') + sp.scientificName + (sp.synonym ? '；同物異名 ' + sp.synonym : '') + (sp.localPhoto ? '。相片：' + sp.localPhoto.credit + ' / ' + sp.localPhoto.license : '');
+        if (featEl) featEl.textContent = sp.clues ? sp.clues.join(' ') : sp.features;
+        if (seasonEl) seasonEl.textContent = sp.december || sp.season || '';
+        if (tipsEl) tipsEl.textContent = sp.caution || sp.tips || '只用眼睛看，留在小路上。';
 
         if (alertEl) {
           if (sp.alert) {
@@ -4794,11 +5475,16 @@
         if (!grid) return;
         grid.innerHTML = '';
 
-        const list = currentFilter === 'all'
-          ? SPECIES_LIST
-          : SPECIES_LIST.filter(function (s) { return s.category === currentFilter; });
+        const q = (typeof guideQuery === 'string' ? guideQuery : '').toLowerCase();
+        const list = SPECIES_LIST.filter(function (s) {
+          if (currentFilter !== 'all' && s.zone !== currentFilter && s.category !== currentFilter) return false;
+          if (!q) return true;
+          const blob = (s.name + ' ' + (s.englishName || '') + ' ' + s.scientificName + ' ' + (s.synonym || '')).toLowerCase();
+          return blob.indexOf(q) !== -1;
+        });
 
         list.forEach(function (sp) {
+          seedLocalPhoto(sp);
           const card = document.createElement('div');
           card.className = 'species-card';
           card.setAttribute('role', 'button');
@@ -4809,12 +5495,14 @@
               '<div data-photo-slot="' + sp.id + '">' + buildSpeciesGalleryMarkup(sp) + '</div>' +
               '<div class="species-body">' +
                 '<h3 class="species-name">' + sp.name + '</h3>' +
-                '<p class="species-sci">' + sp.scientificName + '</p>' +
-                '<p class="species-desc">' + sp.shortDesc + '</p>' +
+                '<p class="star-line">' + starText(sp.stars) + ' · ' + (sp.zone || '') + '</p>' +
+                '<p class="species-sci">' + (sp.englishName || '') + ' · ' + sp.scientificName + (sp.synonym ? '（' + sp.synonym + '）' : '') + '</p>' +
+                '<p class="species-desc">' + (sp.clues ? sp.clues[0] : sp.shortDesc) + '</p>' +
+                '<p class="species-desc">' + (sp.december || '') + '</p>' +
               '</div>' +
             '</div>' +
             '<div class="species-foot">' +
-              '<span>查看多圖輪播與觀察貼士</span>' +
+              '<span>打開短卡片</span>' +
               '<span>🔍 →</span>' +
             '</div>';
 
@@ -4827,10 +5515,6 @@
           });
           bindCardGalleryEvents(card, sp);
           grid.appendChild(card);
-
-          if (!speciesGalleryState[sp.id]) {
-            fetchSpeciesGallery(sp, false);
-          }
         });
       }
 
@@ -5245,46 +5929,32 @@
           name: '大埔滘溪澗石橋',
           lat: 22.4272,
           lng: 114.1795,
-          task: '於石橋及安全岸邊靜心聆聽流水聲，尋找香港瘰螈、溪魚及華艷色蟌。',
-          safetyTip: '切勿踏上濕滑青苔石頭或下水，香港瘰螈受法例保護不可捕捉！'
+          task: '在橋上安靜聽 60 秒，每組最多講 3 種聲音。看見溪裡的魚就算找到異鱲。',
+          safetyTip: '不要下水或翻石。香港瘰螈只可在橋上或岸邊遠看，不要觸摸。'
         },
         {
           id: 'cp4',
           code: 'CP4',
-          shortTitle: '森林尋寶與觀鳥站',
-          name: '紅藍林道交匯處',
-          lat: 22.4250,
-          lng: 114.1782,
-          task: '觀察鴨腳木冬花、楓香葉片與林鳥「鳥浪」，並進行分組分享總結。',
-          safetyTip: '岔路口多，切勿擅自走入密林；遇見海芋不可觸摸。'
+          shortTitle: '沿途尋寶',
+          name: '自然教育徑尾段',
+          lat: 22.4296,
+          lng: 114.1824,
+          task: '沿小路找圖鑑裡的植物和鳥：掌狀葉、三裂葉、氣根、鳥聲。回到車上再分享尋到甚麼。',
+          safetyTip: '留在小路上。海芋不要摸，松鼠不要餵，不要追蜜蜂。'
         }
       ];
 
-      // 模擬行山路線路徑點（沿自然教育徑 -> 野外研習園 -> 溪澗石橋 -> 紅藍林道交匯處）
+      // 模擬行山：自然教育徑、野外研習園、溪邊
       const SIM_ROUTE_WAYPOINTS = [
         { lat: 22.4335, lng: 114.1848, cpId: 'cp1' },
-        { lat: 22.43265, lng: 114.1849, cpId: null },
-        { lat: 22.43135, lng: 114.1858, cpId: null },
-        { lat: 22.43021, lng: 114.18552, cpId: null },
-        { lat: 22.42935, lng: 114.18466, cpId: null },
-        { lat: 22.42882, lng: 114.18337, cpId: null },
-        { lat: 22.42777, lng: 114.18263, cpId: null },
-        { lat: 22.42743, lng: 114.18139, cpId: null },
-        { lat: 22.42839, lng: 114.18063, cpId: null },
+        { lat: 22.4324, lng: 114.1842, cpId: null },
+        { lat: 22.4312, lng: 114.1832, cpId: null },
+        { lat: 22.4302, lng: 114.1824, cpId: null },
         { lat: 22.4292, lng: 114.1815, cpId: 'cp2' },
-        { lat: 22.43006, lng: 114.18032, cpId: null },
-        { lat: 22.43114, lng: 114.18066, cpId: null },
-        { lat: 22.43064, lng: 114.17892, cpId: null },
-        { lat: 22.43056, lng: 114.17774, cpId: null },
-        { lat: 22.43049, lng: 114.17624, cpId: null },
-        { lat: 22.42999, lng: 114.17557, cpId: null },
-        { lat: 22.429, lng: 114.17597, cpId: null },
-        { lat: 22.4278, lng: 114.17635, cpId: null },
-        { lat: 22.42707, lng: 114.17747, cpId: null },
-        { lat: 22.4264, lng: 114.17864, cpId: null },
+        { lat: 22.4284, lng: 114.1806, cpId: null },
         { lat: 22.4272, lng: 114.1795, cpId: 'cp3' },
-        { lat: 22.42525, lng: 114.1787, cpId: null },
-        { lat: 22.425, lng: 114.1782, cpId: 'cp4' },
+        { lat: 22.4282, lng: 114.1808, cpId: null },
+        { lat: 22.4296, lng: 114.1824, cpId: 'cp4' }
       ];
 
       let selectedCpId = 'cp1';
@@ -5869,6 +6539,8 @@
           });
         }
 
+        bindVisitExtras();
+
         // 頂部分頁列
         document.querySelectorAll('.tab-btn').forEach(function (btn) {
           btn.addEventListener('click', function () {
@@ -6074,6 +6746,302 @@
         }
       }
 
+      const LOOK_ZONES = ['地上／路旁', '林下／樹幹', '樹上', '溪邊'];
+      const BINGO_ITEMS = [
+        { id: 'b1', text: '見到鴨腳木的花，或一片像手掌的葉' },
+        { id: 'b2', text: '見到三裂的楓香葉（不要帶走）' },
+        { id: 'b3', text: '見到兩針一束的松針' },
+        { id: 'b4', text: '遠遠看見海芋（不要摸）' },
+        { id: 'b5', text: '聽見一種鳥聲' },
+        { id: 'b6', text: '看見松鼠，或聽見抓樹皮的聲音' },
+        { id: 'b7', text: '聽見流水聲' },
+        { id: 'b8', text: '在花上遠遠看見蜜蜂或其他小昆蟲' }
+      ];
+
+      function starText(n) {
+        const count = Math.max(1, Math.min(5, Number(n) || 1));
+        return '★'.repeat(count) + '☆'.repeat(5 - count);
+      }
+
+      function seedLocalPhoto(sp) {
+        if (!sp || !sp.localPhoto || !sp.localPhoto.src) return;
+        speciesGalleryState[sp.id] = {
+          status: 'loaded',
+          photos: [{
+            url: sp.localPhoto.src,
+            title: sp.name,
+            author: sp.localPhoto.credit || 'Wikimedia Commons'
+          }],
+          activeIndex: 0
+        };
+      }
+
+      function ensureActivityState() {
+        if (!Array.isArray(appState.viewedGuideIds)) appState.viewedGuideIds = [];
+        if (!Array.isArray(appState.foundSpeciesIds)) appState.foundSpeciesIds = [];
+        if (!Array.isArray(appState.bingoTicks)) appState.bingoTicks = [];
+        if (typeof appState.groupLabel !== 'string') appState.groupLabel = '';
+        if (!appState.microclimate || typeof appState.microclimate !== 'object') appState.microclimate = {};
+        if (!Array.isArray(appState.listenNotes)) appState.listenNotes = ['', '', ''];
+      }
+
+      function markGuideViewed(id) {
+        ensureActivityState();
+        if (appState.viewedGuideIds.indexOf(id) === -1) {
+          appState.viewedGuideIds.push(id);
+          saveState();
+          updateOverallProgress();
+        }
+      }
+
+      function speciesById(id) {
+        for (let i = 0; i < SPECIES_LIST.length; i++) {
+          if (SPECIES_LIST[i].id === id) return SPECIES_LIST[i];
+        }
+        return null;
+      }
+
+      function renderFindBoard() {
+        ensureActivityState();
+        const root = document.getElementById('findBoard');
+        const countEl = document.getElementById('findCountLabel');
+        if (!root) return;
+        const found = {};
+        appState.foundSpeciesIds.forEach(function (id) { found[id] = true; });
+        if (countEl) countEl.textContent = '已記下 ' + appState.foundSpeciesIds.length + ' / ' + SPECIES_LIST.length;
+        let html = '';
+        LOOK_ZONES.forEach(function (zone) {
+          const list = SPECIES_LIST.filter(function (sp) { return sp.zone === zone; });
+          if (!list.length) return;
+          html += '<h3 class="find-zone">' + zone + '</h3><div class="find-grid">';
+          list.forEach(function (sp) {
+            const on = !!found[sp.id];
+            html +=
+              '<article class="find-card' + (on ? ' is-found' : '') + '">' +
+                '<button type="button" class="find-peek" data-peek="' + sp.id + '">' +
+                  '<img src="' + sp.localPhoto.src + '" alt="" />' +
+                  '<span class="find-name">' + sp.name + '</span>' +
+                  '<span class="find-stars" aria-label="稀有度 ' + sp.stars + ' 星">' + starText(sp.stars) + '</span>' +
+                '</button>' +
+                '<p class="find-clue" id="clue-' + sp.id + '" hidden>' + sp.clues[0] + '</p>' +
+                '<button type="button" class="find-tick" data-find="' + sp.id + '" aria-pressed="' + (on ? 'true' : 'false') + '">' +
+                  (on ? '已見到／聽到' : '見到／聽到') +
+                '</button>' +
+              '</article>';
+          });
+          html += '</div>';
+        });
+        root.innerHTML = html;
+        const share = document.getElementById('findShareText');
+        if (share) share.textContent = buildFindShareText();
+      }
+
+      function buildFindShareText() {
+        ensureActivityState();
+        const names = [];
+        SPECIES_LIST.forEach(function (sp) {
+          if (appState.foundSpeciesIds.indexOf(sp.id) !== -1) names.push(sp.name);
+        });
+        const who = appState.groupLabel ? (appState.groupLabel + ' ') : '';
+        if (!names.length) return who + '今日尚未記下發現。回到小路再找找吧。';
+        return who + '今日尋到 ' + names.length + ' 種：' + names.join('、') + '。';
+      }
+
+      function toggleFind(id) {
+        ensureActivityState();
+        const sp = speciesById(id);
+        if (!sp) return;
+        const idx = appState.foundSpeciesIds.indexOf(id);
+        let celebrate = false;
+        if (idx === -1) {
+          appState.foundSpeciesIds.push(id);
+          celebrate = sp.stars >= 4;
+        } else {
+          appState.foundSpeciesIds.splice(idx, 1);
+        }
+        saveState();
+        renderFindBoard();
+        renderPrintSheet();
+        if (celebrate) {
+          SFX.celebrate();
+          const toast = document.getElementById('findToast');
+          if (toast) {
+            toast.textContent = '哇！' + sp.name + ' 是較少見的發現（' + starText(sp.stars) + '）。見到就好，不要追。';
+            toast.classList.remove('hidden');
+            window.setTimeout(function () { toast.classList.add('hidden'); }, 2800);
+          }
+        }
+      }
+
+      function renderBingo() {
+        ensureActivityState();
+        const grid = document.getElementById('bingoGrid');
+        const label = document.getElementById('groupLabelInput');
+        const status = document.getElementById('bingoStatus');
+        if (label && label.value !== appState.groupLabel) label.value = appState.groupLabel;
+        if (!grid) return;
+        grid.innerHTML = BINGO_ITEMS.map(function (item) {
+          const on = appState.bingoTicks.indexOf(item.id) !== -1;
+          return '<button type="button" class="bingo-cell' + (on ? ' is-on' : '') + '" data-bingo="' + item.id + '" aria-pressed="' + (on ? 'true' : 'false') + '">' +
+            '<span class="bingo-mark">' + (on ? '✓' : '') + '</span><span>' + item.text + '</span></button>';
+        }).join('');
+        if (status) {
+          const n = appState.bingoTicks.length;
+          status.textContent = n >= BINGO_ITEMS.length ? '全組完成這張賓果。' : ('已勾 ' + n + ' / ' + BINGO_ITEMS.length);
+        }
+      }
+
+      function renderPrintSheet() {
+        ensureActivityState();
+        const root = document.getElementById('printSheetBody');
+        if (!root) return;
+        let html = '';
+        LOOK_ZONES.forEach(function (zone) {
+          const list = SPECIES_LIST.filter(function (sp) { return sp.zone === zone; });
+          if (!list.length) return;
+          html += '<h2>' + zone + '</h2><ul>';
+          list.forEach(function (sp) {
+            html += '<li><span class="box"></span><b>' + sp.name + '</b> <span class="stars">' + starText(sp.stars) + '</span></li>';
+          });
+          html += '</ul>';
+        });
+        root.innerHTML = html;
+      }
+
+      function bindVisitExtras() {
+        const findPanel = document.getElementById('panel-find');
+        if (findPanel && !findPanel.dataset.bound) {
+          findPanel.dataset.bound = '1';
+          findPanel.addEventListener('click', function (e) {
+            const peek = e.target.closest('[data-peek]');
+            const tick = e.target.closest('[data-find]');
+            if (tick) {
+              e.preventDefault();
+              SFX.click();
+              toggleFind(tick.getAttribute('data-find'));
+              return;
+            }
+            if (peek) {
+              const id = peek.getAttribute('data-peek');
+              const clue = document.getElementById('clue-' + id);
+              if (clue) clue.hidden = !clue.hidden;
+            }
+          });
+        }
+        const bingoPanel = document.getElementById('panel-bingo');
+        if (bingoPanel && !bingoPanel.dataset.bound) {
+          bingoPanel.dataset.bound = '1';
+          bingoPanel.addEventListener('click', function (e) {
+            const cell = e.target.closest('[data-bingo]');
+            if (!cell) return;
+            ensureActivityState();
+            const id = cell.getAttribute('data-bingo');
+            const idx = appState.bingoTicks.indexOf(id);
+            if (idx === -1) appState.bingoTicks.push(id);
+            else appState.bingoTicks.splice(idx, 1);
+            SFX.click();
+            saveState();
+            renderBingo();
+          });
+        }
+        const groupInput = document.getElementById('groupLabelInput');
+        if (groupInput && !groupInput.dataset.bound) {
+          groupInput.dataset.bound = '1';
+          groupInput.addEventListener('input', function () {
+            ensureActivityState();
+            appState.groupLabel = groupInput.value.slice(0, 24);
+            saveState();
+            const share = document.getElementById('findShareText');
+            if (share) share.textContent = buildFindShareText();
+          });
+        }
+        document.querySelectorAll('[data-print-sheet]').forEach(function (btn) {
+          if (btn.dataset.bound) return;
+          btn.dataset.bound = '1';
+          btn.addEventListener('click', function () {
+            renderPrintSheet();
+            window.print();
+          });
+        });
+        const search = document.getElementById('speciesSearch');
+        if (search && !search.dataset.bound) {
+          search.dataset.bound = '1';
+          search.addEventListener('input', function () {
+            guideQuery = search.value.trim();
+            renderSpeciesGrid();
+          });
+        }
+        document.querySelectorAll('[data-micro]').forEach(function (input) {
+          if (input.dataset.bound) return;
+          input.dataset.bound = '1';
+          const key = input.getAttribute('data-micro');
+          ensureActivityState();
+          if (appState.microclimate[key]) input.value = appState.microclimate[key];
+          input.addEventListener('input', function () {
+            ensureActivityState();
+            appState.microclimate[key] = input.value.slice(0, 12);
+            saveState();
+          });
+        });
+        document.querySelectorAll('[data-listen]').forEach(function (input) {
+          if (input.dataset.bound) return;
+          input.dataset.bound = '1';
+          const idx = Number(input.getAttribute('data-listen'));
+          ensureActivityState();
+          input.value = appState.listenNotes[idx] || '';
+          input.addEventListener('input', function () {
+            ensureActivityState();
+            appState.listenNotes[idx] = input.value.slice(0, 24);
+            saveState();
+          });
+        });
+        const listenBtn = document.getElementById('listenStartBtn');
+        if (listenBtn && !listenBtn.dataset.bound) {
+          listenBtn.dataset.bound = '1';
+          listenBtn.addEventListener('click', startQuietListen);
+        }
+        const copyBtn = document.getElementById('copyFindShareBtn');
+        if (copyBtn && !copyBtn.dataset.bound) {
+          copyBtn.dataset.bound = '1';
+          copyBtn.addEventListener('click', function () {
+            const text = buildFindShareText();
+            const box = document.getElementById('findShareText');
+            if (box) box.textContent = text;
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+              navigator.clipboard.writeText(text).then(function () {
+                copyBtn.textContent = '已複製';
+              }).catch(function () {
+                copyBtn.textContent = '請自己抄下上面的句子';
+              });
+            }
+          });
+        }
+      }
+
+      let listenTimer = null;
+      function startQuietListen() {
+        const label = document.getElementById('listenCount');
+        const btn = document.getElementById('listenStartBtn');
+        if (listenTimer) {
+          window.clearInterval(listenTimer);
+          listenTimer = null;
+        }
+        let left = 60;
+        if (btn) btn.disabled = true;
+        if (label) label.textContent = '安靜聆聽 ' + left + ' 秒';
+        listenTimer = window.setInterval(function () {
+          left -= 1;
+          if (label) label.textContent = left > 0 ? ('安靜聆聽 ' + left + ' 秒') : '時間到。每組最多講 3 種聲音。';
+          if (left <= 0) {
+            window.clearInterval(listenTimer);
+            listenTimer = null;
+            if (btn) btn.disabled = false;
+          }
+        }, 1000);
+      }
+
+      let guideQuery = '';
+
       function init() {
         loadState();
         bindEvents();
@@ -6082,13 +7050,11 @@
         renderSpeciesGrid();
         renderQuiz(false);
         initMapModule();
+        renderFindBoard();
+        renderBingo();
+        renderPrintSheet();
         updateOverallProgress();
         switchTab('mission');
-
-        // 背景預先抓取全部 11 種生物的多幅真實生態相片
-        SPECIES_LIST.forEach(function (sp) {
-          fetchSpeciesGallery(sp, false);
-        });
       }
 
       /* =======================================================
@@ -6155,7 +7121,13 @@
           currentQuizIndex: 0,
           studentName: '',
           studentClass: '',
-          explorerCode: 'TSW-2026-' + String(Math.floor(100 + Math.random() * 900))
+          explorerCode: 'TSW-2026-' + String(Math.floor(100 + Math.random() * 900)),
+          viewedGuideIds: [],
+          foundSpeciesIds: [],
+          bingoTicks: [],
+          groupLabel: '',
+          microclimate: {},
+          listenNotes: ['', '', '']
         };
       }
 
@@ -6288,6 +7260,8 @@
         updatePassUI();
         updateOverallProgress();
         refreshIdentityInputs();
+        if (typeof renderFindBoard === 'function') renderFindBoard();
+        if (typeof renderBingo === 'function') renderBingo();
       }
 
       function showHandbook() {
@@ -6366,6 +7340,12 @@
         if (!currentUser || offlineMode || !firebaseReady()) return Promise.resolve();
         return studentDocRef(currentUser.uid).set(buildQuizPayload(), { merge: true }).then(function () {
           setSyncStatus('小測答案已存到學校紀錄');
+          ensureActivityState();
+          return studentDocRef(currentUser.uid).set({
+            foundSpeciesIds: appState.foundSpeciesIds.slice(),
+            bingoTicks: appState.bingoTicks.slice(),
+            groupLabel: String(appState.groupLabel || '').slice(0, 24)
+          }, { merge: true }).catch(function () {});
         }).catch(function () {
           setSyncStatus('網絡暫未能上傳，答案先留在這部裝置');
         });
@@ -6424,6 +7404,14 @@
           if (snap.exists) {
             const data = snap.data() || {};
             const cloudAnswers = normalizeQuizAnswers(data.quizAnswers);
+            ensureActivityState();
+            if (Array.isArray(data.foundSpeciesIds) && appState.foundSpeciesIds.length === 0) {
+              appState.foundSpeciesIds = data.foundSpeciesIds.slice();
+            }
+            if (Array.isArray(data.bingoTicks) && appState.bingoTicks.length === 0) {
+              appState.bingoTicks = data.bingoTicks.slice();
+            }
+            if (typeof data.groupLabel === 'string' && !appState.groupLabel) appState.groupLabel = data.groupLabel;
             if (Object.keys(cloudAnswers).length) {
               hadCloudAnswers = true;
               appState.quizAnswers = cloudAnswers;
@@ -6749,5 +7737,13 @@
       }
     })();
   </script>
+
+  <section id="printSheet" class="print-sheet">
+    <h1>大埔滘今日尋寶紙 · 2026年12月4日</h1>
+    <p>留在小路上。不要採摘、不要餵動物、不要追趕。海芋不要摸。香港瘰螈只可在橋上或岸邊看。</p>
+    <p>星愈多，愈要運氣。看不到也沒有問題。組別：__________</p>
+    <div id="printSheetBody"></div>
+  </section>
+
 </body>
 </html>
