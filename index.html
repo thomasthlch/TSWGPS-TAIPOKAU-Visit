@@ -2602,10 +2602,30 @@
     .find-clue { margin: 0 4px 8px; color: var(--text-muted); font-size: 15px; }
     .find-tick { width: 100%; min-height: 48px; border-radius: 12px; border: 2px solid var(--forest-main); background: var(--forest-main); color: white; font-size: 16px; font-weight: 900; }
     .find-card.is-found .find-tick { background: white; color: var(--forest-dark); }
-    .bingo-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-    .bingo-cell { min-height: 88px; border-radius: 16px; border: 2px solid var(--forest-border); background: white; padding: 10px; text-align: left; font-weight: 800; font-size: 15px; }
-    .bingo-cell.is-on { background: #E8F5E9; border-color: var(--forest-main); }
-    .bingo-mark { display: inline-block; width: 1.4em; font-weight: 900; color: var(--forest-main); }
+    .card-step-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 4;
+      width: 44px;
+      height: 44px;
+      border: 0;
+      border-radius: 50%;
+      background: rgba(0, 0, 0, 0.45);
+      color: #fff;
+      font-size: 28px;
+      line-height: 1;
+      cursor: pointer;
+    }
+    .card-step-btn.prev { left: 8px; }
+    .card-step-btn.next { right: 8px; }
+    .bingo-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; max-width: 560px; }
+    .bingo-cell { min-height: 108px; border-radius: 18px; border: 3px solid transparent; padding: 8px; text-align: center; font-weight: 900; font-size: 15px; color: #1B5E20; position: relative; }
+    .bingo-cell.is-on { box-shadow: inset 0 0 0 3px #1B5E20; }
+    .bingo-cell.is-on::after { content: "蓋章"; position: absolute; right: 8px; bottom: 6px; background: #C62828; color: #fff; border-radius: 999px; padding: 2px 8px; font-size: 12px; transform: rotate(-8deg); }
+    .bingo-cell.is-center { background: #FBC02D; color: #4E342E; cursor: default; }
+    .bingo-emoji { display: block; font-size: 26px; line-height: 1.1; }
+    .bingo-cheer { font-size: 20px; font-weight: 900; color: #1B5E20; min-height: 1.4em; }
     .side-task { margin-top: 18px; }
     .micro-table { width: 100%; border-collapse: collapse; font-size: 14px; }
     .micro-table th, .micro-table td { border: 1px solid var(--forest-border); padding: 6px; }
@@ -2833,29 +2853,50 @@
         background: #1B5E20;
       }
 
-      .menu-toggle {
-        display: none;
-      }
+      .menu-toggle { display: none; }
 
       .compact-bar {
         position: static;
         background: transparent;
       }
 
-      .app-menu {
-        display: block;
-      }
-
-      .menu-actions {
-        justify-content: flex-end;
-        align-items: center;
-        padding: 0 16px 10px;
-        background: #164e1b;
-      }
+      .app-menu { display: block; background: #1B5E20; }
 
       .sticky-nav {
         position: static;
         top: auto;
+        background: #FBFDF7;
+        border-bottom: 2px solid var(--forest-border);
+      }
+
+      .nav-inner {
+        grid-template-columns: repeat(7, minmax(0, 1fr));
+        gap: 8px;
+        padding: 8px 12px 10px;
+      }
+
+      .app-menu .tab-btn {
+        flex-direction: row;
+        min-height: 48px;
+        padding: 8px 6px;
+        font-size: 14px;
+        white-space: nowrap;
+        transform: none;
+      }
+
+      .app-menu .tab-btn.active { transform: none; }
+
+      .menu-actions {
+        display: flex;
+        flex-wrap: nowrap;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 8px;
+        width: 100%;
+        box-sizing: border-box;
+        padding: 8px 12px 10px;
+        background: #164e1b;
+        overflow-x: auto;
       }
     }
 
@@ -3220,10 +3261,11 @@
       <div class="section-card">
         <div class="card-body">
           <h2 class="section-heading"><span>🟩</span> 森林賓果</h2>
-          <p class="section-sub">這張卡和圖鑑分開。先寫第幾組，再勾沿途見到或聽見的 8 項。完成就好，不排名。</p>
+          <p class="section-sub">這張卡和圖鑑分開。先寫第幾組，再在彩色格上蓋章。連成一行會叫「賓果一行」，八格都蓋完是「全組完成」。不跟其他組比名次。</p>
           <label class="form-label" for="groupLabelInput">第幾組或組名</label>
           <input id="groupLabelInput" class="group-input" maxlength="24" placeholder="例如：3 組" />
-          <p id="bingoStatus" style="font-weight:900; color:#1B5E20;">已勾 0 / 8</p>
+          <p id="bingoCheer" class="bingo-cheer" role="status"></p>
+          <p id="bingoStatus" style="font-weight:900; color:#1B5E20;">已蓋章 0 / 8</p>
           <div id="bingoGrid" class="bingo-grid"></div>
           <button type="button" class="btn btn-primary" data-print-sheet="1" style="margin-top:14px;">列印今日尋寶紙</button>
         </div>
@@ -3959,7 +4001,7 @@
           "zone": "地上／路旁",
           "stars": 1,
           "name": "黧蒴錐",
-          "englishName": "Castanopsis",
+          "englishName": "",
           "scientificName": "Castanopsis fissa",
           "synonym": "",
           "clues": [
@@ -5211,11 +5253,17 @@
             thumbsHtml += '</div>';
           }
 
+          const stepBtns = st.photos.length > 1
+            ? '<button type="button" class="card-step-btn prev" data-step="-1" aria-label="上一張相片">‹</button>' +
+              '<button type="button" class="card-step-btn next" data-step="1" aria-label="下一張相片">›</button>'
+            : '';
+
           return (
             '<div class="species-photo-box">' +
               topOverlay +
+              stepBtns +
               '<img class="species-photo-img" data-main-photo-idx="' + safeIdx + '" src="' + activePhoto.url + '" alt="' + sp.name + '實景生態相片" loading="lazy" />' +
-              '<span class="photo-credit-tag">Wikimedia Commons (' + (safeIdx + 1) + '/' + st.photos.length + ')</span>' +
+              '<span class="photo-credit-tag">' + (activePhoto.author || 'Wikimedia Commons') + '（' + (safeIdx + 1) + '/' + st.photos.length + '）</span>' +
             '</div>' +
             thumbsHtml
           );
@@ -5256,6 +5304,33 @@
             setSpeciesActivePhoto(sp, idx);
           });
         });
+
+        container.querySelectorAll('.card-step-btn').forEach(function (btn) {
+          btn.addEventListener('click', function (e) {
+            e.stopPropagation();
+            SFX.click();
+            const st = speciesGalleryState[sp.id];
+            if (!st) return;
+            setSpeciesActivePhoto(sp, st.activeIndex + Number(btn.getAttribute('data-step') || 1));
+          });
+        });
+
+        const photoBox = container.querySelector('.species-photo-box');
+        if (photoBox && !photoBox.dataset.swipe) {
+          photoBox.dataset.swipe = '1';
+          let startX = 0;
+          photoBox.addEventListener('touchstart', function (e) {
+            if (e.touches && e.touches.length === 1) startX = e.touches[0].clientX;
+          }, { passive: true });
+          photoBox.addEventListener('touchend', function (e) {
+            if (!e.changedTouches || !e.changedTouches.length) return;
+            const diff = e.changedTouches[0].clientX - startX;
+            if (Math.abs(diff) < 36) return;
+            const st = speciesGalleryState[sp.id];
+            if (!st || !st.photos || st.photos.length < 2) return;
+            setSpeciesActivePhoto(sp, st.activeIndex + (diff < 0 ? 1 : -1));
+          }, { passive: true });
+        }
 
         // 主相片載入錯誤時自動切換下一張有效相片
         const mainImg = container.querySelector('.species-photo-img');
@@ -6748,14 +6823,14 @@
 
       const LOOK_ZONES = ['地上／路旁', '林下／樹幹', '樹上', '溪邊'];
       const BINGO_ITEMS = [
-        { id: 'b1', text: '見到鴨腳木的花，或一片像手掌的葉' },
-        { id: 'b2', text: '見到三裂的楓香葉（不要帶走）' },
-        { id: 'b3', text: '見到兩針一束的松針' },
-        { id: 'b4', text: '遠遠看見海芋（不要摸）' },
-        { id: 'b5', text: '聽見一種鳥聲' },
-        { id: 'b6', text: '看見松鼠，或聽見抓樹皮的聲音' },
-        { id: 'b7', text: '聽見流水聲' },
-        { id: 'b8', text: '在花上遠遠看見蜜蜂或其他小昆蟲' }
+        { id: 'b1', emoji: '🖐️', tone: '#E8F5E9', text: '見到掌狀的鴨腳木葉' },
+        { id: 'b2', emoji: '🍂', tone: '#FFF8E1', text: '見到地上大片黧蒴錐落葉' },
+        { id: 'b3', emoji: '🌿', tone: '#E0F2F1', text: '見到樹皮上的苔蘚或地衣' },
+        { id: 'b4', emoji: '🐦', tone: '#E3F2FD', text: '見到或聽到白頭鵯或紅耳鵯' },
+        { id: 'b5', emoji: '🌤️', tone: '#FFF3E0', text: '在野外研習園比較樹蔭和開揚處' },
+        { id: 'b6', emoji: '💧', tone: '#E1F5FE', text: '在溪邊安靜聽流水' },
+        { id: 'b7', emoji: '🌲', tone: '#F1F8E9', text: '見到兩針一束的松針' },
+        { id: 'b8', emoji: '👀', tone: '#FFEBEE', text: '遠遠看見海芋（不要摸）' }
       ];
 
       function starText(n) {
@@ -6763,17 +6838,26 @@
         return '★'.repeat(count) + '☆'.repeat(5 - count);
       }
 
+      const SPECIES_PHOTO_BANK = {"moss": [{"src": "images/sets/moss-1.jpg", "credit": "Shariyar Nayeem", "license": "CC BY 4.0", "page": "https://commons.wikimedia.org/wiki/File%3AClose-up_of_Tree_Bark_with_Moss_and_Lichen.jpg"}, {"src": "images/sets/moss-2.jpg", "credit": "Cultureel Gelderland", "license": "CC0", "page": "https://commons.wikimedia.org/wiki/File%3AEpiphytic_moss_and_lichen_vegetation_of_the_class_Orthotricho-Physcietea.jpg"}, {"src": "images/sets/moss-3.jpg", "credit": "Cultureel Gelderland", "license": "CC0", "page": "https://commons.wikimedia.org/wiki/File%3AEpiphytic_moss_and_lichen_vegetation_of_the_Orthotricho-Physcietea.jpg"}, {"src": "images/sets/moss-4.jpg", "credit": "National Park Service", "license": "Public domain", "page": "https://commons.wikimedia.org/wiki/File%3ALichen_and_Moss_Formations_%2817cd7fd6-96cd-4acd-b04f-0e0b7dd3e532%29.jpg"}, {"src": "images/sets/moss-5.jpg", "credit": "John Robert McPherson", "license": "CC BY-SA 4.0", "page": "https://commons.wikimedia.org/wiki/File%3ALichen_and_moss_on_Eucalyptus_tereticornis_bark%2C_7th_Brigade_Park_Chermside.jpg"}], "castanopsis": [{"src": "images/sets/castanopsis-4.jpg", "credit": "Agnes Trekker ( https://www.inaturalist.org/people/agnestrekker )", "license": "CC0", "page": "https://commons.wikimedia.org/wiki/File%3ACastanopsis_fissa_04.jpg"}, {"src": "images/sets/castanopsis-2.jpg", "credit": "Agnes Trekker ( https://www.inaturalist.org/people/agnestrekker )", "license": "CC0", "page": "https://commons.wikimedia.org/wiki/File%3ACastanopsis_fissa_02.jpg"}, {"src": "images/sets/castanopsis-3.jpg", "credit": "Agnes Trekker ( https://www.inaturalist.org/people/agnestrekker )", "license": "CC0", "page": "https://commons.wikimedia.org/wiki/File%3ACastanopsis_fissa_03.jpg"}, {"src": "images/sets/castanopsis-5.jpg", "credit": "Agnes Trekker ( https://www.inaturalist.org/people/agnestrekker )", "license": "CC0", "page": "https://commons.wikimedia.org/wiki/File%3ACastanopsis_fissa_05.jpg"}, {"src": "images/sets/castanopsis-1.jpg", "credit": "ineni ( https://www.inaturalist.org/people/ineni )", "license": "CC BY 4.0", "page": "https://commons.wikimedia.org/wiki/File%3ACastanopsis_fissa_01.jpg"}], "psychotria": [{"src": "images/sets/psychotria-1.jpg", "credit": "Keisotyo", "license": "CC BY-SA 4.0", "page": "https://commons.wikimedia.org/wiki/File%3APsychotria_asiatica_botyouji01.jpg"}, {"src": "images/sets/psychotria-2.jpg", "credit": "M108t", "license": "CC BY 4.0", "page": "https://commons.wikimedia.org/wiki/File%3APsychotria_asiatica_leaf_domatia_in_Ishigaki%2C_Okinawa.jpg"}, {"src": "images/sets/psychotria-3.jpg", "credit": "M108t", "license": "CC BY 4.0", "page": "https://commons.wikimedia.org/wiki/File%3APsychotria_asiatica_fruits_in_Ishigaki%2C_Okinawa.jpg"}, {"src": "images/sets/psychotria-4.jpg", "credit": "Ping an Chang", "license": "CC BY-SA 4.0", "page": "https://commons.wikimedia.org/wiki/File%3A%E4%B9%9D%E7%AF%80%E6%9C%A8Psychotria_rubra_20210609155251_05.jpg"}, {"src": "images/sets/psychotria-5.jpg", "credit": "Ping an Chang", "license": "CC BY-SA 4.0", "page": "https://commons.wikimedia.org/wiki/File%3A%E4%B9%9D%E7%AF%80%E6%9C%A8Psychotria_rubra_20210609155251_13.jpg"}], "christella": [{"src": "images/sets/christella-1.jpg", "credit": "Forest and Kim Starr", "license": "CC BY 3.0 us", "page": "https://commons.wikimedia.org/wiki/File%3AStarr-140909-1725-Cyclosorus_parasiticus-frond-Wailua-Maui_%2824618996463%29.jpg"}, {"src": "images/sets/christella-2.jpg", "credit": "Forest and Kim Starr", "license": "CC BY 3.0 us", "page": "https://commons.wikimedia.org/wiki/File%3AStarr-180305-0596-Cyclosorus_parasiticus-frond_sori-Kahikinui-Maui_%2827363371438%29.jpg"}, {"src": "images/sets/christella-3.jpg", "credit": "Forest and Kim Starr", "license": "CC BY 3.0 us", "page": "https://commons.wikimedia.org/wiki/File%3AStarr-140909-1727-Cyclosorus_parasiticus-frond-Wailua-Maui_%2824619004273%29.jpg"}, {"src": "images/sets/christella-4.jpg", "credit": "Forest and Kim Starr", "license": "CC BY 3.0 us", "page": "https://commons.wikimedia.org/wiki/File%3AStarr-111012-0887-Cyclosorus_parasiticus-habit-Kahana-Maui_%2825025671691%29.jpg"}, {"src": "images/sets/christella-5.jpg", "credit": "Sykes, Bill", "license": "CC BY 4.0", "page": "https://commons.wikimedia.org/wiki/File%3AChristella_parasitica_%28L.%29_H.L%C3%A9v._%28AM_AK113048%29.jpg"}], "ivytree": [{"src": "images/sets/ivytree-1.jpg", "credit": "M108t", "license": "CC BY 4.0", "page": "https://commons.wikimedia.org/wiki/File%3APalmate_leaves_of_Schefflera_heptaphylla_in_Banna_Park%2C_Ishigaki%2C_Okinawa.jpg"}, {"src": "images/sets/ivytree-2.jpg", "credit": "Ping an Chang", "license": "CC BY-SA 4.0", "page": "https://commons.wikimedia.org/wiki/File%3A%E9%B5%9D%E6%8E%8C%E6%9F%B4_Schefflera_heptaphylla_20221028210435_01.jpg"}, {"src": "images/sets/ivytree-3.jpg", "credit": "Ping an Chang", "license": "CC BY-SA 4.0", "page": "https://commons.wikimedia.org/wiki/File%3A%E9%B5%9D%E6%8E%8C%E6%9F%B4_Schefflera_heptaphylla_20221028210435_02.jpg"}, {"src": "images/sets/ivytree-4.jpg", "credit": "Keisotyo", "license": "CC BY-SA 4.0", "page": "https://commons.wikimedia.org/wiki/File%3ASchefflera_heptaphylla_hukanoki03.jpg"}, {"src": "images/sets/ivytree-5.jpg", "credit": "Keisotyo", "license": "CC BY-SA 4.0", "page": "https://commons.wikimedia.org/wiki/File%3ASchefflera_heptaphylla_hukanoki01.jpg"}], "sweetgum": [{"src": "images/sets/sweetgum-1.jpg", "credit": "1841Hongkong", "license": "CC BY-SA 4.0", "page": "https://commons.wikimedia.org/wiki/File%3ALiquidambar_formosana_%E6%A5%93%E9%A6%99.jpg"}, {"src": "images/sets/sweetgum-2.jpg", "credit": "Yoiyoi_kancho", "license": "Public domain", "page": "https://commons.wikimedia.org/wiki/File%3ALiquidambar_formosana_02.jpg"}, {"src": "images/sets/sweetgum-3.jpg", "credit": "Yoiyoi_kancho", "license": "Public domain", "page": "https://commons.wikimedia.org/wiki/File%3ALiquidambar_formosana_01.jpg"}, {"src": "images/sets/sweetgum-4.jpg", "credit": "Ping an Chang", "license": "CC BY-SA 4.0", "page": "https://commons.wikimedia.org/wiki/File%3A%E6%A5%93%E9%A6%99_Liquidambar_formosana-%E5%8F%B0%E7%81%A3%E5%8F%B0%E4%B8%AD%E5%85%AC%E5%9C%92_Taichung_Park%2C_Taiwan-_20211008094234_05.jpg"}, {"src": "images/sets/sweetgum-5.jpg", "credit": "そらみみ", "license": "CC BY-SA 4.0", "page": "https://commons.wikimedia.org/wiki/File%3ALiquidambar_formosana_in_front_of_site_of_laboratory_on_Okunoshima_Island.jpg"}], "sterculia": [{"src": "images/sets/sterculia-5.jpg", "credit": "Shawn O'Donnell", "license": "CC BY 4.0", "page": "https://commons.wikimedia.org/wiki/File%3ASterculia_lanceolata_15896988.jpg"}, {"src": "images/sets/sterculia-1.jpg", "credit": "Shawn O'Donnell", "license": "CC BY 4.0", "page": "https://commons.wikimedia.org/wiki/File%3ASterculia_lanceolata_57379682.jpg"}, {"src": "images/sets/sterculia-2.jpg", "credit": "Lưu Ly", "license": "CC BY-SA 4.0", "page": "https://commons.wikimedia.org/wiki/File%3ASterculia_lanceolata_4.jpg"}, {"src": "images/sets/sterculia-3.jpg", "credit": "Scott Edmunds", "license": "CC0", "page": "https://commons.wikimedia.org/wiki/File%3ASterculia_lanceolata_366805282.jpg"}, {"src": "images/sets/sterculia-4.jpg", "credit": "Lưu Ly", "license": "CC BY-SA 4.0", "page": "https://commons.wikimedia.org/wiki/File%3ASterculia_lanceolata_6.jpg"}], "alocasia": [{"src": "images/sets/alocasia-1.jpg", "credit": "KENPEI", "license": "CC BY-SA 3.0", "page": "https://commons.wikimedia.org/wiki/File%3AAlocasia_odora1.jpg"}, {"src": "images/sets/alocasia-2.jpg", "credit": "Mickaël Schauli", "license": "CC BY-SA 4.0", "page": "https://commons.wikimedia.org/wiki/File%3AOreille_d%27elephant_-_Alocasia_odora_-_par_Mickael_Schauli.jpg"}, {"src": "images/sets/alocasia-3.jpg", "credit": "Dandarmkd", "license": "CC BY-SA 4.0", "page": "https://commons.wikimedia.org/wiki/File%3AAlocasia_odora_-_%D0%91%D0%BE%D1%82%D0%B0%D0%BD%D0%B8%D1%87%D0%BA%D0%B0_%D0%B3%D1%80%D0%B0%D0%B4%D0%B8%D0%BD%D0%B0_%282%29.jpg"}, {"src": "images/sets/alocasia-4.jpg", "credit": "Dandarmkd", "license": "CC BY-SA 4.0", "page": "https://commons.wikimedia.org/wiki/File%3AAlocasia_odora_-_%D0%91%D0%BE%D1%82%D0%B0%D0%BD%D0%B8%D1%87%D0%BA%D0%B0_%D0%B3%D1%80%D0%B0%D0%B4%D0%B8%D0%BD%D0%B0_%281%29.jpg"}, {"src": "images/sets/alocasia-5.jpg", "credit": "Dandarmkd", "license": "CC BY-SA 4.0", "page": "https://commons.wikimedia.org/wiki/File%3AAlocasia_odora_-_%D0%91%D0%BE%D1%82%D0%B0%D0%BD%D0%B8%D1%87%D0%BA%D0%B0_%D0%B3%D1%80%D0%B0%D0%B4%D0%B8%D0%BD%D0%B0_%283%29.jpg"}], "litsea": [{"src": "images/sets/litsea-1.jpg", "credit": "阿橋 HQ", "license": "CC BY-SA 2.0", "page": "https://commons.wikimedia.org/wiki/File%3A%E6%9C%A8%E8%96%91%E5%AD%90%28%E5%B1%B1%E8%92%BC%E6%A8%B9%29_Litsea_cubeba_-%E9%A6%99%E6%B8%AF%E5%98%89%E9%81%93%E7%90%86%E8%BE%B2%E5%A0%B4_Kadoorie_Farm%2C_Hong_Kong-_%289216080140%29.jpg"}, {"src": "images/sets/litsea-2.jpg", "credit": "Omar hoftun", "license": "CC BY-SA 4.0", "page": "https://commons.wikimedia.org/wiki/File%3ALitsea_cubeba_seeds%2C_by_Omar_Hoftun.jpg"}, {"src": "images/sets/litsea-3.jpg", "credit": "Neux-Neux", "license": "CC BY-SA 3.0", "page": "https://commons.wikimedia.org/wiki/File%3ALitsea_cubeba_2014-02-08.jpg"}, {"src": "images/sets/litsea-4.jpg", "credit": "Kware Ji from Shenzhen, China", "license": "CC BY 2.0", "page": "https://commons.wikimedia.org/wiki/File%3A%E5%A9%BA%E6%BA%90%E6%B9%96%E5%B1%B1%E2%80%94%E2%80%94%E5%B1%B1%E9%B8%A1%E6%A4%92_Litsea_cubeba_%2813375344284%29.jpg"}], "brushbox": [{"src": "images/sets/brushbox-1.jpg", "credit": "Forest and Kim Starr", "license": "CC BY 3.0 us", "page": "https://commons.wikimedia.org/wiki/File%3AStarr-011025-9001-Lophostemon_confertus-branch_with_flowers-Haiku-Maui_%2824460494381%29.jpg"}, {"src": "images/sets/brushbox-2.jpg", "credit": "John Robert McPherson", "license": "CC BY-SA 4.0", "page": "https://commons.wikimedia.org/wiki/File%3ALophostemon_confertus%2C_flower_buds_and_new_growth%2C_188_Pfingst_Rd%2C_Chermside_IMGP2969.jpg"}, {"src": "images/sets/brushbox-3.jpg", "credit": "Wikimedia Commons", "license": "CC BY-SA 3.0", "page": "https://commons.wikimedia.org/wiki/File%3ALophostemon_confertus_Pengo.jpg"}, {"src": "images/sets/brushbox-4.jpg", "credit": "John Robert McPherson", "license": "CC BY-SA 4.0", "page": "https://commons.wikimedia.org/wiki/File%3ALophostemon_confertus_Maiala_National_Park_Mt_Glorious_1980s_IMG_0014_%289%29.jpg"}, {"src": "images/sets/brushbox-5.jpg", "credit": "John Robert McPherson", "license": "CC BY-SA 4.0", "page": "https://commons.wikimedia.org/wiki/File%3ALophostemon_confertus_trunk_Maiala_National_Park_Mt_Glorious_06-21-2015_6.tif"}], "banyan": [{"src": "images/sets/banyan-1.jpg", "credit": "H. Zell", "license": "CC BY-SA 3.0", "page": "https://commons.wikimedia.org/wiki/File%3AFicus_microcarpa_-_La_Gomera_01.jpg"}, {"src": "images/sets/banyan-2.jpg", "credit": "H. Zell", "license": "CC BY-SA 3.0", "page": "https://commons.wikimedia.org/wiki/File%3AFicus_microcarpa_-_La_Gomera_02.jpg"}, {"src": "images/sets/banyan-3.jpg", "credit": "Forest & Kim Starr", "license": "CC BY 3.0", "page": "https://commons.wikimedia.org/wiki/File%3AStarr_061106-1428_Ficus_microcarpa.jpg"}, {"src": "images/sets/banyan-4.jpg", "credit": "Forest & Kim Starr", "license": "CC BY 3.0", "page": "https://commons.wikimedia.org/wiki/File%3AStarr_050516-1267_Ficus_microcarpa.jpg"}, {"src": "images/sets/banyan-5.jpg", "credit": "Forest and Kim Starr", "license": "CC BY 3.0 us", "page": "https://commons.wikimedia.org/wiki/File%3AStarr-150401-0285-Ficus_microcarpa-high_up_in_ironwood_stump-West_Beach_Sand_Island-Midway_Atoll_%2825179445601%29.jpg"}], "dove": [{"src": "images/sets/dove-1.jpg", "credit": "iNaturalist/ zinogre", "license": "CC BY-SA 4.0", "page": "https://commons.wikimedia.org/wiki/File%3ASpilopelia_chinensis_Zhengzhou_20210607.jpg"}, {"src": "images/sets/dove-2.jpg", "credit": "Charles J. Sharp", "license": "CC BY-SA 4.0", "page": "https://commons.wikimedia.org/wiki/File%3ASpotted_dove_%28Spilopelia_chinensis_suratensis%29.jpg"}, {"src": "images/sets/dove-3.jpg", "credit": "Gannu03", "license": "CC BY-SA 4.0", "page": "https://commons.wikimedia.org/wiki/File%3ASpotted_dove_%28Spilopelia_chinensis%29_08.jpg"}, {"src": "images/sets/dove-4.jpg", "credit": "Imran Shah from Islamabad, Pakistan", "license": "CC BY-SA 2.0", "page": "https://commons.wikimedia.org/wiki/File%3ASpotted_Dove_%28Spilopelia_chinensis%29_%2845695290305%29.jpg"}, {"src": "images/sets/dove-5.jpg", "credit": "Gannu03", "license": "CC BY-SA 4.0", "page": "https://commons.wikimedia.org/wiki/File%3ASpotted_dove_%28Spilopelia_chinensis%29_05.jpg"}], "lvb": [{"src": "images/sets/lvb-1.jpg", "credit": "Charles J. Sharp", "license": "CC BY-SA 4.0", "page": "https://commons.wikimedia.org/wiki/File%3ALight-vented_bulbul_%28Pycnonotus_sinensis_formosae%29_Shuangyu.jpg"}, {"src": "images/sets/lvb-2.jpg", "credit": "Herbertkikoy", "license": "CC BY-SA 4.0", "page": "https://commons.wikimedia.org/wiki/File%3ALight-vented_Bulbul_%28Pycnonotus_sinensis%29.jpg"}, {"src": "images/sets/lvb-3.jpg", "credit": "Noel Reynolds", "license": "CC BY 2.0", "page": "https://commons.wikimedia.org/wiki/File%3ALight-vented_Bulbul_%28Pycnonotus_sinensis%29_%287184485008%29.jpg"}, {"src": "images/sets/lvb-4.jpg", "credit": "Noel Reynolds", "license": "CC BY 2.0", "page": "https://commons.wikimedia.org/wiki/File%3ALight-vented_Bulbul_%28Pycnonotus_sinensis%29_%287184486586%29.jpg"}, {"src": "images/sets/lvb-5.jpg", "credit": "Sun Jiao (Interaccoonale)", "license": "CC BY-SA 2.0", "page": "https://commons.wikimedia.org/wiki/File%3APycnonotus_sinensis_or_Light-vented_Bulbul_on_a_tree.jpg"}], "rwb": [{"src": "images/sets/rwb-1.jpg", "credit": "Charles Lam from Hong Kong, China", "license": "CC BY-SA 2.0", "page": "https://commons.wikimedia.org/wiki/File%3APycnonotus_jocosus_%281%29.jpg"}, {"src": "images/sets/rwb-2.jpg", "credit": "K Hari Krishnan", "license": "CC BY-SA 3.0", "page": "https://commons.wikimedia.org/wiki/File%3ARed-whiskered_Bulbul_%28Pycnonotus_jocosus%29.jpg"}, {"src": "images/sets/rwb-3.jpg", "credit": "Charles J. Sharp", "license": "CC BY-SA 4.0", "page": "https://commons.wikimedia.org/wiki/File%3ARed-whiskered_bulbul_%28Pycnonotus_jocosus%29_Reunion.jpg"}, {"src": "images/sets/rwb-4.jpg", "credit": "Charles J. Sharp", "license": "CC BY-SA 4.0", "page": "https://commons.wikimedia.org/wiki/File%3ARed-whiskered_bulbuls_%28Pycnonotus_jocosus%29_Mauritius.jpg"}, {"src": "images/sets/rwb-5.jpg", "credit": "Nrik kiran", "license": "CC BY-SA 4.0", "page": "https://commons.wikimedia.org/wiki/File%3ARed_whiskered_Bulbul_%28Pycnonotus_jocosus%29.jpg"}], "magpie": [{"src": "images/sets/magpie-1.jpg", "credit": "Charles J. Sharp", "license": "CC BY-SA 4.0", "page": "https://commons.wikimedia.org/wiki/File%3AOriental_magpie-robin_%28Copsychus_saularis_ceylonensis%29_male.jpg"}, {"src": "images/sets/magpie-2.jpg", "credit": "GerifalteDelSabana", "license": "CC BY-SA 4.0", "page": "https://commons.wikimedia.org/wiki/File%3ACopsychus_saularis_%40_Kuala_Lumpur_5.jpg"}, {"src": "images/sets/magpie-3.jpg", "credit": "GerifalteDelSabana", "license": "CC BY-SA 4.0", "page": "https://commons.wikimedia.org/wiki/File%3ACopsychus_saularis_%40_Kuala_Lumpur_%284s%2C_p1%29.jpg"}, {"src": "images/sets/magpie-4.jpg", "credit": "GerifalteDelSabana", "license": "CC BY-SA 4.0", "page": "https://commons.wikimedia.org/wiki/File%3ACopsychus_saularis_%40_Kuala_Lumpur_3.jpg"}, {"src": "images/sets/magpie-5.jpg", "credit": "GerifalteDelSabana", "license": "CC BY-SA 4.0", "page": "https://commons.wikimedia.org/wiki/File%3ACopsychus_saularis_%40_Kuala_Lumpur_8.jpg"}], "pine": [{"src": "images/sets/pine-1.jpg", "credit": "Vladislav Isaev", "license": "CC BY 4.0", "page": "https://commons.wikimedia.org/wiki/File%3APinus_massoniana_needles_%2802%29.jpeg"}, {"src": "images/sets/pine-2.jpg", "credit": "曾昱承 Yu-Cheng Zeng", "license": "CC BY 4.0", "page": "https://commons.wikimedia.org/wiki/File%3APinus_massoniana_needles_%2804%29.jpeg"}, {"src": "images/sets/pine-3.jpg", "credit": "Eugene Popov", "license": "CC BY 4.0", "page": "https://commons.wikimedia.org/wiki/File%3APinus_massoniana_needles_%2810%29.jpeg"}, {"src": "images/sets/pine-4.jpg", "credit": "Eugene Popov", "license": "CC BY 4.0", "page": "https://commons.wikimedia.org/wiki/File%3APinus_massoniana_needles_%2809%29.jpeg"}, {"src": "images/sets/pine-5.jpg", "credit": "曾昱承 Yu-Cheng Zeng", "license": "CC BY 4.0", "page": "https://commons.wikimedia.org/wiki/File%3APinus_massoniana_needles_%2806%29.jpeg"}], "entada": [{"src": "images/sets/entada-1.jpg", "credit": "Steve Fitzgerald", "license": "CC BY-SA 4.0", "page": "https://commons.wikimedia.org/wiki/File%3AEntada_phaseoloides_SF26157-02.jpg"}, {"src": "images/sets/entada-2.jpg", "credit": "Steve Fitzgerald", "license": "CC BY-SA 4.0", "page": "https://commons.wikimedia.org/wiki/File%3AEntada_phaseoloides_SF24277-01.jpg"}, {"src": "images/sets/entada-3.jpg", "credit": "Steve Fitzgerald", "license": "CC BY-SA 4.0", "page": "https://commons.wikimedia.org/wiki/File%3AEntada_phaseoloides_SF24277-02.jpg"}, {"src": "images/sets/entada-4.jpg", "credit": "Steve Fitzgerald", "license": "CC BY-SA 4.0", "page": "https://commons.wikimedia.org/wiki/File%3AEntada_phaseoloides_SF26157-01.jpg"}, {"src": "images/sets/entada-5.jpg", "credit": "David Eickhoff from Pearl City, Hawaii, USA", "license": "CC BY 2.0", "page": "https://commons.wikimedia.org/wiki/File%3AEntada_phaseoloides_%285490705567%29.jpg"}], "squirrel": [{"src": "images/sets/squirrel-1.jpg", "credit": "Rejoice Gassah", "license": "CC BY 4.0", "page": "https://commons.wikimedia.org/wiki/File%3ACallosciurus_erythraeus_117331752.jpg"}, {"src": "images/sets/squirrel-2.jpg", "credit": "Rejoice Gassah", "license": "CC BY 4.0", "page": "https://commons.wikimedia.org/wiki/File%3ACallosciurus_erythraeus_102582000.jpg"}, {"src": "images/sets/squirrel-3.jpg", "credit": "Wich'yanan L", "license": "CC BY 4.0", "page": "https://commons.wikimedia.org/wiki/File%3ACallosciurus_erythraeus_86364245.jpg"}, {"src": "images/sets/squirrel-4.jpg", "credit": "laiet17", "license": "CC0", "page": "https://commons.wikimedia.org/wiki/File%3ACallosciurus_erythraeus_109599852.jpg"}, {"src": "images/sets/squirrel-5.jpg", "credit": "Wich'yanan L", "license": "CC BY 4.0", "page": "https://commons.wikimedia.org/wiki/File%3ACallosciurus_erythraeus_86906876.jpg"}], "mesia": [{"src": "images/sets/mesia-1.jpg", "credit": "JJ Harrison ( https://www.jjharrison.com.au/ )", "license": "CC BY-SA 3.0", "page": "https://commons.wikimedia.org/wiki/File%3ALeiothrix_argentauris_-_Mae_Wong.jpg"}, {"src": "images/sets/mesia-2.jpg", "credit": "JJ Harrison ( https://www.jjharrison.com.au/ )", "license": "CC BY-SA 3.0", "page": "https://commons.wikimedia.org/wiki/File%3ALeiothrix_argentauris_female_-_Mae_Wong.jpg"}, {"src": "images/sets/mesia-3.jpg", "credit": "Lip Kee Yap", "license": "CC BY-SA 2.0", "page": "https://commons.wikimedia.org/wiki/File%3ASilver-eared_Mesia_%28Leiothrix_argentauris%29.jpg"}, {"src": "images/sets/mesia-4.jpg", "credit": "Lip Kee from Singapore, Republic of Singapore", "license": "CC BY-SA 2.0", "page": "https://commons.wikimedia.org/wiki/File%3ASilver-eared_Mesia_%28Leiothrix_argentauris%29_-_Flickr_-_Lip_Kee.jpg"}, {"src": "images/sets/mesia-5.jpg", "credit": "Tisha Mukherjee", "license": "CC BY-SA 4.0", "page": "https://commons.wikimedia.org/wiki/File%3ASilver-eared_Mesia_by_Tisha_Mukherjee_01.jpg"}], "cbulbul": [{"src": "images/sets/cbulbul-1.jpg", "credit": "Sun Jiao (Interaccoonale)", "license": "CC BY 4.0", "page": "https://commons.wikimedia.org/wiki/File%3AHemixos_castanonotus-A9_00441_%28cropped%29.jpg"}, {"src": "images/sets/cbulbul-2.jpg", "credit": "Sun Jiao (Interaccoonale)", "license": "CC BY 4.0", "page": "https://commons.wikimedia.org/wiki/File%3AHemixos_castanonotus-A9_00401.jpg"}, {"src": "images/sets/cbulbul-3.jpg", "credit": "Sun Jiao (Interaccoonale)", "license": "CC BY 4.0", "page": "https://commons.wikimedia.org/wiki/File%3AHemixos_castanonotus-A9_00497.jpg"}, {"src": "images/sets/cbulbul-4.jpg", "credit": "Sun Jiao (Interaccoonale)", "license": "CC BY 4.0", "page": "https://commons.wikimedia.org/wiki/File%3AHemixos_castanonotus-A9_00441.jpg"}, {"src": "images/sets/cbulbul-5.jpg", "credit": "Sun Jiao (Interaccoonale)", "license": "CC BY 4.0", "page": "https://commons.wikimedia.org/wiki/File%3AHemixos_castanonotus-A9_00425.jpg"}], "bee": [{"src": "images/sets/bee-1.jpg", "credit": "Vengolis", "license": "CC BY-SA 4.0", "page": "https://commons.wikimedia.org/wiki/File%3AApis_cerana08409.jpg"}, {"src": "images/sets/bee-2.jpg", "credit": "Vengolis", "license": "CC BY-SA 4.0", "page": "https://commons.wikimedia.org/wiki/File%3AApis_cerana_08354.jpg"}, {"src": "images/sets/bee-3.jpg", "credit": "WATANABE Hitoshi 渡辺仁", "license": "CC BY 4.0", "page": "https://commons.wikimedia.org/wiki/File%3AApis_cerana_japonica_451076854.jpg"}, {"src": "images/sets/bee-4.jpg", "credit": "Cheongweei Gan", "license": "CC BY 4.0", "page": "https://commons.wikimedia.org/wiki/File%3AApis_cerana_456803583.jpg"}, {"src": "images/sets/bee-5.jpg", "credit": "WATANABE Hitoshi 渡辺仁", "license": "CC BY 4.0", "page": "https://commons.wikimedia.org/wiki/File%3AApis_cerana_japonica_447137688.jpg"}], "spilurus": [{"src": "images/sets/spilurus-1.jpg", "credit": "Lawrence Hylton", "license": "CC BY 4.0", "page": "https://commons.wikimedia.org/wiki/File%3AParazacco_spilurus.jpg"}], "bluetail": [{"src": "images/sets/bluetail-1.jpg", "credit": "M.Nishimura", "license": "CC BY-SA 3.0", "page": "https://commons.wikimedia.org/wiki/File%3ATarsiger_cyanurus.jpg"}, {"src": "images/sets/bluetail-2.jpg", "credit": "Wang.QG", "license": "CC BY 4.0", "page": "https://commons.wikimedia.org/wiki/File%3ATarsiger_cyanurus_243648144.jpg"}, {"src": "images/sets/bluetail-3.jpg", "credit": "Alpsdake", "license": "CC BY-SA 4.0", "page": "https://commons.wikimedia.org/wiki/File%3ATarsiger_cyanurus_f3.jpg"}, {"src": "images/sets/bluetail-4.jpg", "credit": "Alpsdake", "license": "CC BY-SA 4.0", "page": "https://commons.wikimedia.org/wiki/File%3ATarsiger_cyanurus_%28female_s2%29.jpg"}, {"src": "images/sets/bluetail-5.jpg", "credit": "Alpsdake", "license": "CC BY-SA 4.0", "page": "https://commons.wikimedia.org/wiki/File%3ATarsiger_cyanurus_%28male_s2%29.jpg"}], "minivet": [{"src": "images/sets/minivet-1.jpg", "credit": "James Jolokia ( james1203 )", "license": "CC BY 4.0", "page": "https://commons.wikimedia.org/wiki/File%3A20221225_Pericrocotus_speciosus.jpg"}, {"src": "images/sets/minivet-2.jpg", "credit": "Ehsan Ali Biswas", "license": "CC BY-SA 4.0", "page": "https://commons.wikimedia.org/wiki/File%3AScarlet_minivet_portrait.jpg"}, {"src": "images/sets/minivet-3.jpg", "credit": "Tisha Mukherjee", "license": "CC BY-SA 4.0", "page": "https://commons.wikimedia.org/wiki/File%3AScarlet_Minivet_by_Tisha_Mukherjee_21.jpg"}, {"src": "images/sets/minivet-4.jpg", "credit": "Tisha Mukherjee", "license": "CC BY-SA 4.0", "page": "https://commons.wikimedia.org/wiki/File%3AScarlet_Minivet_by_Tisha_Mukherjee_09.jpg"}, {"src": "images/sets/minivet-5.jpg", "credit": "Tisha Mukherjee", "license": "CC BY-SA 4.0", "page": "https://commons.wikimedia.org/wiki/File%3AScarlet_Minivet_by_Tisha_Mukherjee_06.jpg"}], "newt": [{"src": "images/sets/newt-1.jpg", "credit": "Fernando Losada Rodríguez", "license": "CC BY-SA 4.0", "page": "https://commons.wikimedia.org/wiki/File%3AParamesotriton_hongkongensis_-_Casa_de_las_Ciencias.JPG"}, {"src": "images/sets/newt-2.jpg", "credit": "Andrew Lai", "license": "CC BY 4.0", "page": "https://commons.wikimedia.org/wiki/File%3AParamesotriton_hongkongensis_236548301.jpg"}, {"src": "images/sets/newt-3.jpg", "credit": "灯管儿", "license": "CC BY 4.0", "page": "https://commons.wikimedia.org/wiki/File%3AParamesotriton_hongkongensis_85419365.jpg"}, {"src": "images/sets/newt-4.jpg", "credit": "Thomas Brown", "license": "CC BY 2.0", "page": "https://commons.wikimedia.org/wiki/File%3AHong_Kong_Newt_%28Paramesotriton_hongkongensis%29_%E9%A6%99%E6%B8%AF%E7%98%B0%E8%9E%885.jpg"}, {"src": "images/sets/newt-5.jpg", "credit": "Thomas Brown", "license": "CC BY 2.0", "page": "https://commons.wikimedia.org/wiki/File%3AHong_Kong_Newt_%28Paramesotriton_hongkongensis%29_%E9%A6%99%E6%B8%AF%E7%98%B0%E8%9E%888.jpg"}]};
+
       function seedLocalPhoto(sp) {
-        if (!sp || !sp.localPhoto || !sp.localPhoto.src) return;
+        const bank = (typeof SPECIES_PHOTO_BANK !== 'undefined' && SPECIES_PHOTO_BANK[sp.id]) || null;
+        const list = (bank && bank.length) ? bank : (sp.localPhoto && sp.localPhoto.src ? [sp.localPhoto] : []);
+        if (!list.length) return;
         speciesGalleryState[sp.id] = {
           status: 'loaded',
-          photos: [{
-            url: sp.localPhoto.src,
-            title: sp.name,
-            author: sp.localPhoto.credit || 'Wikimedia Commons'
-          }],
+          photos: list.map(function (p) {
+            const who = String(p.credit || p.artist || 'Wikimedia Commons').replace(/\s*\(https?:\/\/[^)]+\)/g, '').trim();
+            const lic = p.license ? (' / ' + p.license) : '';
+            return { url: p.src || p.file, title: sp.name, author: who + lic };
+          }),
           activeIndex: 0
         };
+      }
+      function finderThumb(sp) {
+        const bank = (typeof SPECIES_PHOTO_BANK !== 'undefined' && SPECIES_PHOTO_BANK[sp.id]) || null;
+        if (bank && bank.length) return bank[0].src || bank[0].file;
+        return sp.localPhoto && sp.localPhoto.src;
       }
 
       function ensureActivityState() {
@@ -6819,7 +6903,7 @@
             html +=
               '<article class="find-card' + (on ? ' is-found' : '') + '">' +
                 '<button type="button" class="find-peek" data-peek="' + sp.id + '">' +
-                  '<img src="' + sp.localPhoto.src + '" alt="" />' +
+                  '<img src="' + finderThumb(sp) + '" alt="" />' +
                   '<span class="find-name">' + sp.name + '</span>' +
                   '<span class="find-stars" aria-label="稀有度 ' + sp.stars + ' 星">' + starText(sp.stars) + '</span>' +
                 '</button>' +
@@ -6878,16 +6962,47 @@
         const grid = document.getElementById('bingoGrid');
         const label = document.getElementById('groupLabelInput');
         const status = document.getElementById('bingoStatus');
-        if (label && label.value !== appState.groupLabel) label.value = appState.groupLabel;
+        const cheer = document.getElementById('bingoCheer');
+        if (label && document.activeElement !== label && label.value !== appState.groupLabel) {
+          label.value = appState.groupLabel;
+        }
         if (!grid) return;
-        grid.innerHTML = BINGO_ITEMS.map(function (item) {
-          const on = appState.bingoTicks.indexOf(item.id) !== -1;
-          return '<button type="button" class="bingo-cell' + (on ? ' is-on' : '') + '" data-bingo="' + item.id + '" aria-pressed="' + (on ? 'true' : 'false') + '">' +
-            '<span class="bingo-mark">' + (on ? '✓' : '') + '</span><span>' + item.text + '</span></button>';
+        const on = {};
+        appState.bingoTicks.forEach(function (id) { on[id] = true; });
+        const slots = [0, 1, 2, 3, 'center', 4, 5, 6, 7];
+        function filled(slot) {
+          if (slot === 'center') return true;
+          return !!on[BINGO_ITEMS[slot].id];
+        }
+        const lines = [
+          [0, 1, 2], [3, 'center', 4], [5, 6, 7],
+          [0, 3, 5], [1, 'center', 6], [2, 4, 7],
+          [0, 'center', 7], [2, 'center', 5]
+        ];
+        const doneLines = lines.filter(function (line) { return line.every(filled); }).length;
+        const prevLines = grid.dataset.lines === undefined || grid.dataset.lines === ''
+          ? doneLines
+          : Number(grid.dataset.lines);
+        const allDone = appState.bingoTicks.length >= BINGO_ITEMS.length;
+        grid.innerHTML = slots.map(function (slot) {
+          if (slot === 'center') {
+            return '<div class="bingo-cell is-center is-on" aria-hidden="true"><span class="bingo-emoji">🚩</span>出發</div>';
+          }
+          const item = BINGO_ITEMS[slot];
+          const marked = !!on[item.id];
+          return '<button type="button" class="bingo-cell' + (marked ? ' is-on' : '') + '" data-bingo="' + item.id + '" aria-pressed="' + (marked ? 'true' : 'false') + '" style="background:' + item.tone + '">' +
+            '<span class="bingo-emoji">' + item.emoji + '</span><span>' + item.text + '</span></button>';
         }).join('');
-        if (status) {
-          const n = appState.bingoTicks.length;
-          status.textContent = n >= BINGO_ITEMS.length ? '全組完成這張賓果。' : ('已勾 ' + n + ' / ' + BINGO_ITEMS.length);
+        grid.dataset.lines = String(doneLines);
+        if (status) status.textContent = allDone ? '全組完成！' : ('已蓋章 ' + appState.bingoTicks.length + ' / 8');
+        if (cheer) {
+          if (allDone && doneLines >= prevLines && appState.bingoTicks.length >= BINGO_ITEMS.length && prevLines !== doneLines) {
+            cheer.textContent = '全組完成！';
+            if (typeof SFX !== 'undefined') SFX.celebrate();
+          } else if (doneLines > prevLines) {
+            cheer.textContent = '賓果一行！';
+            if (typeof SFX !== 'undefined') SFX.celebrate();
+          }
         }
       }
 
@@ -6905,6 +7020,11 @@
           });
           html += '</ul>';
         });
+        html += '<h2>森林賓果（不排名）</h2><ul>';
+        BINGO_ITEMS.forEach(function (item) {
+          html += '<li><span class="box"></span>' + item.text + '</li>';
+        });
+        html += '</ul>';
         root.innerHTML = html;
       }
 

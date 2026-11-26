@@ -1,202 +1,1012 @@
 {
-  "castanopsis": {
-    "file": "images/castanopsis.jpg",
-    "bytes": 67476,
-    "commonsTitle": "File:黧蒴錐(裂斗錐栗) Castanopsis fissa -香港西貢獅子會自然教育中心 Saikung, Hong Kong- (9213350715).jpg",
-    "page": "https://commons.wikimedia.org/wiki/File%3A%E9%BB%A7%E8%92%B4%E9%8C%90%28%E8%A3%82%E6%96%97%E9%8C%90%E6%A0%97%29_Castanopsis_fissa_-%E9%A6%99%E6%B8%AF%E8%A5%BF%E8%B2%A2%E7%8D%85%E5%AD%90%E6%9C%83%E8%87%AA%E7%84%B6%E6%95%99%E8%82%B2%E4%B8%AD%E5%BF%83_Saikung%2C_Hong_Kong-_%289213350715%29.jpg",
-    "artist": "<a rel=\"nofollow\" class=\"external text\" href=\"https://www.flickr.com/people/52582306@N03\">阿橋 HQ</a>",
-    "license": "CC BY-SA 2.0"
-  },
-  "psychotria": {
-    "file": "images/psychotria.jpg",
-    "bytes": 74894,
-    "commonsTitle": "File:Psychotria asiatica botyouji01.jpg",
-    "page": "https://commons.wikimedia.org/wiki/File%3APsychotria_asiatica_botyouji01.jpg",
-    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Keisotyo\" title=\"User:Keisotyo\">Keisotyo</a>",
-    "license": "CC BY-SA 4.0"
-  },
-  "christella": {
-    "file": "images/christella.jpg",
-    "bytes": 163763,
-    "commonsTitle": "File:Starr-140909-1725-Cyclosorus parasiticus-frond-Wailua-Maui (24618996463).jpg",
-    "page": "https://commons.wikimedia.org/wiki/File%3AStarr-140909-1725-Cyclosorus_parasiticus-frond-Wailua-Maui_%2824618996463%29.jpg",
-    "artist": "<a rel=\"nofollow\" class=\"external text\" href=\"https://www.flickr.com/people/97499887@N06\">Forest and Kim Starr</a>",
-    "license": "CC BY 3.0 us"
-  },
-  "ivy-tree": {
-    "file": "images/ivy-tree.jpg",
-    "bytes": 87048,
-    "commonsTitle": "File:Palmate leaves of Schefflera heptaphylla in Banna Park, Ishigaki, Okinawa.jpg",
-    "page": "https://commons.wikimedia.org/wiki/File%3APalmate_leaves_of_Schefflera_heptaphylla_in_Banna_Park%2C_Ishigaki%2C_Okinawa.jpg",
-    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:M108t\" title=\"User:M108t\">M108t</a>",
-    "license": "CC BY 4.0"
-  },
-  "sweetgum": {
-    "file": "images/sweetgum.jpg",
-    "bytes": 145121,
-    "commonsTitle": "File:Liquidambar formosana 01.jpg",
-    "page": "https://commons.wikimedia.org/wiki/File%3ALiquidambar_formosana_01.jpg",
-    "artist": "Yoiyoi_kancho",
-    "license": "Public domain"
-  },
-  "sterculia": {
-    "file": "images/sterculia.jpg",
-    "bytes": 100016,
-    "commonsTitle": "File:Plant 9079.JPG",
-    "page": "https://commons.wikimedia.org/wiki/File%3APlant_9079.JPG",
-    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Cherubino\" title=\"User:Cherubino\">Cherubino</a>",
-    "license": "CC BY-SA 3.0"
-  },
-  "alocasia": {
-    "file": "images/alocasia.jpg",
-    "bytes": 97733,
-    "commonsTitle": "File:Alocasia odora1.jpg",
-    "page": "https://commons.wikimedia.org/wiki/File%3AAlocasia_odora1.jpg",
-    "artist": "KENPEI",
-    "license": "CC BY-SA 3.0"
-  },
-  "litsea": {
-    "file": "images/litsea.jpg",
-    "bytes": 106064,
-    "commonsTitle": "File:Litseacubebaflowers.jpg",
-    "page": "https://commons.wikimedia.org/wiki/File%3ALitseacubebaflowers.jpg",
-    "artist": "LiChieh Pan  / Flickr user: plj.johnny ( <a rel=\"nofollow\" class=\"external free\" href=\"https://www.flickr.com/photos/plj/\">https://www.flickr.com/photos/plj/</a> )",
-    "license": "CC BY 2.0"
-  },
-  "brushbox": {
-    "file": "images/brushbox.jpg",
-    "bytes": 38002,
-    "commonsTitle": "File:Lophostemon confertus Pengo.jpg",
-    "page": "https://commons.wikimedia.org/wiki/File%3ALophostemon_confertus_Pengo.jpg",
-    "artist": "",
-    "license": "CC BY-SA 3.0"
-  },
-  "banyan": {
-    "file": "images/banyan.jpg",
-    "bytes": 58276,
-    "commonsTitle": "File:Ficus microcarpa - La Gomera 01.jpg",
-    "page": "https://commons.wikimedia.org/wiki/File%3AFicus_microcarpa_-_La_Gomera_01.jpg",
-    "artist": "H. Zell",
-    "license": "CC BY-SA 3.0"
-  },
-  "dove": {
-    "file": "images/dove.jpg",
-    "bytes": 42149,
-    "commonsTitle": "File:Spilopelia chinensis Zhengzhou 20210607.jpg",
-    "page": "https://commons.wikimedia.org/wiki/File%3ASpilopelia_chinensis_Zhengzhou_20210607.jpg",
-    "artist": "iNaturalist/<a rel=\"nofollow\" class=\"external text\" href=\"https://www.inaturalist.org/people/zinogre\">zinogre</a>",
-    "license": "CC BY-SA 4.0"
-  },
-  "lvb": {
-    "file": "images/lvb.jpg",
-    "bytes": 53003,
-    "commonsTitle": "File:Chinese Bubul.JPG",
-    "page": "https://commons.wikimedia.org/wiki/File%3AChinese_Bubul.JPG",
-    "artist": "<a href=\"https://en.wikipedia.org/wiki/User:Earthshine..\" class=\"extiw\" title=\"wikipedia:User:Earthshine..\">Earthshine..</a> at <a href=\"https://en.wikipedia.org/wiki/\" class=\"exti",
-    "license": "CC BY-SA 3.0"
-  },
-  "rwb": {
-    "file": "images/rwb.jpg",
-    "bytes": 69771,
-    "commonsTitle": "File:Pycnonotus jocosus (1).jpg",
-    "page": "https://commons.wikimedia.org/wiki/File%3APycnonotus_jocosus_%281%29.jpg",
-    "artist": "<a rel=\"nofollow\" class=\"external text\" href=\"https://www.flickr.com/people/49296659@N00\">Charles Lam</a> from Hong Kong, China",
-    "license": "CC BY-SA 2.0"
-  },
-  "magpie-robin": {
-    "file": "images/magpie-robin.jpg",
-    "bytes": 26047,
-    "commonsTitle": "File:Oriental magpie-robin (Copsychus saularis ceylonensis) male.jpg",
-    "page": "https://commons.wikimedia.org/wiki/File%3AOriental_magpie-robin_%28Copsychus_saularis_ceylonensis%29_male.jpg",
-    "artist": "<bdi><a href=\"https://www.wikidata.org/wiki/Q54800218\" class=\"extiw\" title=\"d:Q54800218\"><span title=\"Scottish wildlife photographer\">Charles J. Sharp</span></a></bdi>",
-    "license": "CC BY-SA 4.0"
-  },
-  "pine": {
-    "file": "images/pine.jpg",
-    "bytes": 100767,
-    "commonsTitle": "File:Pinus massoniana 2.jpg",
-    "page": "https://commons.wikimedia.org/wiki/File%3APinus_massoniana_2.jpg",
-    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Doctoroftcm\" class=\"mw-redirect\" title=\"User:Doctoroftcm\">Doctoroftcm</a>",
-    "license": "CC BY-SA 3.0"
-  },
-  "entada": {
-    "file": "images/entada.jpg",
-    "bytes": 165774,
-    "commonsTitle": "File:Entada phaseoloides SF26157-02.jpg",
-    "page": "https://commons.wikimedia.org/wiki/File%3AEntada_phaseoloides_SF26157-02.jpg",
-    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Junglenut\" title=\"User:Junglenut\">Steve Fitzgerald</a>",
-    "license": "CC BY-SA 4.0"
-  },
-  "squirrel": {
-    "file": "images/squirrel.jpg",
-    "bytes": 58621,
-    "commonsTitle": "File:Callosciurus erythraeus 86906876.jpg",
-    "page": "https://commons.wikimedia.org/wiki/File%3ACallosciurus_erythraeus_86906876.jpg",
-    "artist": "Wich'yanan L",
-    "license": "CC BY 4.0"
-  },
-  "mesia": {
-    "file": "images/mesia.jpg",
-    "bytes": 43875,
-    "commonsTitle": "File:Leiothrix argentauris - Mae Wong.jpg",
-    "page": "https://commons.wikimedia.org/wiki/File%3ALeiothrix_argentauris_-_Mae_Wong.jpg",
-    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:JJ_Harrison\" title=\"User:JJ Harrison\">JJ Harrison</a> (<a rel=\"nofollow\" class=\"external free\" href=\"https://www.jjharrison.com.au/\">http",
-    "license": "CC BY-SA 3.0"
-  },
-  "chestnut-bulbul": {
-    "file": "images/chestnut-bulbul.jpg",
-    "bytes": 50236,
-    "commonsTitle": "File:Hemixos castanonotus-A9 00441 (cropped).jpg",
-    "page": "https://commons.wikimedia.org/wiki/File%3AHemixos_castanonotus-A9_00441_%28cropped%29.jpg",
-    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Interaccoonale\" title=\"User:Interaccoonale\">Sun Jiao (Interaccoonale)</a>",
-    "license": "CC BY 4.0"
-  },
-  "bee": {
-    "file": "images/bee.jpg",
-    "bytes": 82396,
-    "commonsTitle": "File:Cerana.jpg",
-    "page": "https://commons.wikimedia.org/wiki/File%3ACerana.jpg",
-    "artist": "<a rel=\"nofollow\" class=\"external text\" href=\"https://www.flickr.com/people/kclama/\">Charles Lam</a>",
-    "license": "CC BY-SA 2.0"
-  },
-  "spilurus": {
-    "file": "images/spilurus.jpg",
-    "bytes": 86256,
-    "commonsTitle": "File:Parazacco spilurus.jpg",
-    "page": "https://commons.wikimedia.org/wiki/File%3AParazacco_spilurus.jpg",
-    "artist": "Lawrence Hylton",
-    "license": "CC BY 4.0"
-  },
-  "bluetail": {
-    "file": "images/bluetail.jpg",
-    "bytes": 39460,
-    "commonsTitle": "File:Tarsiger cyanurus.jpg",
-    "page": "https://commons.wikimedia.org/wiki/File%3ATarsiger_cyanurus.jpg",
-    "artist": "M.Nishimura",
-    "license": "CC BY-SA 3.0"
-  },
-  "minivet": {
-    "file": "images/minivet.jpg",
-    "bytes": 86756,
-    "commonsTitle": "File:20221225 Pericrocotus speciosus.jpg",
-    "page": "https://commons.wikimedia.org/wiki/File%3A20221225_Pericrocotus_speciosus.jpg",
-    "artist": "James Jolokia (<a rel=\"nofollow\" class=\"external text\" href=\"https://www.inaturalist.org/people/james1203\">james1203</a>)",
-    "license": "CC BY 4.0"
-  },
-  "newt": {
-    "file": "images/newt.jpg",
-    "bytes": 59694,
-    "commonsTitle": "File:Paramesotriton hongkongensis - Casa de las Ciencias.JPG",
-    "page": "https://commons.wikimedia.org/wiki/File%3AParamesotriton_hongkongensis_-_Casa_de_las_Ciencias.JPG",
-    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Drow_male\" title=\"User:Drow male\">Fernando Losada Rodríguez</a>",
-    "license": "CC BY-SA 4.0"
-  },
-  "moss": {
-    "file": "images/moss.jpg",
-    "bytes": 60241,
-    "commonsTitle": "File:Close-up of Tree Bark with Moss and Lichen.jpg",
-    "page": "https://commons.wikimedia.org/wiki/File%3AClose-up_of_Tree_Bark_with_Moss_and_Lichen.jpg",
-    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Shariyar_Nayeem\" title=\"User:Shariyar Nayeem\">Shariyar Nayeem</a>",
-    "license": "CC BY 4.0"
-  }
+  "moss": [
+    {
+      "file": "images/sets/moss-1.jpg",
+      "bytes": 60241,
+      "commonsTitle": "File:Close-up of Tree Bark with Moss and Lichen.jpg",
+      "page": "https://commons.wikimedia.org/wiki/File%3AClose-up_of_Tree_Bark_with_Moss_and_Lichen.jpg",
+      "artist": "Shariyar Nayeem",
+      "license": "CC BY 4.0"
+    },
+    {
+      "file": "images/sets/moss-2.jpg",
+      "bytes": 111035,
+      "commonsTitle": "File:Epiphytic moss and lichen vegetation of the class Orthotricho-Physcietea.jpg",
+      "page": "https://commons.wikimedia.org/wiki/File%3AEpiphytic_moss_and_lichen_vegetation_of_the_class_Orthotricho-Physcietea.jpg",
+      "artist": "Cultureel Gelderland",
+      "license": "CC0"
+    },
+    {
+      "file": "images/sets/moss-3.jpg",
+      "bytes": 104927,
+      "commonsTitle": "File:Epiphytic moss and lichen vegetation of the Orthotricho-Physcietea.jpg",
+      "page": "https://commons.wikimedia.org/wiki/File%3AEpiphytic_moss_and_lichen_vegetation_of_the_Orthotricho-Physcietea.jpg",
+      "artist": "Cultureel Gelderland",
+      "license": "CC0"
+    },
+    {
+      "file": "images/sets/moss-4.jpg",
+      "bytes": 131587,
+      "commonsTitle": "File:Lichen and Moss Formations (17cd7fd6-96cd-4acd-b04f-0e0b7dd3e532).jpg",
+      "page": "https://commons.wikimedia.org/wiki/File%3ALichen_and_Moss_Formations_%2817cd7fd6-96cd-4acd-b04f-0e0b7dd3e532%29.jpg",
+      "artist": "National Park Service",
+      "license": "Public domain"
+    },
+    {
+      "file": "images/sets/moss-5.jpg",
+      "bytes": 102835,
+      "commonsTitle": "File:Lichen and moss on Eucalyptus tereticornis bark, 7th Brigade Park Chermside.jpg",
+      "page": "https://commons.wikimedia.org/wiki/File%3ALichen_and_moss_on_Eucalyptus_tereticornis_bark%2C_7th_Brigade_Park_Chermside.jpg",
+      "artist": "John Robert McPherson",
+      "license": "CC BY-SA 4.0"
+    }
+  ],
+  "castanopsis": [
+    {
+      "file": "images/sets/castanopsis-1.jpg",
+      "bytes": 93365,
+      "commonsTitle": "File:Castanopsis fissa 01.jpg",
+      "page": "https://commons.wikimedia.org/wiki/File%3ACastanopsis_fissa_01.jpg",
+      "artist": "ineni ( https://www.inaturalist.org/people/ineni )",
+      "license": "CC BY 4.0"
+    },
+    {
+      "file": "images/sets/castanopsis-2.jpg",
+      "bytes": 142432,
+      "commonsTitle": "File:Castanopsis fissa 02.jpg",
+      "page": "https://commons.wikimedia.org/wiki/File%3ACastanopsis_fissa_02.jpg",
+      "artist": "Agnes Trekker ( https://www.inaturalist.org/people/agnestrekker )",
+      "license": "CC0"
+    },
+    {
+      "file": "images/sets/castanopsis-3.jpg",
+      "bytes": 81442,
+      "commonsTitle": "File:Castanopsis fissa 03.jpg",
+      "page": "https://commons.wikimedia.org/wiki/File%3ACastanopsis_fissa_03.jpg",
+      "artist": "Agnes Trekker ( https://www.inaturalist.org/people/agnestrekker )",
+      "license": "CC0"
+    },
+    {
+      "file": "images/sets/castanopsis-4.jpg",
+      "bytes": 38027,
+      "commonsTitle": "File:Castanopsis fissa 04.jpg",
+      "page": "https://commons.wikimedia.org/wiki/File%3ACastanopsis_fissa_04.jpg",
+      "artist": "Agnes Trekker ( https://www.inaturalist.org/people/agnestrekker )",
+      "license": "CC0"
+    },
+    {
+      "file": "images/sets/castanopsis-5.jpg",
+      "bytes": 57230,
+      "commonsTitle": "File:Castanopsis fissa 05.jpg",
+      "page": "https://commons.wikimedia.org/wiki/File%3ACastanopsis_fissa_05.jpg",
+      "artist": "Agnes Trekker ( https://www.inaturalist.org/people/agnestrekker )",
+      "license": "CC0"
+    }
+  ],
+  "psychotria": [
+    {
+      "file": "images/sets/psychotria-1.jpg",
+      "bytes": 74894,
+      "commonsTitle": "File:Psychotria asiatica botyouji01.jpg",
+      "page": "https://commons.wikimedia.org/wiki/File%3APsychotria_asiatica_botyouji01.jpg",
+      "artist": "Keisotyo",
+      "license": "CC BY-SA 4.0"
+    },
+    {
+      "file": "images/sets/psychotria-2.jpg",
+      "bytes": 24138,
+      "commonsTitle": "File:Psychotria asiatica leaf domatia in Ishigaki, Okinawa.jpg",
+      "page": "https://commons.wikimedia.org/wiki/File%3APsychotria_asiatica_leaf_domatia_in_Ishigaki%2C_Okinawa.jpg",
+      "artist": "M108t",
+      "license": "CC BY 4.0"
+    },
+    {
+      "file": "images/sets/psychotria-3.jpg",
+      "bytes": 28787,
+      "commonsTitle": "File:Psychotria asiatica fruits in Ishigaki, Okinawa.jpg",
+      "page": "https://commons.wikimedia.org/wiki/File%3APsychotria_asiatica_fruits_in_Ishigaki%2C_Okinawa.jpg",
+      "artist": "M108t",
+      "license": "CC BY 4.0"
+    },
+    {
+      "file": "images/sets/psychotria-4.jpg",
+      "bytes": 85129,
+      "commonsTitle": "File:九節木Psychotria rubra 20210609155251 05.jpg",
+      "page": "https://commons.wikimedia.org/wiki/File%3A%E4%B9%9D%E7%AF%80%E6%9C%A8Psychotria_rubra_20210609155251_05.jpg",
+      "artist": "Ping an Chang",
+      "license": "CC BY-SA 4.0"
+    },
+    {
+      "file": "images/sets/psychotria-5.jpg",
+      "bytes": 68769,
+      "commonsTitle": "File:九節木Psychotria rubra 20210609155251 13.jpg",
+      "page": "https://commons.wikimedia.org/wiki/File%3A%E4%B9%9D%E7%AF%80%E6%9C%A8Psychotria_rubra_20210609155251_13.jpg",
+      "artist": "Ping an Chang",
+      "license": "CC BY-SA 4.0"
+    }
+  ],
+  "christella": [
+    {
+      "file": "images/sets/christella-1.jpg",
+      "bytes": 163763,
+      "commonsTitle": "File:Starr-140909-1725-Cyclosorus parasiticus-frond-Wailua-Maui (24618996463).jpg",
+      "page": "https://commons.wikimedia.org/wiki/File%3AStarr-140909-1725-Cyclosorus_parasiticus-frond-Wailua-Maui_%2824618996463%29.jpg",
+      "artist": "Forest and Kim Starr",
+      "license": "CC BY 3.0 us"
+    },
+    {
+      "file": "images/sets/christella-2.jpg",
+      "bytes": 60427,
+      "commonsTitle": "File:Starr-180305-0596-Cyclosorus parasiticus-frond sori-Kahikinui-Maui (27363371438).jpg",
+      "page": "https://commons.wikimedia.org/wiki/File%3AStarr-180305-0596-Cyclosorus_parasiticus-frond_sori-Kahikinui-Maui_%2827363371438%29.jpg",
+      "artist": "Forest and Kim Starr",
+      "license": "CC BY 3.0 us"
+    },
+    {
+      "file": "images/sets/christella-3.jpg",
+      "bytes": 209795,
+      "commonsTitle": "File:Starr-140909-1727-Cyclosorus parasiticus-frond-Wailua-Maui (24619004273).jpg",
+      "page": "https://commons.wikimedia.org/wiki/File%3AStarr-140909-1727-Cyclosorus_parasiticus-frond-Wailua-Maui_%2824619004273%29.jpg",
+      "artist": "Forest and Kim Starr",
+      "license": "CC BY 3.0 us"
+    },
+    {
+      "file": "images/sets/christella-4.jpg",
+      "bytes": 96714,
+      "commonsTitle": "File:Starr-111012-0887-Cyclosorus parasiticus-habit-Kahana-Maui (25025671691).jpg",
+      "page": "https://commons.wikimedia.org/wiki/File%3AStarr-111012-0887-Cyclosorus_parasiticus-habit-Kahana-Maui_%2825025671691%29.jpg",
+      "artist": "Forest and Kim Starr",
+      "license": "CC BY 3.0 us"
+    },
+    {
+      "file": "images/sets/christella-5.jpg",
+      "bytes": 100262,
+      "commonsTitle": "File:Christella parasitica (L.) H.Lév. (AM AK113048).jpg",
+      "page": "https://commons.wikimedia.org/wiki/File%3AChristella_parasitica_%28L.%29_H.L%C3%A9v._%28AM_AK113048%29.jpg",
+      "artist": "Sykes, Bill",
+      "license": "CC BY 4.0"
+    }
+  ],
+  "ivytree": [
+    {
+      "file": "images/sets/ivytree-1.jpg",
+      "bytes": 87048,
+      "commonsTitle": "File:Palmate leaves of Schefflera heptaphylla in Banna Park, Ishigaki, Okinawa.jpg",
+      "page": "https://commons.wikimedia.org/wiki/File%3APalmate_leaves_of_Schefflera_heptaphylla_in_Banna_Park%2C_Ishigaki%2C_Okinawa.jpg",
+      "artist": "M108t",
+      "license": "CC BY 4.0"
+    },
+    {
+      "file": "images/sets/ivytree-2.jpg",
+      "bytes": 111254,
+      "commonsTitle": "File:鵝掌柴 Schefflera heptaphylla 20221028210435 01.jpg",
+      "page": "https://commons.wikimedia.org/wiki/File%3A%E9%B5%9D%E6%8E%8C%E6%9F%B4_Schefflera_heptaphylla_20221028210435_01.jpg",
+      "artist": "Ping an Chang",
+      "license": "CC BY-SA 4.0"
+    },
+    {
+      "file": "images/sets/ivytree-3.jpg",
+      "bytes": 163059,
+      "commonsTitle": "File:鵝掌柴 Schefflera heptaphylla 20221028210435 02.jpg",
+      "page": "https://commons.wikimedia.org/wiki/File%3A%E9%B5%9D%E6%8E%8C%E6%9F%B4_Schefflera_heptaphylla_20221028210435_02.jpg",
+      "artist": "Ping an Chang",
+      "license": "CC BY-SA 4.0"
+    },
+    {
+      "file": "images/sets/ivytree-4.jpg",
+      "bytes": 86649,
+      "commonsTitle": "File:Schefflera heptaphylla hukanoki03.jpg",
+      "page": "https://commons.wikimedia.org/wiki/File%3ASchefflera_heptaphylla_hukanoki03.jpg",
+      "artist": "Keisotyo",
+      "license": "CC BY-SA 4.0"
+    },
+    {
+      "file": "images/sets/ivytree-5.jpg",
+      "bytes": 87435,
+      "commonsTitle": "File:Schefflera heptaphylla hukanoki01.jpg",
+      "page": "https://commons.wikimedia.org/wiki/File%3ASchefflera_heptaphylla_hukanoki01.jpg",
+      "artist": "Keisotyo",
+      "license": "CC BY-SA 4.0"
+    }
+  ],
+  "sweetgum": [
+    {
+      "file": "images/sets/sweetgum-1.jpg",
+      "bytes": 202019,
+      "commonsTitle": "File:Liquidambar formosana 楓香.jpg",
+      "page": "https://commons.wikimedia.org/wiki/File%3ALiquidambar_formosana_%E6%A5%93%E9%A6%99.jpg",
+      "artist": "1841Hongkong",
+      "license": "CC BY-SA 4.0"
+    },
+    {
+      "file": "images/sets/sweetgum-2.jpg",
+      "bytes": 82570,
+      "commonsTitle": "File:Liquidambar formosana 02.jpg",
+      "page": "https://commons.wikimedia.org/wiki/File%3ALiquidambar_formosana_02.jpg",
+      "artist": "Yoiyoi_kancho",
+      "license": "Public domain"
+    },
+    {
+      "file": "images/sets/sweetgum-3.jpg",
+      "bytes": 145121,
+      "commonsTitle": "File:Liquidambar formosana 01.jpg",
+      "page": "https://commons.wikimedia.org/wiki/File%3ALiquidambar_formosana_01.jpg",
+      "artist": "Yoiyoi_kancho",
+      "license": "Public domain"
+    },
+    {
+      "file": "images/sets/sweetgum-4.jpg",
+      "bytes": 195094,
+      "commonsTitle": "File:楓香 Liquidambar formosana-台灣台中公園 Taichung Park, Taiwan- 20211008094234 05.jpg",
+      "page": "https://commons.wikimedia.org/wiki/File%3A%E6%A5%93%E9%A6%99_Liquidambar_formosana-%E5%8F%B0%E7%81%A3%E5%8F%B0%E4%B8%AD%E5%85%AC%E5%9C%92_Taichung_Park%2C_Taiwan-_20211008094234_05.jpg",
+      "artist": "Ping an Chang",
+      "license": "CC BY-SA 4.0"
+    },
+    {
+      "file": "images/sets/sweetgum-5.jpg",
+      "bytes": 77632,
+      "commonsTitle": "File:Liquidambar formosana in front of site of laboratory on Okunoshima Island.jpg",
+      "page": "https://commons.wikimedia.org/wiki/File%3ALiquidambar_formosana_in_front_of_site_of_laboratory_on_Okunoshima_Island.jpg",
+      "artist": "そらみみ",
+      "license": "CC BY-SA 4.0"
+    }
+  ],
+  "sterculia": [
+    {
+      "file": "images/sets/sterculia-1.jpg",
+      "bytes": 94626,
+      "commonsTitle": "File:Sterculia lanceolata 57379682.jpg",
+      "page": "https://commons.wikimedia.org/wiki/File%3ASterculia_lanceolata_57379682.jpg",
+      "artist": "Shawn O'Donnell",
+      "license": "CC BY 4.0"
+    },
+    {
+      "file": "images/sets/sterculia-2.jpg",
+      "bytes": 247813,
+      "commonsTitle": "File:Sterculia lanceolata 4.jpg",
+      "page": "https://commons.wikimedia.org/wiki/File%3ASterculia_lanceolata_4.jpg",
+      "artist": "Lưu Ly",
+      "license": "CC BY-SA 4.0"
+    },
+    {
+      "file": "images/sets/sterculia-3.jpg",
+      "bytes": 116759,
+      "commonsTitle": "File:Sterculia lanceolata 366805282.jpg",
+      "page": "https://commons.wikimedia.org/wiki/File%3ASterculia_lanceolata_366805282.jpg",
+      "artist": "Scott Edmunds",
+      "license": "CC0"
+    },
+    {
+      "file": "images/sets/sterculia-4.jpg",
+      "bytes": 97833,
+      "commonsTitle": "File:Sterculia lanceolata 6.jpg",
+      "page": "https://commons.wikimedia.org/wiki/File%3ASterculia_lanceolata_6.jpg",
+      "artist": "Lưu Ly",
+      "license": "CC BY-SA 4.0"
+    },
+    {
+      "file": "images/sets/sterculia-5.jpg",
+      "bytes": 41347,
+      "commonsTitle": "File:Sterculia lanceolata 15896988.jpg",
+      "page": "https://commons.wikimedia.org/wiki/File%3ASterculia_lanceolata_15896988.jpg",
+      "artist": "Shawn O'Donnell",
+      "license": "CC BY 4.0"
+    }
+  ],
+  "alocasia": [
+    {
+      "file": "images/sets/alocasia-1.jpg",
+      "bytes": 97733,
+      "commonsTitle": "File:Alocasia odora1.jpg",
+      "page": "https://commons.wikimedia.org/wiki/File%3AAlocasia_odora1.jpg",
+      "artist": "KENPEI",
+      "license": "CC BY-SA 3.0"
+    },
+    {
+      "file": "images/sets/alocasia-2.jpg",
+      "bytes": 88055,
+      "commonsTitle": "File:Oreille d'elephant - Alocasia odora - par Mickael Schauli.jpg",
+      "page": "https://commons.wikimedia.org/wiki/File%3AOreille_d%27elephant_-_Alocasia_odora_-_par_Mickael_Schauli.jpg",
+      "artist": "Mickaël Schauli",
+      "license": "CC BY-SA 4.0"
+    },
+    {
+      "file": "images/sets/alocasia-3.jpg",
+      "bytes": 72691,
+      "commonsTitle": "File:Alocasia odora - Ботаничка градина (2).jpg",
+      "page": "https://commons.wikimedia.org/wiki/File%3AAlocasia_odora_-_%D0%91%D0%BE%D1%82%D0%B0%D0%BD%D0%B8%D1%87%D0%BA%D0%B0_%D0%B3%D1%80%D0%B0%D0%B4%D0%B8%D0%BD%D0%B0_%282%29.jpg",
+      "artist": "Dandarmkd",
+      "license": "CC BY-SA 4.0"
+    },
+    {
+      "file": "images/sets/alocasia-4.jpg",
+      "bytes": 68027,
+      "commonsTitle": "File:Alocasia odora - Ботаничка градина (1).jpg",
+      "page": "https://commons.wikimedia.org/wiki/File%3AAlocasia_odora_-_%D0%91%D0%BE%D1%82%D0%B0%D0%BD%D0%B8%D1%87%D0%BA%D0%B0_%D0%B3%D1%80%D0%B0%D0%B4%D0%B8%D0%BD%D0%B0_%281%29.jpg",
+      "artist": "Dandarmkd",
+      "license": "CC BY-SA 4.0"
+    },
+    {
+      "file": "images/sets/alocasia-5.jpg",
+      "bytes": 96828,
+      "commonsTitle": "File:Alocasia odora - Ботаничка градина (3).jpg",
+      "page": "https://commons.wikimedia.org/wiki/File%3AAlocasia_odora_-_%D0%91%D0%BE%D1%82%D0%B0%D0%BD%D0%B8%D1%87%D0%BA%D0%B0_%D0%B3%D1%80%D0%B0%D0%B4%D0%B8%D0%BD%D0%B0_%283%29.jpg",
+      "artist": "Dandarmkd",
+      "license": "CC BY-SA 4.0"
+    }
+  ],
+  "litsea": [
+    {
+      "file": "images/sets/litsea-1.jpg",
+      "bytes": 59924,
+      "commonsTitle": "File:木薑子(山蒼樹) Litsea cubeba -香港嘉道理農場 Kadoorie Farm, Hong Kong- (9216080140).jpg",
+      "page": "https://commons.wikimedia.org/wiki/File%3A%E6%9C%A8%E8%96%91%E5%AD%90%28%E5%B1%B1%E8%92%BC%E6%A8%B9%29_Litsea_cubeba_-%E9%A6%99%E6%B8%AF%E5%98%89%E9%81%93%E7%90%86%E8%BE%B2%E5%A0%B4_Kadoorie_Farm%2C_Hong_Kong-_%289216080140%29.jpg",
+      "artist": "阿橋 HQ",
+      "license": "CC BY-SA 2.0"
+    },
+    {
+      "file": "images/sets/litsea-2.jpg",
+      "bytes": 59072,
+      "commonsTitle": "File:Litsea cubeba seeds, by Omar Hoftun.jpg",
+      "page": "https://commons.wikimedia.org/wiki/File%3ALitsea_cubeba_seeds%2C_by_Omar_Hoftun.jpg",
+      "artist": "Omar hoftun",
+      "license": "CC BY-SA 4.0"
+    },
+    {
+      "file": "images/sets/litsea-3.jpg",
+      "bytes": 68439,
+      "commonsTitle": "File:Litsea cubeba 2014-02-08.jpg",
+      "page": "https://commons.wikimedia.org/wiki/File%3ALitsea_cubeba_2014-02-08.jpg",
+      "artist": "Neux-Neux",
+      "license": "CC BY-SA 3.0"
+    },
+    {
+      "file": "images/sets/litsea-4.jpg",
+      "bytes": 77883,
+      "commonsTitle": "File:婺源湖山——山鸡椒 Litsea cubeba (13375344284).jpg",
+      "page": "https://commons.wikimedia.org/wiki/File%3A%E5%A9%BA%E6%BA%90%E6%B9%96%E5%B1%B1%E2%80%94%E2%80%94%E5%B1%B1%E9%B8%A1%E6%A4%92_Litsea_cubeba_%2813375344284%29.jpg",
+      "artist": "Kware Ji from Shenzhen, China",
+      "license": "CC BY 2.0"
+    }
+  ],
+  "brushbox": [
+    {
+      "file": "images/sets/brushbox-1.jpg",
+      "bytes": 92703,
+      "commonsTitle": "File:Starr-011025-9001-Lophostemon confertus-branch with flowers-Haiku-Maui (24460494381).jpg",
+      "page": "https://commons.wikimedia.org/wiki/File%3AStarr-011025-9001-Lophostemon_confertus-branch_with_flowers-Haiku-Maui_%2824460494381%29.jpg",
+      "artist": "Forest and Kim Starr",
+      "license": "CC BY 3.0 us"
+    },
+    {
+      "file": "images/sets/brushbox-2.jpg",
+      "bytes": 47135,
+      "commonsTitle": "File:Lophostemon confertus, flower buds and new growth, 188 Pfingst Rd, Chermside IMGP2969.jpg",
+      "page": "https://commons.wikimedia.org/wiki/File%3ALophostemon_confertus%2C_flower_buds_and_new_growth%2C_188_Pfingst_Rd%2C_Chermside_IMGP2969.jpg",
+      "artist": "John Robert McPherson",
+      "license": "CC BY-SA 4.0"
+    },
+    {
+      "file": "images/sets/brushbox-3.jpg",
+      "bytes": 38002,
+      "commonsTitle": "File:Lophostemon confertus Pengo.jpg",
+      "page": "https://commons.wikimedia.org/wiki/File%3ALophostemon_confertus_Pengo.jpg",
+      "artist": "",
+      "license": "CC BY-SA 3.0"
+    },
+    {
+      "file": "images/sets/brushbox-4.jpg",
+      "bytes": 190759,
+      "commonsTitle": "File:Lophostemon confertus Maiala National Park Mt Glorious 1980s IMG 0014 (9).jpg",
+      "page": "https://commons.wikimedia.org/wiki/File%3ALophostemon_confertus_Maiala_National_Park_Mt_Glorious_1980s_IMG_0014_%289%29.jpg",
+      "artist": "John Robert McPherson",
+      "license": "CC BY-SA 4.0"
+    },
+    {
+      "file": "images/sets/brushbox-5.jpg",
+      "bytes": 168770,
+      "commonsTitle": "File:Lophostemon confertus trunk Maiala National Park Mt Glorious 06-21-2015 6.tif",
+      "page": "https://commons.wikimedia.org/wiki/File%3ALophostemon_confertus_trunk_Maiala_National_Park_Mt_Glorious_06-21-2015_6.tif",
+      "artist": "John Robert McPherson",
+      "license": "CC BY-SA 4.0"
+    }
+  ],
+  "banyan": [
+    {
+      "file": "images/sets/banyan-1.jpg",
+      "bytes": 58276,
+      "commonsTitle": "File:Ficus microcarpa - La Gomera 01.jpg",
+      "page": "https://commons.wikimedia.org/wiki/File%3AFicus_microcarpa_-_La_Gomera_01.jpg",
+      "artist": "H. Zell",
+      "license": "CC BY-SA 3.0"
+    },
+    {
+      "file": "images/sets/banyan-2.jpg",
+      "bytes": 73474,
+      "commonsTitle": "File:Ficus microcarpa - La Gomera 02.jpg",
+      "page": "https://commons.wikimedia.org/wiki/File%3AFicus_microcarpa_-_La_Gomera_02.jpg",
+      "artist": "H. Zell",
+      "license": "CC BY-SA 3.0"
+    },
+    {
+      "file": "images/sets/banyan-3.jpg",
+      "bytes": 88215,
+      "commonsTitle": "File:Starr 061106-1428 Ficus microcarpa.jpg",
+      "page": "https://commons.wikimedia.org/wiki/File%3AStarr_061106-1428_Ficus_microcarpa.jpg",
+      "artist": "Forest & Kim Starr",
+      "license": "CC BY 3.0"
+    },
+    {
+      "file": "images/sets/banyan-4.jpg",
+      "bytes": 175855,
+      "commonsTitle": "File:Starr 050516-1267 Ficus microcarpa.jpg",
+      "page": "https://commons.wikimedia.org/wiki/File%3AStarr_050516-1267_Ficus_microcarpa.jpg",
+      "artist": "Forest & Kim Starr",
+      "license": "CC BY 3.0"
+    },
+    {
+      "file": "images/sets/banyan-5.jpg",
+      "bytes": 192798,
+      "commonsTitle": "File:Starr-150401-0285-Ficus microcarpa-high up in ironwood stump-West Beach Sand Island-Midway Atoll (25179445601).jpg",
+      "page": "https://commons.wikimedia.org/wiki/File%3AStarr-150401-0285-Ficus_microcarpa-high_up_in_ironwood_stump-West_Beach_Sand_Island-Midway_Atoll_%2825179445601%29.jpg",
+      "artist": "Forest and Kim Starr",
+      "license": "CC BY 3.0 us"
+    }
+  ],
+  "dove": [
+    {
+      "file": "images/sets/dove-1.jpg",
+      "bytes": 42149,
+      "commonsTitle": "File:Spilopelia chinensis Zhengzhou 20210607.jpg",
+      "page": "https://commons.wikimedia.org/wiki/File%3ASpilopelia_chinensis_Zhengzhou_20210607.jpg",
+      "artist": "iNaturalist/ zinogre",
+      "license": "CC BY-SA 4.0"
+    },
+    {
+      "file": "images/sets/dove-2.jpg",
+      "bytes": 61666,
+      "commonsTitle": "File:Spotted dove (Spilopelia chinensis suratensis).jpg",
+      "page": "https://commons.wikimedia.org/wiki/File%3ASpotted_dove_%28Spilopelia_chinensis_suratensis%29.jpg",
+      "artist": "Charles J. Sharp",
+      "license": "CC BY-SA 4.0"
+    },
+    {
+      "file": "images/sets/dove-3.jpg",
+      "bytes": 23642,
+      "commonsTitle": "File:Spotted dove (Spilopelia chinensis) 08.jpg",
+      "page": "https://commons.wikimedia.org/wiki/File%3ASpotted_dove_%28Spilopelia_chinensis%29_08.jpg",
+      "artist": "Gannu03",
+      "license": "CC BY-SA 4.0"
+    },
+    {
+      "file": "images/sets/dove-4.jpg",
+      "bytes": 56405,
+      "commonsTitle": "File:Spotted Dove (Spilopelia chinensis) (45695290305).jpg",
+      "page": "https://commons.wikimedia.org/wiki/File%3ASpotted_Dove_%28Spilopelia_chinensis%29_%2845695290305%29.jpg",
+      "artist": "Imran Shah from Islamabad, Pakistan",
+      "license": "CC BY-SA 2.0"
+    },
+    {
+      "file": "images/sets/dove-5.jpg",
+      "bytes": 23827,
+      "commonsTitle": "File:Spotted dove (Spilopelia chinensis) 05.jpg",
+      "page": "https://commons.wikimedia.org/wiki/File%3ASpotted_dove_%28Spilopelia_chinensis%29_05.jpg",
+      "artist": "Gannu03",
+      "license": "CC BY-SA 4.0"
+    }
+  ],
+  "lvb": [
+    {
+      "file": "images/sets/lvb-1.jpg",
+      "bytes": 42606,
+      "commonsTitle": "File:Light-vented bulbul (Pycnonotus sinensis formosae) Shuangyu.jpg",
+      "page": "https://commons.wikimedia.org/wiki/File%3ALight-vented_bulbul_%28Pycnonotus_sinensis_formosae%29_Shuangyu.jpg",
+      "artist": "Charles J. Sharp",
+      "license": "CC BY-SA 4.0"
+    },
+    {
+      "file": "images/sets/lvb-2.jpg",
+      "bytes": 128986,
+      "commonsTitle": "File:Light-vented Bulbul (Pycnonotus sinensis).jpg",
+      "page": "https://commons.wikimedia.org/wiki/File%3ALight-vented_Bulbul_%28Pycnonotus_sinensis%29.jpg",
+      "artist": "Herbertkikoy",
+      "license": "CC BY-SA 4.0"
+    },
+    {
+      "file": "images/sets/lvb-3.jpg",
+      "bytes": 55677,
+      "commonsTitle": "File:Light-vented Bulbul (Pycnonotus sinensis) (7184485008).jpg",
+      "page": "https://commons.wikimedia.org/wiki/File%3ALight-vented_Bulbul_%28Pycnonotus_sinensis%29_%287184485008%29.jpg",
+      "artist": "Noel Reynolds",
+      "license": "CC BY 2.0"
+    },
+    {
+      "file": "images/sets/lvb-4.jpg",
+      "bytes": 35783,
+      "commonsTitle": "File:Light-vented Bulbul (Pycnonotus sinensis) (7184486586).jpg",
+      "page": "https://commons.wikimedia.org/wiki/File%3ALight-vented_Bulbul_%28Pycnonotus_sinensis%29_%287184486586%29.jpg",
+      "artist": "Noel Reynolds",
+      "license": "CC BY 2.0"
+    },
+    {
+      "file": "images/sets/lvb-5.jpg",
+      "bytes": 123910,
+      "commonsTitle": "File:Pycnonotus sinensis or Light-vented Bulbul on a tree.jpg",
+      "page": "https://commons.wikimedia.org/wiki/File%3APycnonotus_sinensis_or_Light-vented_Bulbul_on_a_tree.jpg",
+      "artist": "Sun Jiao (Interaccoonale)",
+      "license": "CC BY-SA 2.0"
+    }
+  ],
+  "rwb": [
+    {
+      "file": "images/sets/rwb-1.jpg",
+      "bytes": 69771,
+      "commonsTitle": "File:Pycnonotus jocosus (1).jpg",
+      "page": "https://commons.wikimedia.org/wiki/File%3APycnonotus_jocosus_%281%29.jpg",
+      "artist": "Charles Lam from Hong Kong, China",
+      "license": "CC BY-SA 2.0"
+    },
+    {
+      "file": "images/sets/rwb-2.jpg",
+      "bytes": 110581,
+      "commonsTitle": "File:Red-whiskered Bulbul (Pycnonotus jocosus).jpg",
+      "page": "https://commons.wikimedia.org/wiki/File%3ARed-whiskered_Bulbul_%28Pycnonotus_jocosus%29.jpg",
+      "artist": "K Hari Krishnan",
+      "license": "CC BY-SA 3.0"
+    },
+    {
+      "file": "images/sets/rwb-3.jpg",
+      "bytes": 40505,
+      "commonsTitle": "File:Red-whiskered bulbul (Pycnonotus jocosus) Reunion.jpg",
+      "page": "https://commons.wikimedia.org/wiki/File%3ARed-whiskered_bulbul_%28Pycnonotus_jocosus%29_Reunion.jpg",
+      "artist": "Charles J. Sharp",
+      "license": "CC BY-SA 4.0"
+    },
+    {
+      "file": "images/sets/rwb-4.jpg",
+      "bytes": 43241,
+      "commonsTitle": "File:Red-whiskered bulbuls (Pycnonotus jocosus) Mauritius.jpg",
+      "page": "https://commons.wikimedia.org/wiki/File%3ARed-whiskered_bulbuls_%28Pycnonotus_jocosus%29_Mauritius.jpg",
+      "artist": "Charles J. Sharp",
+      "license": "CC BY-SA 4.0"
+    },
+    {
+      "file": "images/sets/rwb-5.jpg",
+      "bytes": 31586,
+      "commonsTitle": "File:Red whiskered Bulbul (Pycnonotus jocosus).jpg",
+      "page": "https://commons.wikimedia.org/wiki/File%3ARed_whiskered_Bulbul_%28Pycnonotus_jocosus%29.jpg",
+      "artist": "Nrik kiran",
+      "license": "CC BY-SA 4.0"
+    }
+  ],
+  "magpie": [
+    {
+      "file": "images/sets/magpie-1.jpg",
+      "bytes": 26047,
+      "commonsTitle": "File:Oriental magpie-robin (Copsychus saularis ceylonensis) male.jpg",
+      "page": "https://commons.wikimedia.org/wiki/File%3AOriental_magpie-robin_%28Copsychus_saularis_ceylonensis%29_male.jpg",
+      "artist": "Charles J. Sharp",
+      "license": "CC BY-SA 4.0"
+    },
+    {
+      "file": "images/sets/magpie-2.jpg",
+      "bytes": 112900,
+      "commonsTitle": "File:Copsychus saularis @ Kuala Lumpur 5.jpg",
+      "page": "https://commons.wikimedia.org/wiki/File%3ACopsychus_saularis_%40_Kuala_Lumpur_5.jpg",
+      "artist": "GerifalteDelSabana",
+      "license": "CC BY-SA 4.0"
+    },
+    {
+      "file": "images/sets/magpie-3.jpg",
+      "bytes": 49177,
+      "commonsTitle": "File:Copsychus saularis @ Kuala Lumpur (4s, p1).jpg",
+      "page": "https://commons.wikimedia.org/wiki/File%3ACopsychus_saularis_%40_Kuala_Lumpur_%284s%2C_p1%29.jpg",
+      "artist": "GerifalteDelSabana",
+      "license": "CC BY-SA 4.0"
+    },
+    {
+      "file": "images/sets/magpie-4.jpg",
+      "bytes": 56815,
+      "commonsTitle": "File:Copsychus saularis @ Kuala Lumpur 3.jpg",
+      "page": "https://commons.wikimedia.org/wiki/File%3ACopsychus_saularis_%40_Kuala_Lumpur_3.jpg",
+      "artist": "GerifalteDelSabana",
+      "license": "CC BY-SA 4.0"
+    },
+    {
+      "file": "images/sets/magpie-5.jpg",
+      "bytes": 113710,
+      "commonsTitle": "File:Copsychus saularis @ Kuala Lumpur 8.jpg",
+      "page": "https://commons.wikimedia.org/wiki/File%3ACopsychus_saularis_%40_Kuala_Lumpur_8.jpg",
+      "artist": "GerifalteDelSabana",
+      "license": "CC BY-SA 4.0"
+    }
+  ],
+  "pine": [
+    {
+      "file": "images/sets/pine-1.jpg",
+      "bytes": 179527,
+      "commonsTitle": "File:Pinus massoniana needles (02).jpeg",
+      "page": "https://commons.wikimedia.org/wiki/File%3APinus_massoniana_needles_%2802%29.jpeg",
+      "artist": "Vladislav Isaev",
+      "license": "CC BY 4.0"
+    },
+    {
+      "file": "images/sets/pine-2.jpg",
+      "bytes": 56527,
+      "commonsTitle": "File:Pinus massoniana needles (04).jpeg",
+      "page": "https://commons.wikimedia.org/wiki/File%3APinus_massoniana_needles_%2804%29.jpeg",
+      "artist": "曾昱承 Yu-Cheng Zeng",
+      "license": "CC BY 4.0"
+    },
+    {
+      "file": "images/sets/pine-3.jpg",
+      "bytes": 163861,
+      "commonsTitle": "File:Pinus massoniana needles (10).jpeg",
+      "page": "https://commons.wikimedia.org/wiki/File%3APinus_massoniana_needles_%2810%29.jpeg",
+      "artist": "Eugene Popov",
+      "license": "CC BY 4.0"
+    },
+    {
+      "file": "images/sets/pine-4.jpg",
+      "bytes": 150696,
+      "commonsTitle": "File:Pinus massoniana needles (09).jpeg",
+      "page": "https://commons.wikimedia.org/wiki/File%3APinus_massoniana_needles_%2809%29.jpeg",
+      "artist": "Eugene Popov",
+      "license": "CC BY 4.0"
+    },
+    {
+      "file": "images/sets/pine-5.jpg",
+      "bytes": 39866,
+      "commonsTitle": "File:Pinus massoniana needles (06).jpeg",
+      "page": "https://commons.wikimedia.org/wiki/File%3APinus_massoniana_needles_%2806%29.jpeg",
+      "artist": "曾昱承 Yu-Cheng Zeng",
+      "license": "CC BY 4.0"
+    }
+  ],
+  "entada": [
+    {
+      "file": "images/sets/entada-1.jpg",
+      "bytes": 165774,
+      "commonsTitle": "File:Entada phaseoloides SF26157-02.jpg",
+      "page": "https://commons.wikimedia.org/wiki/File%3AEntada_phaseoloides_SF26157-02.jpg",
+      "artist": "Steve Fitzgerald",
+      "license": "CC BY-SA 4.0"
+    },
+    {
+      "file": "images/sets/entada-2.jpg",
+      "bytes": 188429,
+      "commonsTitle": "File:Entada phaseoloides SF24277-01.jpg",
+      "page": "https://commons.wikimedia.org/wiki/File%3AEntada_phaseoloides_SF24277-01.jpg",
+      "artist": "Steve Fitzgerald",
+      "license": "CC BY-SA 4.0"
+    },
+    {
+      "file": "images/sets/entada-3.jpg",
+      "bytes": 194523,
+      "commonsTitle": "File:Entada phaseoloides SF24277-02.jpg",
+      "page": "https://commons.wikimedia.org/wiki/File%3AEntada_phaseoloides_SF24277-02.jpg",
+      "artist": "Steve Fitzgerald",
+      "license": "CC BY-SA 4.0"
+    },
+    {
+      "file": "images/sets/entada-4.jpg",
+      "bytes": 174165,
+      "commonsTitle": "File:Entada phaseoloides SF26157-01.jpg",
+      "page": "https://commons.wikimedia.org/wiki/File%3AEntada_phaseoloides_SF26157-01.jpg",
+      "artist": "Steve Fitzgerald",
+      "license": "CC BY-SA 4.0"
+    },
+    {
+      "file": "images/sets/entada-5.jpg",
+      "bytes": 183363,
+      "commonsTitle": "File:Entada phaseoloides (5490705567).jpg",
+      "page": "https://commons.wikimedia.org/wiki/File%3AEntada_phaseoloides_%285490705567%29.jpg",
+      "artist": "David Eickhoff from Pearl City, Hawaii, USA",
+      "license": "CC BY 2.0"
+    }
+  ],
+  "squirrel": [
+    {
+      "file": "images/sets/squirrel-1.jpg",
+      "bytes": 49270,
+      "commonsTitle": "File:Callosciurus erythraeus 117331752.jpg",
+      "page": "https://commons.wikimedia.org/wiki/File%3ACallosciurus_erythraeus_117331752.jpg",
+      "artist": "Rejoice Gassah",
+      "license": "CC BY 4.0"
+    },
+    {
+      "file": "images/sets/squirrel-2.jpg",
+      "bytes": 43581,
+      "commonsTitle": "File:Callosciurus erythraeus 102582000.jpg",
+      "page": "https://commons.wikimedia.org/wiki/File%3ACallosciurus_erythraeus_102582000.jpg",
+      "artist": "Rejoice Gassah",
+      "license": "CC BY 4.0"
+    },
+    {
+      "file": "images/sets/squirrel-3.jpg",
+      "bytes": 59376,
+      "commonsTitle": "File:Callosciurus erythraeus 86364245.jpg",
+      "page": "https://commons.wikimedia.org/wiki/File%3ACallosciurus_erythraeus_86364245.jpg",
+      "artist": "Wich'yanan L",
+      "license": "CC BY 4.0"
+    },
+    {
+      "file": "images/sets/squirrel-4.jpg",
+      "bytes": 87175,
+      "commonsTitle": "File:Callosciurus erythraeus 109599852.jpg",
+      "page": "https://commons.wikimedia.org/wiki/File%3ACallosciurus_erythraeus_109599852.jpg",
+      "artist": "laiet17",
+      "license": "CC0"
+    },
+    {
+      "file": "images/sets/squirrel-5.jpg",
+      "bytes": 58621,
+      "commonsTitle": "File:Callosciurus erythraeus 86906876.jpg",
+      "page": "https://commons.wikimedia.org/wiki/File%3ACallosciurus_erythraeus_86906876.jpg",
+      "artist": "Wich'yanan L",
+      "license": "CC BY 4.0"
+    }
+  ],
+  "mesia": [
+    {
+      "file": "images/sets/mesia-1.jpg",
+      "bytes": 43875,
+      "commonsTitle": "File:Leiothrix argentauris - Mae Wong.jpg",
+      "page": "https://commons.wikimedia.org/wiki/File%3ALeiothrix_argentauris_-_Mae_Wong.jpg",
+      "artist": "JJ Harrison ( https://www.jjharrison.com.au/ )",
+      "license": "CC BY-SA 3.0"
+    },
+    {
+      "file": "images/sets/mesia-2.jpg",
+      "bytes": 38157,
+      "commonsTitle": "File:Leiothrix argentauris female - Mae Wong.jpg",
+      "page": "https://commons.wikimedia.org/wiki/File%3ALeiothrix_argentauris_female_-_Mae_Wong.jpg",
+      "artist": "JJ Harrison ( https://www.jjharrison.com.au/ )",
+      "license": "CC BY-SA 3.0"
+    },
+    {
+      "file": "images/sets/mesia-3.jpg",
+      "bytes": 64879,
+      "commonsTitle": "File:Silver-eared Mesia (Leiothrix argentauris).jpg",
+      "page": "https://commons.wikimedia.org/wiki/File%3ASilver-eared_Mesia_%28Leiothrix_argentauris%29.jpg",
+      "artist": "Lip Kee Yap",
+      "license": "CC BY-SA 2.0"
+    },
+    {
+      "file": "images/sets/mesia-4.jpg",
+      "bytes": 79024,
+      "commonsTitle": "File:Silver-eared Mesia (Leiothrix argentauris) - Flickr - Lip Kee.jpg",
+      "page": "https://commons.wikimedia.org/wiki/File%3ASilver-eared_Mesia_%28Leiothrix_argentauris%29_-_Flickr_-_Lip_Kee.jpg",
+      "artist": "Lip Kee from Singapore, Republic of Singapore",
+      "license": "CC BY-SA 2.0"
+    },
+    {
+      "file": "images/sets/mesia-5.jpg",
+      "bytes": 68474,
+      "commonsTitle": "File:Silver-eared Mesia by Tisha Mukherjee 01.jpg",
+      "page": "https://commons.wikimedia.org/wiki/File%3ASilver-eared_Mesia_by_Tisha_Mukherjee_01.jpg",
+      "artist": "Tisha Mukherjee",
+      "license": "CC BY-SA 4.0"
+    }
+  ],
+  "cbulbul": [
+    {
+      "file": "images/sets/cbulbul-1.jpg",
+      "bytes": 50236,
+      "commonsTitle": "File:Hemixos castanonotus-A9 00441 (cropped).jpg",
+      "page": "https://commons.wikimedia.org/wiki/File%3AHemixos_castanonotus-A9_00441_%28cropped%29.jpg",
+      "artist": "Sun Jiao (Interaccoonale)",
+      "license": "CC BY 4.0"
+    },
+    {
+      "file": "images/sets/cbulbul-2.jpg",
+      "bytes": 43252,
+      "commonsTitle": "File:Hemixos castanonotus-A9 00401.jpg",
+      "page": "https://commons.wikimedia.org/wiki/File%3AHemixos_castanonotus-A9_00401.jpg",
+      "artist": "Sun Jiao (Interaccoonale)",
+      "license": "CC BY 4.0"
+    },
+    {
+      "file": "images/sets/cbulbul-3.jpg",
+      "bytes": 46951,
+      "commonsTitle": "File:Hemixos castanonotus-A9 00497.jpg",
+      "page": "https://commons.wikimedia.org/wiki/File%3AHemixos_castanonotus-A9_00497.jpg",
+      "artist": "Sun Jiao (Interaccoonale)",
+      "license": "CC BY 4.0"
+    },
+    {
+      "file": "images/sets/cbulbul-4.jpg",
+      "bytes": 41322,
+      "commonsTitle": "File:Hemixos castanonotus-A9 00441.jpg",
+      "page": "https://commons.wikimedia.org/wiki/File%3AHemixos_castanonotus-A9_00441.jpg",
+      "artist": "Sun Jiao (Interaccoonale)",
+      "license": "CC BY 4.0"
+    },
+    {
+      "file": "images/sets/cbulbul-5.jpg",
+      "bytes": 39849,
+      "commonsTitle": "File:Hemixos castanonotus-A9 00425.jpg",
+      "page": "https://commons.wikimedia.org/wiki/File%3AHemixos_castanonotus-A9_00425.jpg",
+      "artist": "Sun Jiao (Interaccoonale)",
+      "license": "CC BY 4.0"
+    }
+  ],
+  "bee": [
+    {
+      "file": "images/sets/bee-1.jpg",
+      "bytes": 44186,
+      "commonsTitle": "File:Apis cerana08409.jpg",
+      "page": "https://commons.wikimedia.org/wiki/File%3AApis_cerana08409.jpg",
+      "artist": "Vengolis",
+      "license": "CC BY-SA 4.0"
+    },
+    {
+      "file": "images/sets/bee-2.jpg",
+      "bytes": 33600,
+      "commonsTitle": "File:Apis cerana 08354.jpg",
+      "page": "https://commons.wikimedia.org/wiki/File%3AApis_cerana_08354.jpg",
+      "artist": "Vengolis",
+      "license": "CC BY-SA 4.0"
+    },
+    {
+      "file": "images/sets/bee-3.jpg",
+      "bytes": 27474,
+      "commonsTitle": "File:Apis cerana japonica 451076854.jpg",
+      "page": "https://commons.wikimedia.org/wiki/File%3AApis_cerana_japonica_451076854.jpg",
+      "artist": "WATANABE Hitoshi 渡辺仁",
+      "license": "CC BY 4.0"
+    },
+    {
+      "file": "images/sets/bee-4.jpg",
+      "bytes": 30556,
+      "commonsTitle": "File:Apis cerana 456803583.jpg",
+      "page": "https://commons.wikimedia.org/wiki/File%3AApis_cerana_456803583.jpg",
+      "artist": "Cheongweei Gan",
+      "license": "CC BY 4.0"
+    },
+    {
+      "file": "images/sets/bee-5.jpg",
+      "bytes": 27982,
+      "commonsTitle": "File:Apis cerana japonica 447137688.jpg",
+      "page": "https://commons.wikimedia.org/wiki/File%3AApis_cerana_japonica_447137688.jpg",
+      "artist": "WATANABE Hitoshi 渡辺仁",
+      "license": "CC BY 4.0"
+    }
+  ],
+  "spilurus": [
+    {
+      "file": "images/sets/spilurus-1.jpg",
+      "bytes": 86256,
+      "commonsTitle": "File:Parazacco spilurus.jpg",
+      "page": "https://commons.wikimedia.org/wiki/File%3AParazacco_spilurus.jpg",
+      "artist": "Lawrence Hylton",
+      "license": "CC BY 4.0"
+    }
+  ],
+  "bluetail": [
+    {
+      "file": "images/sets/bluetail-1.jpg",
+      "bytes": 39460,
+      "commonsTitle": "File:Tarsiger cyanurus.jpg",
+      "page": "https://commons.wikimedia.org/wiki/File%3ATarsiger_cyanurus.jpg",
+      "artist": "M.Nishimura",
+      "license": "CC BY-SA 3.0"
+    },
+    {
+      "file": "images/sets/bluetail-2.jpg",
+      "bytes": 29931,
+      "commonsTitle": "File:Tarsiger cyanurus 243648144.jpg",
+      "page": "https://commons.wikimedia.org/wiki/File%3ATarsiger_cyanurus_243648144.jpg",
+      "artist": "Wang.QG",
+      "license": "CC BY 4.0"
+    },
+    {
+      "file": "images/sets/bluetail-3.jpg",
+      "bytes": 49733,
+      "commonsTitle": "File:Tarsiger cyanurus f3.jpg",
+      "page": "https://commons.wikimedia.org/wiki/File%3ATarsiger_cyanurus_f3.jpg",
+      "artist": "Alpsdake",
+      "license": "CC BY-SA 4.0"
+    },
+    {
+      "file": "images/sets/bluetail-4.jpg",
+      "bytes": 68386,
+      "commonsTitle": "File:Tarsiger cyanurus (female s2).jpg",
+      "page": "https://commons.wikimedia.org/wiki/File%3ATarsiger_cyanurus_%28female_s2%29.jpg",
+      "artist": "Alpsdake",
+      "license": "CC BY-SA 4.0"
+    },
+    {
+      "file": "images/sets/bluetail-5.jpg",
+      "bytes": 57086,
+      "commonsTitle": "File:Tarsiger cyanurus (male s2).jpg",
+      "page": "https://commons.wikimedia.org/wiki/File%3ATarsiger_cyanurus_%28male_s2%29.jpg",
+      "artist": "Alpsdake",
+      "license": "CC BY-SA 4.0"
+    }
+  ],
+  "minivet": [
+    {
+      "file": "images/sets/minivet-1.jpg",
+      "bytes": 86756,
+      "commonsTitle": "File:20221225 Pericrocotus speciosus.jpg",
+      "page": "https://commons.wikimedia.org/wiki/File%3A20221225_Pericrocotus_speciosus.jpg",
+      "artist": "James Jolokia ( james1203 )",
+      "license": "CC BY 4.0"
+    },
+    {
+      "file": "images/sets/minivet-2.jpg",
+      "bytes": 53621,
+      "commonsTitle": "File:Scarlet minivet portrait.jpg",
+      "page": "https://commons.wikimedia.org/wiki/File%3AScarlet_minivet_portrait.jpg",
+      "artist": "Ehsan Ali Biswas",
+      "license": "CC BY-SA 4.0"
+    },
+    {
+      "file": "images/sets/minivet-3.jpg",
+      "bytes": 37810,
+      "commonsTitle": "File:Scarlet Minivet by Tisha Mukherjee 21.jpg",
+      "page": "https://commons.wikimedia.org/wiki/File%3AScarlet_Minivet_by_Tisha_Mukherjee_21.jpg",
+      "artist": "Tisha Mukherjee",
+      "license": "CC BY-SA 4.0"
+    },
+    {
+      "file": "images/sets/minivet-4.jpg",
+      "bytes": 62645,
+      "commonsTitle": "File:Scarlet Minivet by Tisha Mukherjee 09.jpg",
+      "page": "https://commons.wikimedia.org/wiki/File%3AScarlet_Minivet_by_Tisha_Mukherjee_09.jpg",
+      "artist": "Tisha Mukherjee",
+      "license": "CC BY-SA 4.0"
+    },
+    {
+      "file": "images/sets/minivet-5.jpg",
+      "bytes": 49808,
+      "commonsTitle": "File:Scarlet Minivet by Tisha Mukherjee 06.jpg",
+      "page": "https://commons.wikimedia.org/wiki/File%3AScarlet_Minivet_by_Tisha_Mukherjee_06.jpg",
+      "artist": "Tisha Mukherjee",
+      "license": "CC BY-SA 4.0"
+    }
+  ],
+  "newt": [
+    {
+      "file": "images/sets/newt-1.jpg",
+      "bytes": 59694,
+      "commonsTitle": "File:Paramesotriton hongkongensis - Casa de las Ciencias.JPG",
+      "page": "https://commons.wikimedia.org/wiki/File%3AParamesotriton_hongkongensis_-_Casa_de_las_Ciencias.JPG",
+      "artist": "Fernando Losada Rodríguez",
+      "license": "CC BY-SA 4.0"
+    },
+    {
+      "file": "images/sets/newt-2.jpg",
+      "bytes": 56209,
+      "commonsTitle": "File:Paramesotriton hongkongensis 236548301.jpg",
+      "page": "https://commons.wikimedia.org/wiki/File%3AParamesotriton_hongkongensis_236548301.jpg",
+      "artist": "Andrew Lai",
+      "license": "CC BY 4.0"
+    },
+    {
+      "file": "images/sets/newt-3.jpg",
+      "bytes": 109773,
+      "commonsTitle": "File:Paramesotriton hongkongensis 85419365.jpg",
+      "page": "https://commons.wikimedia.org/wiki/File%3AParamesotriton_hongkongensis_85419365.jpg",
+      "artist": "灯管儿",
+      "license": "CC BY 4.0"
+    },
+    {
+      "file": "images/sets/newt-4.jpg",
+      "bytes": 45941,
+      "commonsTitle": "File:Hong Kong Newt (Paramesotriton hongkongensis) 香港瘰螈5.jpg",
+      "page": "https://commons.wikimedia.org/wiki/File%3AHong_Kong_Newt_%28Paramesotriton_hongkongensis%29_%E9%A6%99%E6%B8%AF%E7%98%B0%E8%9E%885.jpg",
+      "artist": "Thomas Brown",
+      "license": "CC BY 2.0"
+    },
+    {
+      "file": "images/sets/newt-5.jpg",
+      "bytes": 72436,
+      "commonsTitle": "File:Hong Kong Newt (Paramesotriton hongkongensis) 香港瘰螈8.jpg",
+      "page": "https://commons.wikimedia.org/wiki/File%3AHong_Kong_Newt_%28Paramesotriton_hongkongensis%29_%E9%A6%99%E6%B8%AF%E7%98%B0%E8%9E%888.jpg",
+      "artist": "Thomas Brown",
+      "license": "CC BY 2.0"
+    }
+  ]
 }
